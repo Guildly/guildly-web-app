@@ -1,0 +1,35 @@
+.container {
+    width        : 100%;
+    height       : 350px;
+    background   : #212326;
+    border-radius: 10px;
+    border       : 2px solid #DCCB8D;
+    padding      : 20px;
+    overflow     : auto;
+}
+
+.tokens_area {
+    display              : grid;
+    height               : 100%;
+    width                : 100%;
+    grid-template-columns: auto auto auto auto;
+    overflow             : scroll;
+}
+
+.token_card {
+    position: relative;
+    height  : 175px;
+    width   : 150px;
+}
+
+.token_outline {
+    /* position: fixed; */
+    z-index: 2;
+}
+
+.token_symbol {
+    /* position         : fixed; */
+    /* top           : 100px; */
+    /* margin : 5px 7.5px; */
+    z-index: 1;
+}

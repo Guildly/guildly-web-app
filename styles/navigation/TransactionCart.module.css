@@ -1,0 +1,14 @@
+.cart_buttons {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+}
+
+.transaction_area {
+    margin             : 50px 0px 0px 0px;
+    height             : 90%;
+    background         : url(/light-brown-paper-texture.png);
+    background-size    : 150%;
+    background-position: center;
+}

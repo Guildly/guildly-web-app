@@ -1,0 +1,331 @@
+.content {
+    display       : flex;
+    flex-direction: row;
+    z-index       : 1;
+    position      : relative;
+}
+
+.left_menu {
+    position       : fixed;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 2;
+    width          : 20%;
+    height         : 100%;
+    left           : 0px;
+    top            : 0px;
+    justify-content: center;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow     : 5px 10px 10px;
+}
+
+.left_menu_collapsed {
+    position       : fixed;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 2;
+    width          : 5%;
+    height         : 100%;
+    justify-content: center;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+}
+
+.left_drawer {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    position       : relative;
+    background     : url(/polished-oak-texture.png);
+    background-size: cover;
+    color          : #DCCB8D;
+    width          : 30px;
+    height         : 30px;
+    left           : 20%;
+    top            : 150px;
+    z-index        : 2;
+    border-radius  : 0px 5px 5px 0px;
+    cursor         : pointer;
+    border         : none;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+}
+
+.left_drawer_collapsed {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : relative;
+    background     : url(/polished-oak-texture.png);
+    background-size: cover;
+    color          : #DCCB8D;
+    width          : 30px;
+    height         : 30px;
+    left           : 0px;
+    top            : 150px;
+    z-index        : 2;
+    border-radius  : 0px 5px 5px 0px;
+    cursor         : pointer;
+    border         : none;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+}
+
+
+.left_drawer svg {
+    width: 30px;
+}
+
+.right_menu {
+    position       : fixed;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 2;
+    width          : 20%;
+    height         : 100%;
+    right          : 0px;
+    top            : 0px;
+    justify-content: center;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow     : -5px 10px 4px;
+}
+
+.right_menu_collapsed {
+    position       : fixed;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 2;
+    width          : 5%;
+    height         : 100%;
+    right          : 0px;
+    justify-content: center;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+}
+
+.right_drawer {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    position       : relative;
+    background     : url(/polished-oak-texture.png);
+    background-size: cover;
+    color          : #DCCB8D;
+    width          : 30px;
+    height         : 30px;
+    right          : 25%;
+    top            : 150px;
+    z-index        : 2;
+    border-radius  : 0px 5px 5px 0px;
+    cursor         : pointer;
+    border         : none;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+}
+
+.right_drawer_collapsed {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    position       : relative;
+    background     : url(/polished-oak-texture.png);
+    background-size: cover;
+    color          : #DCCB8D;
+    width          : 30px;
+    height         : 30px;
+    right          : 0px;
+    top            : 150px;
+    z-index        : 2;
+    border-radius  : 0px 5px 5px 0px;
+    cursor         : pointer;
+    border         : none;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+}
+
+
+.drawer svg {
+    width: 30px;
+}
+
+.main {
+    position        : fixed;
+    background-image: url('/dark-blue-parchement-paper.png');
+    background-size : cover;
+    height          : 100%;
+    width           : 100%;
+    z-index         : 1;
+    padding         : 150px 300px;
+}
+
+.search_box {
+    display       : flex;
+    flex-direction: row;
+    position      : fixed;
+    left          : 25%;
+    margin        : -100px 0px;
+    width         : 200px;
+    height        : 50px;
+    gap           : 10px;
+    border-radius : 10px;
+    background    : rgba(31, 33, 36, 1);
+    border        : 2px solid #967C6E;
+    padding       : 0px 20px;
+    color         : #967C6E;
+}
+
+.search_icon {
+    width : 20px;
+    height: 20px;
+}
+
+.back_box {
+    display          : flex;
+    flex-direction   : row;
+    align-items      : center;
+    justify-content  : center;
+    /* position      : fixed; */
+    /* left          : 25%; */
+    /* margin        : -100px 0px; */
+    width            : 30px;
+    height           : 30px;
+    /* gap           : 10px; */
+    border-radius    : 10px;
+    background       : rgba(31, 33, 36, 1);
+    border           : 2px solid #967C6E;
+    /* padding       : 0px 20px; */
+    color            : #967C6E;
+    cursor           : pointer;
+}
+
+.back_icon {
+    width : 20px;
+    height: 20px;
+}
+
+.search_input {
+    background: none;
+    border    : none;
+    outline   : none;
+    color     : white
+}
+
+.header {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+}
+
+.page_title {
+    position : fixed;
+    right    : 50%;
+    color    : #DCCB8D;
+    margin   : -40px -30px;
+    font-size: x-large;
+}
+
+.main_container {
+    position: relative;
+    padding : 20px 40px;
+}
+
+.guildhall_screen {
+    position           : fixed;
+    top                : 60px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/dark-wood.png);
+    background-size    : cover;
+    background-position: center;
+    /* background-color: black; */
+    z-index            : 3;
+}
+
+.bank_screen {
+    position           : fixed;
+    top                : 60px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/metal-texture.png);
+    background-size    : cover;
+    background-position: center;
+    /* background-color: black; */
+    z-index            : 3;
+}
+
+
+.market_screen {
+    position           : fixed;
+    top                : 60px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/parchment-texture.png);
+    background-size    : cover;
+    background-position: center;
+    /* background-color: black; */
+    z-index            : 3;
+}
+
+
+.council_screen {
+    position           : fixed;
+    top                : 60px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/dark-brown-paper-texture.png);
+    background-size    : cover;
+    background-position: center;
+    /* background-color: black; */
+    z-index            : 3;
+}
+
+
+.guildhall_background {
+    position           : fixed;
+    top                : 0px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/guildhall-entrance.png);
+    background-size    : contain;
+    background-position: center;
+    background-repeat  : no-repeat;
+    z-index            : 3;
+}
+
+.bank_background {
+    position           : fixed;
+    top                : 0px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/bank-vault-background.png);
+    background-size    : contain;
+    background-position: center;
+    background-repeat  : no-repeat;
+    z-index            : 3;
+}
+
+.market_background {
+    position           : fixed;
+    top                : 0px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/market_background.png);
+    background-size    : contain;
+    background-position: center;
+    background-repeat  : no-repeat;
+    z-index            : 3;
+}
+
+.council_background {
+    position           : fixed;
+    top                : 0px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/council-room-background.png);
+    background-size    : contain;
+    background-position: center;
+    background-repeat  : no-repeat;
+    z-index            : 3;
+}

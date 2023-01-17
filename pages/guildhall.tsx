@@ -6,7 +6,7 @@ import {
   GuildhallRightMenu,
 } from "../components/sideMenus/guildhallMenu";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div>
       <Layout
