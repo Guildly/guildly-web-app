@@ -63,9 +63,7 @@ export const TokenCard = ({
     };
   }, [isSelected]);
 
-  const nftPicture = getNftPicture(token)
-    ? getNftPicture(token)
-    : "/placeholder-image.png";
+  const nftPicture = getNftPicture(token);
 
   return (
     <motion.div

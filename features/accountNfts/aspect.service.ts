@@ -30,7 +30,10 @@ export const getNftPicture = ({
   if (image_url_copy) {
     return image_url_copy;
   }
-  return image_uri;
+  if (image_uri) {
+    return image_uri
+  }
+  return "/placeholder-image.png"
 };
 
 export const getOwnedTokens = ({ tokens, guild, account }: GetOwnedTokens) => {
@@ -45,15 +48,15 @@ export const getOwnedTokens = ({ tokens, guild, account }: GetOwnedTokens) => {
       account: account,
     },
   });
-  const accountGuildTokens = [];
+  const accountGuildTokens: any[] = [];
   if (accountGuildItemsData) {
     for (var i = 0; i < accountGuildItemsData.event.length; i++) {
       const contractAddress = accountGuildItemsData.event[i].arguments.find(
-        (obj) => {
+        (obj: any) => {
           return obj.name === "token";
         }
       );
-      const tokenId = accountGuildItemsData.event[i].arguments.find((obj) => {
+      const tokenId = accountGuildItemsData.event[i].arguments.find((obj: any) => {
         return obj.name === "token_id";
       });
       if (accountGuildItemsData.event[i].name == "deposited") {

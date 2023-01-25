@@ -37,7 +37,7 @@ export interface AspectNftAsset {
 }
 
 export interface AspectNft {
-  assets: AspectNftAsset;
+  assets: AspectNftAsset[];
 }
 
 export interface GetOwnedTokens {

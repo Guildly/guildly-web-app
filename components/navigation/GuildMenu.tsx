@@ -3,6 +3,7 @@ import styles from "../../styles/navigation/GuildMenu.module.css";
 import Image from "next/image";
 import { useGuild } from "../../context/GuildContext";
 import { sounds } from "../../shared/sounds";
+import { Guild } from "../../context/GuildContext";
 
 interface GuildMenuProps {
   close: () => void;
@@ -11,21 +12,25 @@ interface GuildMenuProps {
 export const GuildMenu = ({ close }: GuildMenuProps) => {
   const { setGuild } = useGuild();
   const { playClickSound } = sounds();
-  const guilds = [
+  const guilds: Guild[] = [
     {
       name: "Core Lords",
+      address: "0x0",
       emblem: "/emblem-example.png",
     },
     {
       name: "Test Warriors",
+      address: "0x0",
       emblem: "/emblem-example.png",
     },
     {
       name: "Core Lords",
+      address: "0x0",
       emblem: "/emblem-example.png",
     },
     {
       name: "Test Warriors",
+      address: "0x0",
       emblem: "/emblem-example.png",
     },
   ];
@@ -68,7 +73,7 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
                 width={50}
                 height={50}
                 alt="Test Image"
-                src={guild.emblem}
+                src={guild.emblem ? guild.emblem : "/placeholder-image.png"}
               />
             </div>
             <div className={styles.guild_content}>

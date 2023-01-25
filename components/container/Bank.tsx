@@ -6,7 +6,10 @@ import { padAddress } from "../../utils/address";
 import { TokenCard } from "../token/TokenCard";
 import { useAccount } from "@starknet-react/core";
 import { useGuild } from "../../context/GuildContext";
-import { AspectNftAsset } from "../../features/accountNfts/aspect.model";
+import {
+  AspectNft,
+  AspectNftAsset,
+} from "../../features/accountNfts/aspect.model";
 
 interface BankProps {
   tab: string;
@@ -16,8 +19,10 @@ export const Bank = ({ tab }: BankProps) => {
   const { address } = useAccount();
   const { guild } = useGuild();
   const [selectedToken, setSelectedToken] = useState(-1);
-  const [accountTokens, setAccountTokens] = useState<AspectNftAsset[]>([]);
-  const [guildTokens, setGuildTokens] = useState<AspectNftAsset[]>([]);
+  const [accountTokens, setAccountTokens] = useState<AspectNftAsset[] | null>(
+    null
+  );
+  const [guildTokens, setGuildTokens] = useState<AspectNftAsset[] | null>(null);
   const [fetchNftsError, setFetchNftsError] = useState(false);
 
   useEffect(() => {

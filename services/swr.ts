@@ -26,4 +26,9 @@ export const swrCacheProvider: Cache = {
   delete: (key: string) => {
     localStorage.removeItem(key)
   },
+  keys: function* forEachKey() {
+    for (let i = 0; i < localStorage.length; i++) {
+      return localStorage.key(i);
+    }
+  }
 }

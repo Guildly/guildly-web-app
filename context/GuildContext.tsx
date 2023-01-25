@@ -11,7 +11,7 @@ export interface GuildState {
   /** The connected guild object. */
   guild?: Guild;
   /** The emblem image string. */
-  setGuild?: (guild: Guild) => void;
+  setGuild: (guild: Guild) => void;
 }
 
 const GUILD_INITIAL_STATE: GuildState = {
