@@ -1,10 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { Bank } from "../components/container/Bank";
 import {
   CouncilLeftMenu,
   CouncilRightMenu,
 } from "../components/sideMenus/councilMenu";
+import { Council } from "../components/container/Council";
 
 export default function CouncilPage() {
   return (
@@ -12,6 +12,7 @@ export default function CouncilPage() {
       <Layout
         leftSideMenu={<CouncilLeftMenu />}
         rightSideMenu={<CouncilRightMenu />}
+        main={<Council />}
       />
     </div>
   );

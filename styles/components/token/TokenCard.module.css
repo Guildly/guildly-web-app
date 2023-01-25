@@ -1,0 +1,212 @@
+.token_image {
+  position               : absolute;
+  /* top                 : 100px; */
+  margin                 : 20px 5px;
+  z-index                : 1;
+}
+
+.token_image_open {
+  position               : absolute;
+  /* top                 : 100px; */
+  margin                 : 40px 5px 0px 20px;
+  z-index                : 2;
+}
+
+.token_card {
+  position: relative;
+  height  : 260px;
+  width   : 190px;
+}
+
+.back_button {
+  height    : 40px;
+  width     : 40px;
+  background: white;
+  color     : #162334;
+  cursor    : pointer;
+}
+
+.selected_background {
+  position     : fixed;
+  z-index      : 2;
+  top          : 0;
+  left         : 0;
+  right        : 0;
+  bottom       : 0;
+  border-radius: 0;
+  background   : #162334;
+  opacity      : 50%;
+}
+
+.token_card_open {
+  position      : fixed;
+  pointer-events: none;
+  background    : rgba(0, 0, 0, 0.9);
+  z-index       : 20;
+  margin        : auto;
+  left          : 35%;
+  top           : 20%;
+}
+
+.token_outline {
+  position   : absolute;
+  /* position: fixed; */
+  z-index    : 4;
+  cursor     : pointer;
+}
+
+.token_outline:hover {
+  box-shadow: 0 0 6px rgb(35 173 255);
+}
+
+.token_background {
+  position  : absolute;
+  height    : 70%;
+  width     : 85%;
+  background: #162334;
+  margin    : 20px 7px;
+}
+
+.token_symbol {
+  position            : absolute;
+  /* top              : 100px; */
+  margin              : 16px 1px;
+  z-index             : 3;
+}
+
+.token_text {
+  position: absolute;
+  z-index : 4;
+}
+
+.token_title {
+  color        : #DCCB8D;
+  font-size    : 10px;
+  margin       : 20px 65px;
+  text-overflow: ellipsis;
+}
+
+.token_title_open {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  color          : #DCCB8D;
+  font-size      : 24px;
+  margin         : 35px 140px;
+  text-overflow  : ellipsis;
+  width          : 160px;
+}
+
+.token_title_open p {
+  margin: 0px;
+}
+
+.token_content {
+  margin: 150px 40px 0px 15px;
+}
+
+.token_content_open {
+  margin: 375px 55px 0px 50px;
+}
+
+.token_header {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+  align-items    : center;
+}
+
+.game {
+  color    : #DCCB8D;
+  font-size: 9px;
+}
+
+.game_open {
+  color    : #DCCB8D;
+  font-size: 18px;
+}
+
+.token_standard {
+  color    : #D9D9D9;
+  font-size: 7px;
+}
+
+.token_standard_open {
+  color    : #D9D9D9;
+  font-size: 14px;
+}
+
+.token_address {
+  color    : #9B7C61;
+  font-size: 5px;
+}
+
+.token_address_open {
+  color    : #9B7C61;
+  font-size: 10px;
+}
+
+.token_description {
+  color    : #D9D9D9;
+  font-size: 4px;
+  margin   : -5px 0px 0px 0px;
+}
+
+.token_description_open {
+  color    : #D9D9D9;
+  font-size: 8px;
+  margin   : -5px 0px 0px 0px;
+}
+
+.token_buttons {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+  margin         : 0px 10px;
+}
+
+.deposit_button {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 30px;
+  height         : 15px;
+  border-radius  : 5px;
+  background     : #DCCB8D;
+  cursor         : pointer;
+  font-size      : 6px;
+  border         : none;
+}
+
+.deposit_button_open {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 60px;
+  height         : 30px;
+  border-radius  : 5px;
+  background     : #DCCB8D;
+  cursor         : pointer;
+  font-size      : 12px;
+  border         : none;
+}
+
+.external_buttons {
+  display        : flex;
+  flex-direction : row;
+  justify-content: center;
+  align-items    : center;
+  gap            : 5px;
+}
+
+.external_button {
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  height          : 100%;
+  border-radius   : 100px;
+  border          : 1px solid #DCCB8D;
+  cursor          : pointer;
+  background-color: white;
+  overflow        : hidden;
+}

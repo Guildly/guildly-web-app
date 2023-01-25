@@ -1,8 +1,176 @@
 .container {
-    width        : 100%;
-    height       : 100%;
-    background   : #212326;
+    display       : flex;
+    flex-direction: column;
+    gap           : 15px;
+    height        : 100%;
+    background    : #212326;
+    border-radius : 10px;
+    border        : 2px solid #DCCB8D;
+    padding       : 20px 40px;
+    margin        : 2% 5% 5% 5%;
+}
+
+.content {
+    display       : flex;
+    flex-direction: row;
+}
+
+.text_inputs {
+    display       : flex;
+    flex-direction: column;
+    width         : 100%;
+}
+
+.name {
+    width: 100%;
+}
+
+.title {
+    font-size: large;
+    color    : #D9D9D9;
+}
+
+.short_input {
+    width : 60%;
+    height: 50px;
+}
+
+.description {
+    width: 100%;
+}
+
+.long_input {
+    width : 60%;
+    height: 100px;
+}
+
+.design_inputs {
+    width: 100%;
+}
+
+.design_box {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    border        : 2px solid #D9D9D9;
+    border-radius : 20px;
+}
+
+.emblem_output {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+    padding       : 20px 0px;
+}
+
+.emblem {}
+
+.emblem_generation {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+    padding       : 10px;
+}
+
+.design_attributes {
+    display       : flex;
+    flex-direction: column;
+    height        : 100%;
+    width         : 100%;
+    gap           : 10px;
+    padding       : 0 20px;
+}
+
+.attribute_container {
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    height        : 30%;
+    width         : 100%;
+}
+
+.attribute_title {
+    color : #eff3f8ec;
+    margin: 0px;
+}
+
+.attributes {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.attribute {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #252B34;
+    border-radius  : 10px;
+    color          : #DCCB8D;
+    border         : solid 1px #D9D9D9;
+    height         : 30px;
+    cursor         : pointer;
+}
+
+.attribute_selected {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #DCCB8D;
+    border-radius  : 10px;
+    color          : black;
+    border         : solid 1px #D9D9D9;
+    height         : 30px;
+    cursor         : pointer;
+}
+
+.generate_button {
+    width        : 50%;
+    height       : 10%;
+    border       : 1px solid #D9D9D9;
+    background   : #303132;
+    margin       : auto;
+    color        : #DCCB8D;
     border-radius: 10px;
-    border       : 2px solid #3E3737;
-    padding      : 20px;
+    cursor       : pointer;
+}
+
+.chain {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+    gap            : 20px;
+    width          : 25%;
+    height         : 50px;
+    background     : #303132;
+    margin         : auto;
+    border-radius  : 10px;
+}
+
+.next_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 10%;
+    background     : #303132;
+    border         : 1px solid #DCCB8D;
+    font-size      : 12px;
+    color          : #DCCB8D;
+    margin         : auto;
+    border-radius  : 10px;
+    cursor         : pointer;
+}
+
+.chain_number_active {
+    font-size  : 24px;
+    font-weight: 700;
+    color      : #DCCB8D;
+}
+
+.chain_number {
+    font-size  : 24px;
+    font-weight: 700;
+    color      : #D9D9D9;
+    cursor     : pointer;
 }

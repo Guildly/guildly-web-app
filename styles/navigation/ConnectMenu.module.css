@@ -1,0 +1,16 @@
+.wallets_list {
+    list-style: none;
+}
+
+.wallet {
+    margin: 10px 0px;
+}
+
+.wallet_box {
+    width        : 200px;
+    height       : 50px;
+    border       : 2px solid #DCCB8D;
+    border-radius: 10px;
+    background   : #162334;
+    color        : #DCCB8D;
+}

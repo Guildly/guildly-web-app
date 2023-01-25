@@ -1,6 +1,40 @@
 .container {
-    width        : 100%;
-    height       : 350px;
+    margin: 5% 10%;
+}
+
+.search_bar {
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    align-items   : center;
+    position      : fixed;
+    height        : 30px;
+    width         : 10%;
+    background    : #212326;
+    border        : 1px solid #3E3737;
+    border-radius : 10px;
+    right         : 30%;
+    margin        : -40px 0px 0px 0px;
+    color         : #967C6E;
+    padding       : 0px 10px;
+}
+
+.search_icon {
+    width : 20px;
+    height: 20px;
+}
+
+.search_input {
+    background: none;
+    border    : none;
+    outline   : none;
+    color     : white;
+    width     : 100%;
+    height    : 100%;
+}
+
+.tokens_box {
+    height       : 650px;
     background   : #212326;
     border-radius: 10px;
     border       : 2px solid #DCCB8D;
@@ -9,27 +43,45 @@
 }
 
 .tokens_area {
-    display              : grid;
-    height               : 100%;
-    width                : 100%;
-    grid-template-columns: auto auto auto auto;
-    overflow             : scroll;
+    display                 : grid;
+    justify-content         : center;
+    height                  : 85%;
+    width                   : 100%;
+    grid-template-columns   : auto auto auto auto;
+    overflow                : scroll;
+    scrollbar-color         : #DCCB8D;
+    /* color                : white; */
 }
 
-.token_card {
-    position: relative;
-    height  : 175px;
-    width   : 150px;
+/* .tokens_area::-webkit-scrollbar {
+    /* width: 5px; */
+/* color: white;
+} */
+
+/* ::-webkit-scrollbar-thumb {
+    background: #DCCB8D;
+} */
+
+.tokens_area::-webkit-scrollbar-thumb {
+    width     : 10px;
+    background: #DCCB8D;
 }
 
-.token_outline {
-    /* position: fixed; */
-    z-index: 2;
+.button_area {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    width          : 100%;
+    padding        : 2% 0px;
+    background     : none;
 }
 
-.token_symbol {
-    /* position         : fixed; */
-    /* top           : 100px; */
-    /* margin : 5px 7.5px; */
-    z-index: 1;
+.purchase_button {
+    width        : 200px;
+    height       : 50px;
+    border       : 2px solid #DCCB8D;
+    background   : #162334;
+    color        : #DCCB8D;
+    border-radius: 10px;
+    cursor       : pointer;
 }

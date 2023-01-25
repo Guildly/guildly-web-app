@@ -3,7 +3,7 @@
     flex-direction: row;
     z-index       : 4;
     position      : fixed;
-    width         : 100%;
+    width         : 103%;
 }
 
 .left_corner {
@@ -56,7 +56,7 @@
     display       : flex;
     flex-direction: row;
     align-items   : center;
-    padding       : 5px;
+    padding       : 8px;
     gap           : 5px;
     width         : 100px;
     height        : 40px;
@@ -82,7 +82,7 @@
 }
 
 .highlighted {
-    color: goldenrod;
+    color: #DCCB8D;
 }
 
 .logo_border {
@@ -93,7 +93,7 @@
     width           : 158px;
     height          : 158px;
     top             : 0px;
-    right           : 571px;
+    right           : 45.3%;
 }
 
 .logo {
@@ -105,7 +105,7 @@
     width           : 150px;
     height          : 150px;
     top             : 4px;
-    right           : 575px;
+    right           : 45.5%;
 }
 
 /* .logo img {
@@ -130,29 +130,30 @@
 
 .guild_button {
     display        : flex;
-    height         : 30px;
+    height         : 35px;
     border-radius  : 10px;
     align-items    : center;
     justify-content: center;
     border         : none;
     background     : #36434B;
     color          : #DCCB8D;
+    padding        : 10px;
+    cursor         : pointer;
 }
 
 .guild_container {
-    position          : fixed;
-    display           : flex;
-    flex-direction    : column;
-    padding           : 20px 0px;
-    height            : 350px;
-    width             : 450px;
-    border-radius     : 10px;
-    background        : #2F3A45;
-    top               : 100px;
-    right             : 420px;
-    border            : 3px solid #626A7C;
-    z-index           : 20;
-    /* backdrop-filter: blur(10px); */
+    position      : fixed;
+    display       : flex;
+    flex-direction: column;
+    padding       : 0px 20px;
+    height        : 60%;
+    width         : 40%;
+    border-radius : 10px;
+    background    : #2F3A45;
+    top           : 100px;
+    right         : 30%;
+    border        : 3px solid #626A7C;
+    z-index       : 20;
 }
 
 .gld_button {
@@ -194,7 +195,32 @@
             rgba(0, 0, 0, 0.4)), url(/plain-dark-wood-texture-2.png);
     background-size: cover;
     padding        : 10px 15px;
+    cursor         : pointer;
 }
+
+.copied_button {
+    border    : none;
+    background: none;
+    cursor    : pointer;
+    color     : #DCCB8D;
+}
+
+.copied_icon {
+    width : 20px;
+    height: 20px;
+}
+
+.copied_address_box {
+    position       : fixed;
+    background     : rgba(31, 33, 36, 0.6);
+    backdrop-filter: blur(16px);
+    border-radius  : 10px;
+    color          : #DCCB8D;
+    padding        : 10px;
+    top            : 40px;
+    right          : 12%;
+}
+
 
 .connect_button p {
     color: #DCCB8D;
@@ -203,13 +229,15 @@
 .connect_container {
     position      : fixed;
     display       : flex;
+    align-items   : center;
     flex-direction: column;
-    width         : 200px;
-    height        : 300px;
+    width         : 300px;
+    height        : 500px;
     background    : #212326;
     top           : 60px;
     right         : 155px;
     border-radius : 10px;
+    padding       : 20px 0px 0px 0px;
 }
 
 .transactions_button {
@@ -235,8 +263,8 @@
     position      : fixed;
     display       : flex;
     flex-direction: column;
-    width         : 200px;
-    height        : 300px;
+    width         : 30%;
+    height        : 85%;
     background    : #212326;
     top           : 60px;
     right         : 65px;

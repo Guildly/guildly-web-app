@@ -58,7 +58,10 @@ export const GuildhallRightMenu = () => {
           <div className={right_styles.header} />
           <div className={right_styles.content_container}>
             <div className={right_styles.content_title}>
-              <p>Rules</p>
+              <p>Notice Board</p>
+            </div>
+            <div className={right_styles.notices_container}>
+              <p className={left_styles.tutorial_title}>Master</p>
             </div>
           </div>
         </div>

@@ -8,11 +8,10 @@ import {
 
 export default function HomePage() {
   return (
-    <div>
-      <Layout
-        leftSideMenu={<GuildhallLeftMenu />}
-        rightSideMenu={<GuildhallRightMenu />}
-      />
-    </div>
+    <Layout
+      leftSideMenu={<GuildhallLeftMenu />}
+      rightSideMenu={<GuildhallRightMenu />}
+      main={<Guildhall />}
+    />
   );
 }

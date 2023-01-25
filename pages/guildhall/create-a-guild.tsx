@@ -12,6 +12,7 @@ export default function CreateAGuildPage() {
       <Layout
         leftSideMenu={<GuildhallLeftMenu />}
         rightSideMenu={<GuildhallRightMenu />}
+        main={<CreateGuild />}
       />
     </div>
   );

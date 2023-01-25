@@ -3,12 +3,128 @@
     flex-direction : row;
     justify-content: center;
     align-items    : center;
+    gap            : 30px;
+    height         : 100px;
+    width          : 100%;
 }
 
 .transaction_area {
-    margin             : 50px 0px 0px 0px;
     height             : 90%;
     background         : url(/light-brown-paper-texture.png);
     background-size    : 150%;
     background-position: center;
+    padding            : 20px;
+}
+
+.button {
+    width        : 80px;
+    height       : 40px;
+    border-radius: 10px;
+    background   : linear-gradient(rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)), url(/polished-oak-texture.png);
+    background-size: cover;
+    border         : none;
+    color          : #DCCB8D;
+    cursor         : pointer;
+}
+
+.button_highlighted {
+    width          : 80px;
+    height         : 40px;
+    border-radius  : 10px;
+    background     : linear-gradient(rgba(221, 186, 58, 0.2), rgba(221, 186, 58, 0.2)), url(/polished-oak-texture.png);
+    background-size: cover;
+    border         : none;
+    color          : #DCCB8D;
+    cursor         : pointer;
+}
+
+.button_icon {
+    height: 20px;
+    width : 20px;
+}
+
+.transaction_box {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    gap           : 20px;
+    background    : rgba(29, 30, 32, 0.5);
+    border-radius : 10px;
+    height        : 100%;
+    padding       : 20px 0px 0px 0px;
+}
+
+.transaction {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 10px;
+    width         : 90%;
+    height        : 15%;
+    background    : #1D1E20;
+    border-radius : 10px;
+    padding       : 0px 20px;
+}
+
+.drag_icon {
+    width : 15px;
+    height: 15px;
+    color : #DCCB8D;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+}
+
+.header {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: space-between;
+    width          : 100%;
+}
+
+.title {
+    color    : #DCCB8D;
+    font-size: 16px;
+}
+
+.remove_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 70px;
+    height         : 25px;
+    background     : #30323E;
+    border         : 1px solid #AAA18E;
+    border-radius  : 5px;
+    color          : #AAA18E;
+    font-size      : 12px;
+    cursor         : pointer;
+}
+
+.dividor {
+    height    : 1px;
+    width     : 100%;
+    background: #AAA18E;
+}
+
+.description {
+    color    : #626A7C;
+    font-size: 12px;
+}
+
+.submit_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 50%;
+    height         : 10%;
+    background     : #1D1E20;
+    padding        : 5%;
+    border-radius  : 10px;
+    color          : #DCCB8D;
+    cursor         : pointer;
 }

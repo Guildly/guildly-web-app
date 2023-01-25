@@ -2,6 +2,24 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.txt/,
+      type: "asset/source",
+    })
+    return config
+  },
+  images: {
+    loader: 'default',
+    domains: ['cdn-testnet.aspect.co', 'imagedelivery.net'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    disableStaticImages: false,
+    // https://nextjs.org/docs/api-reference/next/image#caching-behavior
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: true,
+    unoptimized: false,
+  }
 }
 
 module.exports = nextConfig

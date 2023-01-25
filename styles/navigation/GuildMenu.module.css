@@ -9,8 +9,22 @@
 }
 
 .header {
-    display: flex;
-    width  : 100%;
+    display        : flex;
+    justify-content: space-between;
+    width          : 100%;
+    align-items    : center;
+    padding        : 0px 0px 0px 42.5%;
+}
+
+.title {
+    align-self: center;
+    color     : #DCCB8D;
+    font-size : 20px;
+}
+
+.close_button {
+    background: none;
+    border    : none;
 }
 
 .icon {
@@ -18,4 +32,72 @@
     width       : 30px;
     color       : #626A7C;
     justify-self: flex-end;
+    cursor      : pointer;
+}
+
+.guild_elements {
+    display        : flex;
+    flex-direction : column;
+    gap            : 20px;
+    align-items    : center;
+    justify-content: center;
+    height         : 60%;
+    overflow       : scroll;
+}
+
+.guildbox {
+    display       : flex;
+    flex-direction: row;
+    gap           : 20px;
+    width         : 60%;
+    height        : 80px;
+    border        : 2px solid #DCCB8D;
+    border-radius : 10px;
+    background    : #15202F;
+    cursor        : pointer;
+    padding       : 10px;
+}
+
+.guildbox p {
+    color: wheat;
+}
+
+.guild_icon {
+    width    : 50px;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.guild_content {
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    width         : 75%;
+}
+
+.guild_name {
+    height: 20px;
+    margin: -10px 0px 0px 0px;
+}
+
+.guild_attributes {
+    font-size     : 12px;
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    color         : white;
+}
+
+.join_box {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 40%;
+    height         : 80px;
+    border         : 2px solid #DCCB8D;
+    border-radius  : 10px;
+    background     : #15202F;
+    cursor         : pointer;
+    padding        : 10px;
+    color          : #DCCB8D;
+    margin         : auto;
 }

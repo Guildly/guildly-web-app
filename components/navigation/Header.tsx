@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, useRef } from "react";
+import { useCallback, useState, useEffect, useRef, use } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/components/Header.module.css";
 import Link from "next/link";
@@ -6,11 +6,30 @@ import Image from "next/image";
 import { GuildMenu } from "./GuildMenu";
 import { ConnectMenu } from "./ConnectMenu";
 import { TransactionCart } from "./TransactionCart";
+import { useAccount } from "@starknet-react/core";
+import { useGuild } from "../../context/GuildContext";
+import { displayAddress } from "../../utils/address";
+import { sounds } from "../../shared/sounds";
+import { url } from "inspector";
 
 export const Header = () => {
+  const { address } = useAccount();
+  const [copiedAddress, setCopiedAddress] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (copiedAddress) {
+        setCopiedAddress(false);
+      }
+    }, 1000);
+  }, [copiedAddress]);
+
+  const { guild } = useGuild();
+
   const { query, pathname } = useRouter();
+  const titles = pathname.slice(1).split("/");
   const isPage = useCallback(
-    (name: string) => name === pathname.slice(1).split("/")[0],
+    (name: string) => name === titles[titles.length - 1],
     [pathname]
   );
   const navStyle = (page: string) => {
@@ -76,13 +95,22 @@ export const Header = () => {
       );
     };
   }, [isGuildDialogSelected, isConnectMenuSelected, isTransactionsSelected]);
+
+  const {
+    playDoorSound,
+    playCoinsSound,
+    playSwordSound,
+    playGavelSound,
+    playClickSound,
+  } = sounds();
+
   return (
     <>
       <div className={styles.header}>
         <div className={styles.left_corner} />
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
-            <Link href="/guildhall" passHref>
+            <Link href="/guildhall" passHref onClick={() => playDoorSound()}>
               <div className={styles.link_container}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +123,7 @@ export const Header = () => {
                 <p className={navStyle("guildhall")}>Guildhall</p>
               </div>
             </Link>
-            <Link href="/bank" passHref>
+            <Link href="/bank" passHref onClick={() => playCoinsSound()}>
               <div className={styles.link_container}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +136,7 @@ export const Header = () => {
                 <p className={navStyle("bank")}>Bank</p>
               </div>
             </Link>
-            <Link href="/market" passHref>
+            <Link href="/market" passHref onClick={() => playSwordSound()}>
               <div className={styles.link_container}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +149,7 @@ export const Header = () => {
                 <p className={navStyle("market")}>Market</p>
               </div>
             </Link>
-            <Link href="/council" passHref>
+            <Link href="/council" passHref onClick={() => playGavelSound()}>
               <div className={styles.link_container}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -136,22 +164,46 @@ export const Header = () => {
             </Link>
           </div>
           <div className={styles.logo_border} />
-          <div className={styles.logo} />
-          <div className={styles.network_links}>
-            <button
-              className={styles.guild_button}
-              onClick={() => {
-                setIsGuildDialogSelected(!isGuildDialogSelected);
+          {isPage("my-guild") && guild ? (
+            <div
+              className={styles.logo}
+              style={{
+                backgroundImage: "url(" + guild.emblem + ")",
               }}
-            >
-              <p>Select Guild</p>
-            </button>
-            {isGuildDialogSelected ? (
-              <div className={styles.guild_container} ref={guildDialogRef}>
-                <GuildMenu />
-              </div>
-            ) : null}
-            <button className={styles.gld_button}>
+            />
+          ) : (
+            <div className={styles.logo} />
+          )}
+          <div className={styles.network_links}>
+            <div ref={guildDialogRef}>
+              {guild && guild.name ? (
+                <button
+                  className={styles.guild_button}
+                  onClick={() => {
+                    setIsGuildDialogSelected(!isGuildDialogSelected);
+                    playClickSound();
+                  }}
+                >
+                  <p>{guild.name}</p>
+                </button>
+              ) : (
+                <button
+                  className={styles.guild_button}
+                  onClick={() => {
+                    setIsGuildDialogSelected(!isGuildDialogSelected);
+                    playClickSound();
+                  }}
+                >
+                  <p>Select Guild</p>
+                </button>
+              )}
+              {isGuildDialogSelected ? (
+                <div className={styles.guild_container}>
+                  <GuildMenu close={() => setIsGuildDialogSelected(false)} />
+                </div>
+              ) : null}
+            </div>
+            {/* <button className={styles.gld_button}>
               <div className={styles.token_info}>
                 <Image
                   className={styles.token_icon}
@@ -163,42 +215,92 @@ export const Header = () => {
                 <p>GLD</p>
               </div>
               <p className={styles.token_number}>1000</p>
-            </button>
-            <button
-              className={styles.connect_button}
-              onClick={() => {
-                setIsConnectMenuSelected(!isConnectMenuSelected);
-              }}
-            >
-              <p>Connect</p>
-            </button>
-            {isConnectMenuSelected ? (
-              <div className={styles.connect_container} ref={connectMenuRef}>
-                <ConnectMenu />
-              </div>
-            ) : null}
-            <button
-              className={styles.transactions_button}
-              onClick={() => {
-                setIsTransactionsSelected(!isTransactionsSelected);
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 512"
-                fill="currentColor"
+            </button> */}
+            <div ref={connectMenuRef}>
+              {address ? (
+                <>
+                  <button
+                    className={styles.connect_button}
+                    // onClick={() => {
+                    //   setIsConnectMenuSelected(!isConnectMenuSelected);
+                    //   playClickSound();
+                    // }}
+                  >
+                    <p>{displayAddress(address)}</p>
+                    <button
+                      className={styles.copied_button}
+                      onClick={() => {
+                        const blob = new Blob([address], {
+                          type: "text/plain",
+                        });
+                        const item = new ClipboardItem({ "text/plain": blob });
+                        navigator.clipboard.write([item]).then(() => {
+                          setCopiedAddress(true);
+                          playClickSound();
+                        });
+                      }}
+                    >
+                      <svg
+                        className={styles.copied_icon}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </button>
+                  {copiedAddress ? (
+                    <div className={styles.copied_address_box}>Copied!</div>
+                  ) : null}
+                </>
+              ) : (
+                <button
+                  className={styles.connect_button}
+                  onClick={() => {
+                    setIsConnectMenuSelected(!isConnectMenuSelected);
+                    playClickSound();
+                  }}
+                >
+                  <p>Connect</p>
+                </button>
+              )}
+
+              {isConnectMenuSelected ? (
+                <div className={styles.connect_container}>
+                  <ConnectMenu close={() => setIsConnectMenuSelected(false)} />
+                </div>
+              ) : null}
+            </div>
+
+            <div ref={transactionsRef}>
+              <button
+                className={styles.transactions_button}
+                onClick={() => {
+                  setIsTransactionsSelected(!isTransactionsSelected);
+                  playClickSound();
+                }}
               >
-                <path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352H592c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48H516h-4-.7l-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48H48c-26.5 0-48 21.5-48 48V304c0 26.5 21.5 48 48 48H156.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z" />
-              </svg>
-            </button>
-            {isTransactionsSelected ? (
-              <div
-                className={styles.transactions_container}
-                ref={transactionsRef}
-              >
-                <TransactionCart />
-              </div>
-            ) : null}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                  fill="currentColor"
+                >
+                  <path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352H592c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48H516h-4-.7l-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48H48c-26.5 0-48 21.5-48 48V304c0 26.5 21.5 48 48 48H156.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z" />
+                </svg>
+              </button>
+              {isTransactionsSelected ? (
+                <div className={styles.transactions_container}>
+                  <TransactionCart />
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
         <div className={styles.right_corner} />
