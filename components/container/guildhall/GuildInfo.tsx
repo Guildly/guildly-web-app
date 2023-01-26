@@ -38,7 +38,10 @@ export const GuildInfo = () => {
           />
         </div>
         <div className={styles.anthem}>
-          <p className={styles.title}>Description</p>
+          <p className={styles.title}>Guild Anthem</p>
+          <button>
+            <p>Upload Audio</p>
+          </button>
         </div>
       </div>
       <div className={styles.design_inputs}>

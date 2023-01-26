@@ -107,7 +107,16 @@ export const Header = () => {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.left_corner} />
+        <div
+          className={
+            isPage("guildhall")
+              ? styles.left_corner
+              : isPage("council")
+              ? styles.left_council_border
+              : styles.left_council_border
+          }
+        />
+        <div className={styles.left_council_head} />
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
             <Link href="/guildhall" passHref onClick={() => playDoorSound()}>
@@ -303,7 +312,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
-        <div className={styles.right_corner} />
+        <div className={styles.right_council_border} />
       </div>
     </>
   );
