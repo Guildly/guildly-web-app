@@ -59,7 +59,7 @@ export default function CreateAGuildPage() {
     formState: { errors, isDirty, isSubmitting, submitCount },
     control,
     reset,
-  } = useForm<Permissions>({
+  } = useForm<any>({
     resolver: yupResolver(createSchema),
     defaultValues: {
       name: "",
@@ -114,7 +114,7 @@ export default function CreateAGuildPage() {
     <div>
       <Layout
         leftSideMenu={<GuildhallLeftMenu />}
-        rightSideMenu={<GuildhallRightMenu {...props} />}
+        rightSideMenu={<GuildhallRightMenu />}
         main={<CreateGuild {...props} />}
       />
     </div>

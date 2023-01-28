@@ -56,6 +56,7 @@ export const Permissions = ({ ...props }: any) => {
                 name={`permissions.${props.index}.contractAddress.${sub_index}.selector`}
                 control={props.control}
                 defaultValue={""}
+                key={sub_index}
                 render={({ field: { ref, value, onChange } }) => (
                   <button
                     className={
