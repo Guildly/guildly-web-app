@@ -25,19 +25,19 @@ export const Guildhall = () => {
           <p>My Guild</p>
         </div>
       </Link>
-      <Link href="/guildhall/guilds" passHref>
+      <Link href="/guildhall/managing" passHref>
         <div className={styles.navbox}>
           <p>Managing</p>
         </div>
       </Link>
-      <Link href="/guildhall/guilds" passHref>
+      <Link href="/guildhall/leaderboard" passHref>
         <div className={styles.navbox}>
-          <p>Managing</p>
+          <p>Leaderboard</p>
         </div>
       </Link>
-      <Link href="/guildhall/guilds" passHref>
+      <Link href="/guildhall/news" passHref>
         <div className={styles.navbox}>
-          <p>Managing</p>
+          <p>News</p>
         </div>
       </Link>
     </div>

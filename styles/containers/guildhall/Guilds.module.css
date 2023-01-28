@@ -1,0 +1,136 @@
+.container {
+  display       : flex;
+  flex-direction: column;
+  gap           : 15px;
+  height        : 100%;
+  background    : #212326;
+  border-radius : 10px;
+  border        : 2px solid #3E3737;
+  padding       : 20px 40px;
+  margin        : 2% 5% 5% 5%;
+}
+
+.header {
+  color        : #B9B7B9;
+  text-align   : left;
+  border-bottom: 1px solid #B9B7B9;
+}
+
+.header tr {
+  border-bottom: 1px solid #B9B7B9;
+}
+
+.dividor {
+  width     : 100%;
+  height    : 1px;
+  background: #3E3737;
+}
+
+.guild_row {
+  color         : white;
+  height        : 5%;
+  vertical-align: middle;
+  cursor        : pointer;
+}
+
+.guild_row:hover {
+  background: #3E3737;
+}
+
+.guild_row p {
+  margin: 0px;
+}
+
+.guild_row td {
+  border: none;
+}
+
+.rank {
+  color: #B9B7B9
+}
+
+.guild_name {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.games {
+  display       : flex;
+  align-items   : center;
+  flex-direction: row;
+  gap           : 5px;
+  cursor        : pointer;
+  overflow      : ellipse;
+}
+
+.games img {
+  color: white;
+}
+
+.game {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+}
+
+.game_image img {
+  color: white;
+}
+
+.items {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.items_value {
+  font-size: 12px;
+  color    : #B9B7B9;
+}
+
+.fees {
+  display       : flex;
+  flex-direction: column;
+}
+
+.master {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+  overflow      : ellipse;
+}
+
+.member_master {
+  font-weight: bold;
+}
+
+.address {
+  font-size: 10px;
+  color    : #B9B7B9;
+}
+
+.fee_row {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+}
+
+.split {
+  font-size: 14px;
+  color    : #B9B7B9;
+}
+
+.games_box {
+  display: none;
+}
+
+.games:hover .games_box {
+  display   : fixed;
+  width     : 30%;
+  height    : 10%;
+  background: #151E2C;
+}

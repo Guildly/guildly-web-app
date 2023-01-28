@@ -2,24 +2,53 @@ import styles from "../../../styles/containers/guildhall/CreateGuild.module.css"
 import { useState } from "react";
 import { GuildInfo } from "./GuildInfo";
 import { Permissions } from "./Permissions";
+import { WhitelistMembers } from "./WhitelistMembers";
 
-export const CreateGuild = () => {
+export const CreateGuild = ({ ...props }: any) => {
   const [chainPage, setChainPage] = useState(1);
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
-        {chainPage == 1 ? (
-          <GuildInfo />
-        ) : chainPage == 2 ? (
-          <Permissions />
+      {chainPage == 1 ? (
+        <GuildInfo {...props} />
+      ) : chainPage == 2 ? (
+        <Permissions {...props} />
+      ) : (
+        <WhitelistMembers {...props} />
+      )}
+      <div className={styles.buttons}>
+        {chainPage == 2 ? (
+          <button
+            className={styles.next_button}
+            onClick={() => {
+              props.setPermissionIndex(props.permissionIndex + 1);
+              props.permissionsAppend({
+                contractAddress: "",
+                selectors: [{ selector: "" }],
+              });
+            }}
+          >
+            <p>Add Permission</p>
+          </button>
+        ) : chainPage == 3 ? (
+          <button
+            className={styles.next_button}
+            onClick={() =>
+              props.whitelistedAppend({
+                address: "",
+                role: "",
+              })
+            }
+          >
+            <p>Add Member</p>
+          </button>
         ) : null}
+        <button
+          className={styles.next_button}
+          onClick={() => setChainPage(chainPage + 1)}
+        >
+          <p>Next</p>
+        </button>
       </div>
-      <button
-        className={styles.next_button}
-        onClick={() => setChainPage(chainPage + 1)}
-      >
-        <p>Next</p>
-      </button>
       <div className={styles.chain}>
         <div
           className={

@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from "react";
 import styles from "../../styles/navigation/TransactionCart.module.css";
+import { sounds } from "../../shared/sounds";
 
 export const TransactionCart = () => {
+  const { playClickSound } = sounds();
   const [isTransactionsSelected, setIsTransactionsSelected] = useState(true);
   const [isScrollSelected, setIsScrollSelected] = useState(false);
   return (
@@ -14,6 +16,7 @@ export const TransactionCart = () => {
           onClick={() => {
             setIsTransactionsSelected(true);
             setIsScrollSelected(false);
+            playClickSound();
           }}
         >
           <svg
@@ -32,6 +35,7 @@ export const TransactionCart = () => {
           onClick={() => {
             setIsTransactionsSelected(false);
             setIsScrollSelected(true);
+            playClickSound();
           }}
         >
           <svg

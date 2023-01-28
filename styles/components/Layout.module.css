@@ -59,7 +59,7 @@
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
-    left           : 0px;
+    left           : 3%;
     top            : 150px;
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
@@ -128,7 +128,7 @@
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
-    right          : 0px;
+    right          : 3%;
     top            : 150px;
     z-index        : 3;
     border-radius  : 0px 5px 5px 0px;

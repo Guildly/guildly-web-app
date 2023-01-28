@@ -1,4 +1,6 @@
 import styles from "../styles/components/Input.module.css";
+import { Controller } from "react-hook-form";
+import { TokenSelect } from "./dropdowns";
 
 interface TextInputProps {
   className: string;
@@ -57,5 +59,86 @@ export function LongTextInput({
         <span className={styles.bar}></span>
       </div>
     </div>
+  );
+}
+
+interface ControlledTextInputProps {
+  name: string;
+  control: any;
+  defaultValue: any;
+  rules: any;
+  className: string;
+  placeholder: string | undefined;
+  icon: string | null;
+}
+
+export function ControlledTextInput({
+  name,
+  control,
+  defaultValue,
+  rules,
+  className,
+  placeholder,
+  icon,
+}: ControlledTextInputProps) {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      rules={rules}
+      render={({ field: { ref, value, onChange } }) => (
+        <div className={className}>
+          <div className={styles.group}>
+            <input
+              className={styles.input}
+              type="text"
+              required
+              value={value}
+              placeholder={placeholder}
+              onChange={onChange}
+            />
+            <span className={styles.highlight}></span>
+            <span className={styles.bar}></span>
+          </div>
+        </div>
+      )}
+    />
+  );
+}
+
+export function ControlledTokenInput({
+  name,
+  control,
+  defaultValue,
+  rules,
+  className,
+  placeholder,
+  options,
+  value,
+  setValue,
+}: any) {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      rules={rules}
+      render={({ field: { ref, value, onChange } }) => (
+        <div className={className}>
+          <div className={styles.token_group}>
+            <input
+              className={styles.token_input}
+              type="text"
+              required
+              value={value}
+              placeholder={placeholder}
+              onChange={onChange}
+            />
+            <TokenSelect options={options} value={value} setValue={setValue} />
+          </div>
+        </div>
+      )}
+    />
   );
 }

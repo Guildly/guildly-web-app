@@ -10,11 +10,12 @@ import { useAccount } from "@starknet-react/core";
 import { useGuild } from "../../context/GuildContext";
 import { displayAddress } from "../../utils/address";
 import { sounds } from "../../shared/sounds";
-import { url } from "inspector";
+import { useStarkNetId } from "../../hooks/useStarknetId";
 
 export const Header = () => {
   const { address } = useAccount();
   const [copiedAddress, setCopiedAddress] = useState(false);
+  const { starknetId } = useStarkNetId(address ? address : "0x0");
 
   useEffect(() => {
     setTimeout(() => {
@@ -235,7 +236,7 @@ export const Header = () => {
                     //   playClickSound();
                     // }}
                   >
-                    <p>{displayAddress(address)}</p>
+                    <p>{starknetId ? starknetId : displayAddress(address)}</p>
                     <button
                       className={styles.copied_button}
                       onClick={() => {
@@ -312,6 +313,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
+        <div className={styles.right_council_head} />
         <div className={styles.right_council_border} />
       </div>
     </>

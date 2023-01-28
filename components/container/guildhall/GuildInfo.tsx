@@ -1,9 +1,9 @@
 import styles from "../../../styles/containers/guildhall/CreateGuild.module.css";
 import { useState } from "react";
-import { ShortTextInput, LongTextInput } from "../../inputs";
+import { ControlledTextInput } from "../../inputs";
 import Image from "next/image";
 
-export const GuildInfo = () => {
+export const GuildInfo = ({ ...props }: any) => {
   const [guildName, setGuildName] = useState("");
   const [guildDescription, setGuildDescription] = useState("");
 
@@ -15,33 +15,43 @@ export const GuildInfo = () => {
   const [style, setStyle] = useState("");
   const [finish, setFinish] = useState("");
   return (
-    <>
+    <div className={styles.content}>
       <div className={styles.text_inputs}>
         <div className={styles.name}>
           <p className={styles.title}>Name</p>
-          <ShortTextInput
+          <ControlledTextInput
             className={styles.short_input}
-            content={guildName}
-            setContent={setGuildName}
-            label="What shall it be master?"
+            control={props.control}
+            rules={null}
+            defaultValue=""
+            placeholder="What shall it be master?"
             icon={null}
+            name={"name"}
           />
         </div>
         <div className={styles.description}>
-          <p className={styles.title}>Description</p>
-          <LongTextInput
-            className={styles.long_input}
-            content={guildDescription}
-            setContent={setGuildDescription}
-            label="What does your guild do?"
+          <p className={styles.title}>Emblem</p>
+          <ControlledTextInput
+            className={styles.short_input}
+            control={props.control}
+            rules={null}
+            defaultValue=""
+            placeholder="Choose your emblem"
             icon={null}
+            name={"emblem"}
           />
         </div>
         <div className={styles.anthem}>
           <p className={styles.title}>Guild Anthem</p>
-          <button>
-            <p>Upload Audio</p>
-          </button>
+          <ControlledTextInput
+            className={styles.short_input}
+            control={props.control}
+            rules={null}
+            defaultValue=""
+            placeholder="Choose your emblem"
+            icon={null}
+            name={"emblem"}
+          />
         </div>
       </div>
       <div className={styles.design_inputs}>
@@ -313,6 +323,6 @@ export const GuildInfo = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
