@@ -3,15 +3,19 @@ import Link from "next/link";
 import { sounds } from "../../shared/sounds";
 
 export const Guildhall = () => {
-  const { playGuildSound } = sounds();
+  const { playGuildSound, playClickSound } = sounds();
   return (
     <div className={styles.container}>
-      <Link href="/guildhall/create-a-guild" passHref>
+      <Link
+        href="/guildhall/create-a-guild"
+        onClick={() => playClickSound()}
+        passHref
+      >
         <div className={styles.navbox}>
           <p>Create a Guild</p>
         </div>
       </Link>
-      <Link href="/guildhall/guilds" passHref>
+      <Link href="/guildhall/guilds" onClick={() => playClickSound()} passHref>
         <div className={styles.navbox}>
           <p>Guilds</p>
         </div>
@@ -35,9 +39,9 @@ export const Guildhall = () => {
           <p>Leaderboard</p>
         </div>
       </Link>
-      <Link href="/guildhall/news" passHref>
+      <Link href="/guildhall/games" passHref>
         <div className={styles.navbox}>
-          <p>News</p>
+          <p>Games</p>
         </div>
       </Link>
     </div>

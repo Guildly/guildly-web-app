@@ -1,6 +1,8 @@
 import left_styles from "../../styles/sidemenu/BankLeft.module.css";
 import right_styles from "../../styles/sidemenu/BankRight.module.css";
+import { useState } from "react";
 import { ShortTextInput, LongTextInput } from "../inputs";
+import { Select } from "../dropdowns";
 
 interface BankLeftMenuProps {
   tab: string;
@@ -27,6 +29,8 @@ export const BankLeftMenu = ({
   addressFilter,
   setAddressFilter,
 }: BankLeftMenuProps) => {
+  const [sortValue, setSortValue] = useState("Value Low to High");
+  const sortOptions = ["Value Low to High", "Value High to Low"];
   return (
     <div className={left_styles.menu}>
       <div className={left_styles.box}>
@@ -36,17 +40,11 @@ export const BankLeftMenu = ({
             <p>Filters</p>
           </div>
           <div className={left_styles.filters_container}>
-            <div className={left_styles.sort}>
-              <p>Value Low to High</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className={left_styles.sort_icon}
-                fill="currentColor"
-              >
-                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-              </svg>
-            </div>
+            <Select
+              options={sortOptions}
+              value={sortValue}
+              setValue={setSortValue}
+            />
             <div className={left_styles.tabs}>
               <p
                 className={
@@ -170,6 +168,9 @@ export const BankRightMenu = () => {
             <div className={right_styles.info_section}>
               <p className={right_styles.section_header}>Current Value</p>
               <div className={right_styles.section_divider} />
+            </div>
+            <div className={right_styles.info_section}>
+              <p className={right_styles.section_header}>Storage Keys</p>
             </div>
           </div>
         </div>

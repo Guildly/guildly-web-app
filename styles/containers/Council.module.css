@@ -1,0 +1,39 @@
+.container {
+  margin: 5% 10%;
+}
+
+.box {
+  height       : 80%;
+  background   : #212326;
+  border-radius: 10px;
+  border       : 2px solid #DCCB8D;
+  padding      : 20px;
+  overflow     : auto;
+}
+
+.council_header {
+  display        : flex;
+  gap            : 20px;
+  align-items    : center;
+  justify-content: center;
+}
+
+.council_title {
+  cursor    : pointer;
+  background: none;
+  border    : none;
+  color     : white;
+  font-size : 20px;
+}
+
+.council_title_selected {
+  cursor    : pointer;
+  background: none;
+  border    : none;
+  color     : #6b6c6e;
+  font-size : 20px;
+}
+
+.council_title:hover {
+  color: #6b6c6e;
+}

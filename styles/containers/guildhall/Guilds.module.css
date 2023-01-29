@@ -26,6 +26,10 @@
   background: #3E3737;
 }
 
+.link {
+  display: contents;
+}
+
 .guild_row {
   color         : white;
   height        : 5%;

@@ -13,10 +13,11 @@ import {
 
 interface BankProps {
   tab: string;
+  tokenStandardFilter: string;
 }
 
-export const Bank = ({ tab }: BankProps) => {
-  const { address } = useAccount();
+export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
+  const { address: accountAddress } = useAccount();
   const { guild } = useGuild();
   const [selectedToken, setSelectedToken] = useState(-1);
   const [accountTokens, setAccountTokens] = useState<AspectNftAsset[] | null>(
@@ -26,7 +27,7 @@ export const Bank = ({ tab }: BankProps) => {
   const [fetchNftsError, setFetchNftsError] = useState(false);
 
   useEffect(() => {
-    fetchAspectNfts(address ? padAddress(address) : "0x0").then(
+    fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
       (data) => {
         setAccountTokens(data.assets);
       },
@@ -34,7 +35,7 @@ export const Bank = ({ tab }: BankProps) => {
         setFetchNftsError(true);
       }
     );
-    fetchAspectNfts(address ? padAddress(address) : "0x0").then(
+    fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
       (data) => {
         setGuildTokens(data.assets);
       },
@@ -43,8 +44,6 @@ export const Bank = ({ tab }: BankProps) => {
       }
     );
   }, [accountTokens, guildTokens]);
-
-  console.log(accountTokens);
 
   return (
     <div className={styles.container}>
@@ -65,34 +64,50 @@ export const Bank = ({ tab }: BankProps) => {
       <div className={styles.tokens_box}>
         <AnimateSharedLayout>
           <div className={styles.tokens_area}>
-            {tab == "Account" && accountTokens ? (
-              accountTokens.map((token, index) => {
-                return (
-                  <TokenCard
-                    key={index}
-                    isSelected={selectedToken === index}
-                    setSelectedToken={setSelectedToken}
-                    index={index}
-                    token={token}
-                  />
-                );
-              })
-            ) : tab == "Guild" && guild && guild.name ? (
-              <div>
-                <p>GUILD TOKENS</p>
-              </div>
-            ) : (
-              <div>
-                <p>Connect to Guild</p>
-              </div>
-            )}
+            {tab == "Account" ? (
+              accountTokens && accountAddress ? (
+                accountTokens.map((token, index) => {
+                  return (
+                    <TokenCard
+                      key={index}
+                      isSelected={selectedToken === index}
+                      setSelectedToken={setSelectedToken}
+                      index={index}
+                      token={token}
+                    />
+                  );
+                })
+              ) : (
+                <div className={styles.connect_area}>
+                  <p className={styles.connect_message}>
+                    Connect to an Account
+                  </p>
+                  <div className={styles.connect_wallets}>
+                    <button className={styles.connect_button}>
+                      <p>Connect</p>
+                    </button>
+                  </div>
+                </div>
+              )
+            ) : null}
+            {tab == "Guild" ? (
+              guild && guild.name ? (
+                <div>
+                  <p>GUILD TOKENS</p>
+                </div>
+              ) : (
+                <div>
+                  <p>Connect to Guild</p>
+                </div>
+              )
+            ) : null}
           </div>
         </AnimateSharedLayout>
-        <div className={styles.button_area}>
+        {/* <div className={styles.button_area}>
           <button className={styles.purchase_button}>
             <p>Purchase Storage with GLD</p>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

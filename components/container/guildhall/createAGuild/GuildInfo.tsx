@@ -1,6 +1,6 @@
-import styles from "../../../styles/containers/guildhall/CreateGuild.module.css";
+import styles from "../../../../styles/containers/guildhall/CreateGuild.module.css";
 import { useState } from "react";
-import { ControlledTextInput } from "../../inputs";
+import { ControlledTextInput } from "../../../inputs";
 import Image from "next/image";
 
 export const GuildInfo = ({ ...props }: any) => {

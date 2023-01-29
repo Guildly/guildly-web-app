@@ -41,7 +41,7 @@
     width          : 30px;
     height         : 30px;
     left           : 20%;
-    top            : 150px;
+    top            : 200px;
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
@@ -60,7 +60,7 @@
     width          : 30px;
     height         : 30px;
     left           : 3%;
-    top            : 150px;
+    top            : 200px;
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
@@ -110,7 +110,7 @@
     width          : 30px;
     height         : 30px;
     right          : 20%;
-    top            : 150px;
+    top            : 200px;
     z-index        : 3;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
@@ -129,7 +129,7 @@
     width          : 30px;
     height         : 30px;
     right          : 3%;
-    top            : 150px;
+    top            : 200px;
     z-index        : 3;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;

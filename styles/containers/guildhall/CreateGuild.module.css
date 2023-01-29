@@ -213,6 +213,41 @@
     width          : 100%;
 }
 
+.fee_policy {
+    display       : flex;
+    flex-direction: column;
+}
+
+.fee_policy_content {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+}
+
+.policies {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+    padding       : 0px 0px 0px 20px;
+}
+
+.policy_row {
+    display       : flex;
+    flex-direction: row;
+    gap           : 20px;
+}
+
+.policy_title {
+    width: 100px;
+}
+
+.token_inputs {
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    width         : 100%;
+}
+
 .token_input {
     width : 20%;
     height: 50px;

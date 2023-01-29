@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useGuild } from "../../context/GuildContext";
 import { sounds } from "../../shared/sounds";
 import { Guild } from "../../context/GuildContext";
+import Link from "next/link";
 
 interface GuildMenuProps {
   close: () => void;
@@ -89,9 +90,14 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
           </div>
         ))}
       </div>
-      <div className={styles.join_box}>
+      <Link
+        href="/guildhall/guilds"
+        passHref
+        onClick={() => playClickSound()}
+        className={styles.join_box}
+      >
         <p>Join a Guild</p>
-      </div>
+      </Link>
       {/* <div className={styles.blur_area} /> */}
     </>
   );

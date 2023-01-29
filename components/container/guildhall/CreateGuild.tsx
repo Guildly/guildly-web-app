@@ -1,8 +1,8 @@
 import styles from "../../../styles/containers/guildhall/CreateGuild.module.css";
 import { useState } from "react";
-import { GuildInfo } from "./GuildInfo";
-import { Permissions } from "./Permissions";
-import { WhitelistMembers } from "./WhitelistMembers";
+import { GuildInfo } from "./createAGuild/GuildInfo";
+import { Permissions } from "./createAGuild/Permissions";
+import { WhitelistMembers } from "./createAGuild/WhitelistMembers";
 
 export const CreateGuild = ({ ...props }: any) => {
   const [chainPage, setChainPage] = useState(1);

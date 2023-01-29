@@ -1,13 +1,14 @@
 import styles from "../styles/components/Input.module.css";
 import { Controller } from "react-hook-form";
 import { TokenSelect } from "./dropdowns";
+import { ReactElement } from "react";
 
 interface TextInputProps {
   className: string;
   content: string;
   setContent: (e: string) => void;
   label: string | undefined;
-  icon: string | null;
+  icon: ReactElement | null;
 }
 
 export function ShortTextInput({
@@ -20,6 +21,7 @@ export function ShortTextInput({
   return (
     <div className={className}>
       <div className={styles.group}>
+        {icon ? <div className={styles.icon}>{icon}</div> : null}
         <input
           className={styles.input}
           type="text"
@@ -125,18 +127,16 @@ export function ControlledTokenInput({
       defaultValue={defaultValue}
       rules={rules}
       render={({ field: { ref, value, onChange } }) => (
-        <div className={className}>
-          <div className={styles.token_group}>
-            <input
-              className={styles.token_input}
-              type="text"
-              required
-              value={value}
-              placeholder={placeholder}
-              onChange={onChange}
-            />
-            <TokenSelect options={options} value={value} setValue={setValue} />
-          </div>
+        <div className={styles.token_group}>
+          <input
+            className={styles.token_input}
+            type="text"
+            required
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+          />
+          <TokenSelect options={options} value={value} setValue={setValue} />
         </div>
       )}
     />

@@ -111,13 +111,17 @@ export const Header = () => {
         <div
           className={
             isPage("guildhall")
-              ? styles.left_corner
+              ? styles.left_council_border
               : isPage("council")
               ? styles.left_council_border
+              : isPage("bank")
+              ? styles.left_bank_border
               : styles.left_council_border
           }
         />
-        <div className={styles.left_council_head} />
+        {isPage("council") ? (
+          <div className={styles.left_council_head} />
+        ) : null}
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
             <Link href="/guildhall" passHref onClick={() => playDoorSound()}>
@@ -313,8 +317,20 @@ export const Header = () => {
             </div>
           </div>
         </div>
-        <div className={styles.right_council_head} />
-        <div className={styles.right_council_border} />
+        {isPage("council") ? (
+          <div className={styles.right_council_head} />
+        ) : null}
+        <div
+          className={
+            isPage("guildhall")
+              ? styles.right_council_border
+              : isPage("council")
+              ? styles.right_council_border
+              : isPage("bank")
+              ? styles.right_bank_border
+              : styles.right_council_border
+          }
+        />
       </div>
     </>
   );

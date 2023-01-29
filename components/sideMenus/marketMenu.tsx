@@ -156,13 +156,18 @@ export const MarketLeftMenu = ({
 
 export const MarketRightMenu = () => {
   return (
-    <div className={right_styles.menu}>
-      <div>
-        <p>Title</p>
+    <>
+      <div className={right_styles.menu}>
+        <div className={right_styles.box}>
+          <div className={right_styles.header} />
+          <div className={right_styles.content_container}>
+            <div className={right_styles.content_title}>
+              <p>Notice Board</p>
+            </div>
+            <div className={right_styles.notices_container}></div>
+          </div>
+        </div>
       </div>
-      <div>
-        <p>Content</p>
-      </div>
-    </div>
+    </>
   );
 };

@@ -82,6 +82,7 @@ export const Guilds = () => {
             passHref
             onClick={() => playClickSound()}
             key={index}
+            className={styles.link}
           >
             <tr className={styles.guild_row} key={index}>
               <td className={styles.rank}>{guild.rank}</td>

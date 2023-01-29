@@ -13,11 +13,17 @@
 .header {
   display       : flex;
   flex-direction: row;
-  gap           : 20px;
+  gap           : 100px;
 }
 
 .header p {
   margin: 0px;
+}
+
+.guild_info {
+  display       : flex;
+  flex-direction: row;
+  gap           : 20px;
 }
 
 .guild_name {
@@ -40,6 +46,12 @@
   color      : white;
   font-size  : 16px;
   font-weight: bold;
+}
+
+.categories {
+  display       : flex;
+  flex-direction: row;
+  gap           : 20px;
 }
 
 .category {
@@ -71,6 +83,10 @@
   gap           : 5px;
 }
 
+.game_image {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(95%) saturate(4237%) hue-rotate(319deg) brightness(102%) contrast(97%);
+}
+
 .treasury_balance {
   font-size  : 20px;
   color      : white;
@@ -85,6 +101,10 @@
 
 .bank {
   width: 70%;
+}
+
+.bank p {
+  margin: 0px;
 }
 
 .bank_tokens {
@@ -105,6 +125,47 @@
 
 .fee_rates {
   display       : flex;
+  flex-direction: column;
+  gap           : 20px;
+}
+
+.fee_rates p {
+  margin: 0px;
+}
+
+.fee_rates_header {
+  display       : flex;
   flex-direction: row;
   gap           : 50px;
+}
+
+.fee_rate {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+  color         : white;
+}
+
+.activity {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+  color         : white;
+}
+
+.activity_area {
+  display       : flex;
+  flex-direction: row;
+  gap           : 20px
+}
+
+.feed_item {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+}
+
+.feed_bold_text {
+  font-weight: bold;
 }

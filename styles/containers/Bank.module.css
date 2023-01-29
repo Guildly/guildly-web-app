@@ -67,6 +67,18 @@
     background: #DCCB8D;
 }
 
+.connect_area {
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+}
+
+.connect_message {
+    font-size: 16px;
+    color    : white;
+}
+
 .button_area {
     display        : flex;
     justify-content: center;

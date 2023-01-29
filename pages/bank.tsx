@@ -27,7 +27,7 @@ export default function BankPage() {
       <Layout
         leftSideMenu={<BankLeftMenu {...props} />}
         rightSideMenu={<BankRightMenu />}
-        main={<Bank tab={tab} />}
+        main={<Bank {...props} />}
       />
     </div>
   );
