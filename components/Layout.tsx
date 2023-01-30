@@ -17,7 +17,7 @@ export default function Layout({
   rightSideMenu: ReactElement;
   main: ReactElement;
 }) {
-  const { playSlidingDoorSound } = sounds();
+  const { playSlidingDoorSound, playClickSound } = sounds();
 
   const { query, pathname, back } = useRouter();
   const titles = pathname.slice(1).split("/");
@@ -53,6 +53,8 @@ export default function Layout({
   };
 
   const isPresent = useIsPresent();
+
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <>
@@ -107,12 +109,33 @@ export default function Layout({
               </svg>
               <input
                 placeholder="Search Guilds, Items, Accounts"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.currentTarget.value)}
                 className={styles.search_input}
               ></input>
             </div>
+            {searchValue.length >= 3 ? (
+              <div className={styles.search_dropdown}>
+                <div className={styles.search_section}>
+                  <p>Guilds</p>
+                </div>
+                <div className={styles.search_section}>
+                  <p>Accounts</p>
+                </div>
+                <div className={styles.search_section}>
+                  <p>Items</p>
+                </div>
+              </div>
+            ) : null}
             <div className={styles.header}>
               {titles.length >= 2 ? (
-                <div className={styles.back_box} onClick={() => back()}>
+                <div
+                  className={styles.back_box}
+                  onClick={() => {
+                    back();
+                    playClickSound();
+                  }}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"

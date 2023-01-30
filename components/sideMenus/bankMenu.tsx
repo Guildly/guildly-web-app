@@ -30,7 +30,12 @@ export const BankLeftMenu = ({
   setAddressFilter,
 }: BankLeftMenuProps) => {
   const [sortValue, setSortValue] = useState("Value Low to High");
-  const sortOptions = ["Value Low to High", "Value High to Low"];
+  const sortOptions = [
+    "Value Low to High",
+    "Value High to Low",
+    "Recently Added",
+    "Most Used",
+  ];
   return (
     <div className={left_styles.menu}>
       <div className={left_styles.box}>

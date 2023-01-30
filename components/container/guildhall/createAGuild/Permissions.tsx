@@ -66,7 +66,7 @@ export const Permissions = ({ ...props }: any) => {
                     }
                     onClick={() => onChange}
                   >
-                    <p>Human</p>
+                    <p>{selector}</p>
                   </button>
                 )}
               />

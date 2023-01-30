@@ -29,17 +29,25 @@ export const Guildhall = () => {
           <p>My Guild</p>
         </div>
       </Link>
-      <Link href="/guildhall/managing" passHref>
+      <Link
+        href="/guildhall/managing"
+        onClick={() => playClickSound()}
+        passHref
+      >
         <div className={styles.navbox}>
           <p>Managing</p>
         </div>
       </Link>
-      <Link href="/guildhall/leaderboard" passHref>
+      <Link
+        href="/guildhall/leaderboard"
+        onClick={() => playClickSound()}
+        passHref
+      >
         <div className={styles.navbox}>
           <p>Leaderboard</p>
         </div>
       </Link>
-      <Link href="/guildhall/games" passHref>
+      <Link href="/guildhall/games" onClick={() => playClickSound()} passHref>
         <div className={styles.navbox}>
           <p>Games</p>
         </div>

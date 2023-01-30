@@ -2,3 +2,83 @@
   display       : flex;
   flex-direction: column;
 }
+
+.vote {
+  display       : flex;
+  flex-direction: column;
+  gap           : 10px;
+  width         : 100%;
+  background    : #333e4e;
+  border-radius : 20px;
+  padding       : 20px;
+  color         : white;
+}
+
+.vote p {
+  margin: 0px;
+}
+
+.status {
+  background   : rgb(7, 68, 7);
+  width        : fit-content;
+  border-radius: 10px;
+  color        : white;
+  padding      : 5px;
+}
+
+.main {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+}
+
+.details {
+  display       : flex;
+  flex-direction: column;
+}
+
+.content_details {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+  align-items   : center;
+}
+
+.vote_results {
+  display       : flex;
+  flex-direction: column;
+  gap           : 10px;
+  width         : 20%;
+}
+
+.results_row {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+  background     : #1B1C26;
+}
+
+.vote_button {
+  display: none;
+}
+
+.results_row .vote_button {
+  position       : absolute;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : fit-content;
+  padding        : 5px;
+  margin         : auto;
+  background     : #333e4e;
+  border         : 1px solid #DCCB8D;
+  border-radius  : 5px;
+  color          : white;
+  cursor         : pointer;
+}
+
+.snapshot {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+}

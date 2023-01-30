@@ -1,5 +1,6 @@
 import styles from "../../../styles/containers/council/VotingHall.module.css";
 import Image from "next/image";
+import { displayAddress } from "../../../utils/address";
 
 export const VotingHall = () => {
   return (
@@ -9,26 +10,34 @@ export const VotingHall = () => {
           <p>Active</p>
         </div>
         <div className={styles.main}>
-          <div className={styles.content_details}>
-            <Image
-              src="/token_symbol.png"
-              alt="vote_image"
-              width={20}
-              height={20}
-            />
-            <p className={styles.address}></p>
-          </div>
-          <div className={styles.vote_description}>
-            <p>Change permissions</p>
+          <div className={styles.details}>
+            <div className={styles.content_details}>
+              <Image
+                src="/token_symbol.png"
+                alt="vote_image"
+                width={50}
+                height={50}
+              />
+              <p className={styles.address}>
+                {`Proposed by: ${displayAddress(
+                  "0x7642a1c8d575b0c0f9a7ad7cceb5517c02f36e5f3b36b25429cc7c99383ed0a"
+                )}`}
+              </p>
+            </div>
+            <div className={styles.vote_description}>
+              <p>Change permissions</p>
+            </div>
           </div>
           <div className={styles.vote_results}>
             <div className={styles.results_row}>
               <p>Change</p>
               <p>56%</p>
+              <button className={styles.vote_button}>Vote</button>
             </div>
             <div className={styles.results_row}>
               <p>Remain</p>
               <p>44%</p>
+              <button className={styles.vote_button}>Vote</button>
             </div>
           </div>
           <div className={styles.snapshot}>
