@@ -1,8 +1,7 @@
 .menu {
-    background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)), url('/marble-texture.png');
+    background-image   : url('/leftsidemenubg.png');
     background-size    : cover;
-    background-position: 75% 100%;
+    background-position: 75% 25%;
     height             : 100%;
     padding            : 100px 20px 50px 20px;
 }

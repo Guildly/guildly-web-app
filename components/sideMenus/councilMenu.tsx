@@ -9,7 +9,7 @@ export const CouncilLeftMenu = () => {
           <div className={left_styles.header} />
           <div className={left_styles.content_container}>
             <div className={left_styles.content_title}>
-              <p>Filters</p>
+              <p>Members</p>
             </div>
             <div className={left_styles.filters_container}></div>
           </div>

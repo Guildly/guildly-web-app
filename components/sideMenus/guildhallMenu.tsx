@@ -5,7 +5,7 @@ export const GuildhallLeftMenu = () => {
   return (
     <>
       <div className={left_styles.menu}>
-        <div className={left_styles.box}>
+
           <div className={left_styles.header} />
           <div className={left_styles.content_container}>
             <div className={left_styles.content_title}>
@@ -14,37 +14,18 @@ export const GuildhallLeftMenu = () => {
             <div className={left_styles.tutorial_container}>
               <div className={left_styles.tutorial_section}>
                 <p className={left_styles.tutorial_title}>Master</p>
-                <ol className={left_styles.tutorial_content}>
-                  <li>Create a Guild</li>
-                  <li>Set Guild permissions</li>
-                  <li>Add members</li>
-                  <li>Start earning fees</li>
-                </ol>
+                <p className={left_styles.tutorial_title}>Journeyman</p>
+                <p className={left_styles.tutorial_title}>Apprentice</p>
+                <p className={left_styles.tutorial_title}>Merchant</p>
                 <div className={left_styles.section_break} />
               </div>
               <div className={left_styles.tutorial_section}>
-                <p className={left_styles.tutorial_title}>Merchants</p>
-                <ol className={left_styles.tutorial_content}>
-                  <li>Create a Guild</li>
-                  <li>Set Guild permissions</li>
-                  <li>Add members</li>
-                  <li>Start earning fees</li>
-                </ol>
-                <div className={left_styles.section_break} />
-              </div>
-              <div className={left_styles.tutorial_section}>
-                <p className={left_styles.tutorial_title}>Apprentices</p>
-                <ol className={left_styles.tutorial_content}>
-                  <li>Create a Guild</li>
-                  <li>Set Guild permissions</li>
-                  <li>Add members</li>
-                  <li>Start earning fees</li>
-                </ol>
-                <div className={left_styles.section_break} />
+                <p className={left_styles.tutorial_title}>Discover Games</p>
+              <div className={left_styles.games_content} />
+                
               </div>
             </div>
           </div>
-        </div>
       </div>
     </>
   );

@@ -10,6 +10,16 @@ a {
   text-decoration: none;
 }
 
+
 * {
   box-sizing: border-box;
+}
+
+.menu {
+  background-image   : url('/dark-blue-gold-parchment.png');
+  background-size    : cover;
+  background-position: 25% 75%;
+  height             : 100%;
+  padding            : 100px 20px 50px 20px;
+  border-radius      : 0px 0px 0px 0px;
 }

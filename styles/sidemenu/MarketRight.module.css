@@ -1,11 +1,12 @@
 .menu {
-    background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)), url('/ight-leather-texture.png');
+    background-image   : url('/dark-blue-gold-parchment.png');
     background-size    : cover;
-    background-position: 75% 100%;
+    background-position: 25% 75%;
     height             : 100%;
     padding            : 100px 20px 50px 20px;
+    border-radius      : 0px 0px 0px 0px;
 }
+
 
 .box {
     background-color: #292724;

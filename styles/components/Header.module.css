@@ -198,13 +198,12 @@
     display        : flex;
     flex-direction : row;
     width          : 100%;
-    height         : 60px;
+    height         : 50px;
     justify-content: space-between;
-    background     : rgba(31, 33, 36, 1);
+    background     : rgba(0, 0, 0, 1);
     border         : solid;
-    border-radius  : 20px;
     border-color   : rgb(66, 58, 17);
-    border-width   : 5px;
+    border-width   : 4px;
 }
 
 .nav_links {
@@ -212,21 +211,19 @@
     flex-direction : row;
     justify-content: center;
     align-items    : center;
-    margin         : 0 0px 0px 150px;
-    gap            : 10px;
-    padding        : 0px 10px;
+    margin         : 0 0px 0px 60px;
+    gap            : 15px;
+    padding        : 0px 5px;
 }
 
 .link_container {
     display       : flex;
     flex-direction: row;
     align-items   : center;
-    padding       : 8px;
-    gap           : 5px;
-    width         : 100px;
-    height        : 40px;
-    border        : solid;
-    border-color  : #513A2B;
+    padding       : 6px;
+    gap           : 18px;
+    width         : 110px;
+    height        : 34px;
     border-radius : 5px;
     background    : linear-gradient(266.15deg, rgba(71, 71, 81, 0.75) 0%, #474751 100%);
     color         : #967C6E;
@@ -300,7 +297,8 @@
     align-items    : center;
     justify-content: center;
     border         : none;
-    background     : #36434B;
+    background     : #212326;
+    box-shadow    : 2px 2px 4px #141824;
     color          : #DCCB8D;
     padding        : 10px;
     cursor         : pointer;
@@ -352,6 +350,7 @@
 .connect_button {
     display        : flex;
     height         : 30px;
+    font-weight: bold;
     border-radius  : 5px;
     align-items    : center;
     justify-content: center;
