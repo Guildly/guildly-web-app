@@ -1,5 +1,5 @@
 .container {
-    margin: 5% 10%;
+    margin: 70px;
 }
 
 .search_bar {
@@ -9,7 +9,7 @@
     align-items   : center;
     position      : fixed;
     height        : 30px;
-    width         : 10%;
+    width         : 200px;
     background    : #212326;
     border        : 1px solid #3E3737;
     border-radius : 10px;

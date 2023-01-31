@@ -220,13 +220,12 @@
 
 .page_title {
     display        : flex;
-    justify-content: center;
-    align-items    : center;
-    position       : fixed;
-    right          : 50%;
+    flex-direction: row;
+    position: fixed;
     color          : #DCCB8D;
-    margin         : -40px -30px;
-    padding-top: 75px;
+    padding-top: 100px;
+    padding-left: 300px;
+    padding-bottom: 30px;
     font-size      : x-large;
 }
 
