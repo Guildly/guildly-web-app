@@ -3,9 +3,14 @@ import { useState } from "react";
 import { GuildInfo } from "./createAGuild/GuildInfo";
 import { Permissions } from "./createAGuild/Permissions";
 import { WhitelistMembers } from "./createAGuild/WhitelistMembers";
+import { sounds } from "../../../shared/sounds";
 
 export const CreateGuild = ({ ...props }: any) => {
+  const { playClickSound } = sounds();
   const [chainPage, setChainPage] = useState(1);
+  const submitTransactions = () => {
+    playClickSound();
+  };
   return (
     <div className={styles.container}>
       {chainPage == 1 ? (
@@ -42,19 +47,34 @@ export const CreateGuild = ({ ...props }: any) => {
             <p>Add Member</p>
           </button>
         ) : null}
-        <button
-          className={styles.next_button}
-          onClick={() => setChainPage(chainPage + 1)}
-        >
-          <p>Next</p>
-        </button>
+        {chainPage == 3 ? (
+          <button
+            className={styles.next_button}
+            onClick={() => submitTransactions()}
+          >
+            <p>Submit</p>
+          </button>
+        ) : (
+          <button
+            className={styles.next_button}
+            onClick={() => {
+              playClickSound();
+              setChainPage(chainPage + 1);
+            }}
+          >
+            <p>Next</p>
+          </button>
+        )}
       </div>
       <div className={styles.chain}>
         <div
           className={
             chainPage == 1 ? styles.chain_number_active : styles.chain_number
           }
-          onClick={() => setChainPage(1)}
+          onClick={() => {
+            playClickSound();
+            setChainPage(1);
+          }}
         >
           <p>1</p>
         </div>
@@ -62,7 +82,10 @@ export const CreateGuild = ({ ...props }: any) => {
           className={
             chainPage == 2 ? styles.chain_number_active : styles.chain_number
           }
-          onClick={() => setChainPage(2)}
+          onClick={() => {
+            playClickSound();
+            setChainPage(2);
+          }}
         >
           <p>2</p>
         </div>
@@ -70,7 +93,10 @@ export const CreateGuild = ({ ...props }: any) => {
           className={
             chainPage == 3 ? styles.chain_number_active : styles.chain_number
           }
-          onClick={() => setChainPage(3)}
+          onClick={() => {
+            playClickSound();
+            setChainPage(3);
+          }}
         >
           <p>3</p>
         </div>

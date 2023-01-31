@@ -244,7 +244,7 @@ export const Header = () => {
             <div ref={connectMenuRef}>
               {address ? (
                 <>
-                  <button
+                  <div
                     className={styles.connect_button}
                     // onClick={() => {
                     //   setIsConnectMenuSelected(!isConnectMenuSelected);
@@ -280,7 +280,7 @@ export const Header = () => {
                         ></path>
                       </svg>
                     </button>
-                  </button>
+                  </div>
                   {copiedAddress ? (
                     <div className={styles.copied_address_box}>Copied!</div>
                   ) : null}

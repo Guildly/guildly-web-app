@@ -39,16 +39,6 @@
   background-color: rgba(13, 17, 28, 0.6);
 }
 
-.token_card_open {
-  position      : fixed;
-  pointer-events: none;
-  background    : rgba(0, 0, 0, 0.9);
-  z-index       : 20;
-  margin        : auto;
-  left          : 35%;
-  top           : 20%;
-}
-
 .token_outline {
   position   : absolute;
   /* position: fixed; */
@@ -87,27 +77,8 @@
   text-overflow: ellipsis;
 }
 
-.token_title_open {
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  color          : #DCCB8D;
-  font-size      : 24px;
-  margin         : 35px 140px;
-  text-overflow  : ellipsis;
-  width          : 160px;
-}
-
-.token_title_open p {
-  margin: 0px;
-}
-
 .token_content {
   margin: 150px 40px 0px 15px;
-}
-
-.token_content_open {
-  margin: 375px 55px 0px 50px;
 }
 
 .token_header {
@@ -122,19 +93,9 @@
   font-size: 9px;
 }
 
-.game_open {
-  color    : #DCCB8D;
-  font-size: 18px;
-}
-
 .token_standard {
   color    : #D9D9D9;
   font-size: 7px;
-}
-
-.token_standard_open {
-  color    : #D9D9D9;
-  font-size: 14px;
 }
 
 .token_address {
@@ -142,20 +103,9 @@
   font-size: 5px;
 }
 
-.token_address_open {
-  color    : #9B7C61;
-  font-size: 10px;
-}
-
 .token_description {
   color    : #D9D9D9;
   font-size: 4px;
-  margin   : -5px 0px 0px 0px;
-}
-
-.token_description_open {
-  color    : #D9D9D9;
-  font-size: 8px;
   margin   : -5px 0px 0px 0px;
 }
 
@@ -176,19 +126,6 @@
   background     : #DCCB8D;
   cursor         : pointer;
   font-size      : 6px;
-  border         : none;
-}
-
-.deposit_button_open {
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  width          : 60px;
-  height         : 30px;
-  border-radius  : 5px;
-  background     : #DCCB8D;
-  cursor         : pointer;
-  font-size      : 12px;
   border         : none;
 }
 

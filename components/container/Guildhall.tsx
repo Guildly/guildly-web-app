@@ -21,12 +21,12 @@ export const Guildhall = () => {
         </div>
       </Link>
       <Link
-        href="/guildhall/my-guild"
+        href="/guildhall/my-guilds"
         onClick={() => playGuildSound()}
         passHref
       >
         <div className={styles.navbox}>
-          <p>My Guild</p>
+          <p>My Guilds</p>
         </div>
       </Link>
       <Link
@@ -50,6 +50,15 @@ export const Guildhall = () => {
       <Link href="/guildhall/games" onClick={() => playClickSound()} passHref>
         <div className={styles.navbox}>
           <p>Games</p>
+        </div>
+      </Link>
+      <Link
+        href="/guildhall/accounts"
+        onClick={() => playClickSound()}
+        passHref
+      >
+        <div className={styles.navbox}>
+          <p>Accounts</p>
         </div>
       </Link>
     </div>

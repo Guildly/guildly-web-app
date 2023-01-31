@@ -1,16 +1,16 @@
 import Layout from "../../components/Layout";
 import {
-  GuildhallLeftMenu,
-  GuildhallRightMenu,
-} from "../../components/sideMenus/guildhallMenu";
+  GuildSearchLeftMenu,
+  GuildSearchRightMenu,
+} from "../../components/sideMenus/guildSearchMenu";
 import { Guilds } from "../../components/container/guildhall/Guilds";
 
 export default function GuildsPage() {
   return (
     <div>
       <Layout
-        leftSideMenu={<GuildhallLeftMenu />}
-        rightSideMenu={<GuildhallRightMenu />}
+        leftSideMenu={<GuildSearchLeftMenu />}
+        rightSideMenu={<GuildSearchRightMenu />}
         main={<Guilds />}
       />
     </div>

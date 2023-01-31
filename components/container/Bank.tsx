@@ -36,15 +36,7 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
         setFetchNftsError(true);
       }
     );
-    fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
-      (data) => {
-        setGuildTokens(data.assets);
-      },
-      (err) => {
-        setFetchNftsError(true);
-      }
-    );
-  }, [accountTokens, guildTokens]);
+  }, [accountTokens]);
 
   return (
     <div className={styles.container}>

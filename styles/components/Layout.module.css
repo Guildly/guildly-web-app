@@ -182,12 +182,70 @@
     position      : fixed;
     display       : flex;
     flex-direction: column;
-    background    : #626A7C;
+    background    : #15202F;
     border-radius : 10px;
     overflow      : scroll;
-    margin        : 10px 0px 0px 0px;
     z-index       : 2;
-    height        : 15%;
+    width         : 30%;
+    color         : white;
+    box-shadow    : #15202F;
+}
+
+.search_dropdown p {
+    margin: 0px;
+}
+
+.section_header {
+    border-bottom: solid 1px #939498;
+    padding      : 10px;
+    color        : #D9D9D9;
+}
+
+.search_list {
+    display       : flex;
+    flex-direction: column;
+}
+
+.search_item {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 10px;
+    width         : 100%;
+    padding       : 5px;
+    cursor        : pointer;
+    border-bottom : solid 1px #939498;
+}
+
+.search_item:hover {
+    background: #939498;
+}
+
+.search_icon {
+    border-radius: 100px;
+}
+
+.search_content {
+    display       : flex;
+    flex-direction: column;
+}
+
+.item_attributes {
+    display       : flex;
+    flex-direction: row;
+    gap           : 20px;
+    font-size     : 10px;
+}
+
+.attribute {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.attribute_icon {
+    height: 10px;
+    width : 10px;
 }
 
 .back_box {

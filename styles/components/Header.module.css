@@ -255,8 +255,8 @@
     display         : block;
     clip-path       : ellipse(40% 46% at 50% 50%);
     background-color: rgb(66, 58, 17);
-    width           : 158px;
-    height          : 158px;
+    width           : 10.5%;
+    height          : 20.5%;
     top             : 0px;
     right           : 45.3%;
 }
@@ -267,8 +267,8 @@
     clip-path       : ellipse(40% 46% at 50% 50%);
     background-image: url(/guildly-logo.png);
     background-size : cover;
-    width           : 150px;
-    height          : 150px;
+    width           : 10%;
+    height          : 20%;
     top             : 4px;
     right           : 45.5%;
 }

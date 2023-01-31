@@ -49,12 +49,12 @@
 .tutorial_container {
     display         : flex;
     flex-direction  : column;
-    align-items     : center;
     background-color: #292724;
     height          : 70%;
     width           : 100%;
     border-radius   : 10px;
     overflow-y      : scroll;
+    padding         : 0 10px;
 }
 
 /* .tutorial_container::-webkit-scrollbar {

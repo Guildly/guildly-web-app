@@ -43,6 +43,7 @@
 .guildbox {
     display       : flex;
     flex-direction: row;
+    align-items   : center;
     gap           : 20px;
     height        : 80px;
     border        : 2px solid #DCCB8D;
@@ -82,6 +83,15 @@
     gap           : 10px;
     color         : white;
 }
+
+.attribute_stats {
+    font-size     : 12px;
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    color         : white;
+}
+
 
 .guild_attribute {
     color: #626A7C;
