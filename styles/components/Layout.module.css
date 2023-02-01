@@ -1,3 +1,8 @@
+.layout {
+    height: 90%;
+    width : 100%;
+}
+
 .content {
     display       : flex;
     flex-direction: row;
@@ -6,17 +11,21 @@
 }
 
 .left_menu {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    z-index        : 2;
-    width          : 20%;
-    height         : 100%;
-    left           : 0px;
-    top            : 0px;
-    justify-content: center;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow     : 5px 10px 10px;
+    position              : fixed;
+    display               : flex;
+    flex-direction        : column;
+    z-index               : 2;
+    width                 : 20%;
+    height                : 100%;
+    left                  : 0px;
+    top                   : 8%;
+    justify-content       : center;
+    transition            : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow            : 5px 10px 10px;
+    /* background         : #292724; */
+    background-image      : url("/guild-menu.svg");
+    background-size       : cover;
+    background-position   : 50% 100%;
 }
 
 .left_menu_collapsed {
@@ -74,17 +83,20 @@
 }
 
 .right_menu {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    z-index        : 2;
-    width          : 20%;
-    height         : 100%;
-    right          : 0px;
-    top            : 0px;
-    justify-content: center;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow     : -5px 10px 4px;
+    position           : fixed;
+    display            : flex;
+    flex-direction     : column;
+    z-index            : 2;
+    width              : 20%;
+    height             : 100%;
+    right              : 0px;
+    top                : 8%;
+    justify-content    : center;
+    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow         : -5px 10px 4px;
+    background-image   : url("/guild-menu.svg");
+    background-size    : cover;
+    background-position: 75%;
 }
 
 .right_menu_collapsed {
@@ -152,7 +164,7 @@
 }
 
 .main_header_area {
-    margin: 10% 25% 0% 25%;
+    margin: 15% 25% 0% 25%;
 }
 
 
@@ -161,15 +173,15 @@
     flex-direction: row;
     align-items   : center;
     position      : fixed;
+    top           : 10%;
     left          : 25%;
-    margin        : -80px 0px;
     width         : 300px;
     height        : 50px;
     gap           : 10px;
     border-radius : 10px;
     background    : rgba(31, 33, 36, 1);
-    border        : 2px solid #967C6E;
-    color         : #967C6E;
+    border        : 2px solid #DCCB8D;
+    color         : #DCCB8D;
     padding       : 0px 10px;
 }
 
@@ -283,9 +295,11 @@
 }
 
 .header {
+    position      : fixed;
     display       : flex;
     flex-direction: row;
     align-items   : center;
+    top           : 22.5%;
 }
 
 .header p {
@@ -299,7 +313,6 @@
     position       : fixed;
     right          : 50%;
     color          : #DCCB8D;
-    margin         : -40px -30px;
     font-size      : x-large;
 }
 

@@ -1,0 +1,144 @@
+.page {
+  min-height     : 100vh;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+}
+
+.page_text {
+  background     : #191b1fbb;
+  backdrop-filter: blur(10px);
+  border-radius  : 20px 10px 10px 20px;
+  padding        : 36px;
+  width          : min(75%, 1000px);
+  color          : white;
+  font-family    : Verdana, sans-serif;
+  font-size      : 15px;
+  margin         : 20px 100px;
+}
+
+.title {
+  font-size  : 38px;
+  font-weight: bold;
+}
+
+.body {
+  margin: 20px;
+}
+
+.logo {
+  width: 30%;
+}
+
+.buttons {
+  display        : flex;
+  justify-content: space-around;
+  gap            : 20px;
+  width          : 20%;
+}
+
+.button:hover .icon_text {
+  display: block;
+}
+
+.icon {
+  cursor: pointer;
+  margin: 0px 10px;
+  color : #DCCB8D;
+  width : 50%;
+}
+
+.icon_text {
+  display         : none;
+  position        : absolute;
+  font-family     : Verdana, sans-serif;
+  font-size       : 15px;
+  color           : #b5c1dece;
+  background-color: #4b57695b;
+  padding         : 6px 8px 8px 9px;
+}
+
+.icon_right {
+  margin-top   : -3px;
+  margin-left  : 43px;
+  border-radius: 0px 16px 16px;
+}
+
+.icon_middle {
+  margin-top   : 4px;
+  margin-left  : 40px;
+  border-radius: 0px 16px 16px;
+}
+
+.icon_left {
+  margin-top   : -3px;
+  margin-left  : -60px;
+  border-radius: 16px 0px 16px 16px;
+}
+
+.scroll_icon {
+  cursor  : pointer;
+  position: absolute;
+  color   : #bec6dbe5;
+  width   : 70px;
+  bottom  : 4vh;
+}
+
+.scroll_icon:hover {
+  color: #b5c1de40;
+}
+
+.footer {
+  position       : fixed;
+  bottom         : 0px;
+  margin         : auto;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  gap            : 10px;
+}
+
+.footer_icons {
+  display    : flex;
+  align-items: center;
+  gap        : 20px;
+}
+
+.footer_icon {
+  color: #6B7371;
+  width: 40px;
+}
+
+.footer_copyright {
+  font-family: Verdana, sans-serif;
+  color      : white;
+  font-size  : 12px;
+}
+
+/* 
+@media (max-width: 620px) {
+  .logo {
+    margin-top: -15vh;
+  }
+
+  .scroll_icon {
+    bottom: 48px;
+  }
+
+}
+
+@media (max-width:1900px) {
+  .logo {
+    width: 360px;
+  }
+
+  .icon {
+    width: 36px;
+  }
+
+  .scroll_icon {
+    width: 48px;
+  }
+} */
