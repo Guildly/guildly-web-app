@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .menu {
     background-image   : url('/dark-blue-gold-parchment.png');
     background-size    : cover;
@@ -27,46 +27,37 @@
     
 }
 
-=======
-.box {
-    padding      : 50px 20px;
-    height       : 100%;
-    width        : 100%;
-    border-radius: 10px;
-    overflow-x   : hidden;
 }
 
 .content_container {
     display       : flex;
     flex-direction: column;
-    background    : #292724;
+    background    : rgba(31, 33, 36, 0.9);
     padding       : 0px 10px;
     height        : 75%;
     width         : 100%;
     border-radius : 10px;
+    border        : 2px solid #DCCB8D;
 }
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
 
 .content_title {
     display        : flex;
     align-items    : center;
     justify-content: center;
     font-size      : large;
-    text-shadow    : 0px 1px 2px;
     color: #DCCB8D;
 }
 
-.tutorial_container {
 
-    display         : flex;
-    flex-direction  : column;
-    background-color: #292724;
-    height          : 273px;
-    width           : 100%;
-    border-radius   : 5px;
-    border: 2px solid rgb(66, 58, 17);
-    overflow-y      : scroll;
-    padding         : 0 10px;
+.tutorial_container {
+    display       : flex;
+    flex-direction: column;
+    height        : 70%;
+    width         : 100%;
+    border-radius : 10px;
+    overflow-y    : scroll;
+    padding       : 0 10px;
+    
 }
 
 /* .tutorial_container::-webkit-scrollbar {

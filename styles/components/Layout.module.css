@@ -11,20 +11,20 @@
 }
 
 .left_menu {
-    position           : fixed;
-    display            : flex;
-    flex-direction     : column;
-    z-index            : 2;
-    width              : 20%;
-    height             : 100%;
-    left               : 0px;
-    top                : 8%;
-    justify-content    : center;
-    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow         : 5px 10px 10px;
-    background-image   : url("/guild-menu.svg");
-    background-size    : cover;
-    background-position: 50% 100%;
+    position       : fixed;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 2;
+    width          : 20%;
+    height         : 100%;
+    left           : 0px;
+    top            : 8%;
+    justify-content: center;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow     : 5px 10px 10px;
+
+    background-position: 0% 100%;
+    padding-left       : 4%;
 }
 
 .left_menu_collapsed {
@@ -73,7 +73,7 @@
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
-    left           : 3%;
+    left           : 6%;
     top            : 200px;
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
@@ -99,9 +99,10 @@
     justify-content    : center;
     transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
     box-shadow         : -5px 10px 4px;
-    background-image   : url("/guild-menu.svg");
-    background-size    : cover;
-    background-position: 75%;
+    background-image   : url("/right-menu.svg");
+    background-size    : contain;
+    background-repeat  : no-repeat;
+    background-position: 100% 100%;
 }
 
 .right_menu_collapsed {

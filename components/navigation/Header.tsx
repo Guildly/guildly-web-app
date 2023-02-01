@@ -109,19 +109,7 @@ export const Header = () => {
   return (
     <>
       <div className={styles.header}>
-        {/* <div
-          className={
-            isPage("guildhall")
-              ? styles.left_guildhall_border
-              : isPage("council")
-              ? styles.left_council_border
-              : isPage("bank")
-              ? styles.left_bank_border
-              : isPage("market")
-              ? styles.left_market_border
-              : undefined
-          }
-        /> */}
+        <div className={styles.left_border} />
         <div className={styles.left_head} />
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
