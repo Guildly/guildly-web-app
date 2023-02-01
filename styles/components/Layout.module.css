@@ -11,21 +11,20 @@
 }
 
 .left_menu {
-    position              : fixed;
-    display               : flex;
-    flex-direction        : column;
-    z-index               : 2;
-    width                 : 20%;
-    height                : 100%;
-    left                  : 0px;
-    top                   : 8%;
-    justify-content       : center;
-    transition            : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow            : 5px 10px 10px;
-    /* background         : #292724; */
-    background-image      : url("/guild-menu.svg");
-    background-size       : cover;
-    background-position   : 50% 100%;
+    position           : fixed;
+    display            : flex;
+    flex-direction     : column;
+    z-index            : 2;
+    width              : 20%;
+    height             : 100%;
+    left               : 0px;
+    top                : 8%;
+    justify-content    : center;
+    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow         : 5px 10px 10px;
+    background-image   : url("/guild-menu.svg");
+    background-size    : cover;
+    background-position: 50% 100%;
 }
 
 .left_menu_collapsed {
@@ -44,8 +43,7 @@
     justify-content: center;
     align-items    : center;
     position       : absolute;
-    background     : url(/polished-oak-texture.png);
-    background-size: cover;
+    background     : rgb(50, 49, 49);
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -63,8 +61,7 @@
     align-items    : center;
     justify-content: center;
     position       : absolute;
-    background     : url(/polished-oak-texture.png);
-    background-size: cover;
+    background     : rgb(50, 49, 49);
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -116,8 +113,7 @@
     justify-content: center;
     align-items    : center;
     position       : absolute;
-    background     : url(/polished-oak-texture.png);
-    background-size: cover;
+    background     : rgb(50, 49, 49);
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -135,8 +131,7 @@
     align-items    : center;
     justify-content: center;
     position       : absolute;
-    background     : url(/polished-oak-texture.png);
-    background-size: cover;
+    background     : rgb(50, 49, 49);
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;

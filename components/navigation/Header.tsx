@@ -122,17 +122,7 @@ export const Header = () => {
               : undefined
           }
         /> */}
-        {/* <div
-          className={
-            isPage("guildhall")
-              ? styles.left_guildhall_head
-              : isPage("council")
-              ? styles.left_council_head
-              : isPage("market")
-              ? styles.left_market_head
-              : undefined
-          }
-        /> */}
+        <div className={styles.left_head} />
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
             <Link
@@ -387,18 +377,8 @@ export const Header = () => {
             </div>
           </div>
         </div>
+        <div className={styles.right_head} />
         {/* <div
-          className={
-            isPage("council")
-              ? styles.right_council_head
-              : isPage("market")
-              ? styles.right_market_head
-              : isPage("guildhall")
-              ? styles.right_guildhall_head
-              : undefined
-          }
-        />
-        <div
           className={
             isPage("guildhall")
               ? styles.right_guildhall_border

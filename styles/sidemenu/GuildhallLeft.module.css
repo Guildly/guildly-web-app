@@ -1,24 +1,20 @@
 .box {
-    /* background-color: #292724; */
-    padding      : 10px;
+    padding      : 50px 20px;
     height       : 100%;
     width        : 100%;
     border-radius: 10px;
     overflow-x   : hidden;
 }
 
-/* .content_container {
-    display            : flex;
-    flex-direction     : column;
-    background-image   : url(/another-rough-old-and-worn-parchment-paper-900x741.png);
-    background-size    : cover;
-    background-position: center;
-    background-repeat  : no-repeat;
-    padding            : 0px 10px;
-    height             : 75%;
-    width              : 100%;
-    border-radius      : 10px;
-} */
+.content_container {
+    display       : flex;
+    flex-direction: column;
+    background    : #292724;
+    padding       : 0px 10px;
+    height        : 75%;
+    width         : 100%;
+    border-radius : 10px;
+}
 
 .content_title {
     display        : flex;
