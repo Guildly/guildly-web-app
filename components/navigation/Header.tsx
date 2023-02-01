@@ -39,6 +39,7 @@ export const Header = () => {
   const [isGuildDialogSelected, setIsGuildDialogSelected] = useState(false);
   const [isConnectMenuSelected, setIsConnectMenuSelected] = useState(false);
   const [isTransactionsSelected, setIsTransactionsSelected] = useState(false);
+  const [isMusicSelected, setIsMusicSelected] = useState(false);
 
   const guildDialogRef = useRef<HTMLDivElement>(null);
   const connectMenuRef = useRef<HTMLDivElement>(null);
@@ -108,22 +109,23 @@ export const Header = () => {
   return (
     <>
       <div className={styles.header}>
-        <div
+        {/* <div
           className={
             isPage("guildhall")
-              ? styles.left_council_border
+              ? styles.left_guildhall_border
               : isPage("council")
               ? styles.left_council_border
               : isPage("bank")
               ? styles.left_bank_border
-              : styles.left_council_border
+              : isPage("market")
+              ? styles.left_market_border
+              : undefined
           }
-        />
-        {isPage("council") ? (
-          <div className={styles.left_council_head} />
-        ) : null}
+        /> */}
+        <div className={styles.left_head} />
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
+<<<<<<< HEAD
             <Link href="/guildhall" passHref onClick={() => playDoorSound()}>
               <div className={styles.link_container}>
                 <svg
@@ -162,32 +164,86 @@ export const Header = () => {
                 </svg>
                 <p className={navStyle("market")}>Trade</p>
               </div>
+=======
+            <Link
+              href="/guildhall"
+              passHref
+              onClick={() => playDoorSound()}
+              className={styles.link_container}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                fill="currentColor"
+                className={styles.icon}
+              >
+                <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+              </svg>
+              <p className={navStyle("guildhall")}>Guildhall</p>
             </Link>
-            <Link href="/council" passHref onClick={() => playGavelSound()}>
-              <div className={styles.link_container}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 512"
-                  fill="currentColor"
-                  className={styles.icon}
-                >
-                  <path d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zM125.8 177.3L51.1 320H204.9L130.2 177.3c-.4-.8-1.3-1.3-2.2-1.3s-1.7 .5-2.2 1.3zM128 128c18.8 0 36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C210.9 402.6 178.2 416 128 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L83.3 155c8.7-16.6 25.9-27 44.7-27zm384 48c-.9 0-1.7 .5-2.2 1.3L435.1 320H588.9L514.2 177.3c-.4-.8-1.3-1.3-2.2-1.3zm-44.7-21c8.7-16.6 25.9-27 44.7-27s36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C594.9 402.6 562.2 416 512 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L467.3 155z" />
-                </svg>
-                <p className={navStyle("council")}>Council</p>
-              </div>
+            <Link
+              href="/bank"
+              passHref
+              onClick={() => playCoinsSound()}
+              className={styles.link_container}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                fill="currentColor"
+                className={styles.icon}
+              >
+                <path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8.1-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zm128-96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+              </svg>
+              <p className={navStyle("bank")}>Bank</p>
+            </Link>
+            <Link
+              href="/market"
+              passHref
+              onClick={() => playSwordSound()}
+              className={styles.link_container}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                fill="currentColor"
+                className={styles.icon}
+              >
+                <path d="M512 80c0 18-14.3 34.6-38.4 48c-29.1 16.1-72.5 27.5-122.3 30.9c-3.7-1.8-7.4-3.5-11.3-5C300.6 137.4 248.2 128 192 128c-8.3 0-16.4 .2-24.5 .6l-1.1-.6C142.3 114.6 128 98 128 80c0-44.2 86-80 192-80S512 35.8 512 80zM160.7 161.1c10.2-.7 20.7-1.1 31.3-1.1c62.2 0 117.4 12.3 152.5 31.4C369.3 204.9 384 221.7 384 240c0 4-.7 7.9-2.1 11.7c-4.6 13.2-17 25.3-35 35.5c0 0 0 0 0 0c-.1 .1-.3 .1-.4 .2l0 0 0 0c-.3 .2-.6 .3-.9 .5c-35 19.4-90.8 32-153.6 32c-59.6 0-112.9-11.3-148.2-29.1c-1.9-.9-3.7-1.9-5.5-2.9C14.3 274.6 0 258 0 240c0-34.8 53.4-64.5 128-75.4c10.5-1.5 21.4-2.7 32.7-3.5zM416 240c0-21.9-10.6-39.9-24.1-53.4c28.3-4.4 54.2-11.4 76.2-20.5c16.3-6.8 31.5-15.2 43.9-25.5V176c0 19.3-16.5 37.1-43.8 50.9c-14.6 7.4-32.4 13.7-52.4 18.5c.1-1.8 .2-3.5 .2-5.3zm-32 96c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9C304.9 404.7 251.6 416 192 416c-62.8 0-118.6-12.6-153.6-32C14.3 370.6 0 354 0 336V300.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 342.6 135.8 352 192 352s108.6-9.4 148.1-25.9c7.8-3.2 15.3-6.9 22.4-10.9c6.1-3.4 11.8-7.2 17.2-11.2c1.5-1.1 2.9-2.3 4.3-3.4V304v5.7V336zm32 0V304 278.1c19-4.2 36.5-9.5 52.1-16c16.3-6.8 31.5-15.2 43.9-25.5V272c0 10.5-5 21-14.9 30.9c-16.3 16.3-45 29.7-81.3 38.4c.1-1.7 .2-3.5 .2-5.3zM192 448c56.2 0 108.6-9.4 148.1-25.9c16.3-6.8 31.5-15.2 43.9-25.5V432c0 44.2-86 80-192 80S0 476.2 0 432V396.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 438.6 135.8 448 192 448z" />
+              </svg>
+              <p className={navStyle("market")}>Market</p>
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
+            </Link>
+            <Link
+              href="/council"
+              passHref
+              onClick={() => playGavelSound()}
+              className={styles.link_container}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+                fill="currentColor"
+                className={styles.icon}
+              >
+                <path d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zM125.8 177.3L51.1 320H204.9L130.2 177.3c-.4-.8-1.3-1.3-2.2-1.3s-1.7 .5-2.2 1.3zM128 128c18.8 0 36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C210.9 402.6 178.2 416 128 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L83.3 155c8.7-16.6 25.9-27 44.7-27zm384 48c-.9 0-1.7 .5-2.2 1.3L435.1 320H588.9L514.2 177.3c-.4-.8-1.3-1.3-2.2-1.3zm-44.7-21c8.7-16.6 25.9-27 44.7-27s36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C594.9 402.6 562.2 416 512 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L467.3 155z" />
+              </svg>
+              <p className={navStyle("council")}>Council</p>
             </Link>
           </div>
-          <div className={styles.logo_border} />
-          {isPage("my-guild") && guild ? (
-            <div
-              className={styles.logo}
-              style={{
-                backgroundImage: "url(" + guild.emblem + ")",
-              }}
-            />
-          ) : (
-            <div className={styles.logo} />
-          )}
+          <Link href="/" passHref>
+            <div className={styles.logo_border} />
+            {isPage("my-guild") && guild ? (
+              <div
+                className={styles.logo}
+                style={{
+                  backgroundImage: "url(" + guild.emblem + ")",
+                }}
+              />
+            ) : (
+              <div className={styles.logo} />
+            )}
+          </Link>
           <div className={styles.network_links}>
             <div ref={guildDialogRef}>
               {guild && guild.name ? (
@@ -233,7 +289,7 @@ export const Header = () => {
             <div ref={connectMenuRef}>
               {address ? (
                 <>
-                  <button
+                  <div
                     className={styles.connect_button}
                     // onClick={() => {
                     //   setIsConnectMenuSelected(!isConnectMenuSelected);
@@ -269,7 +325,7 @@ export const Header = () => {
                         ></path>
                       </svg>
                     </button>
-                  </button>
+                  </div>
                   {copiedAddress ? (
                     <div className={styles.copied_address_box}>Copied!</div>
                   ) : null}
@@ -315,22 +371,65 @@ export const Header = () => {
                 </div>
               ) : null}
             </div>
+
+            <div
+              className={styles.music_button}
+              onClick={() => {
+                setIsMusicSelected(!isMusicSelected);
+                playClickSound();
+              }}
+            >
+              {isMusicSelected ? (
+                <svg
+                  className={styles.sound_icon}
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                >
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill-rule="evenodd"
+                  >
+                    <g id="icon" transform="translate(42.666667, 85.333333)">
+                      <path
+                        d="M361.299413,341.610667 L328.014293,314.98176 C402.206933,233.906133 402.206933,109.96608 328.013013,28.8906667 L361.298133,2.26304 C447.910187,98.97536 447.908907,244.898347 361.299413,341.610667 Z M276.912853,69.77216 L243.588693,96.4309333 C283.38432,138.998613 283.38304,204.87488 243.589973,247.44256 L276.914133,274.101333 C329.118507,215.880107 329.118507,127.992107 276.912853,69.77216 Z M191.749973,1.42108547e-14 L80.8957867,87.2292267 L7.10542736e-15,87.2292267 L7.10542736e-15,257.895893 L81.0208,257.895893 L191.749973,343.35424 L191.749973,1.42108547e-14 L191.749973,1.42108547e-14 Z"
+                        id="Shape"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              ) : (
+                <svg
+                  className={styles.sound_icon}
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                >
+                  <g id="icon" transform="translate(42.666667, 59.581722)">
+                    <path
+                      d="M47.0849493,-1.42108547e-14 L298.668,251.583611 L304.101001,257.015597 L304.101,257.016 L353.573532,306.488791 C353.573732,306.488458 353.573933,306.488124 353.574133,306.48779 L384.435257,337.348961 L384.434,337.349 L409.751616,362.666662 L379.581717,392.836561 L191.749,205.003 L191.749973,369.105851 L81.0208,283.647505 L7.10542736e-15,283.647505 L7.10542736e-15,112.980838 L80.8957867,112.980838 L91.433,104.688 L16.9150553,30.169894 L47.0849493,-1.42108547e-14 Z M361.298133,28.0146513 C429.037729,103.653701 443.797162,209.394226 405.578884,298.151284 L372.628394,265.201173 C396.498256,194.197542 381.626623,113.228555 328.013013,54.642278 L361.298133,28.0146513 Z M276.912853,95.5237713 C305.539387,127.448193 318.4688,168.293162 315.701304,208.275874 L266.464558,159.040303 C261.641821,146.125608 254.316511,133.919279 244.488548,123.156461 L243.588693,122.182545 L276.912853,95.5237713 Z M191.749973,25.7516113 L191.749,84.3256113 L158.969,51.5456113 L191.749973,25.7516113 Z"
+                      id="Combined-Shape"
+                    ></path>
+                  </g>
+                </svg>
+              )}
+            </div>
           </div>
         </div>
-        {isPage("council") ? (
-          <div className={styles.right_council_head} />
-        ) : null}
-        <div
+        <div className={styles.right_head} />
+        {/* <div
           className={
             isPage("guildhall")
-              ? styles.right_council_border
+              ? styles.right_guildhall_border
               : isPage("council")
               ? styles.right_council_border
               : isPage("bank")
               ? styles.right_bank_border
-              : styles.right_council_border
+              : styles.right_market_border
           }
-        />
+        /> */}
       </div>
     </>
   );

@@ -10,6 +10,7 @@ import {
   AspectNft,
   AspectNftAsset,
 } from "../../features/accountNfts/aspect.model";
+import { TokenOpen } from "../token/TokenOpen";
 
 interface BankProps {
   tab: string;
@@ -35,15 +36,7 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
         setFetchNftsError(true);
       }
     );
-    fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
-      (data) => {
-        setGuildTokens(data.assets);
-      },
-      (err) => {
-        setFetchNftsError(true);
-      }
-    );
-  }, [accountTokens, guildTokens]);
+  }, [accountTokens]);
 
   return (
     <div className={styles.container}>
@@ -66,8 +59,16 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
           <div className={styles.tokens_area}>
             {tab == "Account" ? (
               accountTokens && accountAddress ? (
-                accountTokens.map((token, index) => {
-                  return (
+                accountTokens.map((token, index) =>
+                  selectedToken == index ? (
+                    <TokenOpen
+                      key={index}
+                      isSelected={selectedToken === index}
+                      setSelectedToken={setSelectedToken}
+                      index={index}
+                      token={token}
+                    />
+                  ) : (
                     <TokenCard
                       key={index}
                       isSelected={selectedToken === index}
@@ -75,8 +76,8 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
                       index={index}
                       token={token}
                     />
-                  );
-                })
+                  )
+                )
               ) : (
                 <div className={styles.connect_area}>
                   <p className={styles.connect_message}>
@@ -96,8 +97,8 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
                   <p>GUILD TOKENS</p>
                 </div>
               ) : (
-                <div>
-                  <p>Connect to Guild</p>
+                <div className={styles.connect_area}>
+                  <p className={styles.connect_message}>Connect to Guild</p>
                 </div>
               )
             ) : null}

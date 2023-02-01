@@ -252,3 +252,37 @@
     width : 20%;
     height: 50px;
 }
+
+.members_content {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+}
+
+.members_form {
+    display       : flex;
+    flex-direction: row;
+}
+
+.members_address {
+    width: 70%;
+}
+
+.members_role {
+    width: 30%;
+}
+
+.role_explainer {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    color         : white;
+}
+
+.role_explainer p {
+    margin: 0px;
+}
+
+.role_text {
+    color: #DCCB8D;
+}

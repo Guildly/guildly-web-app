@@ -7,10 +7,16 @@
 }
 
 .wallet_box {
-    width        : 200px;
-    height       : 50px;
-    border       : 2px solid #DCCB8D;
-    border-radius: 10px;
-    background   : #162334;
-    color        : #DCCB8D;
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+    gap            : 10px;
+    width          : 200px;
+    height         : 50px;
+    border         : 2px solid #DCCB8D;
+    border-radius  : 10px;
+    background     : #162334;
+    color          : #DCCB8D;
+    cursor         : pointer;
 }

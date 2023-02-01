@@ -1,9 +1,11 @@
 .header {
     display       : flex;
     flex-direction: row;
+    align-items   : center;
     z-index       : 4;
     position      : fixed;
     width         : 100%;
+    height        : 8%;
 }
 
 .left_corner {
@@ -13,6 +15,80 @@
     z-index         : 4;
     height          : 100px;
     border-radius   : 0px 0px 100px 0px;
+}
+
+.left_head {
+    position           : fixed;
+    background-image   : url('/left-header.svg');
+    background-size    : cover;
+    background-position: 100% 100%;
+    top                : 0px;
+    left               : 0px;
+    height             : 20%;
+    width              : 8%;
+    z-index            : 2;
+}
+
+.right_head {
+    position           : fixed;
+    background-image   : url('/right-header.svg');
+    background-size    : cover;
+    background-position: 0% 100%;
+    top                : 0px;
+    right              : -20px;
+    height             : 20%;
+    width              : 8%;
+    z-index            : 2;
+}
+
+.left_guildhall_head {
+    position           : fixed;
+    background-image   : url('/left_guildhall_head.svg');
+    background-size    : cover;
+    background-position: 100% 100%;
+    top                : 0px;
+    left               : 0px;
+    height             : 20%;
+    width              : 8%;
+    z-index            : 2;
+}
+
+
+.left_guildhall_border {
+    position           : fixed;
+    background-image   : url('/left_guildhall_base.svg');
+    background-size    : cover;
+    background-position: 100% 100%;
+    height             : 120%;
+    width              : 3%;
+    top                : -70px;
+    left               : 0px;
+    z-index            : 1;
+}
+
+.left_market_head {
+    position           : fixed;
+    background-image   : url('/left_blue_wood_head.svg');
+    background-size    : cover;
+    background-position: 100% 100%;
+    top                : 0px;
+    left               : 0px;
+    height             : 20%;
+    width              : 8%;
+    z-index            : 2;
+}
+
+
+.left_market_border {
+    position           : fixed;
+    background-image   : url('/left_blue_wood_base.svg');
+    background-size    : cover;
+    background-position: 100% 100%;
+    height             : 120%;
+    width              : 3%;
+    top                : 0px;
+    left               : 0px;
+    z-index            : 1;
 }
 
 .left_council_head {
@@ -37,6 +113,52 @@
     top                : -70px;
     left               : 0px;
     z-index            : 1;
+}
+
+.right_guildhall_head {
+    position           : fixed;
+    background-image   : url('/right_guildhall_head.svg');
+    background-size    : cover;
+    background-position: 0% 100%;
+    top                : 0px;
+    right              : -20px;
+    height             : 20%;
+    width              : 8%;
+    z-index            : 2;
+}
+
+.right_guildhall_border {
+    position        : fixed;
+    background-image: url('/right_guildhall_base.svg');
+    background-size : cover;
+    height          : 120%;
+    top             : -50px;
+    width           : 3%;
+    right           : 0px;
+    z-index         : 1;
+}
+
+.right_market_head {
+    position           : fixed;
+    background-image   : url('/right_market_head.svg');
+    background-size    : cover;
+    background-position: 0% 100%;
+    top                : 0px;
+    right              : -20px;
+    height             : 20%;
+    width              : 8%;
+    z-index            : 2;
+}
+
+.right_market_border {
+    position        : fixed;
+    background-image: url('/right_market_base.svg');
+    background-size : cover;
+    height          : 120%;
+    top             : -50px;
+    width           : 3%;
+    right           : 0px;
+    z-index         : 1;
 }
 
 .right_council_head {
@@ -102,12 +224,13 @@
     display        : flex;
     flex-direction : row;
     width          : 100%;
-    height         : 50px;
+    height         : 60px;
     justify-content: space-between;
-    background     : rgba(0, 0, 0, 1);
+    background     : rgba(31, 33, 36, 1);
     border         : solid;
+    border-radius  : 20px;
     border-color   : rgb(66, 58, 17);
-    border-width   : 4px;
+    border-width   : 5px;
 }
 
 .nav_links {
@@ -115,24 +238,25 @@
     flex-direction : row;
     justify-content: center;
     align-items    : center;
-    margin         : 0 0px 0px 60px;
-    gap            : 15px;
-    padding        : 0px 5px;
+    margin         : 0 0px 0px 150px;
+    gap            : 10px;
+    padding        : 0px 10px;
 }
 
 .link_container {
     display       : flex;
     flex-direction: row;
     align-items   : center;
-    padding       : 5px;
-    gap           : 18px;
-    width         : 110px;
-    height        : 34px;
-    border-radius : 3px;
+    padding       : 8px;
+    gap           : 5px;
+    width         : 100px;
+    height        : 40px;
+    border        : solid;
+    border-color  : #513A2B;
+    border-radius : 5px;
     background    : linear-gradient(266.15deg, rgba(71, 71, 81, 0.75) 0%, #474751 100%);
-    color         : #d5d0c7;
-    margin-left: 15px;
-    border: rgb(66, 58, 17) 2px solid;
+    color         : #967C6E;
+    box-shadow    : 2px 2px 4px #141824;
 }
 
 .link_container:hover {
@@ -158,8 +282,8 @@
     display         : block;
     clip-path       : ellipse(40% 46% at 50% 50%);
     background-color: rgb(66, 58, 17);
-    width           : 160px;
-    height          : 160px;
+    width           : 158px;
+    height          : 158px;
     top             : 0px;
     right           : 43.75%;
 }
@@ -172,8 +296,8 @@
     background-size : cover;
     width           : 150px;
     height          : 150px;
-    top             : 5px;
-    right           : 44.1%;
+    top             : 4px;
+    right           : 45.5%;
 }
 
 /* .logo img {
@@ -339,4 +463,21 @@
     top           : 60px;
     right         : 65px;
     border-radius : 10px;
+}
+
+.music_button {
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-image: url('/heavy-button-border.svg');
+    background-size : cover;
+    cursor          : pointer;
+    width           : 80px;
+    height          : 70%;
+}
+
+.sound_icon {
+    width : 30px;
+    height: 30px;
+    color : #DCCB8D;
 }

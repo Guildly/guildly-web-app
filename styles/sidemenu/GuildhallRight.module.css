@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .menu {
     background-image   : url('/dark-blue-gold-parchment.png');
     background-size    : cover;
@@ -16,6 +17,26 @@
     width           : 100%;
     border-radius   : 10px;
     overflow-x      : hidden;
+=======
+.box {
+    padding      : 50px 20px;
+    height       : 100%;
+    width        : 100%;
+    border-radius: 10px;
+    overflow-x   : hidden;
+}
+
+.content_container {
+    display            : flex;
+    flex-direction     : column;
+    background         : #292724;
+    background-position: center;
+    background-repeat  : no-repeat;
+    padding            : 0px 10px;
+    height             : 75%;
+    width              : 100%;
+    border-radius      : 10px;
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
 }
 
 .content_title {

@@ -36,30 +36,27 @@
 }
 
 .guild_elements {
-    display        : flex;
-    flex-direction : column;
-    gap            : 20px;
-    align-items    : center;
-    justify-content: center;
-    height         : 60%;
-    overflow       : scroll;
+    height  : 60%;
+    overflow: scroll;
 }
 
 .guildbox {
     display       : flex;
     flex-direction: row;
+    align-items   : center;
     gap           : 20px;
-    width         : 60%;
     height        : 80px;
     border        : 2px solid #DCCB8D;
     border-radius : 10px;
     background    : #15202F;
     cursor        : pointer;
     padding       : 10px;
+    margin        : 20px;
 }
 
 .guildbox p {
-    color: wheat;
+    color : wheat;
+    margin: 0px;
 }
 
 .guild_icon {
@@ -85,6 +82,19 @@
     flex-direction: row;
     gap           : 10px;
     color         : white;
+}
+
+.attribute_stats {
+    font-size     : 12px;
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    color         : white;
+}
+
+
+.guild_attribute {
+    color: #626A7C;
 }
 
 .join_box {

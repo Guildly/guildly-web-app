@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Layout from "../../components/Layout";
 import { CreateGuild } from "../../components/container/guildhall/CreateGuild";
 import {
-  GuildhallLeftMenu,
-  GuildhallRightMenu,
-} from "../../components/sideMenus/guildhallMenu";
+  CreateGuildLeftMenu,
+  CreateGuildRightMenu,
+} from "../../components/sideMenus/guildhall/createGuildMenu";
 import * as yup from "yup";
 import { OptionalObjectSchema } from "yup/lib/object";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -113,8 +113,8 @@ export default function CreateAGuildPage() {
   return (
     <div>
       <Layout
-        leftSideMenu={<GuildhallLeftMenu />}
-        rightSideMenu={<GuildhallRightMenu />}
+        leftSideMenu={<CreateGuildLeftMenu />}
+        rightSideMenu={<CreateGuildRightMenu />}
         main={<CreateGuild {...props} />}
       />
     </div>

@@ -1,3 +1,8 @@
+.layout {
+    height: 90%;
+    width : 100%;
+}
+
 .content {
     display       : flex;
     flex-direction: row;
@@ -6,17 +11,20 @@
 }
 
 .left_menu {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    z-index        : 2;
-    width          : 20%;
-    height         : 100%;
-    left           : 0px;
-    top            : 0px;
-    justify-content: center;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow     : 5px 10px 10px;
+    position           : fixed;
+    display            : flex;
+    flex-direction     : column;
+    z-index            : 2;
+    width              : 20%;
+    height             : 100%;
+    left               : 0px;
+    top                : 8%;
+    justify-content    : center;
+    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow         : 5px 10px 10px;
+    background-image   : url("/guild-menu.svg");
+    background-size    : cover;
+    background-position: 50% 100%;
 }
 
 .left_menu_collapsed {
@@ -36,7 +44,10 @@
     align-items    : center;
     position       : absolute;
     background     : rgb(50, 49, 49);
+<<<<<<< HEAD
     background-size: cover;
+=======
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -55,7 +66,10 @@
     justify-content: center;
     position       : absolute;
     background     : rgb(50, 49, 49);
+<<<<<<< HEAD
     background-size: cover;
+=======
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -74,17 +88,20 @@
 }
 
 .right_menu {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    z-index        : 2;
-    width          : 20%;
-    height         : 100%;
-    right          : 0px;
-    top            : 0px;
-    justify-content: center;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow     : -5px 10px 4px;
+    position           : fixed;
+    display            : flex;
+    flex-direction     : column;
+    z-index            : 2;
+    width              : 20%;
+    height             : 100%;
+    right              : 0px;
+    top                : 8%;
+    justify-content    : center;
+    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow         : -5px 10px 4px;
+    background-image   : url("/guild-menu.svg");
+    background-size    : cover;
+    background-position: 75%;
 }
 
 .right_menu_collapsed {
@@ -105,7 +122,10 @@
     align-items    : center;
     position       : absolute;
     background     : rgb(50, 49, 49);
+<<<<<<< HEAD
     background-size: cover;
+=======
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -124,7 +144,10 @@
     justify-content: center;
     position       : absolute;
     background     : rgb(50, 49, 49);
+<<<<<<< HEAD
     background-size: cover;
+=======
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -152,7 +175,7 @@
 }
 
 .main_header_area {
-    margin: 10% 25% 0% 25%;
+    margin: 15% 25% 0% 25%;
 }
 
 
@@ -161,21 +184,96 @@
     flex-direction: row;
     align-items   : center;
     position      : fixed;
+<<<<<<< HEAD
     left          : 22%;
     margin        : -80px 0px;
+=======
+    top           : 10%;
+    left          : 25%;
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     width         : 300px;
     height        : 50px;
     gap           : 10px;
     border-radius : 10px;
     background    : rgba(31, 33, 36, 1);
-    border        : 2px solid #967C6E;
-    color         : #967C6E;
+    border        : 2px solid #DCCB8D;
+    color         : #DCCB8D;
     padding       : 0px 10px;
 }
 
 .search_icon {
     width : 20px;
     height: 20px;
+}
+
+.search_dropdown {
+    position      : fixed;
+    display       : flex;
+    flex-direction: column;
+    background    : #15202F;
+    border-radius : 10px;
+    overflow      : scroll;
+    z-index       : 2;
+    width         : 30%;
+    color         : white;
+    box-shadow    : #15202F;
+}
+
+.search_dropdown p {
+    margin: 0px;
+}
+
+.section_header {
+    border-bottom: solid 1px #939498;
+    padding      : 10px;
+    color        : #D9D9D9;
+}
+
+.search_list {
+    display       : flex;
+    flex-direction: column;
+}
+
+.search_item {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 10px;
+    width         : 100%;
+    padding       : 5px;
+    cursor        : pointer;
+    border-bottom : solid 1px #939498;
+}
+
+.search_item:hover {
+    background: #939498;
+}
+
+.search_icon {
+    border-radius: 100px;
+}
+
+.search_content {
+    display       : flex;
+    flex-direction: column;
+}
+
+.item_attributes {
+    display       : flex;
+    flex-direction: row;
+    gap           : 20px;
+    font-size     : 10px;
+}
+
+.attribute {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.attribute_icon {
+    height: 10px;
+    width : 10px;
 }
 
 .back_box {
@@ -213,9 +311,15 @@
 }
 
 .header {
+    position      : fixed;
     display       : flex;
     flex-direction: row;
     align-items   : center;
+    top           : 22.5%;
+}
+
+.header p {
+    margin: 0px;
 }
 
 .page_title {
@@ -223,10 +327,14 @@
     flex-direction: row;
     position: fixed;
     color          : #DCCB8D;
+<<<<<<< HEAD
     font-size      :28px;
     margin-top: 80px;
     margin-left: 22%;
     
+=======
+    font-size      : x-large;
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
 }
 
 .main_container {

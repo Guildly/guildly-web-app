@@ -21,27 +21,44 @@ export const Guildhall = () => {
         </div>
       </Link>
       <Link
-        href="/guildhall/my-guild"
+        href="/guildhall/my-guilds"
         onClick={() => playGuildSound()}
         passHref
       >
         <div className={styles.navbox}>
-          <p>My Guild</p>
+          <p>My Guilds</p>
         </div>
       </Link>
-      <Link href="/guildhall/managing" passHref>
+      <Link
+        href="/guildhall/managing"
+        onClick={() => playClickSound()}
+        passHref
+      >
         <div className={styles.navbox}>
           <p>Managing</p>
         </div>
       </Link>
-      <Link href="/guildhall/leaderboard" passHref>
+      <Link
+        href="/guildhall/leaderboard"
+        onClick={() => playClickSound()}
+        passHref
+      >
         <div className={styles.navbox}>
           <p>Leaderboard</p>
         </div>
       </Link>
-      <Link href="/guildhall/games" passHref>
+      <Link href="/guildhall/games" onClick={() => playClickSound()} passHref>
         <div className={styles.navbox}>
           <p>Games</p>
+        </div>
+      </Link>
+      <Link
+        href="/guildhall/accounts"
+        onClick={() => playClickSound()}
+        passHref
+      >
+        <div className={styles.navbox}>
+          <p>Accounts</p>
         </div>
       </Link>
     </div>

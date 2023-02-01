@@ -85,6 +85,13 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
                 <p>Items</p>
                 <p>Members</p>
                 <p>Permissions</p>
+                <p>Games</p>
+              </div>
+              <div className={styles.attribute_stats}>
+                <p>10</p>
+                <p>20</p>
+                <p>30</p>
+                <p>40</p>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .menu {
     background-image   : url('/dark-blue-gold-parchment.png');
     background-size    : cover;
@@ -26,6 +27,25 @@
     
 }
 
+=======
+.box {
+    padding      : 50px 20px;
+    height       : 100%;
+    width        : 100%;
+    border-radius: 10px;
+    overflow-x   : hidden;
+}
+
+.content_container {
+    display       : flex;
+    flex-direction: column;
+    background    : #292724;
+    padding       : 0px 10px;
+    height        : 75%;
+    width         : 100%;
+    border-radius : 10px;
+}
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
 
 .content_title {
     display        : flex;
@@ -40,13 +60,13 @@
 
     display         : flex;
     flex-direction  : column;
-    align-items     : center;
     background-color: #292724;
     height          : 273px;
     width           : 100%;
     border-radius   : 5px;
     border: 2px solid rgb(66, 58, 17);
     overflow-y      : scroll;
+    padding         : 0 10px;
 }
 
 /* .tutorial_container::-webkit-scrollbar {
