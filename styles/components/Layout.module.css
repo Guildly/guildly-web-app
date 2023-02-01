@@ -22,9 +22,7 @@
     justify-content: center;
     transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
     box-shadow     : 5px 10px 10px;
-
-    background-position: 0% 100%;
-    padding-left       : 4%;
+    padding-left   : 4%;
 }
 
 .left_menu_collapsed {
@@ -48,7 +46,7 @@
     width          : 30px;
     height         : 30px;
     left           : 20%;
-    top            : 200px;
+    top            : 20%;
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
@@ -66,7 +64,7 @@
     width          : 30px;
     height         : 30px;
     left           : 6%;
-    top            : 200px;
+    top            : 20%;
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
@@ -80,21 +78,18 @@
 }
 
 .right_menu {
-    position           : fixed;
-    display            : flex;
-    flex-direction     : column;
-    z-index            : 2;
-    width              : 20%;
-    height             : 100%;
-    right              : 0px;
-    top                : 8%;
-    justify-content    : center;
-    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow         : -5px 10px 4px;
-    background-image   : url("/right-menu.svg");
-    background-size    : contain;
-    background-repeat  : no-repeat;
-    background-position: 100% 100%;
+    position       : fixed;
+    display        : flex;
+    flex-direction : column;
+    z-index        : 2;
+    width          : 20%;
+    height         : 100%;
+    right          : 0px;
+    top            : 8%;
+    justify-content: center;
+    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow     : -5px 10px 4px;
+    padding-right  : 4%;
 }
 
 .right_menu_collapsed {
@@ -136,8 +131,8 @@
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
-    right          : 3%;
-    top            : 200px;
+    right          : 6%;
+    top            : 20%;
     z-index        : 3;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;

@@ -55,14 +55,20 @@ export const GuildhallRightMenu = () => {
           <p>Notice Board</p>
         </div>
         <div className={right_styles.notices_container}>
-          <p>
-            Starknetdev.stark harvested resources on your Realm
-            Starknetdev.stark mined your Asteroid Starknetdev.stark harvested
-            resources on your Realm Starknetdev.stark mined your Asteroid
-            Starknetdev.stark harvested resources on your Realm
-            Starknetdev.stark mined your Asteroid Starknetdev.stark harvested
-            resources on your Realm
-          </p>
+          <ul>
+            <li>
+              <p>Starknetdev.stark harvested resources on your Realm</p>
+            </li>
+            <li>
+              <p>Starknetdev.stark mined your Asteroid</p>
+            </li>
+            <li>
+              <p>Starknetdev.stark harvested resources on your Realm</p>
+            </li>
+            <li>
+              <p>Starknetdev.stark harvested resources on your Realm</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

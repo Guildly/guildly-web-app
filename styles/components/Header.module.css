@@ -46,11 +46,23 @@
     background-image   : url('/left-menu.svg');
     background-size    : cover;
     background-position: 100% 100%;
-    height             : 120%;
+    height             : 100%;
     width              : 6%;
     top                : 8%;
     left               : 0px;
-    z-index            : 4;
+    z-index            : 1;
+}
+
+.right_border {
+    position           : fixed;
+    background-image   : url('/right-menu.svg');
+    background-size    : cover;
+    background-position: 0% 100%;
+    height             : 100%;
+    top                : 8%;
+    width              : 6%;
+    right              : 0px;
+    z-index            : 1;
 }
 
 .left_guildhall_head {

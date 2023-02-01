@@ -11,11 +11,13 @@ import { useGuild } from "../../context/GuildContext";
 import { displayAddress } from "../../utils/address";
 import { sounds } from "../../shared/sounds";
 import { useStarkNetId } from "../../hooks/useStarknetId";
+import { useSound } from "../../context/SoundContext";
 
 export const Header = () => {
   const { address } = useAccount();
   const [copiedAddress, setCopiedAddress] = useState(false);
   const { starknetId } = useStarkNetId(address ? address : "0x0");
+  const { musicPlaying, toggleSound } = useSound();
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,7 +41,6 @@ export const Header = () => {
   const [isGuildDialogSelected, setIsGuildDialogSelected] = useState(false);
   const [isConnectMenuSelected, setIsConnectMenuSelected] = useState(false);
   const [isTransactionsSelected, setIsTransactionsSelected] = useState(false);
-  const [isMusicSelected, setIsMusicSelected] = useState(false);
 
   const guildDialogRef = useRef<HTMLDivElement>(null);
   const connectMenuRef = useRef<HTMLDivElement>(null);
@@ -322,11 +323,11 @@ export const Header = () => {
             <div
               className={styles.music_button}
               onClick={() => {
-                setIsMusicSelected(!isMusicSelected);
                 playClickSound();
+                toggleSound();
               }}
             >
-              {isMusicSelected ? (
+              {musicPlaying ? (
                 <svg
                   className={styles.sound_icon}
                   viewBox="0 0 512 512"
@@ -336,8 +337,8 @@ export const Header = () => {
                   <g
                     id="Page-1"
                     stroke="none"
-                    stroke-width="1"
-                    fill-rule="evenodd"
+                    strokeWidth="1"
+                    fillRule="evenodd"
                   >
                     <g id="icon" transform="translate(42.666667, 85.333333)">
                       <path
@@ -366,17 +367,7 @@ export const Header = () => {
           </div>
         </div>
         <div className={styles.right_head} />
-        {/* <div
-          className={
-            isPage("guildhall")
-              ? styles.right_guildhall_border
-              : isPage("council")
-              ? styles.right_council_border
-              : isPage("bank")
-              ? styles.right_bank_border
-              : styles.right_market_border
-          }
-        /> */}
+        <div className={styles.right_border} />
       </div>
     </>
   );
