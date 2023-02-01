@@ -29,7 +29,6 @@ export const MarketLeftMenu = ({
 }: MarketLeftMenuProps) => {
   return (
     <div className={left_styles.box}>
-      <div className={left_styles.header} />
       <div className={left_styles.content_container}>
         <div className={left_styles.content_title}>
           <p>Filters</p>
