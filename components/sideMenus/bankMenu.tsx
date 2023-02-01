@@ -157,17 +157,6 @@ export const BankLeftMenu = ({
 
 export const BankRightMenu = () => {
   return (
-<<<<<<< HEAD
-    <div className={right_styles.menu}>
-      <div className={right_styles.box}>
-        <div className={right_styles.header} />
-        <div className={right_styles.content_container}>
-          <div className={right_styles.content_title}>
-            <p>Inventory</p>
-          </div>
-          <div className={right_styles.content_title}>
-            <p>8 items in guilds</p>
-=======
     <div className={right_styles.box}>
       <div className={right_styles.header} />
       <div className={right_styles.content_container}>
@@ -181,7 +170,6 @@ export const BankRightMenu = () => {
           <div className={right_styles.info_section}>
             <p className={right_styles.section_header}>Current Value</p>
             <div className={right_styles.section_divider} />
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
           </div>
           <div className={right_styles.info_section}>
             <p className={right_styles.section_header}>Storage Keys</p>

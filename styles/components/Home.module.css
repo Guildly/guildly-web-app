@@ -34,7 +34,7 @@
 .buttons {
   display        : flex;
   justify-content: space-around;
-  gap            : 20px;
+  gap            : 0px;
   width          : 20%;
 }
 
@@ -46,13 +46,13 @@
   cursor: pointer;
   margin: 0px 10px;
   color : #DCCB8D;
-  width : 50%;
+  width : 80%;
 }
 
 .icon_text {
   display         : none;
   position        : absolute;
-  font-family     : Verdana, sans-serif;
+  font-family     : Georgia, 'Times New Roman', Times, serif, sans-serif;
   font-size       : 15px;
   color           : #b5c1dece;
   background-color: #4b57695b;
@@ -108,13 +108,17 @@
 
 .footer_icon {
   color: #6B7371;
-  width: 40px;
+  width: 30px;
+}
+
+.footer_icon:hover {
+  color: #b5c1dece;
 }
 
 .footer_copyright {
   font-family: Verdana, sans-serif;
-  color      : white;
-  font-size  : 12px;
+  color      : #6B7371;
+  font-size  : 8px;
 }
 
 /* 
