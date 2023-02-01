@@ -9,7 +9,7 @@ export const CouncilLeftMenu = () => {
           <div className={left_styles.header} />
           <div className={left_styles.content_container}>
             <div className={left_styles.content_title}>
-              <p>Members</p>
+              <p>Council Summary</p>
             </div>
             <div className={left_styles.filters_container}></div>
           </div>
@@ -27,7 +27,7 @@ export const CouncilRightMenu = () => {
           <div className={right_styles.header} />
           <div className={right_styles.content_container}>
             <div className={right_styles.content_title}>
-              <p>Notice Board</p>
+              <p>Members</p>
             </div>
             <div className={right_styles.notices_container}></div>
           </div>

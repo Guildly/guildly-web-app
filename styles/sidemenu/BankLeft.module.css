@@ -3,20 +3,16 @@
     background-size    : cover;
     background-position: 25% 75%;
     height             : 100%;
-    padding            : 60px 0px 50px 20px;
+    padding            : 70px 0px 40px 30px;
+    border-radius      : 0px 0px 0px 0px;
 }
 
-
-.content_container {
-    display            : flex;
-    flex-direction     : column;
-    background-size    : cover;
-    background-position: center;
-    background-repeat  : no-repeat;
-    padding            : 10px 15px;
-    height             : 100%;
-    width              : 100%;
-    border-radius      : 3px;
+.box {
+    background-color: rgb(66, 58, 17);
+    padding         : 15px;
+    height          : 100%;
+    width           : 100%;
+    overflow-x      : hidden;
 }
 
 .content_title {
@@ -24,21 +20,21 @@
     align-items    : center;
     justify-content: center;
     font-size      : large;
+    font-weight    : bold;
     text-shadow    : 0px 1px 2px;
-    color: #DCCB8D;
+    color: white;
 }
 
 .filters_container {
     display         : flex;
     flex-direction  : column;
     align-items     : center;
-    background-color: #292724;
-    height          : 500px;
-    width           : 232px;
-    border-radius   : 3px;
+    background-color: #292724fe;
+    height          : 600px;
+    width           : 240px;
+    border-radius   : 5px;
     overflow        : auto;
-    padding         : 10px;
-    border: 1px solid #DCCB8D;
+    padding         : 7px;
 }
 
 .sort {

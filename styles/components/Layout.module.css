@@ -161,7 +161,7 @@
     flex-direction: row;
     align-items   : center;
     position      : fixed;
-    left          : 25%;
+    left          : 22%;
     margin        : -80px 0px;
     width         : 300px;
     height        : 50px;
@@ -223,10 +223,10 @@
     flex-direction: row;
     position: fixed;
     color          : #DCCB8D;
-    padding-top: 100px;
-    padding-left: 300px;
-    padding-bottom: 30px;
-    font-size      : x-large;
+    font-size      :28px;
+    margin-top: 80px;
+    margin-left: 22%;
+    
 }
 
 .main_container {

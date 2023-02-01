@@ -3,7 +3,7 @@
     background-size    : cover;
     background-position: 25% 75%;
     height             : 100%;
-    padding            : 100px 20px 50px 20px;
+    padding            : 100px 20px 20px 5px;
     border-radius      : 0px 0px 0px 0px;
 }
 
@@ -11,7 +11,7 @@
     background-image   : url(/another-rough-old-and-worn-parchment-paper-900x741.png);
     opacity: 75%;
     background-size : cover;
-    padding         : 10px;
+    padding         : 3px;
     height          : 100%;
     width           : 100%;
     border-radius   : 10px;
@@ -26,4 +26,15 @@
     font-weight    : bold;
     letter-spacing: 0.5px;
     text-shadow    : 0px 1px 1px;
+}
+
+.notices_container {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    font-size      : small;
+    font-weight    : lighter;
+    letter-spacing: 0.5px;
+    text-shadow    : 0px 1px 1px;
+    line-height: 20px;
 }

@@ -159,10 +159,10 @@ export const BankRightMenu = () => {
         <div className={right_styles.header} />
         <div className={right_styles.content_container}>
           <div className={right_styles.content_title}>
-            <p>Storage</p>
+            <p>Inventory</p>
           </div>
           <div className={right_styles.content_title}>
-            <p>8</p>
+            <p>8 items in guilds</p>
           </div>
           <div className={right_styles.storage_container}>
             <div className={right_styles.info_section}>
