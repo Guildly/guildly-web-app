@@ -49,13 +49,14 @@ export const TokenOpen = ({
         className={styles.token_card}
         ref={tokenRef}
       >
-        <Image
-          src={"/token_card.svg"}
-          fill={true}
-          style={{ objectFit: "contain" }}
-          alt="Token Card"
-          className={styles.token_outline}
-        />
+        <div className={styles.token_outline}>
+          <Image
+            src={"/token_card.svg"}
+            fill={true}
+            style={{ objectFit: "contain" }}
+            alt="Token Card"
+          />
+        </div>
         <div className={styles.token_symbol}>
           <Image
             src={"/token_symbol.svg"}
@@ -65,13 +66,14 @@ export const TokenOpen = ({
           />
         </div>
         <div className={styles.token_background}>
-          <Image
-            src={nftPicture}
-            fill={true}
-            style={{ objectFit: "contain" }}
-            alt="Token Image"
-            className={styles.token_imagee}
-          />
+          <div className={styles.token_image}>
+            <Image
+              src={nftPicture}
+              fill={true}
+              style={{ objectFit: "contain" }}
+              alt="Token Image"
+            />
+          </div>
         </div>
         <div className={styles.token_text}>
           <div className={styles.token_title}>
@@ -85,9 +87,29 @@ export const TokenOpen = ({
                   : token.contract.name_custom}
               </p>
               <p className={styles.token_standard}>{token.contract.schema}</p>
-              <p className={styles.token_address}>
-                {displayAddress(token.contract_address)}
-              </p>
+              <div className={styles.token_address}>
+                <p>{displayAddress(token.contract_address)}</p>
+                <a
+                  href={`https://testnet.starkscan.co/contract/${token.contract_address}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    className={styles.external_icon}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
             </div>
             <div className={styles.token_description}>
               <p>{token.description}</p>

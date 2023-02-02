@@ -47,8 +47,6 @@ export const useSoundContext = () => {
     }
   }, [musicPlaying, playBackground, stop]);
 
-  console.log(musicPlaying);
-
   return {
     musicPlaying,
     toggleSound,

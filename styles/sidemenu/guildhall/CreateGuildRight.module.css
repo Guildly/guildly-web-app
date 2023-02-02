@@ -1,12 +1,10 @@
 .box {
-  background-color: #292724;
-  padding         : 10px;
-  height          : 100%;
-  width           : 100%;
-  border-radius   : 10px;
-  overflow-x      : hidden;
-  border          : 2px solid #967C6E;
-  color           : white;
+  padding      : 10px;
+  height       : 100%;
+  width        : 100%;
+  border-radius: 10px;
+  overflow-x   : hidden;
+  color        : white;
 }
 
 .content_title {
@@ -15,16 +13,18 @@
   justify-content: center;
   font-size      : 24px;
   font-weight    : bold;
-  color          : white;
+  color          : #DCCB8D;
 }
 
 .content_container {
-  display       : flex;
-  flex-direction: column;
-  padding       : 0px 10px;
-  height        : 100%;
-  width         : 100%;
-  gap           : 20px;
+  display         : flex;
+  flex-direction  : column;
+  padding         : 10px;
+  height          : 100%;
+  width           : 100%;
+  gap             : 20px;
+  background-color: #292724;
+  border-radius   : 10px;
 }
 
 .content_container p {

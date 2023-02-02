@@ -1,10 +1,3 @@
-.token_image {
-  position               : absolute;
-  /* top                 : 100px; */
-  margin                 : 40px 5px 0px 20px;
-  z-index                : 2;
-}
-
 .selected_background {
   position        : fixed;
   height          : 100%;
@@ -21,58 +14,72 @@
 .token_card {
   position: absolute;
   margin  : auto;
-  left    : 35%;
+  left    : 30%;
   top     : 20%;
-  width   : 30%;
-  height  : 60%;
+  width   : 35%;
+  height  : 65%;
 }
 
-.token_symbol {
-  position               : absolute;
-  /* top                 : 100px; */
-  margin                 : 5% 0px 0px 2%;
-  z-index                : 4;
-  height                 : 20%;
-  width                  : 20%;
+.token_outline {
+  position: absolute;
+  z-index : 6;
+  cursor  : pointer;
+  height  : 100%;
+  width   : 100%;
 }
+
+
+.token_symbol {
+  position: absolute;
+  margin  : 25px 0px 0px 90px;
+  z-index : 4;
+  height  : 15%;
+  width   : 15%;
+}
+
 
 .token_text {
   position: absolute;
   z-index : 7;
 }
 
-
-.token_outline {
-  position   : absolute;
-  /* position: fixed; */
-  z-index    : 6;
-  cursor     : pointer;
-}
-
 .token_background {
   position  : absolute;
   height    : 70%;
-  width     : 85%;
+  width     : 65%;
+  background: #162334;
+  margin    : 40px 5px 0px 100px;
+  z-index   : 2;
+}
+
+.token_image {
+  position  : relative;
+  margin    : auto;
+  z-index   : 2;
+  height    : 100%;
+  width     : 100%;
   background: #162334;
 }
 
 .token_title {
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  color          : #DCCB8D;
-  font-size      : 24px;
-  margin         : 35px 140px;
-  text-overflow  : ellipsis;
-  width          : 160px;
+  display    : inline-block;
+  color      : #DCCB8D;
+  font-size  : 24px;
+  margin     : 35px 220px;
+  width      : 160px;
+  height     : 30px;
+  overflow   : hidden;
+  white-space: nowrap;
 }
 
 .token_title p {
-  margin: 0px;
+  margin       : 0px;
+  text-overflow: ellipsis;
+  text-align   : center;
 }
 
 .token_content {
-  margin: 375px 55px 0px 50px;
+  margin: 330px 120px 0px 120px;
 }
 
 .token_header {
@@ -108,14 +115,23 @@
 }
 
 .token_address {
-  color    : #9B7C61;
-  font-size: 10px;
+  color         : #9B7C61;
+  display       : flex;
+  align-items   : center;
+  flex-direction: row;
+  gap           : 5px;
+  font-size     : 10px;
 }
 
 .token_description {
   color    : #D9D9D9;
   font-size: 8px;
   margin   : -5px 0px 0px 0px;
+}
+
+.external_icon {
+  width : 20px;
+  height: 20px;
 }
 
 .token_buttons {

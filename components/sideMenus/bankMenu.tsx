@@ -116,6 +116,16 @@ export const BankLeftMenu = ({
                     icon={null}
                   />
                 </div>
+                <div className={left_styles.filter_row}>
+                  <p className={left_styles.filter_title}>Guild:</p>
+                  <ShortTextInput
+                    className={left_styles.short_input}
+                    content={gameFilter}
+                    setContent={setGameFilter}
+                    label=""
+                    icon={null}
+                  />
+                </div>
               </div>
             </div>
             <div className={left_styles.filter_section}>

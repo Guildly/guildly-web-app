@@ -11,18 +11,22 @@
 }
 
 .left_menu {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    z-index        : 2;
-    width          : 20%;
-    height         : 100%;
-    left           : 0px;
-    top            : 8%;
-    justify-content: center;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow     : 5px 10px 10px;
-    padding-left   : 4%;
+    position           : fixed;
+    display            : flex;
+    flex-direction     : column;
+    z-index            : 2;
+    width              : 20%;
+    height             : 100%;
+    left               : 0px;
+    top                : 8%;
+    justify-content    : center;
+    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow         : 5px 10px 10px;
+    padding-left       : 4%;
+    background-image   : url(/dark-blue-gold-parchment.png);
+    background-size    : cover;
+    background-position: 100%;
+    border             : 2px solid #967C6E;
 }
 
 .left_menu_collapsed {
@@ -78,18 +82,22 @@
 }
 
 .right_menu {
-    position       : fixed;
-    display        : flex;
-    flex-direction : column;
-    z-index        : 2;
-    width          : 20%;
-    height         : 100%;
-    right          : 0px;
-    top            : 8%;
-    justify-content: center;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
-    box-shadow     : -5px 10px 4px;
-    padding-right  : 4%;
+    position           : fixed;
+    display            : flex;
+    flex-direction     : column;
+    z-index            : 2;
+    width              : 20%;
+    height             : 100%;
+    right              : 0px;
+    top                : 8%;
+    justify-content    : center;
+    transition         : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    box-shadow         : -5px 10px 4px;
+    padding-right      : 4%;
+    background-image   : url(/dark-blue-gold-parchment.png);
+    background-size    : cover;
+    background-position: 0%;
+    border             : 2px solid #967C6E;
 }
 
 .right_menu_collapsed {
@@ -181,76 +189,6 @@
     height: 20px;
 }
 
-.search_dropdown {
-    position      : fixed;
-    display       : flex;
-    flex-direction: column;
-    background    : #15202F;
-    border-radius : 10px;
-    overflow      : scroll;
-    z-index       : 2;
-    width         : 30%;
-    color         : white;
-    box-shadow    : #15202F;
-}
-
-.search_dropdown p {
-    margin: 0px;
-}
-
-.section_header {
-    border-bottom: solid 1px #939498;
-    padding      : 10px;
-    color        : #D9D9D9;
-}
-
-.search_list {
-    display       : flex;
-    flex-direction: column;
-}
-
-.search_item {
-    display       : flex;
-    flex-direction: row;
-    align-items   : center;
-    gap           : 10px;
-    width         : 100%;
-    padding       : 5px;
-    cursor        : pointer;
-    border-bottom : solid 1px #939498;
-}
-
-.search_item:hover {
-    background: #939498;
-}
-
-.search_icon {
-    border-radius: 100px;
-}
-
-.search_content {
-    display       : flex;
-    flex-direction: column;
-}
-
-.item_attributes {
-    display       : flex;
-    flex-direction: row;
-    gap           : 20px;
-    font-size     : 10px;
-}
-
-.attribute {
-    display       : flex;
-    flex-direction: row;
-    gap           : 5px;
-}
-
-.attribute_icon {
-    height: 10px;
-    width : 10px;
-}
-
 .back_box {
     display          : flex;
     flex-direction   : row;
@@ -263,7 +201,7 @@
     /* gap           : 10px; */
     border-radius    : 10px;
     background       : rgba(31, 33, 36, 1);
-    border           : 2px solid #967C6E;
+    border           : 2px solid #DCCB8D;
     padding          : 0px 20px;
     color            : #967C6E;
     cursor           : pointer;
@@ -328,6 +266,19 @@
     transition: margin-right 0.15s ease-out 0s margin-left 0.15s ease-out 0s;
 }
 
+.guild_screen {
+    position           : fixed;
+    top                : 60px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/guild-screen-background.png);
+    background-size    : cover;
+    background-position: center;
+    /* background-color: black; */
+    z-index            : 3;
+}
+
 .guildhall_screen {
     position           : fixed;
     top                : 60px;
@@ -379,6 +330,19 @@
     background-size    : cover;
     background-position: center;
     /* background-color: black; */
+    z-index            : 3;
+}
+
+.guild_background {
+    position           : fixed;
+    top                : 0px;
+    left               : 0;
+    right              : 0;
+    bottom             : 0;
+    background-image   : url(/guild-screen-background.png);
+    background-size    : contain;
+    background-position: center;
+    background-repeat  : no-repeat;
     z-index            : 3;
 }
 

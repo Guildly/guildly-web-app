@@ -1,14 +1,41 @@
 import styles from "../../../styles/containers/guildhall/Guild.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useAccount } from "@starknet-react/core";
 import { useRouter } from "next/router";
 import { Select } from "../../dropdowns";
+import { sounds } from "../../../shared/sounds";
+import { fetchAspectNfts } from "../../../features/accountNfts/aspect.service";
+import { padAddress } from "../../../utils/address";
+import {
+  AspectNft,
+  AspectNftAsset,
+} from "../../../features/accountNfts/aspect.model";
+import { useJoin } from "../../../hooks/useMembers";
+import { TokenCard } from "../../token/TokenCard";
 
 export const Guild = () => {
   const router = useRouter();
   const { pid } = router.query;
+  const { playClickSound } = sounds();
+  const { address: accountAddress } = useAccount();
+  const [selectedToken, setSelectedToken] = useState(-1);
+  const [guildTokens, setGuildTokens] = useState<AspectNftAsset[] | null>(null);
+  const [fetchNftsError, setFetchNftsError] = useState(false);
 
   const [feeRole, setFeeRole] = useState("Owner");
+
+  useEffect(() => {
+    fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
+      (data) => {
+        setGuildTokens(data.assets);
+      },
+      (err) => {
+        setFetchNftsError(true);
+      }
+    );
+  }, [guildTokens]);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -65,7 +92,18 @@ export const Guild = () => {
         <div className={styles.bank}>
           <p className={styles.category_title}>Bank</p>
           <div className={styles.bank_tokens}>
-            <p>Tokens go here</p>
+            {guildTokens && accountAddress
+              ? guildTokens.slice(0, 3).map((token, index) => (
+                  <div className={styles.token} key={index}>
+                    <TokenCard
+                      isSelected={selectedToken == index}
+                      setSelectedToken={setSelectedToken}
+                      token={token}
+                      index={index}
+                    />
+                  </div>
+                ))
+              : null}
           </div>
         </div>
         <div className={styles.council}>
@@ -154,9 +192,12 @@ export const Guild = () => {
             <div className={styles.activity_chart}>
               <p>Chart goes here</p>
             </div>
-            <div className={styles.join_button}>
+            <button
+              className={styles.join_button}
+              onClick={() => playClickSound()}
+            >
               <p>Join</p>
-            </div>
+            </button>
           </div>
         </div>
       </div>
