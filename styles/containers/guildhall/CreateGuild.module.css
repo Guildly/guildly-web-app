@@ -5,9 +5,9 @@
     height        : 100%;
     background    : #212326;
     border-radius : 10px;
-    border        : 2px solid #DCCB8D;
+    border        : 2px solid rgb(66, 58, 17);
     padding       : 20px 40px;
-    margin        : 2% 5% 5% 5%;
+    margin        : 5% 5% 5% 5%;
 }
 
 .content {
@@ -36,7 +36,7 @@
 }
 
 .short_input {
-    width : 60%;
+    width : 80%;
     height: 50px;
 }
 

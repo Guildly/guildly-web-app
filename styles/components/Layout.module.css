@@ -304,10 +304,8 @@
 
 .page_title {
     display        : flex;
-    justify-content: center;
-    align-items    : center;
-    position       : fixed;
-    right          : 50%;
+    flex-direction: row;
+    position: fixed;
     color          : #DCCB8D;
     font-size      : x-large;
 }

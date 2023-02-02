@@ -1,3 +1,23 @@
+
+.menu {
+    background-image   : url('/dark-blue-gold-parchment.png');
+    background-size    : cover;
+    background-position: 25% 75%;
+    height             : 100%;
+    padding            : 100px 20px 20px 5px;
+    border-radius      : 0px 0px 0px 0px;
+}
+
+.box {
+    background-image   : url(/another-rough-old-and-worn-parchment-paper-900x741.png);
+    opacity: 75%;
+    background-size : cover;
+    padding         : 3px;
+    height          : 100%;
+    width           : 100%;
+    border-radius   : 10px;
+    overflow-x      : hidden;
+
 .box {
     padding      : 50px 20px;
     height       : 100%;
@@ -18,7 +38,7 @@
     border-radius      : 10px;
     border             : 2px solid #DCCB8D;
     color              : white;
-}
+
 
 .content_title {
     display        : flex;
@@ -26,6 +46,20 @@
     justify-content: center;
     font-size      : large;
     font-weight    : bold;
+
+    letter-spacing: 0.5px;
+    text-shadow    : 0px 1px 1px;
+}
+
+.notices_container {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    font-size      : small;
+    font-weight    : lighter;
+    letter-spacing: 0.5px;
+    text-shadow    : 0px 1px 1px;
+    line-height: 20px;
     text-shadow    : 0px 1px 2px;
     color          : #DCCB8D;
 }

@@ -28,6 +28,14 @@ export const MarketLeftMenu = ({
   setAddressFilter,
 }: MarketLeftMenuProps) => {
   return (
+<<<<<<< HEAD
+    <div className={left_styles.menu}>
+      <div className={left_styles.box}>
+        <div className={left_styles.header} />
+        <div className={left_styles.content_container}>
+          <div className={left_styles.content_title}>
+            <p>Quick Search</p>
+=======
     <div className={left_styles.box}>
       <div className={left_styles.header} />
       <div className={left_styles.content_container}>
@@ -45,6 +53,7 @@ export const MarketLeftMenu = ({
             >
               <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
             </svg>
+>>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
           </div>
           <div className={left_styles.tabs}>
             <p

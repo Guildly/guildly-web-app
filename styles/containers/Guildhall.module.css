@@ -1,8 +1,8 @@
 .container {
     display              : grid;
     grid-template-columns: auto auto;
-    padding              : 5% 10%;
-    gap                  : 20px 120px;
+    padding              : 10% 10%;
+    gap                  : 30px 80px;
     height               : 100%;
 }
 
@@ -16,7 +16,7 @@
     border-radius  : 10px;
     background     : #212326;
     border         : solid;
-    border-color   : #DCCB8D;
+    border-color   : #dccb8dc0;
     color          : #DCCB8D;
     font-size      : 22px;
 }
