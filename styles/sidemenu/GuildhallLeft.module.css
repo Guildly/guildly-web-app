@@ -1,51 +1,19 @@
-<<<<<<< HEAD
-.menu {
-    background-image   : url('/dark-blue-gold-parchment.png');
-    background-size    : cover;
-    background-position: 25% 75%;
-    height             : 100%;
-    padding            : 100px 20px 50px 50px;
-    border-radius      : 0px 0px 0px 0px;
-}
-
-.box {
-    background-color: #0d0b09;
-    padding         : 10px;
-    height          : 100%;
-    width           : 100%;
-    border-radius   : 10px;
-    overflow-x      : hidden;
-}
-
-.header {
-    background-image   : url('/emblem-example 2.png');
-    background-size    : cover;
-    background-position: 0% 40%;
-    height             : 40%;
-    width              : 100%;
-    border: rgb(66, 58, 17) 2px solid;
-    
-}
-
-=======
 .box {
     padding      : 50px 20px;
     height       : 100%;
     width        : 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow-x   : hidden;
 }
 
 .content_container {
     display       : flex;
     flex-direction: column;
-    background    : #292724;
-    padding       : 0px 10px;
+    background    : #0d0c0c;
     height        : 75%;
     width         : 100%;
-    border-radius : 10px;
+    border-radius : 5px;
 }
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
 
 .content_title {
     display        : flex;
@@ -61,12 +29,12 @@
     display         : flex;
     flex-direction  : column;
     background-color: #292724;
-    height          : 273px;
+    height          : 100%;
     width           : 100%;
     border-radius   : 5px;
     border: 2px solid rgb(66, 58, 17);
     overflow-y      : scroll;
-    padding         : 0 10px;
+    padding         : 5px;
 }
 
 /* .tutorial_container::-webkit-scrollbar {
@@ -88,7 +56,7 @@
 }
 
 .tutorial_content {
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .games_content {

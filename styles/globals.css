@@ -15,16 +15,6 @@ a {
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-.menu {
-  background-image   : url('/dark-blue-gold-parchment.png');
-  background-size    : cover;
-  background-position: 25% 75%;
-  height             : 100%;
-  padding            : 100px 20px 50px 20px;
-  border-radius      : 0px 0px 0px 0px;
-}
-=======
 .background {
   background:
     linear-gradient(257.97deg, #253C4C 7.04%, #1E2530 25.66%, #25384C 73.73%, #1E2530 110.4%);
@@ -36,4 +26,3 @@ a {
   display              : flex;
   flex-direction       : column;
 }
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210

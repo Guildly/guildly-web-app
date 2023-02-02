@@ -24,7 +24,8 @@
     box-shadow         : 5px 10px 10px;
     background-image   : url("/guild-menu.svg");
     background-size    : cover;
-    background-position: 50% 100%;
+    background-position: 25% 75%;
+    
 }
 
 .left_menu_collapsed {
@@ -44,10 +45,6 @@
     align-items    : center;
     position       : absolute;
     background     : rgb(50, 49, 49);
-<<<<<<< HEAD
-    background-size: cover;
-=======
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -66,10 +63,6 @@
     justify-content: center;
     position       : absolute;
     background     : rgb(50, 49, 49);
-<<<<<<< HEAD
-    background-size: cover;
-=======
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -122,10 +115,6 @@
     align-items    : center;
     position       : absolute;
     background     : rgb(50, 49, 49);
-<<<<<<< HEAD
-    background-size: cover;
-=======
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -144,10 +133,6 @@
     justify-content: center;
     position       : absolute;
     background     : rgb(50, 49, 49);
-<<<<<<< HEAD
-    background-size: cover;
-=======
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     color          : #DCCB8D;
     width          : 30px;
     height         : 30px;
@@ -184,13 +169,8 @@
     flex-direction: row;
     align-items   : center;
     position      : fixed;
-<<<<<<< HEAD
-    left          : 22%;
-    margin        : -80px 0px;
-=======
     top           : 10%;
     left          : 25%;
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
     width         : 300px;
     height        : 50px;
     gap           : 10px;
@@ -327,14 +307,7 @@
     flex-direction: row;
     position: fixed;
     color          : #DCCB8D;
-<<<<<<< HEAD
-    font-size      :28px;
-    margin-top: 80px;
-    margin-left: 22%;
-    
-=======
     font-size      : x-large;
->>>>>>> 1acadcb3604db295e964ba78a6e7be11336d3210
 }
 
 .main_container {
