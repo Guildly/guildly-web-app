@@ -1,3 +1,3 @@
-import Transaction from "/Transaction.svg"
+import Transaction from "./TransactionIcon.svg"
 
 export const TransactionIcon = Transaction;

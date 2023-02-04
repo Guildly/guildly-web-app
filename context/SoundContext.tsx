@@ -39,11 +39,18 @@ export const useSoundContext = () => {
     loop: true,
   });
 
+  // const [playNextBackground] = useSoundLib("/sounds/beatiful_village.mp3", {
+  //   soundEnabled: musicPlaying,
+  //   volume: 0.2,
+  //   loop: true,
+  // });
+
   useEffect(() => {
     if (!musicPlaying) {
       stop();
     } else {
       playBackground();
+      // playNextBackground();
     }
   }, [musicPlaying, playBackground, stop]);
 

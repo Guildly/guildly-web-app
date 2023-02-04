@@ -9,6 +9,7 @@ import Image from "next/image";
 import { sounds } from "../shared/sounds";
 import { capitaliseFirst } from "../utils/format";
 import { SearchDropdown } from "./dropdowns";
+import { useUIContext } from "../context/UIContext";
 
 export default function Layout({
   leftSideMenu,
@@ -35,22 +36,26 @@ export default function Layout({
     formatTitle += titleWord + " ";
   }
 
-  const [isLeftDrawerExpanded, setIsLeftDrawerExpanded] = useState(true);
-  const [isRightDrawerExpanded, setIsRightDrawerExpanded] = useState(true);
+  const {
+    isLeftMenuOpen,
+    setIsLeftMenuOpen,
+    isRightMenuOpen,
+    setIsRightMenuOpen,
+  } = useUIContext();
 
   const handleLeftDrawerToggler = () => {
-    if (isLeftDrawerExpanded) {
-      setIsLeftDrawerExpanded(false);
+    if (isLeftMenuOpen) {
+      setIsLeftMenuOpen(false);
     } else {
-      setIsLeftDrawerExpanded(true);
+      setIsLeftMenuOpen(true);
     }
   };
 
   const handleRightDrawerToggler = () => {
-    if (isRightDrawerExpanded) {
-      setIsRightDrawerExpanded(false);
+    if (isRightMenuOpen) {
+      setIsRightMenuOpen(false);
     } else {
-      setIsRightDrawerExpanded(true);
+      setIsRightMenuOpen(true);
     }
   };
 
@@ -66,23 +71,21 @@ export default function Layout({
       <div className={styles.layout}>
         <div
           className={
-            isLeftDrawerExpanded ? styles.left_menu : styles.left_menu_collapsed
+            isLeftMenuOpen ? styles.left_menu : styles.left_menu_collapsed
           }
         >
-          {isLeftDrawerExpanded ? leftSideMenu : null}
+          {isLeftMenuOpen ? leftSideMenu : null}
         </div>
         <button
           className={
-            isLeftDrawerExpanded
-              ? styles.left_drawer
-              : styles.left_drawer_collapsed
+            isLeftMenuOpen ? styles.left_drawer : styles.left_drawer_collapsed
           }
           onClick={() => {
             handleLeftDrawerToggler();
             playSlidingDoorSound();
           }}
         >
-          {isLeftDrawerExpanded ? (
+          {isLeftMenuOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 512"
@@ -148,11 +151,11 @@ export default function Layout({
           </div>
           <motion.div
             className={
-              isLeftDrawerExpanded && !isRightDrawerExpanded
+              isLeftMenuOpen && !isRightMenuOpen
                 ? styles.main_container_right_collapsed
-                : !isLeftDrawerExpanded && isRightDrawerExpanded
+                : !isLeftMenuOpen && isRightMenuOpen
                 ? styles.main_container_left_collapsed
-                : !isLeftDrawerExpanded && !isRightDrawerExpanded
+                : !isLeftMenuOpen && !isRightMenuOpen
                 ? styles.main_container_both_collapsed
                 : styles.main_container
             }
@@ -173,7 +176,7 @@ export default function Layout({
         </div>
         <button
           className={
-            isRightDrawerExpanded
+            isRightMenuOpen
               ? styles.right_drawer
               : styles.right_drawer_collapsed
           }
@@ -182,7 +185,7 @@ export default function Layout({
             playSlidingDoorSound();
           }}
         >
-          {isRightDrawerExpanded ? (
+          {isRightMenuOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 512"
@@ -202,12 +205,10 @@ export default function Layout({
         </button>
         <div
           className={
-            isRightDrawerExpanded
-              ? styles.right_menu
-              : styles.right_menu_collapsed
+            isRightMenuOpen ? styles.right_menu : styles.right_menu_collapsed
           }
         >
-          {isRightDrawerExpanded ? rightSideMenu : null}
+          {isRightMenuOpen ? rightSideMenu : null}
         </div>
       </div>
       {isPage("guild") ? (

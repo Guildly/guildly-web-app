@@ -4,6 +4,8 @@ import { AnimatePresence } from "framer-motion";
 import { StarknetConfig, InjectedConnector } from "@starknet-react/core";
 import { GuildProvider } from "../context/GuildContext";
 import { SoundProvider } from "../context/SoundContext";
+import { TransactionsProvider } from "../context/TransactionsContext";
+import { UIProvider } from "../context/UIContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   const connectors = [
@@ -15,7 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <StarknetConfig connectors={connectors}>
         <GuildProvider>
           <SoundProvider>
-            <Component {...pageProps} />
+            <TransactionsProvider>
+              <UIProvider>
+                <Component {...pageProps} />
+              </UIProvider>
+            </TransactionsProvider>
           </SoundProvider>
         </GuildProvider>
       </StarknetConfig>

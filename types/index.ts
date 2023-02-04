@@ -23,3 +23,10 @@ export type TransactionRenderConfig = Record<
     context: TransactionQueueContext
   ) => TransactionRender
 >;
+
+export interface Token {
+  tokenStandard: string;
+  tokenAddress: string;
+  tokenId: number | null;
+  amount: number;
+} 
