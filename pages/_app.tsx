@@ -6,6 +6,8 @@ import { GuildProvider } from "../context/GuildContext";
 import { SoundProvider } from "../context/SoundContext";
 import { TransactionsProvider } from "../context/TransactionsContext";
 import { UIProvider } from "../context/UIContext";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export default function App({ Component, pageProps }: AppProps) {
   const connectors = [
@@ -17,11 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
       <StarknetConfig connectors={connectors}>
         <GuildProvider>
           <SoundProvider>
-            <TransactionsProvider>
-              <UIProvider>
-                <Component {...pageProps} />
-              </UIProvider>
-            </TransactionsProvider>
+            <DndProvider backend={HTML5Backend}>
+              <TransactionsProvider>
+                <UIProvider>
+                  <Component {...pageProps} />
+                </UIProvider>
+              </TransactionsProvider>
+            </DndProvider>
           </SoundProvider>
         </GuildProvider>
       </StarknetConfig>

@@ -457,17 +457,30 @@
     color: #DCCB8D;
 }
 
+
 .connect_container {
     position      : fixed;
     display       : flex;
     align-items   : center;
     flex-direction: column;
     width         : 300px;
+    height        : 25%;
     top           : 10%;
-    height        : 50%;
     right         : 250px;
     border-radius : 10px;
     border        : 2px solid #DCCB8D;
+    transition    : all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    transform     : translateY(-2em);
+    visibility    : hidden;
+    opacity       : 0;
+}
+
+.connect_container.open {
+    visibility      : visible;
+    opacity         : 1;
+    transform       : translateY(0%);
+    height          : 50%;
+    transition-delay: 0s, 0s, 0.3s;
 }
 
 .transactions_button {
@@ -495,13 +508,25 @@
     display       : flex;
     flex-direction: column;
     width         : 30%;
-    height        : 85%;
+    height        : 40%;
     background    : #212326;
     top           : 10%;
     right         : 65px;
     border-radius : 10px;
     border        : 2px solid #DCCB8D;
     z-index       : 400;
+    transition    : all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    transform     : translateY(-2em);
+    visibility    : hidden;
+    opacity       : 0;
+}
+
+.transactions_container.open {
+    visibility      : visible;
+    opacity         : 1;
+    transform       : translateY(0%);
+    height          : 85%;
+    transition-delay: 0s, 0s, 0.3s;
 }
 
 .music_button {

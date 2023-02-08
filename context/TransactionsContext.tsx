@@ -11,7 +11,7 @@ import { ENQUEUED_STATUS } from "../constants";
 import type { CallAndMetadata, Transaction } from "../types";
 
 type Call = CallAndMetadata;
-type Tx = Call & { status: typeof ENQUEUED_STATUS; keyId?: string };
+export type Tx = Call & { status: typeof ENQUEUED_STATUS; keyId?: string };
 
 interface Transactions {
   add: (tx: Call | Call[]) => void;

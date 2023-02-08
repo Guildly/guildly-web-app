@@ -25,7 +25,7 @@
     padding-left       : 4%;
     background-image   : url(/dark-blue-gold-parchment.png);
     background-size    : cover;
-    background-position: 100%;
+    background-position: 100% 0%;
     border             : 2px solid #967C6E;
 }
 

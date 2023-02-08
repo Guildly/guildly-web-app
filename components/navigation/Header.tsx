@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { GuildMenu } from "./GuildMenu";
 import { ConnectMenu } from "./ConnectMenu";
-import { TransactionCart } from "./TransactionCart";
+import { TransactionPanel } from "./transactions/TransactionPanel";
 import { useAccount } from "@starknet-react/core";
 import { useGuild } from "../../context/GuildContext";
 import { displayAddress } from "../../utils/address";
@@ -137,20 +137,20 @@ export const Header = () => {
               <p>Guildhall</p>
             </Link>
             <Link
-              href="/vault"
+              href="/bank"
               passHref
               onClick={() => playCoinsSound()}
               className={navStyle("bank")}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
+                viewBox="0 0 576 512"
                 fill="currentColor"
                 className={styles.icon}
               >
-                <path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8.1-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zm128-96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+                <path d="M64 0C28.7 0 0 28.7 0 64V416c0 35.3 28.7 64 64 64H80l16 32h64l16-32H400l16 32h64l16-32h16c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM224 320a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm0-240a160 160 0 1 1 0 320 160 160 0 1 1 0-320zM480 221.3V336c0 8.8-7.2 16-16 16s-16-7.2-16-16V221.3c-18.6-6.6-32-24.4-32-45.3c0-26.5 21.5-48 48-48s48 21.5 48 48c0 20.9-13.4 38.7-32 45.3z" />
               </svg>
-              <p>Vault</p>
+              <p>Bank</p>
             </Link>
             <Link
               href="/market"
@@ -176,11 +176,11 @@ export const Header = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 512"
+                viewBox="0 0 576 512"
                 fill="currentColor"
                 className={styles.icon}
               >
-                <path d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zM125.8 177.3L51.1 320H204.9L130.2 177.3c-.4-.8-1.3-1.3-2.2-1.3s-1.7 .5-2.2 1.3zM128 128c18.8 0 36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C210.9 402.6 178.2 416 128 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L83.3 155c8.7-16.6 25.9-27 44.7-27zm384 48c-.9 0-1.7 .5-2.2 1.3L435.1 320H588.9L514.2 177.3c-.4-.8-1.3-1.3-2.2-1.3zm-44.7-21c8.7-16.6 25.9-27 44.7-27s36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C594.9 402.6 562.2 416 512 416s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L467.3 155z" />
+                <path d="M96 80c0-26.5 21.5-48 48-48H432c26.5 0 48 21.5 48 48V384H96V80zm313 47c-9.4-9.4-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L409 161c9.4-9.4 9.4-24.6 0-33.9zM0 336c0-26.5 21.5-48 48-48H64V416H512V288h16c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336z" />
               </svg>
               <p>Council</p>
             </Link>
@@ -303,11 +303,15 @@ export const Header = () => {
                 </button>
               )}
 
-              {isConnectMenuSelected ? (
-                <div className={styles.connect_container}>
-                  <ConnectMenu close={() => setIsConnectMenuSelected(false)} />
-                </div>
-              ) : null}
+              <div
+                className={
+                  isConnectMenuSelected
+                    ? [styles.connect_container, styles.open].join(" ")
+                    : styles.connect_container
+                }
+              >
+                <ConnectMenu close={() => setIsConnectMenuSelected(false)} />
+              </div>
             </div>
 
             <div ref={transactionsRef}>
@@ -326,11 +330,15 @@ export const Header = () => {
                   <path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352H592c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48H516h-4-.7l-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48H48c-26.5 0-48 21.5-48 48V304c0 26.5 21.5 48 48 48H156.2l91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z" />
                 </svg>
               </button>
-              {isTransactionsSelected ? (
-                <div className={styles.transactions_container}>
-                  <TransactionCart />
-                </div>
-              ) : null}
+              <div
+                className={
+                  isTransactionsSelected
+                    ? [styles.transactions_container, styles.open].join(" ")
+                    : styles.transactions_container
+                }
+              >
+                <TransactionPanel />
+              </div>
             </div>
 
             <div

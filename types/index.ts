@@ -1,6 +1,10 @@
 import type { Call } from '@starknet-react/core';
 import { ReactElement } from 'react';
 
+export const dndTypes = {
+  TX: 'tx',
+};
+
 export interface CallAndMetadata extends Call {
   metadata: { title: string; description: string } | any;
 }

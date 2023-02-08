@@ -57,6 +57,7 @@
   color           : #b5c1dece;
   background-color: #4b57695b;
   padding         : 6px 8px 8px 9px;
+  border          : 1px solid #DCCB8D;
 }
 
 .icon_right {
@@ -75,18 +76,6 @@
   margin-top   : -3px;
   margin-left  : -60px;
   border-radius: 16px 0px 16px 16px;
-}
-
-.scroll_icon {
-  cursor  : pointer;
-  position: absolute;
-  color   : #bec6dbe5;
-  width   : 70px;
-  bottom  : 4vh;
-}
-
-.scroll_icon:hover {
-  color: #b5c1de40;
 }
 
 .footer {

@@ -32,12 +32,12 @@ export const ConnectMenu = ({ close }: ConectMenuProps) => {
                   }}
                 >
                   <Image
-                    src={connector._wallet.icon}
+                    src={connector._wallet ? connector._wallet.icon : ""}
                     alt="wallet-logo"
                     width={30}
                     height={30}
                   />
-                  Connect {connector._wallet.name}
+                  Connect {connector._wallet ? connector._wallet.name : null}
                 </button>
               </div>
             ))}
