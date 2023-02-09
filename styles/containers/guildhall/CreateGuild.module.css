@@ -22,7 +22,11 @@
 }
 
 .name {
-    width: 100%;
+    width: 70%;
+}
+
+.description {
+    width: 70%;
 }
 
 .title {
@@ -36,12 +40,8 @@
 }
 
 .short_input {
-    width : 60%;
+    width : 100%;
     height: 50px;
-}
-
-.description {
-    width: 100%;
 }
 
 .long_input {
@@ -191,7 +191,6 @@
 .permissions_container {
     display       : flex;
     flex-direction: column;
-    gap           : 20px;
 }
 
 .permissions_title {
@@ -204,6 +203,34 @@
     display       : flex;
     flex-direction: column;
     gap           : 10px;
+}
+
+.contract_input {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 10px;
+}
+
+.verified {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+    background    : #514F50;
+    border-radius : 5px;
+    height        : fit-content;
+    padding       : 5px;
+    color         : white;
+}
+
+.verified p {
+    margin: 0px;
+}
+
+.verified_icon {
+    color: green;
+    width: 20px;
 }
 
 .select_selector {
@@ -249,8 +276,42 @@
 }
 
 .token_input {
-    width : 20%;
-    height: 50px;
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    width         : 20%;
+    height        : 75px;
+    color         : #D9D9D9;
+}
+
+.token_input p {
+    margin: 0px;
+}
+
+.role {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+}
+
+.added_role {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+    background    : #32363F;
+    border-radius : 10px;
+    padding       : 5px;
+    cursor        : pointer;
+}
+
+.role_icon {
+    width: 20px;
+}
+
+.close_icon {
+    width: 10px;
 }
 
 .members_content {
@@ -262,14 +323,102 @@
 .members_form {
     display       : flex;
     flex-direction: row;
+    gap           : 20px;
+}
+
+.members_form p {
+    margin: 0px;
 }
 
 .members_address {
-    width: 70%;
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    width         : 40%;
+}
+
+.roles {
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    color         : #DCCB8D;
 }
 
 .members_role {
-    width: 30%;
+    width: 15%;
+}
+
+.grant_area {
+    display    : flex;
+    align-items: center;
+}
+
+.grant_button {
+    background   : #514F50;
+    cursor       : pointer;
+    border       : none;
+    border-radius: 5px;
+    height       : 30px;
+    color        : white;
+}
+
+.whitelisted_members {
+    margin: -50px 0px;
+}
+
+.whitelisted_members_title {
+    font-size: 24px;
+    color    : white;
+}
+
+.whitelisted_list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+}
+
+.whitelisted_row {
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    color         : #514F50;
+}
+
+.whitelisted_roles {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.role_area {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #DCCB8D;
+    border-radius  : 100px;
+    padding        : 10px;
+    width          : 30px;
+    height         : 30px;
+}
+
+.garbage_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 20px;
+    background     : #DCCB8D;
+    border-radius  : 5px;
+    cursor         : pointer;
+}
+
+.garbage_icon {
+    width: 10px;
+}
+
+.add_member_area {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
 }
 
 .role_explainer {

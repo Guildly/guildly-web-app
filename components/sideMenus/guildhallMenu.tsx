@@ -5,10 +5,10 @@ export const GuildhallLeftMenu = () => {
   return (
     <div className={left_styles.box}>
       <div className={left_styles.header} />
+      <div className={left_styles.content_title}>
+        <p>Welcome Journeyman</p>
+      </div>
       <div className={left_styles.content_container}>
-        <div className={left_styles.content_title}>
-          <p>Welcome Journeyman</p>
-        </div>
         <div className={left_styles.tutorial_container}>
           <div className={left_styles.tutorial_section}>
             <p className={left_styles.tutorial_title}>Master</p>

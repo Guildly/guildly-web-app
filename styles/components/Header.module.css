@@ -18,6 +18,7 @@
     height             : 20%;
     width              : 8%;
     z-index            : 2;
+    clip-path          : circle(50% at 50% 50%);
 }
 
 .right_head {
@@ -375,14 +376,26 @@
     display       : flex;
     flex-direction: column;
     padding       : 0px 20px;
-    height        : 60%;
-    width         : 40%;
+    height        : 30%;
+    width         : 20%;
     border-radius : 10px;
     background    : #2F3A45;
     top           : 100px;
     right         : 30%;
     border        : 2px solid #DCCB8D;
     z-index       : 20;
+    visibility    : hidden;
+    transition    : all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    opacity       : 0;
+}
+
+.guild_container.open {
+    visibility      : visible;
+    opacity         : 1;
+    transform       : translateY(0%);
+    height          : 60%;
+    width           : 40%;
+    transition-delay: 0s, 0s, 0.3s;
 }
 
 .gld_button {

@@ -26,7 +26,9 @@ export default function VaultPage() {
     <div>
       <Layout
         leftSideMenu={<BankLeftMenu {...props} />}
+        leftSideMenuTitle="Filters"
         rightSideMenu={<BankRightMenu />}
+        rightSideMenuTitle="Info"
         main={<Bank {...props} />}
       />
     </div>

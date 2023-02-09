@@ -30,7 +30,9 @@ export default function MarketPage() {
     <div>
       <Layout
         leftSideMenu={<MarketLeftMenu {...props} />}
+        leftSideMenuTitle="Filters"
         rightSideMenu={<MarketRightMenu />}
+        rightSideMenuTitle="Ranks"
         main={<Market />}
       />
     </div>

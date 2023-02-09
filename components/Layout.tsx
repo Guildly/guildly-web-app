@@ -11,15 +11,21 @@ import { capitaliseFirst } from "../utils/format";
 import { SearchDropdown } from "./dropdowns";
 import { useUIContext } from "../context/UIContext";
 
+interface LayoutProps {
+  leftSideMenu: ReactElement;
+  leftSideMenuTitle: string | null;
+  rightSideMenu: ReactElement;
+  rightSideMenuTitle: string | null;
+  main: ReactElement;
+}
+
 export default function Layout({
   leftSideMenu,
+  leftSideMenuTitle,
   rightSideMenu,
+  rightSideMenuTitle,
   main,
-}: {
-  leftSideMenu: ReactElement;
-  rightSideMenu: ReactElement;
-  main: ReactElement;
-}) {
+}: LayoutProps) {
   const { playSlidingDoorSound, playClickSound } = sounds();
 
   const { query, pathname, back } = useRouter();
@@ -78,29 +84,26 @@ export default function Layout({
         </div>
         <button
           className={
-            isLeftMenuOpen ? styles.left_drawer : styles.left_drawer_collapsed
+            isLeftMenuOpen
+              ? styles.left_drawer
+              : [styles.left_drawer, styles.collapsed].join(" ")
           }
           onClick={() => {
             handleLeftDrawerToggler();
             playSlidingDoorSound();
           }}
         >
-          {isLeftMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-              fill="currentColor"
-            >
-              <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-              fill="currentColor"
-            >
-              <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
-            </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            fill="currentColor"
+          >
+            <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+          </svg>
+          {isLeftMenuOpen ? null : (
+            <>
+              <p className={styles.left_drawer_text}>{leftSideMenuTitle}</p>
+            </>
           )}
         </button>
         <div className={styles.main}>
@@ -152,11 +155,11 @@ export default function Layout({
           <motion.div
             className={
               isLeftMenuOpen && !isRightMenuOpen
-                ? styles.main_container_right_collapsed
+                ? [styles.main_container, styles.right_collapsed].join(" ")
                 : !isLeftMenuOpen && isRightMenuOpen
-                ? styles.main_container_left_collapsed
+                ? [styles.main_container, styles.left_collapsed].join(" ")
                 : !isLeftMenuOpen && !isRightMenuOpen
-                ? styles.main_container_both_collapsed
+                ? [styles.main_container, styles.both_collapsed].join(" ")
                 : styles.main_container
             }
             initial={{
@@ -178,29 +181,22 @@ export default function Layout({
           className={
             isRightMenuOpen
               ? styles.right_drawer
-              : styles.right_drawer_collapsed
+              : [styles.right_drawer, styles.collapsed].join(" ")
           }
           onClick={() => {
             handleRightDrawerToggler();
             playSlidingDoorSound();
           }}
         >
-          {isRightMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-              fill="currentColor"
-            >
-              <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-              fill="currentColor"
-            >
-              <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
-            </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            fill="currentColor"
+          >
+            <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+          </svg>
+          {isRightMenuOpen ? null : (
+            <p className={styles.right_drawer_text}>{rightSideMenuTitle}</p>
           )}
         </button>
         <div

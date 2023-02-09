@@ -10,7 +10,9 @@ export default function HomePage() {
   return (
     <Layout
       leftSideMenu={<GuildhallLeftMenu />}
+      leftSideMenuTitle="Welcome"
       rightSideMenu={<GuildhallRightMenu />}
+      rightSideMenuTitle="Notices"
       main={<Guildhall />}
     />
   );

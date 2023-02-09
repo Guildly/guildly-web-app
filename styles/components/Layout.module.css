@@ -41,10 +41,12 @@
 }
 
 .left_drawer {
+    position       : absolute;
     display        : flex;
+    flex-direction : column;
+    gap            : 20px;
     justify-content: center;
     align-items    : center;
-    position       : absolute;
     background     : rgb(50, 49, 49);
     color          : #DCCB8D;
     width          : 30px;
@@ -54,31 +56,27 @@
     z-index        : 2;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
-    border         : none;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    border         : 1px solid #967C6E;
+    transition     : height 0.3s ease-out 0s, min-height 0.3s ease-out 0s, max-height 0.3s ease-out 0s;
 }
 
-.left_drawer_collapsed {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    position       : absolute;
-    background     : rgb(50, 49, 49);
-    color          : #DCCB8D;
-    width          : 30px;
-    height         : 30px;
-    left           : 6%;
-    top            : 20%;
-    z-index        : 2;
-    border-radius  : 0px 5px 5px 0px;
-    cursor         : pointer;
-    border         : none;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+.left_drawer.collapsed {
+    height    : 120px;
+    left      : 6%;
+    transition: height 0.3s ease-out 0s, min-height 0.3s ease-out 0s, max-height 0.3s ease-out 0s;
 }
-
 
 .left_drawer svg {
-    width: 30px;
+    transition: 0.4s;
+}
+
+.left_drawer.collapsed svg {
+    transform : rotate(180deg);
+    transition: 0.4s;
+}
+
+.left_drawer_text {
+    transform: rotate(-90deg);
 }
 
 .right_menu {
@@ -114,6 +112,8 @@
 
 .right_drawer {
     display        : flex;
+    flex-direction : column;
+    gap            : 10px;
     justify-content: center;
     align-items    : center;
     position       : absolute;
@@ -126,26 +126,27 @@
     z-index        : 3;
     border-radius  : 0px 5px 5px 0px;
     cursor         : pointer;
-    border         : none;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+    border         : 1px solid #967C6E;
+    transition     : height 0.3s ease-out 0s, min-height 0.3s ease-out 0s, max-height 0.3s ease-out 0s;
 }
 
-.right_drawer_collapsed {
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
-    position       : absolute;
-    background     : rgb(50, 49, 49);
-    color          : #DCCB8D;
-    width          : 30px;
-    height         : 30px;
-    right          : 6%;
-    top            : 20%;
-    z-index        : 3;
-    border-radius  : 0px 5px 5px 0px;
-    cursor         : pointer;
-    border         : none;
-    transition     : width 0.1s ease-out 0s, min-width 0.1s ease-out 0s, max-width 0.1s ease-out 0s;
+.right_drawer.collapsed {
+    height    : 120px;
+    right     : 6%;
+    transition: height 0.3s ease-out 0s, min-height 0.3s ease-out 0s, max-height 0.3s ease-out 0s;
+}
+
+.right_drawer svg {
+    transition: 0.4s;
+}
+
+.right_drawer.collapsed svg {
+    transform : rotate(180deg);
+    transition: 0.4s;
+}
+
+.right_drawer_text {
+    transform: rotate(90deg);
 }
 
 
@@ -197,12 +198,8 @@
     /* left          : 25%; */
     /* margin        : -100px 0px; */
     width            : 200px;
-    height           : 50px;
     /* gap           : 10px; */
     border-radius    : 10px;
-    background       : rgba(31, 33, 36, 1);
-    border           : 2px solid #DCCB8D;
-    padding          : 0px 20px;
     color            : #967C6E;
     cursor           : pointer;
     gap              : 10px;
@@ -227,7 +224,6 @@
     position      : fixed;
     display       : flex;
     flex-direction: row;
-    align-items   : center;
     top           : 22.5%;
 }
 
@@ -240,7 +236,8 @@
     justify-content: center;
     align-items    : center;
     position       : fixed;
-    right          : 50%;
+    width          : 30%;
+    right          : 36%;
     color          : #DCCB8D;
     font-size      : x-large;
 }
@@ -248,20 +245,21 @@
 .main_container {
     position  : relative;
     margin    : 0% 20% 10% 20%;
+    height    : 70%;
     transition: margin-left 0.15s ease-out 0s;
 }
 
-.main_container_left_collapsed {
+.main_container.left_collapsed {
     margin    : 0% 20% 10% 5%;
     transition: margin-left 0.15s ease-out 0s;
 }
 
-.main_container_right_collapsed {
+.main_container.right_collapsed {
     margin    : 0% 5% 10% 20%;
     transition: margin-right 0.15s ease-out 0s;
 }
 
-.main_container_both_collapsed {
+.main_container.both_collapsed {
     margin    : 0% 5% 10% 5%;
     transition: margin-right 0.15s ease-out 0s margin-left 0.15s ease-out 0s;
 }

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ShortTextInput } from "./inputs";
 import { Controller } from "react-hook-form";
 import Link from "next/link";
+import { SelectOption } from "../types";
 
 interface SelectProps {
   options: string[];
@@ -144,6 +145,90 @@ export function ControlledSelect({
                     }}
                   >
                     <p>{option}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      )}
+    />
+  );
+}
+
+interface ControlledSelectIconsProps {
+  name: string;
+  control: any;
+  defaultValue: any;
+  rules: any;
+  className: string;
+  options: SelectOption[];
+}
+
+export function ControlledSelectIcons({
+  name,
+  control,
+  defaultValue,
+  rules,
+  className,
+  options,
+}: ControlledSelectIconsProps) {
+  const [isSelected, setIsSelected] = useState(false);
+  const selectRef = useRef<HTMLDivElement>(null);
+
+  const checkIfClickedOutside = (event: any) => {
+    if (
+      isSelected &&
+      selectRef.current &&
+      !selectRef.current.contains(event.target)
+    ) {
+      setIsSelected(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", checkIfClickedOutside, true);
+    return () => {
+      document.removeEventListener("click", checkIfClickedOutside, true);
+    };
+  }, [isSelected]);
+  return (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      rules={rules}
+      render={({ field: { ref, value, onChange } }) => (
+        <div ref={selectRef}>
+          <button
+            className={styles.select_button}
+            onClick={() => setIsSelected(!isSelected)}
+          >
+            {value.icon}
+            <p>{value.text}</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              className={styles.select_icon}
+              fill="currentColor"
+            >
+              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+            </svg>
+          </button>
+          {isSelected ? (
+            <div className={styles.select_dropdown_area}>
+              <div className={styles.select_dropdown}>
+                {options.map((option, index) => (
+                  <button
+                    className={styles.select_dropdown_button}
+                    key={index}
+                    onClick={() => {
+                      onChange(option);
+                      setIsSelected(!isSelected);
+                    }}
+                  >
+                    {option.icon}
+                    <p>{option.text}</p>
                   </button>
                 ))}
               </div>

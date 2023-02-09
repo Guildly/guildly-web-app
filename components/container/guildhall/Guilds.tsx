@@ -155,7 +155,13 @@ export const Guilds = () => {
                 </div>
               </td>
               <td>{guild.treasury}</td>
-              <td>{guild.activity}</td>
+              <td className={styles.activity}>
+                <p>+50%</p>
+                <img
+                  src={"/chart-example.png"}
+                  className={styles.activity_image}
+                />
+              </td>
             </tr>
           </Link>
         ))}

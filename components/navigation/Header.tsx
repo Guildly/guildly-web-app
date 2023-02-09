@@ -228,11 +228,15 @@ export const Header = () => {
                   <p>Select Guild</p>
                 </button>
               )}
-              {isGuildDialogSelected ? (
-                <div className={styles.guild_container}>
-                  <GuildMenu close={() => setIsGuildDialogSelected(false)} />
-                </div>
-              ) : null}
+              <div
+                className={
+                  isGuildDialogSelected
+                    ? [styles.guild_container, styles.open].join(" ")
+                    : styles.guild_container
+                }
+              >
+                <GuildMenu close={() => setIsGuildDialogSelected(false)} />
+              </div>
             </div>
             {/* <button className={styles.gld_button}>
               <div className={styles.token_info}>

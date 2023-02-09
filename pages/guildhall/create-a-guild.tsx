@@ -14,6 +14,8 @@ import { addressSchema } from "../../features/schemas/addresses";
 export default function CreateAGuildPage() {
   const [permissionIndex, setPermissionIndex] = useState(0);
 
+  const [chainPage, setChainPage] = useState(1);
+
   const createSchema: any = yup.object().shape({
     name: yup.string().required(),
     emblem: yup.string().optional(),
@@ -99,6 +101,8 @@ export default function CreateAGuildPage() {
   });
 
   const props = {
+    chainPage,
+    setChainPage,
     control,
     handleSubmit,
     permissionIndex,
@@ -113,8 +117,10 @@ export default function CreateAGuildPage() {
   return (
     <div>
       <Layout
-        leftSideMenu={<CreateGuildLeftMenu />}
+        leftSideMenu={<CreateGuildLeftMenu chainPage={chainPage} />}
+        leftSideMenuTitle="Guide"
         rightSideMenu={<CreateGuildRightMenu />}
+        rightSideMenuTitle="Progress"
         main={<CreateGuild {...props} />}
       />
     </div>

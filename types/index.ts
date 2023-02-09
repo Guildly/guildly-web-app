@@ -34,3 +34,8 @@ export interface Token {
   tokenId: number | null;
   amount: number;
 } 
+
+export interface SelectOption {
+  text: string;
+  icon: ReactElement;
+}

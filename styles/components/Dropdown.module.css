@@ -34,13 +34,18 @@
   overflow      : scroll;
   margin        : 10px 0px 0px 0px;
   z-index       : 2;
-  height        : 15%;
+  height        : fit-content;
 }
 
 .select_dropdown_button {
-  background: inherit;
-  border    : none;
-  cursor    : pointer;
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+  align-items   : center;
+  background    : inherit;
+  border        : none;
+  cursor        : pointer;
+  padding       : 10px;
 }
 
 .select_dropdown_button:hover {
