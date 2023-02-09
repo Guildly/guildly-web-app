@@ -11,7 +11,9 @@ export default function CouncilPage() {
     <div>
       <Layout
         leftSideMenu={<CouncilLeftMenu />}
+        leftSideMenuTitle="Info"
         rightSideMenu={<CouncilRightMenu />}
+        rightSideMenuTitle="Proposals"
         main={<Council />}
       />
     </div>

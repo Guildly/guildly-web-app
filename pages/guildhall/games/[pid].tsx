@@ -9,7 +9,9 @@ export default function GuildPage() {
   return (
     <Layout
       leftSideMenu={<GuildhallLeftMenu />}
+      leftSideMenuTitle={null}
       rightSideMenu={<GuildhallRightMenu />}
+      rightSideMenuTitle={null}
       main={<Guild />}
     />
   );

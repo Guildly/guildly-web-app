@@ -10,7 +10,9 @@ export default function AccountsPage() {
     <div>
       <Layout
         leftSideMenu={<AccountsLeftMenu />}
+        leftSideMenuTitle={null}
         rightSideMenu={<AccountsRightMenu />}
+        rightSideMenuTitle={null}
         main={<Accounts />}
       />
     </div>

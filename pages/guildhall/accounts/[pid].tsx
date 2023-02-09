@@ -9,7 +9,9 @@ export default function AccountPage() {
   return (
     <Layout
       leftSideMenu={<AccountsLeftMenu />}
+      leftSideMenuTitle={null}
       rightSideMenu={<AccountsRightMenu />}
+      rightSideMenuTitle={null}
       main={<Account />}
     />
   );

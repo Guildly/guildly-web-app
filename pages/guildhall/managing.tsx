@@ -10,7 +10,9 @@ export default function LeaderboardPage() {
     <div>
       <Layout
         leftSideMenu={<GuildhallLeftMenu />}
+        leftSideMenuTitle={null}
         rightSideMenu={<GuildhallRightMenu />}
+        rightSideMenuTitle={null}
         main={<Managing />}
       />
     </div>

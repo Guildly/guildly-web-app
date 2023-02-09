@@ -10,7 +10,9 @@ export default function MyGuildsPage() {
     <div>
       <Layout
         leftSideMenu={<GuildLeftMenu />}
+        leftSideMenuTitle={null}
         rightSideMenu={<GuildRightMenu />}
+        rightSideMenuTitle={null}
         main={<MyGuild />}
       />
     </div>

@@ -9,7 +9,9 @@ export default function GamesPage() {
   return (
     <Layout
       leftSideMenu={<GuildhallLeftMenu />}
+      leftSideMenuTitle="New"
       rightSideMenu={<GuildhallRightMenu />}
+      rightSideMenuTitle="Popular"
       main={<Games />}
     />
   );

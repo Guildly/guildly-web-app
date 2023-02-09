@@ -10,7 +10,9 @@ export default function GuildsPage() {
     <div>
       <Layout
         leftSideMenu={<GuildSearchLeftMenu />}
+        leftSideMenuTitle="Trending"
         rightSideMenu={<GuildSearchRightMenu />}
+        rightSideMenuTitle="New"
         main={<Guilds />}
       />
     </div>

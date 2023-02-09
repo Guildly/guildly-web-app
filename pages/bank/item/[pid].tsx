@@ -13,7 +13,9 @@ export default function ItemPage() {
   return (
     <Layout
       leftSideMenu={<ItemLeftMenu />}
+      leftSideMenuTitle={null}
       rightSideMenu={<ItemRightMenu />}
+      rightSideMenuTitle={null}
       main={<Item />}
     />
   );
