@@ -19,7 +19,7 @@
 .title {
     align-self: center;
     color     : #DCCB8D;
-    font-size : 20px;
+    font-size : 24px;
 }
 
 .close_button {
@@ -30,9 +30,12 @@
 .icon {
     display     : flex;
     width       : 20px;
-    color       : #626A7C;
     justify-self: flex-end;
     cursor      : pointer;
+}
+
+.icon:hover {
+    color: #515453;
 }
 
 .guild_elements {
@@ -54,8 +57,11 @@
     margin        : 20px;
 }
 
+.guildbox:hover {
+    background: #515453;
+}
+
 .guildbox p {
-    color : wheat;
     margin: 0px;
 }
 
@@ -72,6 +78,7 @@
 }
 
 .guild_name {
+    color : #DCCB8D;
     height: 20px;
     margin: -10px 0px 0px 0px;
 }
@@ -93,6 +100,20 @@
     color    : white;
 }
 
+.attibute {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.games {
+    display       : flex;
+    flex-direction: row;
+}
+
+.game {
+    width: 10px;
+}
 
 .guild_attribute {
     color: #626A7C;
@@ -111,4 +132,8 @@
     padding        : 10px;
     color          : #DCCB8D;
     margin         : auto;
+}
+
+.join_box:hover {
+    background: #515453;
 }

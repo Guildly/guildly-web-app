@@ -60,6 +60,10 @@
     transition     : height 0.3s ease-out 0s, min-height 0.3s ease-out 0s, max-height 0.3s ease-out 0s;
 }
 
+.left_drawer:hover {
+    background: #515453;
+}
+
 .left_drawer.collapsed {
     height    : 120px;
     left      : 6%;
@@ -128,6 +132,10 @@
     cursor         : pointer;
     border         : 1px solid #967C6E;
     transition     : height 0.3s ease-out 0s, min-height 0.3s ease-out 0s, max-height 0.3s ease-out 0s;
+}
+
+.right_drawer:hover {
+    background: #515453;
 }
 
 .right_drawer.collapsed {

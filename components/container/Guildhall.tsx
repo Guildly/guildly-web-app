@@ -30,15 +30,6 @@ export const Guildhall = () => {
         </div>
       </Link>
       <Link
-        href="/guildhall/managing"
-        onClick={() => playClickSound()}
-        passHref
-      >
-        <div className={styles.navbox}>
-          <p>Managing</p>
-        </div>
-      </Link>
-      <Link
         href="/guildhall/leaderboard"
         onClick={() => playClickSound()}
         passHref

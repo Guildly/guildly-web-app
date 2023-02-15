@@ -12,11 +12,15 @@
     align-items    : center;
     justify-content: center;
     width          : 100%;
-    height         : 100px;
+    height         : 70%;
     border-radius  : 10px;
     background     : #212326;
     border         : solid;
     border-color   : #DCCB8D;
     color          : #DCCB8D;
     font-size      : 22px;
+}
+
+.navbox:hover {
+    background: #515453;
 }

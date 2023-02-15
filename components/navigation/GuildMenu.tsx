@@ -123,7 +123,6 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
                     </div>
                   </th>
                   <th>
-                    {" "}
                     <div className={styles.attribute_header}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -138,9 +137,27 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
                   </th>
                 </tr>
                 <tr className={styles.attribute_stats}>
-                  <td>10</td>
+                  <td className={styles.attribute}>100</td>
                   <td>20</td>
-                  <td>30</td>
+                  <td>
+                    <div className={styles.games}>
+                      <img
+                        src="/influence_logo.png"
+                        alt="game-logo"
+                        className={styles.game}
+                      />
+                      <img
+                        src="/eternum_logo.svg"
+                        alt="game-logo"
+                        className={styles.game}
+                      />
+                      <img
+                        src="/briq_logo.svg"
+                        alt="game-logo"
+                        className={styles.game}
+                      />
+                    </div>
+                  </td>
                   <td>40</td>
                 </tr>
               </table>

@@ -60,6 +60,10 @@
     cursor         : pointer;
 }
 
+.wallet_box:hover {
+    background: #515453;
+}
+
 .disconnect {
     display        : flex;
     flex-direction : row;
@@ -73,6 +77,10 @@
     background     : #162334;
     color          : #DCCB8D;
     cursor         : pointer;
+}
+
+.disconnect:hover {
+    background: #515453;
 }
 
 .disconnect_icon {

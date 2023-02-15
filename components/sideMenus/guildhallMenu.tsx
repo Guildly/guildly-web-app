@@ -1,5 +1,6 @@
 import left_styles from "../../styles/sidemenu/GuildhallLeft.module.css";
 import right_styles from "../../styles/sidemenu/GuildhallRight.module.css";
+import { ScrollingText } from "../animations";
 
 export const GuildhallLeftMenu = () => {
   return (
@@ -55,20 +56,7 @@ export const GuildhallRightMenu = () => {
           <p>Notice Board</p>
         </div>
         <div className={right_styles.notices_container}>
-          <ul>
-            <li>
-              <p>Starknetdev.stark harvested resources on your Realm</p>
-            </li>
-            <li>
-              <p>Starknetdev.stark mined your Asteroid</p>
-            </li>
-            <li>
-              <p>Starknetdev.stark harvested resources on your Realm</p>
-            </li>
-            <li>
-              <p>Starknetdev.stark harvested resources on your Realm</p>
-            </li>
-          </ul>
+          <ScrollingText />
         </div>
       </div>
     </div>

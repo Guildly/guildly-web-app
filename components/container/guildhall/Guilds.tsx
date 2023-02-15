@@ -124,33 +124,33 @@ export const Guilds = () => {
                   <p className={styles.items_value}>~ {guild.items_value}</p>
                 </div>
               </td>
-              <td className={styles.members}>
-                <div className={styles.master}>
-                  <p className={styles.member_master}>Master:</p>
-                  <p className={styles.address}>{guild.master}</p>
-                </div>
-                <div className={styles.master}>
-                  <p className={styles.member_master}>{guild.members.length}</p>
-                  <p className={styles.address}>
-                    {guild.members[0]}, {guild.members[1]}
-                  </p>
+              <td>
+                <div className={styles.members}>
+                  <div className={styles.members_list}>
+                    <div className={styles.address}>
+                      <p>{guild.members[0]}</p>
+                    </div>
+                    <div className={styles.address}>
+                      <p>{guild.members[1]}</p>
+                    </div>
+                  </div>
                 </div>
               </td>
               <td className={styles.fees}>
                 <div className={styles.fee_row}>
-                  <p className={styles.role}>Owner:</p>{" "}
+                  <p className={styles.role}>Owner:</p>
                   <p className={styles.split}>{guild.fees.owner}</p>
                 </div>
                 <div className={styles.fee_row}>
-                  <p className={styles.role}>User:</p>{" "}
+                  <p className={styles.role}>User:</p>
                   <p className={styles.split}>{guild.fees.user}</p>
                 </div>
                 <div className={styles.fee_row}>
-                  <p className={styles.role}>Admin:</p>{" "}
+                  <p className={styles.role}>Admin:</p>
                   <p className={styles.split}>{guild.fees.admin}</p>
                 </div>
                 <div className={styles.fee_row}>
-                  <p className={styles.role}>Guild:</p>{" "}
+                  <p className={styles.role}>Guild:</p>
                   <p className={styles.split}>{guild.fees.guild}</p>
                 </div>
               </td>
