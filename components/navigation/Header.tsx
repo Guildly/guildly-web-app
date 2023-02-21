@@ -6,7 +6,7 @@ import Image from "next/image";
 import { GuildMenu } from "./GuildMenu";
 import { ConnectMenu } from "./ConnectMenu";
 import { TransactionPanel } from "./transactions/TransactionPanel";
-import { useAccount } from "@starknet-react/core";
+import { useAccount, useNetwork } from "@starknet-react/core";
 import { useGuild } from "../../context/GuildContext";
 import { displayAddress } from "../../utils/address";
 import { sounds } from "../../shared/sounds";
@@ -15,6 +15,7 @@ import { useSound } from "../../context/SoundContext";
 
 export const Header = () => {
   const { address } = useAccount();
+  const { chain } = useNetwork();
   const [copiedAddress, setCopiedAddress] = useState(false);
   const { starknetId } = useStarkNetId(address ? address : "0x0");
   const { musicPlaying, toggleSound } = useSound();
@@ -117,7 +118,7 @@ export const Header = () => {
     <>
       <div className={styles.header}>
         <div className={styles.left_border} />
-        <div className={styles.left_head} />
+        {/* <div className={styles.left_head} /> */}
         <div className={styles.navbar}>
           <div className={styles.nav_links}>
             <Link
@@ -261,7 +262,13 @@ export const Header = () => {
                       playClickSound();
                     }}
                   >
-                    <p>{starknetId ? starknetId : displayAddress(address)}</p>
+                    <p>
+                      {chain?.id == "0x534e5f474f45524c49"
+                        ? starknetId
+                          ? starknetId
+                          : displayAddress(address)
+                        : "Connect"}
+                    </p>
                     <button
                       className={styles.copied_button}
                       onClick={() => {
@@ -293,6 +300,11 @@ export const Header = () => {
                   </div>
                   {copiedAddress ? (
                     <div className={styles.copied_address_box}>Copied!</div>
+                  ) : null}
+                  {chain?.id != "0x534e5f474f45524c49" ? (
+                    <div className={styles.network_error}>
+                      <p>Wrong network, switch to Testnet</p>
+                    </div>
                   ) : null}
                 </>
               ) : (
@@ -391,7 +403,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
-        <div className={styles.right_head} />
+        {/* <div className={styles.right_head} /> */}
         <div className={styles.right_border} />
       </div>
     </>

@@ -4,7 +4,7 @@ import { Bank } from "../components/container/Bank";
 import { BankLeftMenu, BankRightMenu } from "../components/sideMenus/bankMenu";
 
 export default function VaultPage() {
-  const [tab, setTab] = useState("Guild");
+  const [tab, setTab] = useState("Account");
   const [tokenStandardFilter, setTokenStandardFilter] = useState("");
   const [gameFilter, setGameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("");

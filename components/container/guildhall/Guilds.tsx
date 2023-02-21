@@ -1,6 +1,12 @@
 import styles from "../../../styles/containers/guildhall/Guilds.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  UserIcon,
+  MerchantIcon,
+  MasterIcon,
+  ShieldIcon,
+} from "../../../shared/icons";
 import { sounds } from "../../../shared/sounds";
 
 export const Guilds = () => {
@@ -98,7 +104,7 @@ export const Guilds = () => {
                 </div>
               </td>
               <td>
-                <div className={styles.master}>
+                <div className={styles.game_area}>
                   <p>{guild.games.length}</p>
                   <div className={styles.games}>
                     {guild.games.map((game, index) => (
@@ -126,11 +132,18 @@ export const Guilds = () => {
               </td>
               <td>
                 <div className={styles.members}>
+                  <p className={styles.members_number}>2</p>
                   <div className={styles.members_list}>
                     <div className={styles.address}>
+                      <div className={styles.role_icon}>
+                        <MasterIcon />
+                      </div>
                       <p>{guild.members[0]}</p>
                     </div>
                     <div className={styles.address}>
+                      <div className={styles.role_icon}>
+                        <UserIcon />
+                      </div>
                       <p>{guild.members[1]}</p>
                     </div>
                   </div>
@@ -138,20 +151,40 @@ export const Guilds = () => {
               </td>
               <td className={styles.fees}>
                 <div className={styles.fee_row}>
-                  <p className={styles.role}>Owner:</p>
-                  <p className={styles.split}>{guild.fees.owner}</p>
+                  <div className={styles.fee_element}>
+                    <div className={styles.fee_icon}>
+                      <div className={styles.role_icon}>
+                        <MerchantIcon />
+                      </div>
+                    </div>
+                    <p className={styles.split}>{guild.fees.owner}</p>
+                  </div>
+                  <div className={styles.fee_element}>
+                    <div className={styles.fee_icon}>
+                      <div className={styles.role_icon}>
+                        <UserIcon />
+                      </div>
+                    </div>
+                    <p className={styles.split}>{guild.fees.user}</p>
+                  </div>
                 </div>
                 <div className={styles.fee_row}>
-                  <p className={styles.role}>User:</p>
-                  <p className={styles.split}>{guild.fees.user}</p>
-                </div>
-                <div className={styles.fee_row}>
-                  <p className={styles.role}>Admin:</p>
-                  <p className={styles.split}>{guild.fees.admin}</p>
-                </div>
-                <div className={styles.fee_row}>
-                  <p className={styles.role}>Guild:</p>
-                  <p className={styles.split}>{guild.fees.guild}</p>
+                  <div className={styles.fee_element}>
+                    <div className={styles.fee_icon}>
+                      <div className={styles.role_icon}>
+                        <MasterIcon />
+                      </div>
+                    </div>
+                    <p className={styles.split}>{guild.fees.admin}</p>
+                  </div>
+                  <div className={styles.fee_element}>
+                    <div className={styles.fee_icon}>
+                      <div className={styles.role_icon}>
+                        <ShieldIcon />
+                      </div>
+                    </div>
+                    <p className={styles.split}>{guild.fees.guild}</p>
+                  </div>
                 </div>
               </td>
               <td>{guild.treasury}</td>

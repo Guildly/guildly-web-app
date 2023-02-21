@@ -28,7 +28,7 @@ export default function Home() {
             </div>
           </Link>
 
-          <Link href="/Bank" passHref className={styles.button}>
+          <Link href="/bank" passHref className={styles.button}>
             <div className={styles.button}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

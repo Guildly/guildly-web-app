@@ -12,7 +12,6 @@ export const ConnectMenu = ({ close }: ConectMenuProps) => {
   const { status } = useAccount();
   const { connect, connectors, disconnect } = useConnectors();
   const { playClickSound } = sounds();
-  console.log(status);
 
   return (
     <div className={styles.box}>

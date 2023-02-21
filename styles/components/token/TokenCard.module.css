@@ -70,11 +70,17 @@
   z-index : 4;
 }
 
+.token_text p {
+  margin: 0px;
+}
+
 .token_title {
-  color        : #DCCB8D;
-  font-size    : 10px;
-  margin       : 20px 65px;
-  text-overflow: ellipsis;
+  color      : #DCCB8D;
+  font-size  : 10px;
+  margin     : 20px 65px;
+  overflow   : hidden;
+  white-space: nowrap;
+  width      : 50px;
 }
 
 .token_content {

@@ -35,24 +35,24 @@
 
 .left_border {
     position           : fixed;
-    background-image   : url('/left-menu.svg');
+    background-image   : url('/left-menu-2.svg');
     background-size    : cover;
     background-position: 100% 100%;
-    height             : 100%;
+    height             : 120%;
     width              : 6%;
-    top                : 8%;
+    top                : -6%;
     left               : 0px;
     z-index            : 1;
 }
 
 .right_border {
     position           : fixed;
-    background-image   : url('/right-menu.svg');
+    background-image   : url('/right-menu-2.svg');
     background-size    : cover;
     background-position: 0% 100%;
-    height             : 100%;
-    top                : 8%;
+    height             : 110%;
     width              : 6%;
+    top                : -3%;
     right              : 0px;
     z-index            : 1;
 }
@@ -472,6 +472,26 @@
     color: #DCCB8D;
 }
 
+.network_error {
+    position       : fixed;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 125px;
+    height         : 8%;
+    top            : 7%;
+    right          : 20.5%;
+    background     : #4A4E50;
+    color          : white;
+    font-size      : 16px;
+    border-radius  : 10px;
+    padding        : 5px;
+}
+
+.network_error p {
+    margin    : 0px;
+    text-align: center;
+}
 
 .connect_container {
     position      : fixed;
