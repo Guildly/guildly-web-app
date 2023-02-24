@@ -41,6 +41,7 @@
     background-color: #292724;
     height          : 75%;
     width           : 100%;
+    border          : 2px solid #DCCB8D;
     border-radius   : 10px;
     overflow        : auto;
     padding         : 10px;

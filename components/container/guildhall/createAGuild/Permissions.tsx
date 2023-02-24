@@ -8,6 +8,7 @@ import {
   MerchantIcon,
   MasterIcon,
   ShieldIcon,
+  PlusIcon,
 } from "../../../../shared/icons";
 
 export const Permissions = ({ ...props }: any) => {
@@ -138,6 +139,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                   <div className={styles.token_input}>
                     <div className={styles.role}>
@@ -161,6 +165,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                   <div className={styles.token_input}>
                     <div className={styles.role}>
@@ -184,6 +191,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                   <div className={styles.token_input}>
                     <div className={styles.role}>
@@ -207,6 +217,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,6 +255,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                   <div className={styles.token_input}>
                     <div className={styles.role}>
@@ -272,6 +288,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                   <div className={styles.token_input}>
                     <div className={styles.role}>
@@ -302,6 +321,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                   <div className={styles.token_input}>
                     <div className={styles.role}>
@@ -332,6 +354,9 @@ export const Permissions = ({ ...props }: any) => {
                       name={`permissions.${props.index}.selectors.${selectors}`}
                       options={options}
                     />
+                    <div className={styles.add}>
+                      <PlusIcon />
+                    </div>
                   </div>
                 </div>
               </div>

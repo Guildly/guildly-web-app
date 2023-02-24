@@ -18,15 +18,15 @@ export default function App({ Component, pageProps }: AppProps) {
     <AnimatePresence mode="wait" initial={false}>
       <StarknetConfig connectors={connectors}>
         <GuildProvider>
-          <SoundProvider>
-            <DndProvider backend={HTML5Backend}>
-              <TransactionsProvider>
-                <UIProvider>
+          <UIProvider>
+            <SoundProvider>
+              <DndProvider backend={HTML5Backend}>
+                <TransactionsProvider>
                   <Component {...pageProps} />
-                </UIProvider>
-              </TransactionsProvider>
-            </DndProvider>
-          </SoundProvider>
+                </TransactionsProvider>
+              </DndProvider>
+            </SoundProvider>
+          </UIProvider>
         </GuildProvider>
       </StarknetConfig>
     </AnimatePresence>

@@ -5,6 +5,16 @@ import Link from "next/link";
 
 export const Games = () => {
   const { playClickSound } = sounds();
+  const games = [
+    {
+      image: "/influence_logo.png",
+      name: "Influence",
+    },
+    {
+      image: "/eternum_logo.svg",
+      name: "Eternum",
+    },
+  ];
   return (
     <div className={styles.container}>
       <div className={styles.games}>

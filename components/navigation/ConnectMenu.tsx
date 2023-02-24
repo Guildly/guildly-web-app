@@ -15,8 +15,8 @@ export const ConnectMenu = ({ close }: ConectMenuProps) => {
 
   return (
     <div className={styles.box}>
-      <div className={styles.left_border} />
-      <div className={styles.right_border} />
+      {/* <div className={styles.left_border} />
+      <div className={styles.right_border} /> */}
       <div className={styles.content}>
         {status == "disconnected" ? (
           <div className={styles.wallets_list}>

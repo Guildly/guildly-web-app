@@ -1,38 +1,55 @@
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 
 export interface UIState {
   /** The state of the UI layout. */
   isLeftMenuOpen?: boolean;
-  setIsLeftMenuOpen: (isLeftMenuOpen: boolean) => void;
-  isRighttMenuOpen?: boolean;
-  setIsRightMenuOpen: (isRightMenuOpen: boolean) => void;
+  handleLeftDrawerToggler: () => void;
+  isRightMenuOpen?: boolean;
+  handleRightDrawerToggler: () => void;
 }
 
 const UI_INITIAL_STATE: UIState = {
   isLeftMenuOpen: true,
-  setIsLeftMenuOpen: () => undefined,
-  isRighttMenuOpen: true,
-  setIsRightMenuOpen: () => undefined,
+  handleLeftDrawerToggler: () => undefined,
+  isRightMenuOpen: true,
+  handleRightDrawerToggler: () => undefined,
 };
 
 const UIContext = createContext<UIState>(UI_INITIAL_STATE);
+
+export function useUI(): UIState {
+  return useContext(UIContext);
+}
 
 export const useUIContext = () => {
   const [isLeftMenuOpen, setIsLeftMenuOpen] = useState<boolean>(true);
 
   const [isRightMenuOpen, setIsRightMenuOpen] = useState<boolean>(true);
 
+  const handleLeftDrawerToggler = useCallback(() => {
+    setIsLeftMenuOpen(!isLeftMenuOpen);
+  }, [isLeftMenuOpen]);
+
+  const handleRightDrawerToggler = useCallback(() => {
+    setIsRightMenuOpen(!isRightMenuOpen);
+  }, [isRightMenuOpen]);
+
+  console.log(isLeftMenuOpen);
+  console.log(isRightMenuOpen);
+
   return {
     isLeftMenuOpen,
-    setIsLeftMenuOpen,
+    handleLeftDrawerToggler,
     isRightMenuOpen,
-    setIsRightMenuOpen,
+    handleRightDrawerToggler,
   };
 };
-
-export function useUI(): UIState {
-  return useContext(UIContext);
-}
 
 export function UIProvider({ children }: { children: React.ReactNode }) {
   const state = useUIContext();

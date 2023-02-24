@@ -3,7 +3,7 @@ import {
   GuildhallLeftMenu,
   GuildhallRightMenu,
 } from "../../../components/sideMenus/guildhallMenu";
-import { Guild } from "../../../components/container/guildhall/Guild";
+import { Game } from "../../../components/container/guildhall/Game";
 
 export default function GuildPage() {
   return (
@@ -12,7 +12,7 @@ export default function GuildPage() {
       leftSideMenuTitle={null}
       rightSideMenu={<GuildhallRightMenu />}
       rightSideMenuTitle={null}
-      main={<Guild />}
+      main={<Game />}
     />
   );
 }

@@ -23,14 +23,12 @@ export default function VaultPage() {
     setAddressFilter,
   };
   return (
-    <div>
-      <Layout
-        leftSideMenu={<BankLeftMenu {...props} />}
-        leftSideMenuTitle="Filters"
-        rightSideMenu={<BankRightMenu />}
-        rightSideMenuTitle="Info"
-        main={<Bank {...props} />}
-      />
-    </div>
+    <Layout
+      leftSideMenu={<BankLeftMenu {...props} />}
+      leftSideMenuTitle="Filters"
+      rightSideMenu={<BankRightMenu />}
+      rightSideMenuTitle="Info"
+      main={<Bank {...props} />}
+    />
   );
 }

@@ -66,125 +66,115 @@ export const TokenCard = ({
   const nftPicture = getNftPicture(token);
 
   return (
-    <div className={isSelected ? styles.selected_background : undefined}>
-      <motion.div
-        key={index}
-        transition={spring}
-        onClick={() => setSelectedToken(index)}
-        className={isSelected ? styles.token_card_open : styles.token_card}
-      >
+    <motion.div
+      key={index}
+      transition={spring}
+      onClick={() => setSelectedToken(index)}
+      className={isSelected ? styles.token_card_open : styles.token_card}
+    >
+      <Image
+        src={"/token_card.svg"}
+        height={isSelected ? 600 : 250}
+        width={isSelected ? 450 : 175}
+        alt="Token Card"
+        className={styles.token_outline}
+      />
+      <Image
+        src={"/token_symbol.svg"}
+        height={isSelected ? 100 : 35}
+        width={isSelected ? 100 : 35}
+        alt="Token Symbol"
+        className={styles.token_symbol}
+      />
+      <div className={styles.token_background}>
         <Image
-          src={"/token_card.svg"}
-          height={isSelected ? 600 : 250}
-          width={isSelected ? 450 : 175}
-          alt="Token Card"
-          className={styles.token_outline}
+          src={nftPicture}
+          height={isSelected ? 400 : 150}
+          width={isSelected ? 400 : 150}
+          alt="Token Image"
+          className={isSelected ? styles.token_image_open : styles.token_image}
         />
-        <Image
-          src={"/token_symbol.svg"}
-          height={isSelected ? 100 : 35}
-          width={isSelected ? 100 : 35}
-          alt="Token Symbol"
-          className={styles.token_symbol}
-        />
-        <div className={styles.token_background}>
-          <Image
-            src={nftPicture}
-            height={isSelected ? 400 : 150}
-            width={isSelected ? 400 : 150}
-            alt="Token Image"
-            className={
-              isSelected ? styles.token_image_open : styles.token_image
-            }
-          />
+      </div>
+      <div className={styles.token_text}>
+        <div
+          className={isSelected ? styles.token_title_open : styles.token_title}
+        >
+          <p>{token.name}</p>
         </div>
-        <div className={styles.token_text}>
-          <div
-            className={
-              isSelected ? styles.token_title_open : styles.token_title
-            }
-          >
-            <p>{token.name}</p>
-          </div>
-          <div
-            className={
-              isSelected ? styles.token_content_open : styles.token_content
-            }
-          >
-            <div className={styles.token_header}>
-              <p className={isSelected ? styles.game_open : styles.game}>
-                {token.contract.name
-                  ? token.contract.name
-                  : token.contract.name_custom}
-              </p>
-              <p
-                className={
-                  isSelected
-                    ? styles.token_standard_open
-                    : styles.token_standard
-                }
-              >
-                {token.contract.schema}
-              </p>
-              <p
-                className={
-                  isSelected ? styles.token_address_open : styles.token_address
-                }
-              >
-                {displayAddress(token.contract_address)}
-              </p>
-            </div>
-            <div
+        <div
+          className={
+            isSelected ? styles.token_content_open : styles.token_content
+          }
+        >
+          <div className={styles.token_header}>
+            <p className={isSelected ? styles.game_open : styles.game}>
+              {token.contract.name
+                ? token.contract.name
+                : token.contract.name_custom}
+            </p>
+            <p
               className={
-                isSelected
-                  ? styles.token_description_open
-                  : styles.token_description
+                isSelected ? styles.token_standard_open : styles.token_standard
               }
             >
-              <p>{token.description}</p>
-            </div>
-            <div className={styles.token_buttons}>
-              <button
-                className={
-                  isSelected
-                    ? styles.deposit_button_open
-                    : styles.deposit_button
-                }
+              {token.contract.schema}
+            </p>
+            <p
+              className={
+                isSelected ? styles.token_address_open : styles.token_address
+              }
+            >
+              {displayAddress(token.contract_address)}
+            </p>
+          </div>
+          <div
+            className={
+              isSelected
+                ? styles.token_description_open
+                : styles.token_description
+            }
+          >
+            <p>{token.description}</p>
+          </div>
+          <div className={styles.token_buttons}>
+            <button
+              className={
+                isSelected ? styles.deposit_button_open : styles.deposit_button
+              }
+            >
+              <p>Deposit</p>
+            </button>
+            <div className={styles.external_buttons}>
+              <a
+                className={styles.external_button}
+                href={token.aspect_link}
+                target="_blank"
+                rel="noreferrer"
               >
-                <p>Deposit</p>
-              </button>
-              <div className={styles.external_buttons}>
-                <a
-                  className={styles.external_button}
-                  href={token.aspect_link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Image
-                    width={isSelected ? 40 : 15}
-                    height={isSelected ? 40 : 15}
-                    alt="Aspect Logo"
-                    src={"/aspect-pfp.png"}
-                  />
-                </a>
-                <a
-                  className={styles.external_button}
-                  href="https://mintsquare.io/starknet"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Image
-                    width={isSelected ? 40 : 15}
-                    height={isSelected ? 40 : 15}
-                    alt="Mintsquare Logo"
-                    src={"/mintsquare-logo.png"}
-                  />
-                </a>
-              </div>
+                <Image
+                  width={isSelected ? 40 : 15}
+                  height={isSelected ? 40 : 15}
+                  alt="Aspect Logo"
+                  src={"/aspect-pfp.png"}
+                />
+              </a>
+              <a
+                className={styles.external_button}
+                href="https://mintsquare.io/starknet"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  width={isSelected ? 40 : 15}
+                  height={isSelected ? 40 : 15}
+                  alt="Mintsquare Logo"
+                  src={"/mintsquare-logo.png"}
+                />
+              </a>
             </div>
           </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };

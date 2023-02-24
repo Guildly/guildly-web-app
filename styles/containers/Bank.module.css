@@ -53,6 +53,14 @@
     /* color                : white; */
 }
 
+.tokens_area.display_5 {
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.tokens_area.display_6 {
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
 /* .tokens_area::-webkit-scrollbar {
     /* width: 5px; */
 /* color: white;

@@ -248,7 +248,7 @@ interface Token {
 
 interface TokenSelectProps {
   options: Token[];
-  value: Token;
+  value: Token | null;
   setValue: (e: any) => void;
 }
 
@@ -302,7 +302,10 @@ export function TokenSelect({ options, value, setValue }: TokenSelectProps) {
           playClickSound();
         }}
       >
-        <p>{value.symbol}</p>
+        {value ? (
+          <img src={value?.image} className={styles.token_image} />
+        ) : null}
+        <p>{value?.symbol}</p>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -345,14 +348,21 @@ export function TokenSelect({ options, value, setValue }: TokenSelectProps) {
             </div>
             <div className={styles.token_buttons}>
               {options.map((option, index) => (
-                <button className={styles.token_button} key={index}>
+                <button
+                  className={
+                    value?.symbol == option.symbol
+                      ? [styles.token_button, styles.selected].join(" ")
+                      : styles.token_option
+                  }
+                  key={index}
+                >
                   <Image
                     src={option.image}
                     alt="token-image"
                     width={30}
                     height={30}
                   />
-                  <p>ETH</p>
+                  <p>{option.symbol}</p>
                 </button>
               ))}
             </div>
@@ -360,7 +370,12 @@ export function TokenSelect({ options, value, setValue }: TokenSelectProps) {
             <div className={styles.tokens_list}>
               {options.map((option, index) => (
                 <button
-                  className={styles.token_option}
+                  className={
+                    value?.symbol == option.symbol
+                      ? // ? styles.token_option_selected
+                        [styles.token_option, styles.selected].join(" ")
+                      : styles.token_option
+                  }
                   key={index}
                   onClick={() => {
                     setValue(option);

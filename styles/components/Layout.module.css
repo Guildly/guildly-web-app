@@ -248,6 +248,7 @@
     right          : 36%;
     color          : #DCCB8D;
     font-size      : x-large;
+    margin-top     : -20px;
 }
 
 .main_container {

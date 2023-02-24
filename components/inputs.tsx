@@ -2,6 +2,7 @@ import styles from "../styles/components/Input.module.css";
 import { Controller } from "react-hook-form";
 import { TokenSelect } from "./dropdowns";
 import { ReactElement } from "react";
+import { useState } from "react";
 
 interface TextInputProps {
   className: string;
@@ -118,8 +119,8 @@ export function ControlledTokenInput({
   placeholder,
   options,
   value,
-  setValue,
 }: any) {
+  const [token, setToken] = useState(null);
   return (
     <Controller
       name={name}
@@ -136,7 +137,7 @@ export function ControlledTokenInput({
             placeholder={placeholder}
             onChange={onChange}
           />
-          <TokenSelect options={options} value={value} setValue={setValue} />
+          <TokenSelect options={options} value={token} setValue={setToken} />
         </div>
       )}
     />

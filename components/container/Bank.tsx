@@ -11,6 +11,8 @@ import {
   AspectNftAsset,
 } from "../../features/accountNfts/aspect.model";
 import { TokenOpen } from "../token/TokenOpen";
+import { useUI } from "../../context/UIContext";
+import { motion } from "framer-motion";
 
 interface BankProps {
   tab: string;
@@ -20,6 +22,8 @@ interface BankProps {
 export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
   const { address: accountAddress } = useAccount();
   const { guild } = useGuild();
+  const { isLeftMenuOpen, isRightMenuOpen } = useUI();
+
   const [selectedToken, setSelectedToken] = useState(-1);
   const [accountTokens, setAccountTokens] = useState<AspectNftAsset[] | null>(
     null
@@ -37,6 +41,12 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
       }
     );
   }, [accountTokens]);
+
+  const tokenOpenSpring = {
+    type: "spring",
+    damping: 25,
+    stiffness: 120,
+  };
 
   return (
     <div className={styles.container}>
@@ -56,18 +66,34 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
       </div>
       <div className={styles.tokens_box}>
         <AnimateSharedLayout>
-          <div className={styles.tokens_area}>
+          <div
+            className={
+              isLeftMenuOpen && !isRightMenuOpen
+                ? [styles.tokens_area, styles.display_5].join(" ")
+                : !isLeftMenuOpen && isRightMenuOpen
+                ? [styles.tokens_area, styles.display_5].join(" ")
+                : !isLeftMenuOpen && !isRightMenuOpen
+                ? [styles.tokens_area, styles.display_6].join(" ")
+                : styles.tokens_area
+            }
+          >
             {tab == "Account" ? (
               accountTokens && accountAddress ? (
                 accountTokens.map((token, index) =>
                   selectedToken == index ? (
-                    <TokenOpen
+                    <motion.div
                       key={index}
-                      isSelected={selectedToken === index}
-                      setSelectedToken={setSelectedToken}
-                      index={index}
-                      token={token}
-                    />
+                      transition={tokenOpenSpring}
+                      onClick={() => setSelectedToken(index)}
+                    >
+                      <TokenOpen
+                        key={index}
+                        isSelected={selectedToken === index}
+                        setSelectedToken={setSelectedToken}
+                        index={index}
+                        token={token}
+                      />
+                    </motion.div>
                   ) : (
                     <TokenCard
                       key={index}

@@ -28,31 +28,66 @@ export function useSound(): SoundState {
 export const useSoundContext = () => {
   const [musicPlaying, setMusicPlaying] = useState<boolean>(false);
 
+  const [brokenVillagePlaying, setBrokenVillagePlaying] =
+    useState<boolean>(false);
+  const [beautifulVillagePlaying, setBeautifulVillagePlaying] =
+    useState<boolean>(false);
+
   const toggleSound = useCallback(() => {
     const newValue = !musicPlaying;
     setMusicPlaying(newValue);
   }, [musicPlaying]);
 
-  const [playBackground, { stop }] = useSoundLib("/sounds/broken_village.mp3", {
+  const [
+    playBrokenVillage,
+    { stop: stopBrokenVillage, duration: durationBrokenVillage },
+  ] = useSoundLib("/sounds/broken_village.mp3", {
     soundEnabled: musicPlaying,
     volume: 0.2,
-    loop: true,
+    loop: false,
   });
 
-  // const [playNextBackground] = useSoundLib("/sounds/beatiful_village.mp3", {
-  //   soundEnabled: musicPlaying,
-  //   volume: 0.2,
-  //   loop: true,
-  // });
+  const [
+    playBeautifulVillage,
+    { stop: stopBeautifulVillage, duration: durationBeatifulVillage },
+  ] = useSoundLib("/sounds/beautiful_village.mp3", {
+    soundEnabled: musicPlaying,
+    volume: 0.2,
+    loop: false,
+  });
+
+  const [
+    playElvenForest,
+    { stop: stopElvenForest, duration: durationElvenForest },
+  ] = useSoundLib("/sounds/elven_forest.mp3", {
+    soundEnabled: musicPlaying,
+    volume: 0.2,
+    loop: false,
+  });
 
   useEffect(() => {
     if (!musicPlaying) {
-      stop();
+      stopBrokenVillage();
+      stopBeautifulVillage();
+      stopElvenForest();
     } else {
-      playBackground();
-      // playNextBackground();
+      playBrokenVillage();
+      // setInterval(
+      //   () => {
+      //     playBeautifulVillage();
+      //     setInterval(
+      //       () => {
+      //         playElvenForest();
+      //       },
+      //       durationBeatifulVillage ? durationBeatifulVillage : 0
+      //     );
+      //   },
+      //   durationBrokenVillage ? durationBrokenVillage : 0
+      // );
     }
-  }, [musicPlaying, playBackground, stop]);
+  }, [musicPlaying]);
+
+  console.log(musicPlaying);
 
   return {
     musicPlaying,

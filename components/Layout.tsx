@@ -9,7 +9,7 @@ import Image from "next/image";
 import { sounds } from "../shared/sounds";
 import { capitaliseFirst } from "../utils/format";
 import { SearchDropdown } from "./dropdowns";
-import { useUIContext } from "../context/UIContext";
+import { useUI } from "../context/UIContext";
 
 interface LayoutProps {
   leftSideMenu: ReactElement;
@@ -27,8 +27,15 @@ export default function Layout({
   main,
 }: LayoutProps) {
   const { playSlidingDoorSound, playClickSound } = sounds();
+  const {
+    isLeftMenuOpen,
+    handleLeftDrawerToggler,
+    isRightMenuOpen,
+    handleRightDrawerToggler,
+  } = useUI();
 
-  const { query, pathname, back } = useRouter();
+  const { query, pathname, back, push } = useRouter();
+  const { pid } = query;
   const titles = pathname.slice(1).split("/");
   const isPage = useCallback(
     (name: string) => name === titles[titles.length - 1],
@@ -41,29 +48,6 @@ export default function Layout({
     let titleWord = capitaliseFirst(titleWords[i]);
     formatTitle += titleWord + " ";
   }
-
-  const {
-    isLeftMenuOpen,
-    setIsLeftMenuOpen,
-    isRightMenuOpen,
-    setIsRightMenuOpen,
-  } = useUIContext();
-
-  const handleLeftDrawerToggler = () => {
-    if (isLeftMenuOpen) {
-      setIsLeftMenuOpen(false);
-    } else {
-      setIsLeftMenuOpen(true);
-    }
-  };
-
-  const handleRightDrawerToggler = () => {
-    if (isRightMenuOpen) {
-      setIsRightMenuOpen(false);
-    } else {
-      setIsRightMenuOpen(true);
-    }
-  };
 
   const isPresent = useIsPresent();
 
@@ -122,7 +106,14 @@ export default function Layout({
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.currentTarget.value)}
                 className={styles.search_input}
-              ></input>
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    console.log(searchValue);
+                    push(`/search?term=${searchValue}`);
+                    // <Link href={`/?search=${searchValue}`} passHref />;
+                  }
+                }}
+              />
             </div>
             {searchValue.length >= 3 ? (
               <SearchDropdown searchItems={searchItems} />
@@ -148,7 +139,7 @@ export default function Layout({
                 </div>
               ) : null}
               <div className={styles.page_title}>
-                <p>{formatTitle}</p>
+                <p>{pid ? capitaliseFirst(pid.toString()) : formatTitle}</p>
               </div>
             </div>
           </div>

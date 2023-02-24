@@ -63,6 +63,12 @@
   border-radius  : 5px;
   color          : white;
   cursor         : pointer;
+  gap            : 5px;
+}
+
+.token_image {
+  height: 20px;
+  width : 20px;
 }
 
 .dialog_background {
@@ -140,6 +146,10 @@
   color          : white;
 }
 
+.token_button.selected {
+  background: #6B7371;
+}
+
 .dividor {
   height    : 1px;
   background: #80838a;
@@ -166,8 +176,18 @@
   padding       : 5px 20px;
 }
 
+.token_option.selected {
+  cursor    : auto;
+  color     : #6B7371;
+  background: none;
+}
+
 .token_option:hover {
   background: #80838a;
+}
+
+.token_option.selected:hover {
+  background: none;
 }
 
 .token_info {

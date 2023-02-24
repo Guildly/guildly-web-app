@@ -42,13 +42,7 @@ export const TokenOpen = ({
 
   return (
     <div className={styles.selected_background}>
-      <motion.div
-        key={index}
-        transition={spring}
-        onClick={() => setSelectedToken(index)}
-        className={styles.token_card}
-        ref={tokenRef}
-      >
+      <div className={styles.token_card} ref={tokenRef}>
         <div className={styles.token_outline}>
           <Image
             src={"/token_card.svg"}
@@ -149,7 +143,7 @@ export const TokenOpen = ({
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

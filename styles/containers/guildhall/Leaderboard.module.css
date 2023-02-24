@@ -5,7 +5,43 @@
   height        : 100%;
   background    : #212326;
   border-radius : 10px;
-  border        : 2px solid #3E3737;
+  border        : 2px solid #DCCB8D;
   padding       : 20px 40px;
   margin        : 2% 5% 5% 5%;
+}
+
+.row {
+  display        : flex;
+  flex-direction : row;
+  width          : 95%;
+  height         : 20%;
+  border         : 1px solid #DCCB8D;
+  border-radius  : 10px;
+  margin         : 0px auto;
+  background     : #15202F;
+  justify-content: space-between;
+}
+
+.guild_icon {
+  display       : flex;
+  flex-direction: column;
+  height        : 40px;
+  width         : 40px;
+}
+
+.guild_title {
+  color: #DCCB8D;
+}
+
+.guild_stats {
+  background    : #3E3737;
+  border-radius : 10px;
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+}
+
+.stat_icon {
+  width : 12px;
+  height: 12px;
 }
