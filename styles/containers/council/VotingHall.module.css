@@ -15,10 +15,6 @@
   color         : white;
 }
 
-.vote p {
-  margin: 0px;
-}
-
 .status {
   background   : rgb(7, 68, 7);
   width        : fit-content;

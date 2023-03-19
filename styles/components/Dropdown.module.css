@@ -21,11 +21,13 @@
 }
 
 .select_dropdown_area {
+  visibility     : hidden;
   display        : flex;
   justify-content: center;
 }
 
 .select_dropdown {
+  visibility    : hidden;
   position      : fixed;
   display       : flex;
   flex-direction: column;
@@ -34,23 +36,40 @@
   overflow      : scroll;
   margin        : 10px 0px 0px 0px;
   z-index       : 2;
-  height        : fit-content;
+  height        : 0px;
+  transition    : all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  opacity       : 0;
+}
+
+.select_dropdown.active {
+  visibility      : visible;
+  opacity         : 1;
+  transform       : translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
+  height          : fit-content;
+  max-width       : 150px;
 }
 
 .select_dropdown_button {
-  display       : flex;
-  flex-direction: row;
-  gap           : 5px;
-  align-items   : center;
-  background    : inherit;
-  border        : none;
-  cursor        : pointer;
-  padding       : 10px;
+  display        : flex;
+  flex-direction : row;
+  justify-content: center;
+  gap            : 5px;
+  align-items    : center;
+  background     : inherit;
+  border         : none;
+  cursor         : pointer;
+  padding        : 10px;
+  color          : white;
 }
 
 .select_dropdown_button:hover {
   background: #696767;
   color     : #DCCB8D;
+}
+
+.select_group {
+  width: 100%;
 }
 
 .token_select_button {
@@ -64,6 +83,7 @@
   color          : white;
   cursor         : pointer;
   gap            : 5px;
+  width          : 100%;
 }
 
 .token_image {
@@ -72,6 +92,7 @@
 }
 
 .dialog_background {
+  visibility      : hidden;
   position        : fixed;
   height          : 100%;
   width           : 100%;
@@ -81,25 +102,43 @@
   bottom          : 0px;
   background-color: rgba(13, 17, 28, 0.6);
   z-index         : 20;
+  transition      : .5s;
+  opacity         : 0;
+}
+
+.dialog_background.active {
+  visibility: visible;
+  opacity   : 1;
 }
 
 
 .token_dialog {
+  visibility   : hidden;
   position     : fixed;
   background   : #2F3A45;
+  border       : 1px solid #D9D9D9;
   border-radius: 20px;
   height       : 50%;
   width        : 30%;
   top          : 30%;
   left         : 35%;
+  transition   : all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.token_dialog.active {
+  visibility      : visible;
+  opacity         : 1;
+  transform       : translateY(0%);
+  transition-delay: 0s, 0s, 0.3s;
 }
 
 .token_dialog_header {
   display        : flex;
+  flex-direction : row;
+  align-items    : center;
   justify-content: space-between;
   width          : 100%;
-  align-items    : center;
-  padding        : 0px 0px 0px 42.5%;
+  padding        : 10px 10px 0px 42.5%;
 }
 
 .token_dialog_title {
@@ -108,8 +147,17 @@
 }
 
 .close_button {
-  background: none;
-  border    : none;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  color          : white;
+  background     : none;
+  border         : none;
+  transition     : .2s;
+}
+
+.close_button:hover {
+  color: #515453;
 }
 
 .icon {
@@ -144,6 +192,7 @@
   cursor         : pointer;
   background     : none;
   color          : white;
+  transition     : .5s;
 }
 
 .token_button.selected {
@@ -161,10 +210,6 @@
   flex-direction: column;
 }
 
-.tokens_list p {
-  margin: 0px;
-}
-
 .token_option {
   display       : flex;
   flex-direction: row;
@@ -174,20 +219,18 @@
   gap           : 20px;
   cursor        : pointer;
   padding       : 5px 20px;
+  transition    : .2s;
 }
 
 .token_option.selected {
   cursor    : auto;
-  color     : #6B7371;
-  background: none;
+  color     : white;
+  background: #8f9092;
 }
 
 .token_option:hover {
-  background: #80838a;
-}
-
-.token_option.selected:hover {
-  background: none;
+  background: #8f9092;
+  ;
 }
 
 .token_info {
@@ -206,11 +249,7 @@
   z-index       : 2;
   width         : 30%;
   color         : white;
-  box-shadow    : #15202F;
-}
-
-.search_dropdown p {
-  margin: 0px;
+  box-shadow    : white;
 }
 
 .section_header {
@@ -236,7 +275,7 @@
 }
 
 .search_item:hover {
-  background: #939498;
+  background: #4A4E50;
 }
 
 .search_icon {
@@ -264,4 +303,136 @@
 .attribute_icon {
   height: 10px;
   width : 10px;
+}
+
+.filter_area {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+}
+
+.filter_row {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+  align-items    : center;
+  cursor         : pointer;
+  transition     : .2s;
+  border-radius  : 5px;
+  padding        : 10px;
+}
+
+.filter_row:hover {
+  background: #4A4E50;
+}
+
+.filter_row.active {
+  background: #4A4E50;
+}
+
+.filter_title {
+  font-size: 18px;
+  margin   : 0px;
+}
+
+.filter_icon {
+  width : 20px;
+  height: 20px;
+  color : #DCCB8D;
+}
+
+.filter_icon svg {
+  transition: .3s;
+}
+
+.filter_icon.active svg {
+  transform: rotate(180deg);
+}
+
+.filter_content {
+  visibility   : hidden;
+  height       : 0;
+  width        : 100%;
+  transition   : all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  overflow     : auto;
+  border-bottom: 2px solid #4A4E50;
+  opacity      : 0;
+}
+
+.filter_content.active {
+  visibility      : visible;
+  height          : 150px;
+  opacity         : 1;
+  transition-delay: 0s, 0s, 0.3s;
+}
+
+.filter_search_box {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  border        : 1px solid #D9D9D9;
+  color         : #6B7371;
+  height        : 40px;
+  width         : 100%;
+  border-radius : 10px;
+  padding       : 10px;
+  gap           : 10px;
+}
+
+.filter_search_icon {
+  width    : 20px;
+  height   : 20px;
+  /* color : #DCCB8D; */
+}
+
+.filter_search_input {
+  background: none;
+  border    : none;
+  outline   : none;
+  color     : white;
+  width     : 100%;
+  height    : 100%;
+}
+
+.option_row {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 10px;
+  padding       : 10px;
+  cursor        : pointer;
+  border-radius : 5px;
+}
+
+.option_row:hover {
+  background: #4A4E50;
+}
+
+.option_select_box {
+  border       : 1px solid #B9B7B9;
+  border-radius: 5px;
+  height       : 20px;
+  width        : 20px;
+}
+
+.option_text {
+  font-size: 16px;
+}
+
+.apply_button {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  background     : #313132;
+  border         : none;
+  border-radius  : 5px;
+  width          : 75%;
+  height         : 40px;
+  margin         : auto;
+  color          : white;
+  cursor         : pointer;
+}
+
+.apply_button.active {
+  background: #4A4E50;
 }

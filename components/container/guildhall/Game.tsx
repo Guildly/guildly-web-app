@@ -11,9 +11,10 @@ import {
   AspectNft,
   AspectNftAsset,
 } from "../../../features/accountNfts/aspect.model";
-import { useJoin } from "../../../hooks/useMembers";
 import { TokenCard } from "../../token/TokenCard";
 import { capitaliseFirst } from "../../../utils/format";
+import { CircleTickIcon, ExternalIcon } from "../../../shared/icons";
+import { Guilds } from "../../guildsScroll";
 
 export const Game = () => {
   const router = useRouter();
@@ -21,8 +22,8 @@ export const Game = () => {
   const title = capitaliseFirst(pid ? pid?.toString() : "");
   const { playClickSound } = sounds();
   const { address: accountAddress } = useAccount();
-  const [selectedToken, setSelectedToken] = useState(-1);
   const [guildTokens, setGuildTokens] = useState<AspectNftAsset[] | null>(null);
+  const [selectedToken, setSelectedToken] = useState(0);
   const [fetchNftsError, setFetchNftsError] = useState(false);
 
   const [feeRole, setFeeRole] = useState("Owner");
@@ -38,6 +39,164 @@ export const Game = () => {
     );
   }, [guildTokens]);
 
+  const [taskDropdownValue, setTaskDropdownValue] = useState(
+    "Influence Asteroids"
+  );
+
+  const tasks = [
+    {
+      contract: "Influence Asteroids",
+      task: "build",
+    },
+    {
+      contract: "Influence Asteroids",
+      task: "Move Resource",
+    },
+    {
+      contract: "Influence Crew",
+      task: "Mint Crew Member",
+    },
+  ];
+
+  const guilds = [
+    {
+      rank: 1,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      address: "0x0",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -52,53 +211,86 @@ export const Game = () => {
           </div>
           <div className={styles.basic_info}>
             <p className={styles.guild_name}>{title}</p>
-            <div className={styles.master}>
-              <p className={styles.master_title}>Master:</p>
-              <p className={styles.master_content}>Starknetdev</p>
-            </div>
-            <div className={styles.master}>
-              <p className={styles.master_title}>Rank:</p>
-              <p className={styles.master_content}>20</p>
-            </div>
           </div>
         </div>
         <div className={styles.categories}>
           <div className={styles.category}>
-            <p className={styles.category_title}>Games</p>
+            <p className={styles.category_title}>Contracts</p>
             <div className={styles.category_content}>
-              <div className={styles.game}>
-                <Image
-                  src={"/influence_logo.png"}
-                  alt="game_image"
-                  width={20}
-                  height={20}
-                />
-                <p className={styles.category_content_text}>Influence</p>
+              <div className={styles.category_content_text}>
+                <div className={styles.contract}>
+                  <p>Influence Asteroids</p>
+                  <a
+                    className={styles.contract_icon}
+                    href="https://testnet.aspect.co/collection/0x02dc57158f2f119653319d552745b9991afa5d468ecbf0609a0ac7d36ad69e5b"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ExternalIcon />
+                  </a>
+                  <div
+                    className={[styles.contract_icon, styles.verified].join(
+                      " "
+                    )}
+                  >
+                    <CircleTickIcon />
+                  </div>
+                </div>
+                <div className={styles.contract}>
+                  <p>Influence Crew</p>
+                  <a
+                    className={styles.contract_icon}
+                    href="https://testnet.aspect.co/collection/0x041c4e86a03480313547a04e13fc4d43d7fb7bcb5244fd0cb93f793f304f6124"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <ExternalIcon />
+                  </a>
+                  <div
+                    className={[styles.contract_icon, styles.verified].join(
+                      " "
+                    )}
+                  >
+                    <CircleTickIcon />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className={styles.category}>
-            <p className={styles.category_title}>Members</p>
+            <p className={styles.category_title}>Tasks</p>
             <div className={styles.category_content}>
-              <p className={styles.category_content_text}>alice.stark</p>
-              <p className={styles.category_content_text}>bob.stark</p>
+              <Select
+                options={["Influence Asteroids", "Influence Crew"]}
+                value={taskDropdownValue}
+                setValue={setTaskDropdownValue}
+              />
+              <div className={styles.category_content_text}>
+                {tasks.map((task, index) => (
+                  <p key={index}>{task.task}</p>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className={styles.category}>
-            <p className={styles.category_title}>Treasury</p>
-            <p className={styles.treasury_balance}>$800M</p>
           </div>
         </div>
       </div>
       <div className={styles.bank_row}>
+        <div className={styles.description}>
+          <p className={styles.category_title}>Info</p>
+          <p className={styles.description_text}>
+            Influence is a space strategy MMO, set in a realistic asteroid belt
+            in the Adalia system, after an ill-fated journey aboard the Arvad, a
+            generational ship fleeing from a dying Earth.
+          </p>
+        </div>
         <div className={styles.bank}>
-          <p className={styles.category_title}>Bank</p>
+          <p className={styles.category_title}>Items</p>
           <div className={styles.bank_tokens}>
             {guildTokens && accountAddress
-              ? guildTokens.slice(0, 3).map((token, index) => (
+              ? guildTokens.map((token, index) => (
                   <div className={styles.token} key={index}>
                     <TokenCard
-                      isSelected={selectedToken == index}
+                      isSelected={false}
                       setSelectedToken={setSelectedToken}
                       token={token}
                       index={index}
@@ -108,101 +300,14 @@ export const Game = () => {
               : null}
           </div>
         </div>
-        <div className={styles.council}>
-          <p className={styles.category_title}>Council</p>
-          <div className={styles.proposals_box}></div>
-        </div>
       </div>
-      <div className={styles.fee_rates}>
-        <div className={styles.fee_rates_header}>
-          <p className={styles.category_title}>Fee Rates</p>
-          <Select
-            options={["Owner", "User", "Admin", "Guild"]}
-            value={feeRole}
-            setValue={setFeeRole}
-          />
-        </div>
-        <div className={styles.fee_rates_list}>
-          <div className={styles.fee_rate}>
-            <Image
-              className={styles.game_image}
-              src={"/eternum_logo.svg"}
-              alt="game_image"
-              width={15}
-              height={15}
-            />
-            <p className={styles.fee_rate_selector}>Harvest Food</p>
-            <p className={styles.fee_rate_percent}>5%</p>
-            <div className={styles.fee_rate_payment}>
-              <p className={styles.fee_payment_text}>0.001</p>
-              <p className={styles.fee_payment_token}></p>
-            </div>
-          </div>
-          <div className={styles.fee_rate}>
-            <Image
-              className={styles.game_image}
-              src={"/influence_logo.svg"}
-              alt="game_image"
-              width={15}
-              height={15}
-            />
-            <p className={styles.fee_rate_selector}>Build Plot</p>
-            <p className={styles.fee_rate_percent}>-</p>
-            <div className={styles.fee_rate_payment}>
-              <p className={styles.fee_payment_text}>0.001</p>
-              <p className={styles.fee_payment_token}></p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.activity}>
-          <p className={styles.category_title}>Activity Feed</p>
-          <div className={styles.activity_area}>
-            <div className={styles.feed}>
-              <div className={styles.feed_item}>
-                <p className={styles.item_emoji}>🌾</p>
-                <p className={styles.item_text}>
-                  <span className={styles.feed_bold_text}>alice.stark </span>
-                  used
-                  <span className={styles.feed_bold_text}>bob.stark</span>’s
-                  realm to
-                  <span className={styles.feed_bold_text}>harvest food</span>
-                </p>
-              </div>
-              <div className={styles.feed_item}>
-                <p className={styles.item_emoji}>🤺</p>
-                <p className={styles.item_text}>
-                  <span className={styles.feed_bold_text}>bob.stark</span>
-                  used
-                  <span className={styles.feed_bold_text}>
-                    0xg23hb.....e6u6
-                  </span>
-                  ’s realm to
-                  <span className={styles.feed_bold_text}>build an army</span>
-                </p>
-              </div>
-              <div className={styles.feed_item}>
-                <p className={styles.item_emoji}>⚔️</p>
-                <p className={styles.item_text}>
-                  <span className={styles.feed_bold_text}>alice.stark</span>
-                  used
-                  <span className={styles.feed_bold_text}>bob.stark</span>’s
-                  realm to
-                  <span className={styles.feed_bold_text}>harvest food</span>
-                </p>
-              </div>
-            </div>
-            <div className={styles.activity_chart}>
-              <p>Chart goes here</p>
-            </div>
-            <button
-              className={styles.join_button}
-              onClick={() => playClickSound()}
-            >
-              <p>Join</p>
-            </button>
-          </div>
-        </div>
+      <div className={styles.guilds}>
+        <p className={styles.category_title}>Guilds</p>
+        <Guilds guilds={guilds} />
       </div>
+      <button className={styles.join_button} onClick={() => playClickSound()}>
+        <p>Find Guilds</p>
+      </button>
     </div>
   );
 };

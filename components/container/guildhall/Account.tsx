@@ -1,7 +1,186 @@
-import styles from "../../../styles/containers/guildhall/Guild.module.css";
+import styles from "../../../styles/containers/guildhall/Account.module.css";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useStarkNetId } from "../../../hooks/useStarknetId";
+import { displayAddress, padAddress } from "../../../utils/address";
+import { fetchAspectNfts } from "../../../features/accountNfts/aspect.service";
+import {
+  AspectNft,
+  AspectNftAsset,
+} from "../../../features/accountNfts/aspect.model";
+import { useAccount } from "@starknet-react/core";
+import { TokenCard } from "../../token/TokenCard";
+import { Guilds } from "../../guildsScroll";
 
 export const Account = () => {
+  const { query, pathname, back, push } = useRouter();
+  const { pid } = query;
+  const { starknetId } = useStarkNetId(pid ? pid.toString() : "0x0");
+  const { address: accountAddress } = useAccount();
+  const accountTitle = pid
+    ? starknetId
+      ? starknetId
+      : displayAddress(pid.toString())
+    : "0x0";
+
+  const [accountTokens, setAccountTokens] = useState<AspectNftAsset[] | null>(
+    null
+  );
+  const [selectedToken, setSelectedToken] = useState(0);
+  const [fetchNftsError, setFetchNftsError] = useState(false);
+
+  useEffect(() => {
+    fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
+      (data) => {
+        setAccountTokens(data.assets);
+      },
+      (err) => {
+        setFetchNftsError(true);
+      }
+    );
+  }, [accountTokens]);
+
+  const guilds = [
+    {
+      rank: 1,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      address: "0x0",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+    {
+      rank: 2,
+      guild: "Core Lords",
+      guild_image: "/token_symbol.svg",
+      games: [
+        {
+          name: "Influence",
+          image: "/influence_logo.png",
+        },
+        { name: "Eternum", image: "/eternum_logo.svg" },
+        { name: "Age of Eykar", image: "/ageofeykar_logo.svg" },
+        { name: "NoGame", image: "/nogame_logo.svg" },
+      ],
+      master: "master.stark",
+      members: ["bob.stark", "alice.stark"],
+      items: 1000,
+      items_value: "$20,000",
+      fees: {
+        owner: "90%",
+        user: "7%",
+        admin: "2%",
+        guild: "1%",
+      },
+      governance: "Item based",
+      treasury: "$800M",
+      activity: "test",
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -15,15 +194,15 @@ export const Account = () => {
             />
           </div>
           <div className={styles.basic_info}>
-            <p className={styles.guild_name}>Core Lords</p>
-            <div className={styles.master}>
-              <p className={styles.master_title}>Master:</p>
-              <p className={styles.master_content}>Starknetdev</p>
-            </div>
-            <div className={styles.master}>
-              <p className={styles.master_title}>Rank:</p>
-              <p className={styles.master_content}>20</p>
-            </div>
+            <p className={styles.guild_name}>{accountTitle}</p>
+            {starknetId ? (
+              <div className={styles.master}>
+                <p className={styles.master_title}>Address:</p>
+                <p className={styles.master_content}>
+                  {displayAddress(pid ? pid.toString() : "0x0")}
+                </p>
+              </div>
+            ) : null}
           </div>
         </div>
         <div className={styles.categories}>
@@ -42,15 +221,8 @@ export const Account = () => {
             </div>
           </div>
           <div className={styles.category}>
-            <p className={styles.category_title}>Members</p>
-            <div className={styles.category_content}>
-              <p className={styles.category_content_text}>alice.stark</p>
-              <p className={styles.category_content_text}>bob.stark</p>
-            </div>
-          </div>
-          <div className={styles.category}>
-            <p className={styles.category_title}>Treasury</p>
-            <p className={styles.treasury_balance}>$800M</p>
+            <p className={styles.category_title}>Items</p>
+            <p className={styles.item_balance}>$800M</p>
           </div>
         </div>
       </div>
@@ -58,48 +230,20 @@ export const Account = () => {
         <div className={styles.bank}>
           <p className={styles.category_title}>Bank</p>
           <div className={styles.bank_tokens}>
-            <p>Tokens go here</p>
-          </div>
-        </div>
-        <div className={styles.council}>
-          <p className={styles.category_title}>Council</p>
-          <div className={styles.proposals_box}></div>
-        </div>
-      </div>
-      <div className={styles.fee_rates}>
-        <div className={styles.fee_rates_header}>
-          <p className={styles.category_title}>Fee Rates</p>
-        </div>
-        <div className={styles.fee_rates_list}>
-          <div className={styles.fee_rate}>
-            <Image
-              className={styles.game_image}
-              src={"/eternum_logo.svg"}
-              alt="game_image"
-              width={15}
-              height={15}
-            />
-            <p className={styles.fee_rate_selector}>Harvest Food</p>
-            <p className={styles.fee_rate_percent}>5%</p>
-            <div className={styles.fee_rate_payment}>
-              <p className={styles.fee_payment_text}>0.001</p>
-              <p className={styles.fee_payment_token}></p>
-            </div>
-          </div>
-          <div className={styles.fee_rate}>
-            <Image
-              className={styles.game_image}
-              src={"/influence_logo.svg"}
-              alt="game_image"
-              width={15}
-              height={15}
-            />
-            <p className={styles.fee_rate_selector}>Build Plot</p>
-            <p className={styles.fee_rate_percent}>-</p>
-            <div className={styles.fee_rate_payment}>
-              <p className={styles.fee_payment_text}>0.001</p>
-              <p className={styles.fee_payment_token}></p>
-            </div>
+            {accountTokens && accountAddress
+              ? accountTokens.map((token, index) => (
+                  <Link href="/bank/items/0x0" key={index} passHref>
+                    <div className={styles.token}>
+                      <TokenCard
+                        isSelected={false}
+                        setSelectedToken={setSelectedToken}
+                        token={token}
+                        index={index}
+                      />
+                    </div>
+                  </Link>
+                ))
+              : null}
           </div>
         </div>
         <div className={styles.activity}>
@@ -142,11 +286,12 @@ export const Account = () => {
             <div className={styles.activity_chart}>
               <p>Chart goes here</p>
             </div>
-            <div className={styles.join_button}>
-              <p>Join</p>
-            </div>
           </div>
         </div>
+      </div>
+      <div className={styles.guilds}>
+        <p className={styles.category_title}>Guilds</p>
+        <Guilds guilds={guilds} />
       </div>
     </div>
   );

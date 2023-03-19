@@ -1,6 +1,10 @@
 import left_styles from "../../styles/sidemenu/MarketLeft.module.css";
 import right_styles from "../../styles/sidemenu/MarketRight.module.css";
-import { ShortTextInput, LongTextInput } from "../inputs";
+import {
+  FilterSelectDropdown,
+  FilterSliderDropdown,
+  FilterTokenSliderDropdown,
+} from "../dropdowns";
 
 interface MarketLeftMenuProps {
   tab: string;
@@ -27,6 +31,18 @@ export const MarketLeftMenu = ({
   addressFilter,
   setAddressFilter,
 }: MarketLeftMenuProps) => {
+  const tokenOptions = [
+    {
+      name: "Ether",
+      image: "/eth 2.png",
+      symbol: "ETH",
+    },
+    {
+      name: "Lords",
+      image: "/Lords.png",
+      symbol: "LORDS",
+    },
+  ];
   return (
     <div className={left_styles.box}>
       <div className={left_styles.content_container}>
@@ -34,17 +50,6 @@ export const MarketLeftMenu = ({
           <p>Filters</p>
         </div>
         <div className={left_styles.filters_container}>
-          <div className={left_styles.sort}>
-            <p>Value Low to High</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className={left_styles.sort_icon}
-              fill="currentColor"
-            >
-              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-            </svg>
-          </div>
           <div className={left_styles.tabs}>
             <p
               className={
@@ -65,83 +70,61 @@ export const MarketLeftMenu = ({
           </div>
           <div className={left_styles.filters_list}>
             <div className={left_styles.filter_section}>
-              <p className={left_styles.section_header}>Item</p>
-              <div className={left_styles.filter_box}>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Standard:</p>
-                  <div className={left_styles.attributes}>
-                    <div
-                      className={
-                        tokenStandardFilter == "ERC20"
-                          ? left_styles.attribute_selected
-                          : left_styles.attribute
-                      }
-                      onClick={() => setTokenStandardFilter("ERC20")}
-                    >
-                      <p>ERC20</p>
-                    </div>
-                    <div
-                      className={
-                        tokenStandardFilter == "ERC721"
-                          ? left_styles.attribute_selected
-                          : left_styles.attribute
-                      }
-                      onClick={() => setTokenStandardFilter("ERC721")}
-                    >
-                      <p>ERC721</p>
-                    </div>
-                    <div
-                      className={
-                        tokenStandardFilter == "ERC1155"
-                          ? left_styles.attribute_selected
-                          : left_styles.attribute
-                      }
-                      onClick={() => setTokenStandardFilter("ERC1155")}
-                    >
-                      <p>ERC1155</p>
-                    </div>
-                  </div>
-                </div>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Game:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={gameFilter}
-                    setContent={setGameFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
+              <p className={left_styles.section_header}>Policies</p>
+              <div className={left_styles.section_list}>
+                <FilterSelectDropdown
+                  title={"Roles"}
+                  options={["Merchant", "Journeyman", "Master", "Guild"]}
+                  search={false}
+                />
+                <FilterTokenSliderDropdown
+                  title={"Reward"}
+                  label={"Reward %"}
+                  tokenOptions={tokenOptions}
+                  token={null}
+                  setToken={() => {}}
+                />
+                <FilterTokenSliderDropdown
+                  title={"Payment"}
+                  label={"Payment Amount"}
+                  tokenOptions={tokenOptions}
+                  token={null}
+                  setToken={() => {}}
+                />
               </div>
             </div>
             <div className={left_styles.filter_section}>
-              <p className={left_styles.section_header}>Game</p>
-              <div className={left_styles.filter_box}>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Genre:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={genreFilter}
-                    setContent={setGenreFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
+              <p className={left_styles.section_header}>Task</p>
+              <div className={left_styles.section_list}>
+                <FilterSelectDropdown
+                  title={"Game"}
+                  options={["Eternum", "Influence", "Loot Survivor"]}
+                  search={true}
+                />
+                <FilterSelectDropdown
+                  title={"Task"}
+                  options={["Harvest Food", "Build Army", "Attack"]}
+                  search={true}
+                />
+                <FilterSelectDropdown
+                  title={"Genre"}
+                  options={["FPS", "MMO", "Strategy", "Racing"]}
+                  search={true}
+                />
               </div>
             </div>
             <div className={left_styles.filter_section}>
-              <p className={left_styles.section_header}>Account</p>
-              <div className={left_styles.filter_box}>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Address:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={addressFilter}
-                    setContent={setAddressFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
+              <p className={left_styles.section_header}>Guilds</p>
+              <div className={left_styles.section_list}>
+                <FilterSelectDropdown
+                  title={"Name"}
+                  options={["Core Lords", "Adalia United"]}
+                  search={true}
+                />
+                <FilterSliderDropdown
+                  title={"Reputation"}
+                  label={"Reputation Score"}
+                />
               </div>
             </div>
           </div>

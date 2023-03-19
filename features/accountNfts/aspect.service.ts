@@ -7,11 +7,20 @@ import { getOwnedGuildItems } from "../../hooks/graphql/queries";
 import { indexAddress, padAddress } from "../../utils/address";
 import { number } from "starknet";
 
-const baseUrl = "https://api-testnet.aspect.co/api/v0/assets";
+const baseUrl = "https://api-testnet.aspect.co/api";
+
+const assetsExt = "/v0/assets";
+const assetExt = "/v0/asset";
 
 export const fetchAspectNfts = async (address: string): Promise<AspectNft> => {
   const params = new URLSearchParams({ owner_address: address });
-  const response = await fetch(join(baseUrl, `?${params}`));
+  const response = await fetch(join(join(baseUrl, assetsExt), `?${params}`));
+  return await response.json();
+};
+
+export const fetchAspectNft = async (contractAddress: string, tokenId: string): Promise<AspectNftAsset> => {
+  // const params = new URLSearchParams({ contract_address: contractAddress, token_id: tokenId});
+  const response = await fetch(join(join(baseUrl, assetExt), `/${contractAddress}/${tokenId}`));
   return await response.json();
 };
 

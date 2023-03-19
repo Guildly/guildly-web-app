@@ -1,32 +1,47 @@
 import styles from "../styles/components/Animations.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-export const ScrollingText = () => {
-  const [currentLine, setCurrentLine] = useState(0);
-  const items = ["Line 1", "Line 2", "Line 3"];
+interface ScrollingTextProps {
+  textLines: String[];
+}
+
+export const ScrollingText = ({ textLines }: ScrollingTextProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentLine((i) => (i + 1) % items.length);
-    }, 2000);
-    return () => clearInterval(intervalId);
-  }, []);
+    const handleTransitionEnd = () => {
+      const container = containerRef.current;
+      const firstLine = container?.children[0];
+      const newLine = document.createElement("div");
+      newLine.classList.add("text-line");
+      newLine.textContent =
+        textLines[Math.floor(Math.random() * textLines.length)].toString();
+      container?.appendChild(newLine);
+      firstLine?.remove();
+    };
+
+    const container = containerRef.current;
+    const firstLine = container?.children[0];
+    const newLine = document.createElement("div");
+    newLine.classList.add("text-line");
+    newLine.textContent =
+      textLines[Math.floor(Math.random() * textLines.length)].toString();
+    container?.appendChild(newLine);
+
+    firstLine?.addEventListener("transitionend", handleTransitionEnd);
+
+    return () => {
+      firstLine?.removeEventListener("transitionend", handleTransitionEnd);
+    };
+  }, [textLines]);
 
   return (
-    <div className={styles.infinite_scrolling}>
-      {items.map((item, i) => (
-        <div
-          key={item}
-          className={[
-            styles.item,
-            i >= currentLine && i < currentLine + items.length
-              ? styles.show
-              : styles.hide,
-          ].join(" ")}
-        >
-          {item}
+    <div className={styles.text_scroller}>
+      <div ref={containerRef} className="text-container">
+        <div className="text-line">
+          {textLines[Math.floor(Math.random() * textLines.length)]}
         </div>
-      ))}
+      </div>
     </div>
   );
 };

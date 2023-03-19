@@ -16,33 +16,29 @@
   gap           : 100px;
 }
 
-.header p {
-  margin: 0px;
-}
-
-.guild_info {
+.item_info {
   display       : flex;
   flex-direction: row;
   gap           : 20px;
 }
 
-.guild_name {
+.item_name {
   font-size: 32px;
   color    : white;
 }
 
-.master {
+.contract {
   display       : flex;
   flex-direction: row;
   gap           : 5px;
 }
 
-.master_title {
+.contract_title {
   font-size: 16px;
   color    : #B9B7B9;
 }
 
-.master_content {
+.contract_content {
   color      : white;
   font-size  : 16px;
   font-weight: bold;
@@ -87,24 +83,47 @@
   filter: brightness(0) saturate(100%) invert(99%) sepia(95%) saturate(4237%) hue-rotate(319deg) brightness(102%) contrast(97%);
 }
 
-.treasury_balance {
-  font-size  : 20px;
-  color      : white;
-  font-weight: bold;
+.external_buttons {
+  display        : flex;
+  flex-direction : row;
+  justify-content: center;
+  align-items    : center;
+  gap            : 5px;
+  width          : 80px;
+  height         : 40px;
 }
 
-.bank_row {
+.external_button {
+  position        : relative;
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  height          : 100%;
+  width           : 100%;
+  border-radius   : 100px;
+  border          : 1px solid #DCCB8D;
+  cursor          : pointer;
+  background-color: white;
+  overflow        : hidden;
+  transition      : .2s;
+}
+
+.guild_row {
   display       : flex;
   flex-direction: row;
-
+  gap           : 30px;
+  height        : 30%;
 }
 
-.bank {
-  width: 70%;
+.guild {
+  width: 65%;
 }
 
-.bank p {
-  margin: 0px;
+.guilds {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 70%;
 }
 
 .bank_tokens {
@@ -127,10 +146,7 @@
   display       : flex;
   flex-direction: column;
   gap           : 20px;
-}
-
-.fee_rates p {
-  margin: 0px;
+  width         : 30%;
 }
 
 .fee_rates_header {
@@ -139,12 +155,21 @@
   gap           : 50px;
 }
 
+.fee_rates_list {
+  display       : flex;
+  flex-direction: column;
+  height        : 100%;
+  overflow      : auto;
+  font-size     : 16px;
+}
+
 .fee_rate {
+  color: white;
+}
+
+.fee_rate_payment {
   display       : flex;
   flex-direction: row;
-  align-items   : center;
-  gap           : 5px;
-  color         : white;
 }
 
 .activity {
@@ -152,6 +177,7 @@
   flex-direction: column;
   gap           : 5px;
   color         : white;
+  margin-top    : 20px;
 }
 
 .activity_area {

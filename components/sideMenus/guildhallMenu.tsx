@@ -5,11 +5,21 @@ import { ScrollingText } from "../animations";
 export const GuildhallLeftMenu = () => {
   return (
     <div className={left_styles.box}>
-      <div className={left_styles.header} />
       <div className={left_styles.content_title}>
         <p>Welcome Journeyman</p>
       </div>
       <div className={left_styles.content_container}>
+        <div className={left_styles.start_container}>
+          <p className={left_styles.start_title}>New here?</p>
+          <p className={left_styles.start_text}>
+            Visit our{" "}
+            <a href="https://www.google.com" target="_blank" rel="noreferrer">
+              wiki page
+            </a>
+            <br />
+            to get started!
+          </p>
+        </div>
         <div className={left_styles.tutorial_container}>
           <div className={left_styles.tutorial_section}>
             <p className={left_styles.tutorial_title}>Master</p>
@@ -48,15 +58,21 @@ export const GuildhallLeftMenu = () => {
 };
 
 export const GuildhallRightMenu = () => {
+  const notices = [
+    "bob.stark made you leader",
+    "alice.stark deposited xyz",
+    "It's christmas!",
+    "XYZ integrates\n\nXYZ has partnered with guildly to integrate their indexer!",
+  ];
   return (
     <div className={right_styles.box}>
       <div className={right_styles.header} />
+      <div className={right_styles.content_title}>
+        <p>Notice Board</p>
+      </div>
       <div className={right_styles.content_container}>
-        <div className={right_styles.content_title}>
-          <p>Notice Board</p>
-        </div>
         <div className={right_styles.notices_container}>
-          <ScrollingText />
+          <ScrollingText textLines={notices} />
         </div>
       </div>
     </div>

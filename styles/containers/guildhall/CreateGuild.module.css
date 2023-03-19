@@ -18,15 +18,22 @@
 .text_inputs {
     display       : flex;
     flex-direction: column;
+    gap           : 20px;
     width         : 100%;
 }
 
 .name {
-    width: 70%;
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    width         : 70%;
 }
 
 .description {
-    width: 70%;
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    width         : 70%;
 }
 
 .title {
@@ -47,11 +54,14 @@
 
 .long_input {
     width : 60%;
-    height: 100px;
+    height: 200px;
 }
 
 .design_inputs {
-    width: 100%;
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    width         : 100%;
 }
 
 .design_box {
@@ -96,8 +106,7 @@
 }
 
 .attribute_title {
-    color : #eff3f8ec;
-    margin: 0px;
+    color: #eff3f8ec;
 }
 
 .attributes {
@@ -139,6 +148,7 @@
     color        : #DCCB8D;
     border-radius: 10px;
     cursor       : pointer;
+    padding      : 10px 0px;
 }
 
 .chain {
@@ -174,11 +184,11 @@
     color          : #DCCB8D;
     border-radius  : 10px;
     cursor         : pointer;
+    padding        : 10px 0px;
 }
 
 .next_button:hover {
     background: #36434B;
-
 }
 
 .chain_number_active {
@@ -248,10 +258,6 @@
     width         : 40%;
 }
 
-.saved_permissions p {
-    margin: 0px;
-}
-
 .permissions_header {
     font-size: 16px;
 }
@@ -312,10 +318,6 @@
     color         : #D9D9D9;
 }
 
-.token_input p {
-    margin: 0px;
-}
-
 .role {
     display       : flex;
     flex-direction: row;
@@ -360,10 +362,6 @@
     display       : flex;
     flex-direction: row;
     gap           : 20px;
-}
-
-.members_form p {
-    margin: 0px;
 }
 
 .members_address {
@@ -465,10 +463,25 @@
     color         : white;
 }
 
-.role_explainer p {
-    margin: 0px;
-}
-
 .role_text {
     color: #DCCB8D;
+}
+
+.submit_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 10%;
+    background     : #303132;
+    border         : 1px solid #DCCB8D;
+    font-size      : 12px;
+    color          : #DCCB8D;
+    border-radius  : 10px;
+    cursor         : pointer;
+    padding        : 20px 0px;
+    transition     : .2s;
+}
+
+.submit_button:hover {
+    background: #36434B;
 }

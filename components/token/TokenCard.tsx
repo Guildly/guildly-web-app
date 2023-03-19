@@ -2,13 +2,15 @@ import styles from "../../styles/components/token/TokenCard.module.css";
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { getNftPicture } from "../../features/accountNfts/aspect.service";
 import { displayAddress } from "../../utils/address";
+import { sounds } from "../../shared/sounds";
 
 interface TokenCardProps {
-  isSelected: any;
-  setSelectedToken: any;
-  index: any;
+  isSelected: boolean;
+  setSelectedToken: (e: number) => void;
+  index: number;
   token: any;
 }
 
@@ -42,6 +44,7 @@ export const TokenCard = ({
   token,
 }: TokenCardProps) => {
   const tokenRef = useRef<HTMLDivElement>(null);
+  const { playClickSound } = sounds();
 
   const checkIfTokenClickedOutside = (event: any) => {
     if (
@@ -52,6 +55,7 @@ export const TokenCard = ({
       goBack;
     }
   };
+
   const goBack = () => {
     setSelectedToken(-1);
   };
@@ -66,34 +70,39 @@ export const TokenCard = ({
   const nftPicture = getNftPicture(token);
 
   return (
-    <motion.div
+    <div
       key={index}
-      transition={spring}
-      onClick={() => setSelectedToken(index)}
-      className={isSelected ? styles.token_card_open : styles.token_card}
+      onClick={() => {
+        setSelectedToken(index);
+        playClickSound();
+      }}
+      className={styles.token_card}
     >
-      <Image
-        src={"/token_card.svg"}
-        height={isSelected ? 600 : 250}
-        width={isSelected ? 450 : 175}
-        alt="Token Card"
-        className={styles.token_outline}
-      />
-      <Image
-        src={"/token_symbol.svg"}
-        height={isSelected ? 100 : 35}
-        width={isSelected ? 100 : 35}
-        alt="Token Symbol"
-        className={styles.token_symbol}
-      />
-      <div className={styles.token_background}>
+      <div className={styles.token_outline}>
         <Image
-          src={nftPicture}
-          height={isSelected ? 400 : 150}
-          width={isSelected ? 400 : 150}
-          alt="Token Image"
-          className={isSelected ? styles.token_image_open : styles.token_image}
+          src={"/token_card.svg"}
+          fill={true}
+          style={{ objectFit: "contain" }}
+          alt="Token Card"
         />
+      </div>
+      <div className={styles.token_symbol}>
+        <Image
+          src={"/token_symbol.svg"}
+          alt="Token Symbol"
+          fill={true}
+          style={{ objectFit: "contain" }}
+        />
+      </div>
+      <div className={styles.token_background}>
+        <div className={styles.token_image}>
+          <Image
+            src={nftPicture}
+            alt="Token Image"
+            fill={true}
+            style={{ objectFit: "contain" }}
+          />
+        </div>
       </div>
       <div className={styles.token_text}>
         <div
@@ -136,14 +145,23 @@ export const TokenCard = ({
           >
             <p>{token.description}</p>
           </div>
-          <div className={styles.token_buttons}>
-            <button
-              className={
-                isSelected ? styles.deposit_button_open : styles.deposit_button
-              }
-            >
-              <p>Deposit</p>
-            </button>
+          <div className={styles.token_footer}>
+            <div className={styles.action_buttons}>
+              <button
+                className={
+                  isSelected
+                    ? styles.deposit_button_open
+                    : styles.deposit_button
+                }
+              >
+                <p>Deposit</p>
+              </button>
+              <Link href="/bank/item/0x0" passHref>
+                <button className={styles.info_button}>
+                  <p>More Info</p>
+                </button>
+              </Link>
+            </div>
             <div className={styles.external_buttons}>
               <a
                 className={styles.external_button}
@@ -152,8 +170,8 @@ export const TokenCard = ({
                 rel="noreferrer"
               >
                 <Image
-                  width={isSelected ? 40 : 15}
-                  height={isSelected ? 40 : 15}
+                  width={15}
+                  height={15}
                   alt="Aspect Logo"
                   src={"/aspect-pfp.png"}
                 />
@@ -165,8 +183,8 @@ export const TokenCard = ({
                 rel="noreferrer"
               >
                 <Image
-                  width={isSelected ? 40 : 15}
-                  height={isSelected ? 40 : 15}
+                  width={15}
+                  height={15}
                   alt="Mintsquare Logo"
                   src={"/mintsquare-logo.png"}
                 />
@@ -175,6 +193,6 @@ export const TokenCard = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

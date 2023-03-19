@@ -1,16 +1,35 @@
-import styles from "../../../styles/containers/guildhall/Guilds.module.css";
+import styles from "../../../styles/containers/guildhall/Accounts.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { sounds } from "../../../shared/sounds";
+import {
+  UserIcon,
+  MerchantIcon,
+  MasterIcon,
+  ShieldIcon,
+  UserCircleIcon,
+} from "../../../shared/icons";
+import { displayAddress } from "../../../utils/address";
 
 export const Accounts = () => {
   const { playClickSound } = sounds();
-  const guilds = [
+  const accounts = [
     {
-      rank: 1,
-      guild: "Core Lords",
-      guild_image: "/token_symbol.svg",
-      address: "0x0",
+      address: {
+        starknet_id: "bob.stark",
+        address:
+          "0x07642A1c8D575B0c0f9a7AD7cCEb5517c02f36E5F3B36B25429Cc7C99383ed0a",
+      },
+      guilds: [
+        {
+          name: "Core Lords",
+          emblem: "/emblem-example.png",
+        },
+        {
+          name: "Core Lords",
+          emblem: "/emblem-example.png",
+        },
+      ],
       games: [
         {
           name: "Influence",
@@ -35,9 +54,21 @@ export const Accounts = () => {
       activity: "test",
     },
     {
-      rank: 2,
-      guild: "Core Lords",
-      guild_image: "/token_symbol.svg",
+      address: {
+        starknet_id: "bob.stark",
+        address:
+          "0x07642A1c8D575B0c0f9a7AD7cCEb5517c02f36E5F3B36B25429Cc7C99383ed0a",
+      },
+      guilds: [
+        {
+          name: "Core Lords",
+          emblem: "/emblem-example.png",
+        },
+        {
+          name: "Core Lords",
+          emblem: "/emblem-example.png",
+        },
+      ],
       games: [
         {
           name: "Influence",
@@ -66,42 +97,62 @@ export const Accounts = () => {
     <div className={styles.container}>
       <table>
         <tr className={styles.header}>
-          <th>Rank</th>
-          <th>Guild</th>
+          <th>Account</th>
+          <th>Guilds</th>
           <th>Games</th>
           <th>Items</th>
-          <th>Members</th>
-          <th>Average Split</th>
-          <th>Treasury</th>
           <th>Activity</th>
         </tr>
         {/* <div className={styles.dividor} /> */}
-        {guilds.map((guild, index) => (
+        {accounts.map((account, index) => (
           <Link
-            href={"/guildhall/guilds/" + guild.address}
+            href={"/guildhall/accounts/" + account.address?.address}
             passHref
             onClick={() => playClickSound()}
             key={index}
             className={styles.link}
           >
             <tr className={styles.guild_row} key={index}>
-              <td className={styles.rank}>{guild.rank}</td>
               <td>
                 <div className={styles.guild_name}>
-                  <Image
-                    src={guild.guild_image}
-                    alt="guild-image"
-                    width={40}
-                    height={40}
-                  />
-                  {guild.guild}
+                  <div className={styles.user_icon}>
+                    <UserCircleIcon />
+                  </div>
+                  <div className={styles.addresses}>
+                    <p className={styles.account_id}>
+                      {account.address?.starknet_id}
+                    </p>
+                    <p className={styles.account_address}>
+                      {displayAddress(account.address?.address)}
+                    </p>
+                  </div>
                 </div>
               </td>
               <td>
-                <div className={styles.master}>
-                  <p>{guild.games.length}</p>
+                <div className={styles.guilds}>
+                  <p className={styles.guilds_number}>2</p>
+                  <div className={styles.guilds_list}>
+                    {account.guilds?.map((guild, index) => (
+                      <div className={styles.guild} key={index}>
+                        <div className={styles.guild_icon}>
+                          <Image
+                            alt="guild_icon"
+                            src={guild.emblem}
+                            fill={true}
+                            style={{ objectFit: "contain" }}
+                          />
+                        </div>
+                        <p>{guild.name}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div className={styles.game_area}>
+                  <p>{account.games.length}</p>
                   <div className={styles.games}>
-                    {guild.games.map((game, index) => (
+                    {account.games.map((game, index) => (
                       <div className={styles.game} key={index}>
                         <Image
                           className={styles.game_image}
@@ -120,42 +171,17 @@ export const Accounts = () => {
               </td>
               <td>
                 <div className={styles.items}>
-                  <p className={styles.member_master}>{guild.items}</p>
-                  <p className={styles.items_value}>~ {guild.items_value}</p>
+                  <p className={styles.member_master}>{account.items}</p>
+                  <p className={styles.items_value}>~{account.items_value}</p>
                 </div>
               </td>
-              <td className={styles.members}>
-                <div className={styles.master}>
-                  <p className={styles.member_master}>Master:</p>
-                  <p className={styles.address}>{guild.master}</p>
-                </div>
-                <div className={styles.master}>
-                  <p className={styles.member_master}>{guild.members.length}</p>
-                  <p className={styles.address}>
-                    {guild.members[0]}, {guild.members[1]}
-                  </p>
-                </div>
+              <td className={styles.activity}>
+                <p>+50%</p>
+                <img
+                  src={"/chart-example.png"}
+                  className={styles.activity_image}
+                />
               </td>
-              <td className={styles.fees}>
-                <div className={styles.fee_row}>
-                  <p className={styles.role}>Owner:</p>{" "}
-                  <p className={styles.split}>{guild.fees.owner}</p>
-                </div>
-                <div className={styles.fee_row}>
-                  <p className={styles.role}>User:</p>{" "}
-                  <p className={styles.split}>{guild.fees.user}</p>
-                </div>
-                <div className={styles.fee_row}>
-                  <p className={styles.role}>Admin:</p>{" "}
-                  <p className={styles.split}>{guild.fees.admin}</p>
-                </div>
-                <div className={styles.fee_row}>
-                  <p className={styles.role}>Guild:</p>{" "}
-                  <p className={styles.split}>{guild.fees.guild}</p>
-                </div>
-              </td>
-              <td>{guild.treasury}</td>
-              <td>{guild.activity}</td>
             </tr>
           </Link>
         ))}

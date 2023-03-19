@@ -1,0 +1,308 @@
+.permissions_container {
+    display       : flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: large;
+    color    : white;
+}
+
+.permissions_form {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+}
+
+.contract_row {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+}
+
+.contract {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    width         : 70%;
+}
+
+.contract_input {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 10px;
+    width         : 90%;
+}
+
+.short_input {
+    width : 100%;
+    height: 50px;
+}
+
+.long_input {
+    width : 60%;
+    height: 200px;
+}
+
+.verified {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+    background    : #514F50;
+    border-radius : 5px;
+    height        : fit-content;
+    padding       : 5px;
+    color         : white;
+}
+
+.verified p {
+    margin   : 0px;
+    font-size: 16px;
+}
+
+.verified_icon {
+    color: green;
+    width: 20px;
+}
+
+.saved_permissions {
+    display       : flex;
+    flex-direction: column;
+    color         : white;
+    width         : 40%;
+}
+
+.permissions_header {
+    font-size: 16px;
+}
+
+.permissions_content {
+    font-size: 14px;
+    color    : #6B7371;
+}
+
+.selectors_row {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5%;
+}
+
+.selectors {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    width         : 60%;
+}
+
+.templates {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    width         : 35%;
+}
+
+.attributes {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+    overflow      : auto;
+}
+
+.attribute {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #252B34;
+    border-radius  : 10px;
+    color          : #DCCB8D;
+    border         : solid 1px #D9D9D9;
+    height         : 30px;
+    width          : fit-content;
+    white-space    : nowrap;
+    cursor         : pointer;
+}
+
+.select_selector {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 100%;
+}
+
+.fee_policy {
+    display       : flex;
+    flex-direction: column;
+}
+
+.fee_policy_content {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+}
+
+.policies {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+    padding       : 0px 0px 0px 20px;
+}
+
+.policy_row {
+    display       : flex;
+    flex-direction: row;
+    gap           : 20px;
+}
+
+.subtitle {
+    font : medium;
+    color: #D9D9D9;
+}
+
+.policy_title {
+    width: 100px;
+}
+
+.token_inputs {
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    width         : 100%;
+}
+
+.token_input {
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    width         : 25%;
+    height        : 100px;
+    color         : #D9D9D9;
+}
+
+.role {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+}
+
+.added_role {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+    background    : #32363F;
+    border-radius : 10px;
+    padding       : 5px;
+    cursor        : pointer;
+}
+
+.role_icon {
+    width: 20px;
+}
+
+.info_icon {
+    height: 20px;
+    width : 20px;
+    cursor: pointer;
+}
+
+.info_box {
+    visibility   : hidden;
+    position     : absolute;
+    border-radius: 10px 10px 10px 0px;
+    background   : #252B34;
+    color        : white;
+    font-size    : 14px;
+    padding      : 10px;
+    width        : 50px;
+    height       : 100px;
+    transition   : width 0.3s ease-out 0s, min-width 0.3s ease-out 0s, max-width 0.3s ease-out 0s;
+    margin-top   : -100px;
+    margin-left  : 20px;
+    z-index      : 3;
+}
+
+.info_icon:hover .info_box {
+    visibility: visible;
+    width     : 150px;
+}
+
+.info_text {
+    visibility: hidden;
+    opacity   : 0;
+    transition: opacity .5s ease-in-out;
+    width     : 130px;
+}
+
+.info_icon:hover .info_text {
+    visibility: visible;
+    opacity   : 1;
+}
+
+.add {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.add_icon {
+    height: 20px;
+    width : 20px;
+    cursor: pointer;
+}
+
+.chain {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+    gap            : 20px;
+    width          : 25%;
+    height         : 50px;
+    background     : #303132;
+    margin         : auto;
+    border-radius  : 10px;
+}
+
+.buttons {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    gap            : 10px;
+    margin         : auto;
+    width          : 100%;
+}
+
+.next_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 10%;
+    background     : #303132;
+    border         : 1px solid #DCCB8D;
+    font-size      : 12px;
+    color          : #DCCB8D;
+    border-radius  : 10px;
+    cursor         : pointer;
+    padding        : 10px 0px;
+}
+
+.next_button:hover {
+    background: #36434B;
+
+}
+
+.chain_number_active {
+    font-size  : 24px;
+    font-weight: 700;
+    color      : #DCCB8D;
+}
+
+.chain_number {
+    font-size  : 24px;
+    font-weight: 700;
+    color      : #D9D9D9;
+    cursor     : pointer;
+}

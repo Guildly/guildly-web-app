@@ -1,0 +1,64 @@
+.transaction_status_table {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    height         : 90%;
+    width          : 90%;
+    padding        : 20px;
+    background     : rgba(29, 30, 32, 0.8);
+    gap            : 20px;
+}
+
+.status_box {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+    background    : rgba(29, 30, 32, 0.5);
+    height        : 100%;
+    width         : 80%;
+    border-radius : 10px;
+    border        : 1px solid #DCCB8D;
+    height        : 100%;
+    padding       : 5px;
+}
+
+.status_header {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: space-between;
+    border-bottom  : 1px solid #D9D9D9;
+    padding        : 0px 10px;
+}
+
+.status {
+    font-size: 18px;
+    color    : white;
+}
+
+.status_icon {
+    color : green;
+    width : 30px;
+    height: 30px;
+}
+
+.network_button {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    align-items    : center;
+    background     : #1D1E20;
+    width          : 150px;
+    height         : 50px;
+    color          : #7A80A1;
+    font-size      : 16px;
+    border         : 1px solid #D9D9D9;
+    border-radius  : 5px;
+    padding        : 10px;
+}
+
+.external_icon {
+    width : 20px;
+    height: 20px;
+}

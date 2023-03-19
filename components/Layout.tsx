@@ -10,6 +10,9 @@ import { sounds } from "../shared/sounds";
 import { capitaliseFirst } from "../utils/format";
 import { SearchDropdown } from "./dropdowns";
 import { useUI } from "../context/UIContext";
+import { displayAddress } from "../utils/address";
+import { useStarkNetId } from "../hooks/useStarknetId";
+import { SearchIcon } from "../shared/icons";
 
 interface LayoutProps {
   leftSideMenu: ReactElement;
@@ -41,13 +44,23 @@ export default function Layout({
     (name: string) => name === titles[titles.length - 1],
     [pathname]
   );
+  const { starknetId } = useStarkNetId(
+    pid?.toString().startsWith("0x") ? pid.toString() : "0x0"
+  );
   const title = titles[titles.length - 1];
   const titleWords = title.split("-");
-  let formatTitle = "";
+  let pageTitle = "";
   for (let i = 0; i < titleWords.length; i++) {
     let titleWord = capitaliseFirst(titleWords[i]);
-    formatTitle += titleWord + " ";
+    pageTitle += titleWord + " ";
   }
+  const formatTitle = pid
+    ? pid.toString().startsWith("0x")
+      ? starknetId
+        ? starknetId
+        : displayAddress(pid.toString())
+      : capitaliseFirst(pid.toString())
+    : pageTitle;
 
   const isPresent = useIsPresent();
 
@@ -84,23 +97,22 @@ export default function Layout({
           >
             <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
           </svg>
-          {isLeftMenuOpen ? null : (
-            <>
-              <p className={styles.left_drawer_text}>{leftSideMenuTitle}</p>
-            </>
-          )}
+          <p
+            className={
+              isLeftMenuOpen
+                ? styles.left_drawer_text
+                : [styles.left_drawer_text, styles.collapsed].join(" ")
+            }
+          >
+            {leftSideMenuTitle}
+          </p>
         </button>
         <div className={styles.main}>
           <div className={styles.main_header_area}>
             <div className={styles.search_box}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                fill="currentColor"
-                className={styles.search_icon}
-              >
-                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
-              </svg>
+              <div className={styles.search_icon}>
+                <SearchIcon />
+              </div>
               <input
                 placeholder="Search Guilds, Items, Accounts"
                 value={searchValue}
@@ -123,7 +135,7 @@ export default function Layout({
                 <div
                   className={styles.back_box}
                   onClick={() => {
-                    back();
+                    push(pathname.replace("/" + titles[titles.length - 1], ""));
                     playClickSound();
                   }}
                 >
@@ -139,7 +151,7 @@ export default function Layout({
                 </div>
               ) : null}
               <div className={styles.page_title}>
-                <p>{pid ? capitaliseFirst(pid.toString()) : formatTitle}</p>
+                <p>{formatTitle}</p>
               </div>
             </div>
           </div>
@@ -186,9 +198,15 @@ export default function Layout({
           >
             <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
           </svg>
-          {isRightMenuOpen ? null : (
-            <p className={styles.right_drawer_text}>{rightSideMenuTitle}</p>
-          )}
+          <p
+            className={
+              isRightMenuOpen
+                ? styles.right_drawer_text
+                : [styles.right_drawer_text, styles.collapsed].join(" ")
+            }
+          >
+            {rightSideMenuTitle}
+          </p>
         </button>
         <div
           className={

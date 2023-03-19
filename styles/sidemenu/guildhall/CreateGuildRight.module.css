@@ -24,10 +24,6 @@
   width          : fit-content;
 }
 
-.content_title p {
-  margin: 0px;
-}
-
 .content_container {
   display         : flex;
   flex-direction  : column;
@@ -39,11 +35,6 @@
   border-radius   : 10px;
   border          : 2px solid #DCCB8D;
 }
-
-.content_container p {
-  margin: 0px;
-}
-
 
 .content_row {
   display       : flex;

@@ -1,0 +1,203 @@
+.members_title {
+    font-size: 32px;
+    color    : white;
+}
+
+.members_content {
+    display       : flex;
+    flex-direction: column;
+    gap           : 20px;
+}
+
+.title {
+    font-size: large;
+    color    : white;
+}
+
+.members_form {
+    display       : flex;
+    flex-direction: row;
+    gap           : 20px;
+}
+
+.members_address {
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    width         : 40%;
+}
+
+.short_input {
+    width : 100%;
+    height: 50px;
+}
+
+.roles {
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    color         : #DCCB8D;
+}
+
+.added_role {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+    background    : #32363F;
+    border-radius : 10px;
+    padding       : 5px;
+    cursor        : pointer;
+}
+
+
+.role_icon {
+    width: 20px;
+}
+
+.close_icon {
+    width: 10px;
+}
+
+.members_role {
+    width: 15%;
+}
+
+.grant_area {
+    display    : flex;
+    align-items: center;
+}
+
+.grant_button {
+    background   : #514F50;
+    cursor       : pointer;
+    border       : none;
+    border-radius: 5px;
+    height       : 30px;
+    color        : white;
+}
+
+.whitelisted_members {
+    margin: -50px 0px;
+}
+
+.whitelisted_members_title {
+    font-size: 24px;
+    color    : white;
+}
+
+.whitelisted_list {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+}
+
+.whitelisted_row {
+    display        : flex;
+    flex-direction : row;
+    justify-content: space-between;
+    gap            : 10px;
+    color          : #514F50;
+}
+
+.whitelisted_roles {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.role_area {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #DCCB8D;
+    border-radius  : 100px;
+    padding        : 10px;
+    width          : 30px;
+    height         : 30px;
+}
+
+.garbage_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 20px;
+    background     : #DCCB8D;
+    border-radius  : 5px;
+    cursor         : pointer;
+}
+
+.garbage_icon {
+    width: 10px;
+}
+
+.add_member_area {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.role_explainer {
+    display       : flex;
+    flex-direction: column;
+    gap           : 10px;
+    color         : white;
+}
+
+.role_text {
+    color: #DCCB8D;
+}
+
+.chain {
+    display        : flex;
+    flex-direction : row;
+    align-items    : center;
+    justify-content: center;
+    gap            : 20px;
+    width          : 25%;
+    height         : 50px;
+    background     : #303132;
+    margin         : auto;
+    border-radius  : 10px;
+}
+
+.buttons {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    gap            : 10px;
+    margin         : auto;
+    width          : 100%;
+}
+
+.next_button {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 10%;
+    background     : #303132;
+    border         : 1px solid #DCCB8D;
+    font-size      : 12px;
+    color          : #DCCB8D;
+    border-radius  : 10px;
+    cursor         : pointer;
+    padding        : 10px 0px;
+}
+
+.next_button:hover {
+    background: #36434B;
+
+}
+
+.chain_number_active {
+    font-size  : 24px;
+    font-weight: 700;
+    color      : #DCCB8D;
+}
+
+.chain_number {
+    font-size  : 24px;
+    font-weight: 700;
+    color      : #D9D9D9;
+    cursor     : pointer;
+}

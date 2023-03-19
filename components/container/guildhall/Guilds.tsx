@@ -127,7 +127,7 @@ export const Guilds = () => {
               <td>
                 <div className={styles.items}>
                   <p className={styles.member_master}>{guild.items}</p>
-                  <p className={styles.items_value}>~ {guild.items_value}</p>
+                  <p className={styles.items_value}>~{guild.items_value}</p>
                 </div>
               </td>
               <td>

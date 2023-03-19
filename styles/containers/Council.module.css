@@ -1,5 +1,8 @@
 .container {
-  margin: 5% 10%;
+  margin        : 5% 10%;
+  display       : flex;
+  flex-direction: column;
+  gap           : 20px;
 }
 
 .box {
@@ -19,21 +22,20 @@
 }
 
 .council_title {
-  cursor    : pointer;
-  background: none;
-  border    : none;
-  color     : white;
-  font-size : 20px;
+  cursor       : pointer;
+  background   : none;
+  border       : none;
+  border-radius: 10px;
+  background   : rgba(33, 35, 38, 0.75);
+  color        : white;
+  font-size    : 20px;
+  padding      : 10px;
 }
 
-.council_title_selected {
-  cursor    : pointer;
-  background: none;
-  border    : none;
-  color     : #6b6c6e;
-  font-size : 20px;
+.council_title.selected {
+  color: #DCCB8D;
 }
 
 .council_title:hover {
-  color: #6b6c6e;
+  color: #DCCB8D;
 }

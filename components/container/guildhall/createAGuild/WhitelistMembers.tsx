@@ -1,6 +1,15 @@
-import styles from "../../../../styles/containers/guildhall/CreateGuild.module.css";
-import { ControlledTextInput } from "../../../inputs";
+import styles from "../../../../styles/containers/guildhall/createAGuild/WhitelistMembers.module.css";
+import { ControlledShortTextInput } from "../../../inputs";
 import { ControlledSelectIcons } from "../../../dropdowns";
+import {
+  UserIcon,
+  MerchantIcon,
+  MasterIcon,
+  ShieldIcon,
+  PlusIcon,
+  InfoIcon,
+  CloseIcon,
+} from "../../../../shared/icons";
 
 export const WhitelistMembers = ({ ...props }: any) => {
   // const roleOptions = ["Journeyman", "Merchant", "Master"];
@@ -8,40 +17,25 @@ export const WhitelistMembers = ({ ...props }: any) => {
   const roleOptions = [
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 640 512"
-          fill="currentColor"
-          className={styles.role_icon}
-        >
-          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c10 0 18.8-4.9 24.2-12.5l-99.2-99.2c-14.9-14.9-23.3-35.1-23.3-56.1v-33c-15.9-4.7-32.8-7.2-50.3-7.2H178.3zM384 224c-17.7 0-32 14.3-32 32v82.7c0 17 6.7 33.3 18.7 45.3L478.1 491.3c18.7 18.7 49.1 18.7 67.9 0l73.4-73.4c18.7-18.7 18.7-49.1 0-67.9L512 242.7c-12-12-28.3-18.7-45.3-18.7H384zm24 80a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
-        </svg>
+        <div className={styles.role_icon}>
+          <MerchantIcon />
+        </div>
       ),
       text: "Merchant",
     },
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
-          fill="currentColor"
-          className={styles.role_icon}
-        >
-          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-        </svg>
+        <div className={styles.role_icon}>
+          <UserIcon />
+        </div>
       ),
       text: "Journeyman",
     },
     {
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
-          fill="currentColor"
-          className={styles.role_icon}
-        >
-          <path d="M219.3 .5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9V160c0 70.7-57.3 128-128 128s-128-57.3-128-128V102.9L48 93.3v65.1l15.7 78.4c.9 4.7-.3 9.6-3.3 13.3s-7.6 5.9-12.4 5.9H16c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4V86.6C6.5 83.3 0 74.3 0 64C0 52.6 8.1 42.7 19.3 40.5l200-40zM111.9 327.7c10.5-3.4 21.8 .4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5C401 348.6 448 409.4 448 481.3c0 17-13.8 30.7-30.7 30.7H30.7C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6z" />
-        </svg>
+        <div className={styles.role_icon}>
+          <MasterIcon />
+        </div>
       ),
       text: "Master",
     },
@@ -49,12 +43,12 @@ export const WhitelistMembers = ({ ...props }: any) => {
 
   return (
     <div className={styles.members_container}>
-      <p className={styles.permissions_title}>Whitelist Members</p>
+      <p className={styles.members_title}>Whitelist Members</p>
       <div className={styles.members_content}>
         <div className={styles.members_form}>
           <div className={styles.members_address}>
             <p className={styles.title}>Member Address</p>
-            <ControlledTextInput
+            <ControlledShortTextInput
               className={styles.short_input}
               control={props.control}
               rules={null}
@@ -65,42 +59,22 @@ export const WhitelistMembers = ({ ...props }: any) => {
             />
             <div className={styles.roles}>
               <div className={styles.added_role}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 512"
-                  fill="currentColor"
-                  className={styles.role_icon}
-                >
-                  <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c10 0 18.8-4.9 24.2-12.5l-99.2-99.2c-14.9-14.9-23.3-35.1-23.3-56.1v-33c-15.9-4.7-32.8-7.2-50.3-7.2H178.3zM384 224c-17.7 0-32 14.3-32 32v82.7c0 17 6.7 33.3 18.7 45.3L478.1 491.3c18.7 18.7 49.1 18.7 67.9 0l73.4-73.4c18.7-18.7 18.7-49.1 0-67.9L512 242.7c-12-12-28.3-18.7-45.3-18.7H384zm24 80a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" />
-                </svg>
+                <div className={styles.role_icon}>
+                  <MerchantIcon />
+                </div>
                 <p>Merchant</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                  fill="currentColor"
-                  className={styles.close_icon}
-                >
-                  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
-                </svg>
+                <div className={styles.close_icon}>
+                  <CloseIcon />
+                </div>
               </div>
               <div className={styles.added_role}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  fill="currentColor"
-                  className={styles.role_icon}
-                >
-                  <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-                </svg>
+                <div className={styles.role_icon}>
+                  <UserIcon />
+                </div>
                 <p>Journeyman</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                  fill="currentColor"
-                  className={styles.close_icon}
-                >
-                  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
-                </svg>
+                <div className={styles.close_icon}>
+                  <CloseIcon />
+                </div>
               </div>
             </div>
           </div>
@@ -112,14 +86,9 @@ export const WhitelistMembers = ({ ...props }: any) => {
               rules={null}
               defaultValue={{
                 icon: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"
-                    fill="currentColor"
-                    className={styles.role_icon}
-                  >
-                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-                  </svg>
+                  <div className={styles.role_icon}>
+                    <UserIcon />
+                  </div>
                 ),
                 text: "Journeyman",
               }}
@@ -138,7 +107,7 @@ export const WhitelistMembers = ({ ...props }: any) => {
             </p>
             <div className={styles.whitelisted_list}>
               <div className={styles.whitelisted_row}>
-                <p>0x...wefr</p>
+                <p>0x4g57...wefr</p>
                 <div className={styles.whitelisted_roles}>
                   <div className={styles.role_area}>
                     <svg
@@ -173,7 +142,7 @@ export const WhitelistMembers = ({ ...props }: any) => {
                 </div>
               </div>
               <div className={styles.whitelisted_row}>
-                <p>0x...wefr</p>
+                <p>0x4g57...wefr</p>
                 <div className={styles.garbage_button}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +155,7 @@ export const WhitelistMembers = ({ ...props }: any) => {
                 </div>
               </div>
               <div className={styles.whitelisted_row}>
-                <p>0x...wefr</p>
+                <p>0x4g57...wefr</p>
                 <div className={styles.garbage_button}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

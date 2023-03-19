@@ -1,21 +1,26 @@
-.infinite_scrolling {
-  display        : flex;
-  align-items    : center;
-  justify-content: center;
-  flex-direction : column;
-  overflow       : hidden;
+.text-scroller {
+  height  : 30px;
+  overflow: hidden;
 }
 
-.item {
-  position  : relative;
-  opacity   : 0;
-  transition: top 1s, opacity 1s;
+.text-container {
+  display       : flex;
+  flex-direction: column;
 }
 
-.show {
-  opacity: 1;
+.text-line {
+  font-size    : 1.2rem;
+  margin-bottom: 5px;
+  transition   : transform 5s linear;
+  animation    : scroll-text 5s linear infinite;
 }
 
-.hide {
-  opacity: 0;
+@keyframes scroll-text {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
 }

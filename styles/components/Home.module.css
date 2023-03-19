@@ -37,10 +37,6 @@
   width          : 20%;
 }
 
-.button:hover .icon_text {
-  display: block;
-}
-
 .icon {
   cursor: pointer;
   margin: 0px 10px;
@@ -48,33 +44,38 @@
   width : 50%;
 }
 
-.icon_text {
-  display            : none;
+.icon_box {
+  display            : flex;
+  align-items        : center;
+  justify-content    : center;
+  visibility         : hidden;
   position           : absolute;
-  font-size          : 15px;
+  font-size          : 22px;
   color              : #b5c1dece;
   background-color   : #4b57695b;
   padding            : 6px 8px 8px 9px;
   /* border          : 1px solid #DCCB8D; */
-  transition         : all 0.3s;
+  transition         : width 0.3s ease-out 0s, min-width 0.3s ease-out 0s, max-width 0.3s ease-out 0s;
+  width              : 10px;
+  margin-top         : 10px;
+  margin-left        : 43px;
+  border-radius      : 0px 16px 16px;
 }
 
-.icon_right {
-  margin-top   : -3px;
-  margin-left  : 43px;
-  border-radius: 0px 16px 16px;
+.icon_text {
+  visibility: hidden;
+  opacity   : 0;
+  transition: opacity .5s ease-in-out;
 }
 
-.icon_middle {
-  margin-top   : 4px;
-  margin-left  : 40px;
-  border-radius: 0px 16px 16px;
+.button:hover .icon_box {
+  visibility: visible;
+  width     : 100px;
 }
 
-.icon_left {
-  margin-top   : -3px;
-  margin-left  : -60px;
-  border-radius: 16px 0px 16px 16px;
+.button:hover .icon_text {
+  visibility: visible;
+  opacity   : 1;
 }
 
 .footer {
@@ -95,13 +96,18 @@
 }
 
 .footer_icon {
-  color: #6B7371;
-  width: 40px;
+  color     : #6B7371;
+  width     : 40px;
+  transition: .5s;
 }
 
 .footer_copyright {
   color    : white;
   font-size: 12px;
+}
+
+.footer_icon:hover {
+  color: aqua;
 }
 
 /* 

@@ -1,10 +1,16 @@
 html,
 body {
-  padding    : 0;
-  margin     : 0;
-  font-family: 'Neuton', serif;
-  font-size  : 20px;
-  font-weight: 400;
+  padding           : 0;
+  margin            : 0;
+  font-family       : 'Neuton', serif;
+  font-size         : 20px;
+  font-weight       : 400;
+  -ms-overflow-style: none;
+  scrollbar-width   : none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -14,6 +20,7 @@ a {
 
 * {
   box-sizing: border-box;
+  margin    : 0px;
 }
 
 .background {
@@ -30,4 +37,29 @@ a {
   display                 : flex;
   flex-direction          : column;
   width                   : 100%;
+}
+
+.MuiSlider-thumb {
+  color: #DCCB8D;
+}
+
+.MuiSlider-rail {
+  color: black;
+}
+
+.MuiSlider-track {
+  color: #6A6E70;
+}
+
+.MuiSlider-mark {
+  color: #6A6E70;
+}
+
+.MuiSlider-markLabel {
+  font-size: 14px;
+  color    : white;
+}
+
+.MuiInputBase-root-MuiInput-root {
+  color: #6A6E70;
 }

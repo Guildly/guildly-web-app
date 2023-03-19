@@ -11,8 +11,6 @@ export const TransactionPanel = () => {
 
   return (
     <div className={styles.box}>
-      {/* <div className={styles.left_border} />
-      <div className={styles.right_border} /> */}
       <div className={styles.content}>
         <div className={styles.cart_buttons}>
           <button

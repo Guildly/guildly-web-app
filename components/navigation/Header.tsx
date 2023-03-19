@@ -117,6 +117,15 @@ export const Header = () => {
   return (
     <>
       <div className={styles.header}>
+        <div
+          className={
+            isGuildDialogSelected ||
+            isConnectMenuSelected ||
+            isTransactionsSelected
+              ? [styles.screen_blur, styles.active].join(" ")
+              : styles.screen_blur
+          }
+        />
         <div className={styles.left_border} />
         {/* <div className={styles.left_head} /> */}
         <div className={styles.navbar}>
@@ -187,17 +196,14 @@ export const Header = () => {
             </Link>
           </div>
           <Link href="/" passHref>
-            <div className={styles.logo_border} />
-            {isPage("my-guild") && guild ? (
-              <div
-                className={styles.logo}
-                style={{
-                  backgroundImage: "url(" + guild.emblem + ")",
-                }}
+            <div className={styles.logo}>
+              <Image
+                src={"/guildly-logo.png"}
+                fill={true}
+                style={{ objectFit: "contain" }}
+                alt="Token Symbol"
               />
-            ) : (
-              <div className={styles.logo} />
-            )}
+            </div>
           </Link>
           <div className={styles.network_links}>
             <div ref={guildDialogRef}>

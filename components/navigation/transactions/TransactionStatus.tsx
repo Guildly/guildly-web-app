@@ -10,6 +10,11 @@ import { getTxRenderConfig } from "../../../hooks/useTxMessage";
 import type { ENQUEUED_STATUS } from "../../../constants";
 import { storage } from "../../../utils/localStorage";
 import type { Status, TransactionStatus } from "starknet";
+import {
+  ThumbsUpIcon,
+  ThumbsDownIcon,
+  ExternalIcon,
+} from "../../../shared/icons";
 
 export interface Metadata {
   description: string;
@@ -170,11 +175,88 @@ export const TransactionStatusTable = () => {
     setTxHistory(storageTransactions);
   }, [transactions]);
 
+  const exampleTransactions = [
+    {
+      status: "Accepted on L1",
+      actions: [
+        {
+          title: "Create guild",
+          description: "Create Core Lords Guild",
+        },
+        {
+          title: "Create guild",
+          description: "Create Core Lords Guild",
+        },
+        {
+          title: "Create guild",
+          description: "Create Core Lords Guild",
+        },
+      ],
+    },
+    {
+      status: "Rejected",
+      actions: [
+        {
+          title: "Create guild",
+          description: "Create Core Lords Guild",
+        },
+        {
+          title: "Create guild",
+          description: "Create Core Lords Guild",
+        },
+      ],
+    },
+    {
+      status: "Pending",
+      actions: [
+        {
+          title: "Create guild",
+          description: "Create Core Lords Guild",
+        },
+      ],
+    },
+  ];
+
   return (
-    <div className="flex flex-col-reverse flex-wrap w-full">
-      {txHistory.map((a: any, index: any) => {
+    <div className={styles.transaction_status_table}>
+      {/* {txHistory.map((a: any, index: any) => {
         return <TxStatusItem index={index} key={index} transaction={a} />;
-      })}
+      })} */}
+      {/* Hard code this part for now using list of transactions */}
+      {exampleTransactions.map((transaction, index) => (
+        <div className={styles.status_box} key={index}>
+          <div className={styles.status_header}>
+            <p className={styles.status}>{transaction.status}</p>
+            <div className={styles.status_icon}>
+              <ThumbsUpIcon />
+            </div>
+            <a
+              href="https://testnet.starkscan.co/tx/0x02964e3ac1b8e01a07983dad4e0c8210df9aa6112e888d832e568f617a2b5ce8"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.network_button}
+            >
+              <p>See on Starkscan</p>
+              <div className={styles.external_icon}>
+                <ExternalIcon />
+              </div>
+            </a>
+          </div>
+          <div className={styles.actions}>
+            <p className={styles.action_header}>Actions</p>
+            <div className={styles.actions}>
+              {transaction.actions.map((action, index) => (
+                <div className={styles.action} key={index}>
+                  <p className={styles.action_title}>{action.title}</p>
+                  <p className={styles.action_description}>
+                    {action.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

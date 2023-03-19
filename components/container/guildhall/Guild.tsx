@@ -12,6 +12,7 @@ import {
   AspectNftAsset,
 } from "../../../features/accountNfts/aspect.model";
 import { useJoin } from "../../../hooks/useMembers";
+import Link from "next/link";
 import { TokenCard } from "../../token/TokenCard";
 
 export const Guild = () => {
@@ -23,7 +24,7 @@ export const Guild = () => {
   const [guildTokens, setGuildTokens] = useState<AspectNftAsset[] | null>(null);
   const [fetchNftsError, setFetchNftsError] = useState(false);
 
-  const [feeRole, setFeeRole] = useState("Owner");
+  const [feeRole, setFeeRole] = useState("Merchant");
 
   useEffect(() => {
     fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
@@ -35,6 +36,109 @@ export const Guild = () => {
       }
     );
   }, [guildTokens]);
+
+  const feeRates = [
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/influence_logo.svg",
+      task_title: "Build Plot",
+      fee_split: "-",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+    {
+      logo: "/eternum_logo.svg",
+      task_title: "Harvest Food",
+      fee_split: "5%",
+      fee_payment: "0.001",
+      payment_token: "ETH",
+    },
+  ];
+
+  const activityFeed = [];
 
   return (
     <div className={styles.container}>
@@ -93,114 +197,116 @@ export const Guild = () => {
           <p className={styles.category_title}>Bank</p>
           <div className={styles.bank_tokens}>
             {guildTokens && accountAddress
-              ? guildTokens.slice(0, 3).map((token, index) => (
-                  <div className={styles.token} key={index}>
-                    <TokenCard
-                      isSelected={selectedToken == index}
-                      setSelectedToken={setSelectedToken}
-                      token={token}
-                      index={index}
-                    />
-                  </div>
+              ? guildTokens.map((token, index) => (
+                  <Link href="/bank/items/0x0" key={index} passHref>
+                    <div className={styles.token}>
+                      <TokenCard
+                        isSelected={false}
+                        setSelectedToken={setSelectedToken}
+                        token={token}
+                        index={index}
+                      />
+                    </div>
+                  </Link>
                 ))
               : null}
           </div>
         </div>
-        <div className={styles.council}>
+        {/* <div className={styles.council}>
           <p className={styles.category_title}>Council</p>
           <div className={styles.proposals_box}></div>
-        </div>
-      </div>
-      <div className={styles.fee_rates}>
-        <div className={styles.fee_rates_header}>
-          <p className={styles.category_title}>Fee Rates</p>
-          <Select
-            options={["Owner", "User", "Admin", "Guild"]}
-            value={feeRole}
-            setValue={setFeeRole}
-          />
-        </div>
-        <div className={styles.fee_rates_list}>
-          <div className={styles.fee_rate}>
-            <Image
-              className={styles.game_image}
-              src={"/eternum_logo.svg"}
-              alt="game_image"
-              width={15}
-              height={15}
+        </div> */}
+        <div className={styles.fee_rates}>
+          <div className={styles.fee_rates_header}>
+            <p className={styles.category_title}>Fee Rates</p>
+            <Select
+              options={["Merchant", "Journeyman", "Master", "Guild"]}
+              value={feeRole}
+              setValue={setFeeRole}
             />
-            <p className={styles.fee_rate_selector}>Harvest Food</p>
-            <p className={styles.fee_rate_percent}>5%</p>
-            <div className={styles.fee_rate_payment}>
-              <p className={styles.fee_payment_text}>0.001</p>
-              <p className={styles.fee_payment_token}></p>
-            </div>
           </div>
-          <div className={styles.fee_rate}>
-            <Image
-              className={styles.game_image}
-              src={"/influence_logo.svg"}
-              alt="game_image"
-              width={15}
-              height={15}
-            />
-            <p className={styles.fee_rate_selector}>Build Plot</p>
-            <p className={styles.fee_rate_percent}>-</p>
-            <div className={styles.fee_rate_payment}>
-              <p className={styles.fee_payment_text}>0.001</p>
-              <p className={styles.fee_payment_token}></p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.activity}>
-          <p className={styles.category_title}>Activity Feed</p>
-          <div className={styles.activity_area}>
-            <div className={styles.feed}>
-              <div className={styles.feed_item}>
-                <p className={styles.item_emoji}>🌾</p>
-                <p className={styles.item_text}>
-                  <span className={styles.feed_bold_text}>alice.stark </span>
-                  used
-                  <span className={styles.feed_bold_text}>bob.stark</span>’s
-                  realm to
-                  <span className={styles.feed_bold_text}>harvest food</span>
-                </p>
-              </div>
-              <div className={styles.feed_item}>
-                <p className={styles.item_emoji}>🤺</p>
-                <p className={styles.item_text}>
-                  <span className={styles.feed_bold_text}>bob.stark</span>
-                  used
-                  <span className={styles.feed_bold_text}>
-                    0xg23hb.....e6u6
-                  </span>
-                  ’s realm to
-                  <span className={styles.feed_bold_text}>build an army</span>
-                </p>
-              </div>
-              <div className={styles.feed_item}>
-                <p className={styles.item_emoji}>⚔️</p>
-                <p className={styles.item_text}>
-                  <span className={styles.feed_bold_text}>alice.stark</span>
-                  used
-                  <span className={styles.feed_bold_text}>bob.stark</span>’s
-                  realm to
-                  <span className={styles.feed_bold_text}>harvest food</span>
-                </p>
-              </div>
-            </div>
-            <div className={styles.activity_chart}>
-              <p>Chart goes here</p>
-            </div>
-            <button
-              className={styles.join_button}
-              onClick={() => playClickSound()}
-            >
-              <p>Join</p>
-            </button>
+          <div className={styles.fee_rates_list}>
+            <table>
+              {feeRates.map((feeRate, index) => (
+                <tr className={styles.fee_rate} key={index}>
+                  <td>
+                    <Image
+                      className={styles.game_image}
+                      src={feeRate.logo}
+                      alt="game_image"
+                      width={15}
+                      height={15}
+                    />
+                  </td>
+                  <td>
+                    <p className={styles.fee_rate_selector}>
+                      {feeRate.task_title}
+                    </p>
+                  </td>
+                  <td>
+                    <p className={styles.fee_rate_percent}>
+                      {feeRate.fee_split}
+                    </p>
+                  </td>
+                  <td>
+                    <div className={styles.fee_rate_payment}>
+                      <p className={styles.fee_payment_text}>
+                        {feeRate.fee_payment}
+                      </p>
+                      <p className={styles.fee_payment_token}>
+                        {feeRate.payment_token}
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </table>
           </div>
         </div>
       </div>
+      <div className={styles.activity}>
+        <p className={styles.category_title}>Activity Feed</p>
+        <div className={styles.activity_area}>
+          <div className={styles.feed}>
+            <div className={styles.feed_item}>
+              <p className={styles.item_emoji}>🌾</p>
+              <p className={styles.item_text}>
+                <span className={styles.feed_bold_text}>alice.stark </span>
+                used
+                <span className={styles.feed_bold_text}>bob.stark</span>’s realm
+                to
+                <span className={styles.feed_bold_text}>harvest food</span>
+              </p>
+            </div>
+            <div className={styles.feed_item}>
+              <p className={styles.item_emoji}>🤺</p>
+              <p className={styles.item_text}>
+                <span className={styles.feed_bold_text}>bob.stark</span>
+                used
+                <span className={styles.feed_bold_text}>0xg23hb.....e6u6</span>
+                ’s realm to
+                <span className={styles.feed_bold_text}>build an army</span>
+              </p>
+            </div>
+            <div className={styles.feed_item}>
+              <p className={styles.item_emoji}>⚔️</p>
+              <p className={styles.item_text}>
+                <span className={styles.feed_bold_text}>alice.stark</span>
+                used
+                <span className={styles.feed_bold_text}>bob.stark</span>’s realm
+                to
+                <span className={styles.feed_bold_text}>harvest food</span>
+              </p>
+            </div>
+          </div>
+          <div className={styles.activity_chart}>
+            <p>Chart goes here</p>
+          </div>
+        </div>
+      </div>
+      <button className={styles.join_button} onClick={() => playClickSound()}>
+        <p>Join</p>
+      </button>
     </div>
   );
 };

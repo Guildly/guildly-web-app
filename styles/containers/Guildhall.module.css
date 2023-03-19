@@ -15,10 +15,10 @@
     height         : 70%;
     border-radius  : 10px;
     background     : #212326;
-    border         : solid;
-    border-color   : #DCCB8D;
+    border         : 3px solid #DCCB8D;
     color          : #DCCB8D;
     font-size      : 22px;
+    transition     : .5s;
 }
 
 .navbox:hover {

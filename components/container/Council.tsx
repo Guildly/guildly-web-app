@@ -10,42 +10,42 @@ export const Council = () => {
         <button
           className={
             councilHeader == "Voting Hall"
-              ? styles.council_title_selected
+              ? [styles.council_title, styles.selected].join(" ")
               : styles.council_title
           }
           onClick={() => setCouncilHeader("Voting Hall")}
         >
-          Voting Hall
+          <p>Voting Hall</p>
         </button>
         <button
           className={
             councilHeader == "Guild Tasks"
-              ? styles.council_title_selected
+              ? [styles.council_title, styles.selected].join(" ")
               : styles.council_title
           }
           onClick={() => setCouncilHeader("Guild Tasks")}
         >
-          Guild Tasks
+          <p>Guild Tasks</p>
         </button>
         <button
           className={
             councilHeader == "Proposals"
-              ? styles.council_title_selected
+              ? [styles.council_title, styles.selected].join(" ")
               : styles.council_title
           }
           onClick={() => setCouncilHeader("Proposals")}
         >
-          Proposals
+          <p>Proposals</p>
         </button>
         <button
           className={
             councilHeader == "Funding"
-              ? styles.council_title_selected
+              ? [styles.council_title, styles.selected].join(" ")
               : styles.council_title
           }
           onClick={() => setCouncilHeader("Funding")}
         >
-          Funding
+          <p>Funding</p>
         </button>
       </div>
       <div className={styles.box}>

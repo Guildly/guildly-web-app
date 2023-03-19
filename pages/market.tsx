@@ -27,14 +27,12 @@ export default function MarketPage() {
   };
 
   return (
-    <div>
-      <Layout
-        leftSideMenu={<MarketLeftMenu {...props} />}
-        leftSideMenuTitle="Filters"
-        rightSideMenu={<MarketRightMenu />}
-        rightSideMenuTitle="Ranks"
-        main={<Market />}
-      />
-    </div>
+    <Layout
+      leftSideMenu={<MarketLeftMenu {...props} />}
+      leftSideMenuTitle="Filters"
+      rightSideMenu={<MarketRightMenu />}
+      rightSideMenuTitle="Ranks"
+      main={<Market />}
+    />
   );
 }

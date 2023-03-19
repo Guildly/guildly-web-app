@@ -16,10 +16,6 @@
   gap           : 100px;
 }
 
-.header p {
-  margin: 0px;
-}
-
 .guild_info {
   display       : flex;
   flex-direction: row;
@@ -96,21 +92,19 @@
 .bank_row {
   display       : flex;
   flex-direction: row;
-
+  height        : 50%;
 }
 
 .bank {
   width: 70%;
 }
 
-.bank p {
-  margin: 0px;
-}
-
 .bank_tokens {
   display       : flex;
   flex-direction: row;
-  overflow      : hidden;
+  overflow      : auto;
+  width         : 95%;
+  height        : 100%;
 }
 
 .token {
@@ -132,10 +126,7 @@
   display       : flex;
   flex-direction: column;
   gap           : 20px;
-}
-
-.fee_rates p {
-  margin: 0px;
+  width         : 100%;
 }
 
 .fee_rates_header {
@@ -144,25 +135,34 @@
   gap           : 50px;
 }
 
+.fee_rates_list {
+  display       : flex;
+  flex-direction: column;
+  height        : 100%;
+  overflow      : auto;
+  font-size     : 16px;
+}
+
 .fee_rate {
+  color: white;
+}
+
+.fee_rate_payment {
   display       : flex;
   flex-direction: row;
-  align-items   : center;
-  gap           : 5px;
-  color         : white;
 }
 
 .activity {
   display       : flex;
   flex-direction: column;
-  gap           : 5px;
   color         : white;
+  gap           : 20px;
 }
 
 .activity_area {
   display       : flex;
   flex-direction: row;
-  gap           : 20px
+  gap           : 5px;
 }
 
 .feed_item {
@@ -176,6 +176,7 @@
 }
 
 .join_button {
+  position     : absolute;
   width        : 100px;
   height       : 60px;
   background   : none;
@@ -183,6 +184,8 @@
   border-radius: 10px;
   color        : #DCCB8D;
   cursor       : pointer;
+  bottom       : 8%;
+  right        : 10%;
 }
 
 .join_button:hover {

@@ -6,7 +6,7 @@
   background    : #212326;
   border-radius : 10px;
   border        : 2px solid #DCCB8D;
-  padding       : 20px 40px;
+  padding       : 20px 20px;
   margin        : 2% 5% 5% 5%;
 }
 
@@ -14,10 +14,7 @@
   display       : flex;
   flex-direction: row;
   gap           : 100px;
-}
-
-.header p {
-  margin: 0px;
+  height        : 18%;
 }
 
 .guild_info {
@@ -62,6 +59,7 @@
   display       : flex;
   flex-direction: column;
   gap           : 1px;
+  overflow      : hidden;
 }
 
 .category_title {
@@ -73,18 +71,34 @@
   display       : flex;
   flex-direction: column;
   gap           : 5px;
+  height        : 100%;
 }
 
 .category_content_text {
+  overflow : auto;
   font-size: 12px;
   color    : #B9B7B9;
 }
 
-.game {
+.contract {
   display       : flex;
   flex-direction: row;
   align-items   : center;
   gap           : 5px;
+}
+
+.contract_icon {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  color          : #B9B7B9;
+  width          : 15px;
+  height         : 15px;
+  cursor         : pointer;
+}
+
+.verified {
+  color: green;
 }
 
 .treasury_balance {
@@ -96,21 +110,29 @@
 .bank_row {
   display       : flex;
   flex-direction: row;
-
+  height        : 45%;
 }
+
+
 
 .bank {
-  width: 70%;
+  width: 50%;
 }
 
-.bank p {
-  margin: 0px;
+.description {
+  width: 45%;
+}
+
+.description_text {
+  font-size: 14px;
+  color    : white;
 }
 
 .bank_tokens {
   display       : flex;
   flex-direction: row;
-  overflow      : hidden;
+  overflow      : auto;
+  height        : 100%;
 }
 
 .token {
@@ -118,64 +140,16 @@
   height: 100%;
 }
 
-.council {
-  width: 30%;
-}
-
-.proposals_box {
-  height       : 100%;
-  background   : #6B6057;
-  border-radius: 10px;
-}
-
-.fee_rates {
-  display       : flex;
-  flex-direction: column;
-  gap           : 20px;
-}
-
-.fee_rates p {
-  margin: 0px;
-}
-
-.fee_rates_header {
-  display       : flex;
-  flex-direction: row;
-  gap           : 50px;
-}
-
-.fee_rate {
-  display       : flex;
-  flex-direction: row;
-  align-items   : center;
-  gap           : 5px;
-  color         : white;
-}
-
-.activity {
+.guilds {
   display       : flex;
   flex-direction: column;
   gap           : 5px;
-  color         : white;
-}
-
-.activity_area {
-  display       : flex;
-  flex-direction: row;
-  gap           : 20px
-}
-
-.feed_item {
-  display       : flex;
-  flex-direction: row;
-  gap           : 5px;
-}
-
-.feed_bold_text {
-  font-weight: bold;
+  height        : 40%;
+  width         : 80%;
 }
 
 .join_button {
+  position     : absolute;
   width        : 100px;
   height       : 60px;
   background   : none;
@@ -183,6 +157,9 @@
   border-radius: 10px;
   color        : #DCCB8D;
   cursor       : pointer;
+  bottom       : 8%;
+  right        : 10%;
+  transition   : .5s;
 }
 
 .join_button:hover {

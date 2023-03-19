@@ -1,22 +1,21 @@
 .token_image {
-  position               : absolute;
+  position               : relative;
   /* top                 : 100px; */
-  margin                 : 20px 5px;
+  margin                 : auto;
+  height                 : 100%;
+  width                  : 100%;
   z-index                : 1;
-}
-
-.token_image_open {
-  position               : absolute;
-  /* top                 : 100px; */
-  margin                 : 40px 5px 0px 20px;
-  z-index                : 2;
+  background             : #162334;
 }
 
 .token_card {
-  position: relative;
-  height  : 260px;
-  width   : 190px;
-  cursor  : pointer;
+  position  : relative;
+  height    : 240px;
+  width     : 180px;
+  cursor    : pointer;
+  padding   : 10px 0px;
+  margin    : 5px;
+  transition: .2s;
 }
 
 .token_card:hover {
@@ -49,43 +48,55 @@
   /* position: fixed; */
   z-index    : 4;
   cursor     : pointer;
+  height     : 100%;
+  width      : 100%;
 }
 
 .token_background {
   position  : absolute;
   height    : 70%;
-  width     : 85%;
+  width     : 90%;
   background: #162334;
   margin    : 20px 7px;
 }
 
 .token_symbol {
-  position            : absolute;
-  /* top              : 100px; */
-  margin              : 16px 1px;
-  z-index             : 3;
+  position: absolute;
+  margin  : 4px 3px;
+  z-index : 3;
+  height  : 20%;
+  width   : 20%;
 }
 
 .token_text {
   position: absolute;
   z-index : 4;
-}
-
-.token_text p {
-  margin: 0px;
+  height  : 100%;
 }
 
 .token_title {
   color      : #DCCB8D;
   font-size  : 10px;
-  margin     : 20px 65px;
+  margin     : 12px 55px;
   overflow   : hidden;
   white-space: nowrap;
-  width      : 50px;
+  width      : 70px;
+}
+
+.token_title p {
+  text-overflow: ellipsis;
+  text-align   : center;
 }
 
 .token_content {
-  margin: 150px 40px 0px 15px;
+  position      : absolute;
+  display       : flex;
+  flex-direction: column;
+  gap           : 10px;
+  margin        : 0 20px;
+  bottom        : 0px;
+  height        : 25%;
+  width         : 70%;
 }
 
 .token_header {
@@ -116,11 +127,17 @@
   margin   : -5px 0px 0px 0px;
 }
 
-.token_buttons {
+.token_footer {
   display        : flex;
   flex-direction : row;
   justify-content: space-between;
-  margin         : 0px 10px;
+  margin         : 0px 0px;
+}
+
+.action_buttons {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
 }
 
 .deposit_button {
@@ -134,6 +151,20 @@
   cursor         : pointer;
   font-size      : 6px;
   border         : none;
+}
+
+.info_button {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 40px;
+  height         : 15px;
+  border-radius  : 5px;
+  background     : #6B7371;
+  cursor         : pointer;
+  font-size      : 6px;
+  border         : none;
+  color          : #DCCB8D;
 }
 
 .external_buttons {

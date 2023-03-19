@@ -1,6 +1,9 @@
-import styles from "../../../../styles/containers/guildhall/CreateGuild.module.css";
+import styles from "../../../../styles/containers/guildhall/createAGuild/GuildInfo.module.css";
 import { useState } from "react";
-import { ControlledTextInput } from "../../../inputs";
+import {
+  ControlledShortTextInput,
+  ControlledLongTextInput,
+} from "../../../inputs";
 import Image from "next/image";
 
 export const GuildInfo = ({ ...props }: any) => {
@@ -19,7 +22,7 @@ export const GuildInfo = ({ ...props }: any) => {
       <div className={styles.text_inputs}>
         <div className={styles.name}>
           <p className={styles.title}>Name</p>
-          <ControlledTextInput
+          <ControlledShortTextInput
             className={styles.short_input}
             control={props.control}
             rules={null}
@@ -30,25 +33,13 @@ export const GuildInfo = ({ ...props }: any) => {
           />
         </div>
         <div className={styles.description}>
-          <p className={styles.title}>Emblem</p>
-          <ControlledTextInput
-            className={styles.short_input}
+          <p className={styles.title}>Description</p>
+          <ControlledLongTextInput
+            className={styles.long_input}
             control={props.control}
             rules={null}
             defaultValue=""
-            placeholder="Choose your emblem"
-            icon={null}
-            name={"emblem"}
-          />
-        </div>
-        <div className={styles.anthem}>
-          <p className={styles.title}>Guild Anthem</p>
-          <ControlledTextInput
-            className={styles.short_input}
-            control={props.control}
-            rules={null}
-            defaultValue=""
-            placeholder="Choose your emblem"
+            placeholder="Enter a short description"
             icon={null}
             name={"emblem"}
           />
@@ -68,7 +59,7 @@ export const GuildInfo = ({ ...props }: any) => {
                 />
               </div>
               <button
-                className={styles.generate_button}
+                className={styles.regenerate_button}
                 onClick={() => setIsImageGenerated(false)}
               >
                 <p>Regenerate</p>

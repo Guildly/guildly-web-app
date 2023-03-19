@@ -36,7 +36,7 @@ export const CreateGuild = ({ ...props }: any) => {
         ) : null}
         {props.chainPage == 3 ? (
           <button
-            className={styles.next_button}
+            className={styles.submit_button}
             onClick={() => submitTransactions()}
           >
             <p>Submit</p>

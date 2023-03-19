@@ -1,0 +1,26 @@
+.info_box {
+    visibility   : hidden;
+    position     : absolute;
+    border-radius: 10px 10px 10px 0px;
+    background   : #252B34;
+    color        : white;
+    font-size    : 10px;
+    padding      : 10px;
+    transition   : width 0.3s ease-out 0s, min-width 0.3s ease-out 0s, max-width 0.3s ease-out 0s;
+}
+
+.info_box.active {
+    visibility: visible;
+    width     : 100px;
+}
+
+.info_text {
+    visibility: hidden;
+    opacity   : 0;
+    transition: opacity .5s ease-in-out;
+}
+
+.info_text.active {
+    visibility: visible;
+    opacity   : 1;
+}

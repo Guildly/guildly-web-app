@@ -18,7 +18,7 @@ function Powered() {
             width={24}
           />
         </div>
-        <span className={styles.text}>Powered by StarkNet</span>
+        <span className={styles.text}>Powered by Starknet</span>
       </a>
     </div>
   );

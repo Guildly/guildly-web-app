@@ -40,9 +40,6 @@ export const useUIContext = () => {
     setIsRightMenuOpen(!isRightMenuOpen);
   }, [isRightMenuOpen]);
 
-  console.log(isLeftMenuOpen);
-  console.log(isRightMenuOpen);
-
   return {
     isLeftMenuOpen,
     handleLeftDrawerToggler,

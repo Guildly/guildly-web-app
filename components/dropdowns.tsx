@@ -6,6 +6,8 @@ import { ShortTextInput } from "./inputs";
 import { Controller } from "react-hook-form";
 import Link from "next/link";
 import { SelectOption } from "../types";
+import { DownChevronIcon, SearchIcon } from "../shared/icons";
+import { SliderInput, TokenSliderInput } from "./inputs";
 
 interface SelectProps {
   options: string[];
@@ -41,33 +43,32 @@ export function Select({ options, value, setValue }: SelectProps) {
         onClick={() => setIsSelected(!isSelected)}
       >
         <p>{value}</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className={styles.select_icon}
-          fill="currentColor"
-        >
-          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-        </svg>
-      </button>
-      {isSelected ? (
-        <div className={styles.select_dropdown_area}>
-          <div className={styles.select_dropdown}>
-            {options.map((option, index) => (
-              <button
-                className={styles.select_dropdown_button}
-                key={index}
-                onClick={() => {
-                  setValue(option);
-                  setIsSelected(!isSelected);
-                }}
-              >
-                <p>{option}</p>
-              </button>
-            ))}
-          </div>
+        <div className={styles.select_icon}>
+          <DownChevronIcon />
         </div>
-      ) : null}
+      </button>
+      <div className={styles.select_dropdown_area}>
+        <div
+          className={
+            isSelected
+              ? [styles.select_dropdown, styles.active].join(" ")
+              : styles.select_dropdown
+          }
+        >
+          {options.map((option, index) => (
+            <button
+              className={styles.select_dropdown_button}
+              key={index}
+              onClick={() => {
+                setValue(option);
+                setIsSelected(!isSelected);
+              }}
+            >
+              <p>{option}</p>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -123,14 +124,9 @@ export function ControlledSelect({
             onClick={() => setIsSelected(!isSelected)}
           >
             <p>{value}</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className={styles.select_icon}
-              fill="currentColor"
-            >
-              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-            </svg>
+            <div className={styles.select_icon}>
+              <DownChevronIcon />
+            </div>
           </button>
           {isSelected ? (
             <div className={styles.select_dropdown_area}>
@@ -206,34 +202,33 @@ export function ControlledSelectIcons({
           >
             {value.icon}
             <p>{value.text}</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              className={styles.select_icon}
-              fill="currentColor"
-            >
-              <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-            </svg>
-          </button>
-          {isSelected ? (
-            <div className={styles.select_dropdown_area}>
-              <div className={styles.select_dropdown}>
-                {options.map((option, index) => (
-                  <button
-                    className={styles.select_dropdown_button}
-                    key={index}
-                    onClick={() => {
-                      onChange(option);
-                      setIsSelected(!isSelected);
-                    }}
-                  >
-                    {option.icon}
-                    <p>{option.text}</p>
-                  </button>
-                ))}
-              </div>
+            <div className={styles.select_icon}>
+              <DownChevronIcon />
             </div>
-          ) : null}
+          </button>
+          <div className={styles.select_dropdown_area}>
+            <div
+              className={
+                isSelected
+                  ? [styles.select_dropdown, styles.active].join(" ")
+                  : styles.select_dropdown
+              }
+            >
+              {options.map((option, index) => (
+                <button
+                  className={styles.select_dropdown_button}
+                  key={index}
+                  onClick={() => {
+                    onChange(option);
+                    setIsSelected(!isSelected);
+                  }}
+                >
+                  {option.icon}
+                  <p>{option.text}</p>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     />
@@ -305,99 +300,104 @@ export function TokenSelect({ options, value, setValue }: TokenSelectProps) {
         {value ? (
           <img src={value?.image} className={styles.token_image} />
         ) : null}
-        <p>{value?.symbol}</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className={styles.select_icon}
-          fill="currentColor"
-        >
-          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-        </svg>
+        <div className={styles.select_icon}>
+          <DownChevronIcon />
+        </div>
       </button>
-      {isSelected ? (
-        <div className={styles.dialog_background}>
-          <div className={styles.token_dialog} ref={selectRef}>
-            <div className={styles.token_dialog_header}>
-              <p className={styles.token_dialog_title}>Select Token</p>
+      <div
+        className={
+          isSelected
+            ? [styles.dialog_background, styles.active].join(" ")
+            : styles.dialog_background
+        }
+      >
+        <div
+          className={
+            isSelected
+              ? [styles.token_dialog, styles.active].join(" ")
+              : styles.token_dialog
+          }
+          ref={selectRef}
+        >
+          <div className={styles.token_dialog_header}>
+            <p className={styles.token_dialog_title}>Select Token</p>
+            <button
+              className={styles.close_button}
+              onClick={() => {
+                setIsSelected(false);
+                playClickSound();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512"
+                fill="currentColor"
+                className={styles.icon}
+              >
+                <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
+              </svg>
+            </button>
+          </div>
+          <div className={styles.token_search}>
+            <ShortTextInput
+              className={styles.search_input}
+              content={searchTokenValue}
+              setContent={setSearchTokenValue}
+              label={"Search name or paste address"}
+              icon={searchIcon}
+            />
+          </div>
+          <div className={styles.token_buttons}>
+            {options.map((option, index) => (
               <button
-                className={styles.close_button}
+                className={
+                  value?.symbol == option.symbol
+                    ? [styles.token_button, styles.selected].join(" ")
+                    : styles.token_button
+                }
+                key={index}
+              >
+                <Image
+                  src={option.image}
+                  alt="token-image"
+                  width={30}
+                  height={30}
+                />
+                <p>{option.symbol}</p>
+              </button>
+            ))}
+          </div>
+          <div className={styles.dividor} />
+          <div className={styles.tokens_list}>
+            {options.map((option, index) => (
+              <button
+                className={
+                  value?.symbol == option.symbol
+                    ? // ? styles.token_option_selected
+                      [styles.token_option, styles.selected].join(" ")
+                    : styles.token_option
+                }
+                key={index}
                 onClick={() => {
-                  setIsSelected(false);
-                  playClickSound();
+                  setValue(option);
+                  setIsSelected(!isSelected);
                 }}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 320 512"
-                  fill="currentColor"
-                  className={styles.icon}
-                >
-                  <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
-                </svg>
+                <Image
+                  src={option.image}
+                  alt="token-image"
+                  width={30}
+                  height={30}
+                />
+                <div className={styles.token_info}>
+                  <p className={styles.token_name}>{option.name}</p>
+                  <p className={styles.token_symbol}>{option.symbol}</p>
+                </div>
               </button>
-            </div>
-            <div className={styles.token_search}>
-              <ShortTextInput
-                className={styles.search_input}
-                content={searchTokenValue}
-                setContent={setSearchTokenValue}
-                label={"Search name or paste address"}
-                icon={searchIcon}
-              />
-            </div>
-            <div className={styles.token_buttons}>
-              {options.map((option, index) => (
-                <button
-                  className={
-                    value?.symbol == option.symbol
-                      ? [styles.token_button, styles.selected].join(" ")
-                      : styles.token_option
-                  }
-                  key={index}
-                >
-                  <Image
-                    src={option.image}
-                    alt="token-image"
-                    width={30}
-                    height={30}
-                  />
-                  <p>{option.symbol}</p>
-                </button>
-              ))}
-            </div>
-            <div className={styles.dividor} />
-            <div className={styles.tokens_list}>
-              {options.map((option, index) => (
-                <button
-                  className={
-                    value?.symbol == option.symbol
-                      ? // ? styles.token_option_selected
-                        [styles.token_option, styles.selected].join(" ")
-                      : styles.token_option
-                  }
-                  key={index}
-                  onClick={() => {
-                    setValue(option);
-                    setIsSelected(!isSelected);
-                  }}
-                >
-                  <Image
-                    src={option.image}
-                    alt="token-image"
-                    width={30}
-                    height={30}
-                  />
-                  <div className={styles.token_info}>
-                    <p className={styles.token_name}>{option.name}</p>
-                    <p className={styles.token_symbol}>{option.symbol}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
-      ) : null}
+      </div>
     </div>
   );
 }
@@ -509,7 +509,7 @@ export const SearchDropdown = ({ searchItems }: SearchDropdownProps) => {
           <p>Items</p>
         </div>
         {searchItems.map((_: any, index: number) => (
-          <Link key={index} href="/bank/item/0x0" passHref>
+          <Link key={index} href="/bank/items/0x0" passHref>
             <div
               className={styles.search_item}
               key={index}
@@ -523,6 +523,215 @@ export const SearchDropdown = ({ searchItems }: SearchDropdownProps) => {
             </div>
           </Link>
         ))}
+      </div>
+    </div>
+  );
+};
+
+interface FilterSelectDropdownProps {
+  title: string;
+  options: any[];
+  search: boolean;
+}
+
+export const FilterSelectDropdown = ({
+  title,
+  options,
+  search,
+}: FilterSelectDropdownProps) => {
+  const { playClickSound } = sounds();
+  const [dropdownActive, setDropdownActive] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
+  const searchedOptions = options.filter((option) => {
+    if (searchValue === "") {
+      return option;
+    } else {
+      if (option.toLowerCase().includes(searchValue.toLowerCase())) {
+        return option;
+      }
+    }
+  });
+
+  return (
+    <div className={styles.filter_area}>
+      <div
+        className={
+          dropdownActive
+            ? [styles.filter_row, styles.active].join(" ")
+            : styles.filter_row
+        }
+        onClick={() => {
+          setDropdownActive(!dropdownActive);
+          playClickSound();
+        }}
+      >
+        <p className={styles.filter_title}>{title}</p>
+        <div
+          className={
+            dropdownActive
+              ? [styles.filter_icon, styles.active].join(" ")
+              : styles.filter_icon
+          }
+        >
+          <DownChevronIcon />
+        </div>
+      </div>
+      <div
+        className={
+          dropdownActive
+            ? [styles.filter_content, styles.active].join(" ")
+            : styles.filter_content
+        }
+      >
+        {search ? (
+          <div className={styles.filter_search_box}>
+            <div className={styles.filter_search_icon}>
+              <SearchIcon />
+            </div>
+            <input
+              placeholder="Search"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.currentTarget.value)}
+              className={styles.filter_search_input}
+            />
+          </div>
+        ) : null}
+        {searchedOptions.map((option, index) => (
+          <div className={styles.option_row} key={index}>
+            <div className={styles.option_select_box} />
+            <p className={styles.option_text}>{option}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+interface FilterSliderDropdownProps {
+  title: string;
+  label: string;
+}
+
+export const FilterSliderDropdown = ({
+  title,
+  label,
+}: FilterSliderDropdownProps) => {
+  const { playClickSound } = sounds();
+  const [dropdownActive, setDropdownActive] = useState(false);
+  const [value, setValue] = useState<number | string | Array<number | string>>(
+    0
+  );
+
+  return (
+    <div className={styles.filter_area}>
+      <div
+        className={
+          dropdownActive
+            ? [styles.filter_row, styles.active].join(" ")
+            : styles.filter_row
+        }
+        onClick={() => {
+          setDropdownActive(!dropdownActive);
+          playClickSound();
+        }}
+      >
+        <p className={styles.filter_title}>{title}</p>
+        <div
+          className={
+            dropdownActive
+              ? [styles.filter_icon, styles.active].join(" ")
+              : styles.filter_icon
+          }
+        >
+          <DownChevronIcon />
+        </div>
+      </div>
+      <div
+        className={
+          dropdownActive
+            ? [styles.filter_content, styles.active].join(" ")
+            : styles.filter_content
+        }
+      >
+        <SliderInput
+          label={label}
+          maxValue={100}
+          value={value}
+          onChange={setValue}
+        />
+        <button className={styles.apply_button}>
+          <p>Apply</p>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+interface FilterTokenSliderDropdownProps {
+  title: string;
+  label: string;
+  tokenOptions: any[];
+  token: any;
+  setToken: (e: any) => void;
+}
+
+export const FilterTokenSliderDropdown = ({
+  title,
+  label,
+  tokenOptions,
+  token,
+  setToken,
+}: FilterTokenSliderDropdownProps) => {
+  const { playClickSound } = sounds();
+  const [dropdownActive, setDropdownActive] = useState(false);
+  const [value, setValue] = useState<number | string | Array<number | string>>(
+    0
+  );
+
+  return (
+    <div className={styles.filter_area}>
+      <div
+        className={
+          dropdownActive
+            ? [styles.filter_row, styles.active].join(" ")
+            : styles.filter_row
+        }
+        onClick={() => {
+          setDropdownActive(!dropdownActive);
+          playClickSound();
+        }}
+      >
+        <p className={styles.filter_title}>{title}</p>
+        <div
+          className={
+            dropdownActive
+              ? [styles.filter_icon, styles.active].join(" ")
+              : styles.filter_icon
+          }
+        >
+          <DownChevronIcon />
+        </div>
+      </div>
+      <div
+        className={
+          dropdownActive
+            ? [styles.filter_content, styles.active].join(" ")
+            : styles.filter_content
+        }
+      >
+        <TokenSliderInput
+          label={label}
+          maxValue={100}
+          value={value}
+          onChange={setValue}
+          tokenOptions={tokenOptions}
+          token={token}
+          setToken={setToken}
+        />
+        <button className={styles.apply_button}>
+          <p>Apply</p>
+        </button>
       </div>
     </div>
   );

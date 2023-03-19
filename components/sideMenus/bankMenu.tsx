@@ -1,8 +1,7 @@
 import left_styles from "../../styles/sidemenu/BankLeft.module.css";
 import right_styles from "../../styles/sidemenu/BankRight.module.css";
 import { useState } from "react";
-import { ShortTextInput, LongTextInput } from "../inputs";
-import { Select } from "../dropdowns";
+import { FilterSelectDropdown } from "../dropdowns";
 
 interface BankLeftMenuProps {
   tab: string;
@@ -36,19 +35,14 @@ export const BankLeftMenu = ({
     "Recently Added",
     "Most Used",
   ];
+
   return (
     <div className={left_styles.box}>
-      <div className={left_styles.header} />
       <div className={left_styles.content_container}>
         <div className={left_styles.content_title}>
           <p>Filters</p>
         </div>
         <div className={left_styles.filters_container}>
-          <Select
-            options={sortOptions}
-            value={sortValue}
-            setValue={setSortValue}
-          />
           <div className={left_styles.tabs}>
             <p
               className={
@@ -70,92 +64,42 @@ export const BankLeftMenu = ({
           <div className={left_styles.filters_list}>
             <div className={left_styles.filter_section}>
               <p className={left_styles.section_header}>Item</p>
-              <div className={left_styles.filter_box}>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Standard:</p>
-                  <div className={left_styles.attributes}>
-                    <div
-                      className={
-                        tokenStandardFilter == "ERC20"
-                          ? left_styles.attribute_selected
-                          : left_styles.attribute
-                      }
-                      onClick={() => setTokenStandardFilter("ERC20")}
-                    >
-                      <p>ERC20</p>
-                    </div>
-                    <div
-                      className={
-                        tokenStandardFilter == "ERC721"
-                          ? left_styles.attribute_selected
-                          : left_styles.attribute
-                      }
-                      onClick={() => setTokenStandardFilter("ERC721")}
-                    >
-                      <p>ERC721</p>
-                    </div>
-                    <div
-                      className={
-                        tokenStandardFilter == "ERC1155"
-                          ? left_styles.attribute_selected
-                          : left_styles.attribute
-                      }
-                      onClick={() => setTokenStandardFilter("ERC1155")}
-                    >
-                      <p>ERC1155</p>
-                    </div>
-                  </div>
-                </div>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Game:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={gameFilter}
-                    setContent={setGameFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Guild:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={gameFilter}
-                    setContent={setGameFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
+              <div className={left_styles.section_list}>
+                <FilterSelectDropdown
+                  title={"Standard"}
+                  options={["ERC20", "ERC721", "ERC1155"]}
+                  search={false}
+                />
+                <FilterSelectDropdown
+                  title={"Game"}
+                  options={["Eternum", "Influence", "Loot Survivor"]}
+                  search={true}
+                />
+                <FilterSelectDropdown
+                  title={"Name"}
+                  options={["Zhusa-Letepo", "Adalia Prime", "Long Sword"]}
+                  search={true}
+                />
               </div>
             </div>
             <div className={left_styles.filter_section}>
               <p className={left_styles.section_header}>Game</p>
-              <div className={left_styles.filter_box}>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Genre:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={genreFilter}
-                    setContent={setGenreFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className={left_styles.filter_section}>
-              <p className={left_styles.section_header}>Account</p>
-              <div className={left_styles.filter_box}>
-                <div className={left_styles.filter_row}>
-                  <p className={left_styles.filter_title}>Address:</p>
-                  <ShortTextInput
-                    className={left_styles.short_input}
-                    content={addressFilter}
-                    setContent={setAddressFilter}
-                    label=""
-                    icon={null}
-                  />
-                </div>
+              <div className={left_styles.section_list}>
+                <FilterSelectDropdown
+                  title={"Standard"}
+                  options={["ERC20", "ERC721", "ERC1155"]}
+                  search={false}
+                />
+                <FilterSelectDropdown
+                  title={"Game"}
+                  options={["Eternum", "Influence", "Loot Survivor"]}
+                  search={true}
+                />
+                <FilterSelectDropdown
+                  title={"Name"}
+                  options={["Zhusa-Letepo", "Adalia Prime", "Long Sword"]}
+                  search={true}
+                />
               </div>
             </div>
           </div>

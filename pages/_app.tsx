@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     new InjectedConnector({ options: { id: "argentX" } }),
     new InjectedConnector({ options: { id: "braavos" } }),
   ];
+
   return (
     <AnimatePresence mode="wait" initial={false}>
       <StarknetConfig connectors={connectors}>

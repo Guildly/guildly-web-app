@@ -51,6 +51,11 @@
   border       : 1px solid #DCCB8D;
   color        : #DCCB8D;
   cursor       : pointer;
+  transition   : .3s;
+}
+
+.button:hover {
+  background: #515453;
 }
 
 .button.highlighted {

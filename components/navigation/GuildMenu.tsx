@@ -5,6 +5,7 @@ import { useGuild } from "../../context/GuildContext";
 import { sounds } from "../../shared/sounds";
 import { Guild } from "../../context/GuildContext";
 import Link from "next/link";
+import { MasterIcon, CloseIcon, InfoIcon } from "../../shared/icons";
 
 interface GuildMenuProps {
   close: () => void;
@@ -48,14 +49,9 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
             playClickSound();
           }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 320 512"
-            fill="currentColor"
-            className={styles.icon}
-          >
-            <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
-          </svg>
+          <div className={styles.close_icon}>
+            <CloseIcon />
+          </div>
         </button>
       </div>
       <div className={styles.guild_elements}>
@@ -124,21 +120,26 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
                   </th>
                   <th>
                     <div className={styles.attribute_header}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 640 512"
-                        fill="currentColor"
-                        className={styles.icon}
-                      >
-                        <path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 248c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm-24 56c0 22.1-17.9 40-40 40s-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z" />
-                      </svg>
-                      <p>Games</p>
+                      <div className={styles.icon}>
+                        <InfoIcon />
+                      </div>
+                      <p>Info</p>
                     </div>
                   </th>
                 </tr>
                 <tr className={styles.attribute_stats}>
                   <td className={styles.attribute}>100</td>
-                  <td>20</td>
+                  <td>
+                    <div className={styles.members}>
+                      <div className={styles.master}>
+                        <div className={styles.master_icon}>
+                          <MasterIcon />
+                        </div>
+                        <p>bob.stark</p>
+                      </div>
+                      <p>20</p>
+                    </div>
+                  </td>
                   <td>
                     <div className={styles.games}>
                       <img
@@ -158,7 +159,12 @@ export const GuildMenu = ({ close }: GuildMenuProps) => {
                       />
                     </div>
                   </td>
-                  <td>40</td>
+                  <td>
+                    <div className={styles.member_time}>
+                      <p className={styles.time_header}>Member for</p>
+                      <p className={styles.time}>1w 2d 3h</p>
+                    </div>
+                  </td>
                 </tr>
               </table>
               {/* <div className={styles.guild_attributes}>
