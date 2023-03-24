@@ -186,3 +186,53 @@
   background-color: white;
   overflow        : hidden;
 }
+
+.hover_buttons {
+  visibility    : hidden;
+  position      : absolute;
+  display       : flex;
+  flex-direction: row;
+  gap           : 10px;
+  z-index       : 5;
+  top           : 40%;
+  left          : 27.5%;
+  color         : white;
+  opacity       : 0;
+  transition    : .2s;
+}
+
+.token_card:hover .hover_buttons {
+  visibility: visible;
+  opacity   : 1;
+}
+
+.select_button {
+  height       : 36px;
+  width        : 36px;
+  background   : rgba(107, 115, 113, 0.75);
+  border-radius: 5px;
+  padding      : 5px;
+  transition   : .2s;
+}
+
+.select_button.selected {
+  background: rgba(53, 151, 92, 0.75);
+}
+
+.select_button.selected:hover {
+  background: rgba(98, 197, 137, 0.75);
+}
+
+.select_button:hover,
+.expand_button:hover {
+  background: rgba(158, 166, 164, 0.75);
+}
+
+.expand_button {
+  height       : 36px;
+  width        : 36px;
+  background   : rgba(107, 115, 113, 0.75);
+  border-radius: 5px;
+  padding      : 5px;
+  transition   : .2s;
+}

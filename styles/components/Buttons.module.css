@@ -1,0 +1,16 @@
+.attribute {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    background     : #252B34;
+    border-radius  : 10px;
+    color          : #DCCB8D;
+    border         : solid 1px #D9D9D9;
+    height         : 30px;
+    cursor         : pointer;
+}
+
+.attribute.selected {
+    background: #DCCB8D;
+    color     : black;
+}

@@ -5,18 +5,29 @@ import {
   ControlledLongTextInput,
 } from "../../../inputs";
 import Image from "next/image";
+import { sounds } from "../../../../shared/sounds";
+import { AttributeButton } from "../../../buttons";
 
 export const GuildInfo = ({ ...props }: any) => {
-  const [guildName, setGuildName] = useState("");
   const [guildDescription, setGuildDescription] = useState("");
-
+  const { playClickSound } = sounds();
   const [isImageGenerated, setIsImageGenerated] = useState(false);
 
-  const [face, setFace] = useState("");
-  const [color, setColor] = useState("");
   const [shape, setShape] = useState("");
   const [style, setStyle] = useState("");
   const [finish, setFinish] = useState("");
+
+  const [promptDict, setPromptDict] = useState({});
+
+  const handleAdd = (key: string, value: string) => {
+    setPromptDict((promptDict) => ({
+      ...promptDict,
+      [key]: value,
+    }));
+  };
+
+  console.log(props.errors);
+
   return (
     <div className={styles.content}>
       <div className={styles.text_inputs}>
@@ -41,7 +52,7 @@ export const GuildInfo = ({ ...props }: any) => {
             defaultValue=""
             placeholder="Enter a short description"
             icon={null}
-            name={"emblem"}
+            name={"description"}
           />
         </div>
       </div>
@@ -60,7 +71,10 @@ export const GuildInfo = ({ ...props }: any) => {
               </div>
               <button
                 className={styles.regenerate_button}
-                onClick={() => setIsImageGenerated(false)}
+                onClick={() => {
+                  setIsImageGenerated(false);
+                  playClickSound();
+                }}
               >
                 <p>Regenerate</p>
               </button>
@@ -71,242 +85,162 @@ export const GuildInfo = ({ ...props }: any) => {
                 <div className={styles.attribute_container}>
                   <p className={styles.attribute_title}>Face</p>
                   <div className={styles.attributes}>
-                    <button
-                      className={
-                        face == "Human"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFace("Human")}
-                    >
-                      <p>Human</p>
-                    </button>
-                    <button
-                      className={
-                        face == "Ork"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFace("Ork")}
-                    >
-                      <p>Ork</p>
-                    </button>
-                    <button
-                      className={
-                        face == "Elf"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFace("Elf")}
-                    >
-                      <p>Elf</p>
-                    </button>
+                    <AttributeButton
+                      type="face"
+                      value="Human"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="face"
+                      value="Ork"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="face"
+                      value="Elf"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
                   </div>
                 </div>
                 <div className={styles.attribute_container}>
                   <p className={styles.attribute_title}>Color</p>
                   <div className={styles.attributes}>
-                    <button
-                      className={
-                        color == "Red"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Red")}
-                    >
-                      <p>Red</p>
-                    </button>
-                    <button
-                      className={
-                        color == "Green"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Green")}
-                    >
-                      <p>Green</p>
-                    </button>
-                    <button
-                      className={
-                        color == "Yellow"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Yellow")}
-                    >
-                      <p>Yellow</p>
-                    </button>
-                    <button
-                      className={
-                        color == "Blue"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Blue")}
-                    >
-                      <p>Blue</p>
-                    </button>
-                    <button
-                      className={
-                        color == "Gold"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Gold")}
-                    >
-                      <p>Gold</p>
-                    </button>
-                    <button
-                      className={
-                        color == "Silver"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Silver")}
-                    >
-                      <p>Silver</p>
-                    </button>
-                    <button
-                      className={
-                        color == "Bronze"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setColor("Bronze")}
-                    >
-                      <p>Bronze</p>
-                    </button>
+                    <AttributeButton
+                      type="color"
+                      value="Red"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="color"
+                      value="Green"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="color"
+                      value="Yellow"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="color"
+                      value="Blue"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="color"
+                      value="Gold"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="color"
+                      value="Silver"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="color"
+                      value="Bronze"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
                   </div>
                 </div>
                 <div className={styles.attribute_container}>
                   <p className={styles.attribute_title}>Shape</p>
                   <div className={styles.attributes}>
-                    <button
-                      className={
-                        shape == "Circle"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setShape("Circle")}
-                    >
-                      <p>Circle</p>
-                    </button>
-                    <button
-                      className={
-                        shape == "Rectangle"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setShape("Rectangle")}
-                    >
-                      <p>Rectangle</p>
-                    </button>
-                    <button
-                      className={
-                        shape == "Triangle"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setShape("Triangle")}
-                    >
-                      <p>Triangle</p>
-                    </button>
+                    <AttributeButton
+                      type="shape"
+                      value="Circle"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="shape"
+                      value="Reactangle"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="shape"
+                      value="Triangle"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
                   </div>
                 </div>
                 <div className={styles.attribute_container}>
                   <p className={styles.attribute_title}>Style</p>
                   <div className={styles.attributes}>
-                    <button
-                      className={
-                        style == "Saxon"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setStyle("Saxon")}
-                    >
-                      <p>Saxon</p>
-                    </button>
-                    <button
-                      className={
-                        style == "Mystical"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setStyle("Mystical")}
-                    >
-                      <p>Mystical</p>
-                    </button>
-                    <button
-                      className={
-                        style == "Futuristic"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setStyle("Futuristic")}
-                    >
-                      <p>Futuristic</p>
-                    </button>
-                    <button
-                      className={
-                        style == "Old"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setStyle("Old")}
-                    >
-                      <p>Old</p>
-                    </button>
+                    <AttributeButton
+                      type="style"
+                      value="Saxon"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="style"
+                      value="Mystical"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="style"
+                      value="Futuristic"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="style"
+                      value="Old"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
                   </div>
                 </div>
                 <div className={styles.attribute_container}>
                   <p className={styles.attribute_title}>Finish</p>
                   <div className={styles.attributes}>
-                    <button
-                      className={
-                        finish == "Polished"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFinish("Polished")}
-                    >
-                      <p>Polished</p>
-                    </button>
-                    <button
-                      className={
-                        finish == "Rustic"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFinish("Rustic")}
-                    >
-                      <p>Rustic</p>
-                    </button>
-                    <button
-                      className={
-                        finish == "Bold"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFinish("Bold")}
-                    >
-                      <p>Bold</p>
-                    </button>
-                    <button
-                      className={
-                        finish == "Bright"
-                          ? styles.attribute_selected
-                          : styles.attribute
-                      }
-                      onClick={() => setFinish("Bright")}
-                    >
-                      <p>Bright</p>
-                    </button>
+                    <AttributeButton
+                      type="finish"
+                      value="Polished"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="finish"
+                      value="Rustic"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="finish"
+                      value="Bold"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
+                    <AttributeButton
+                      type="finish"
+                      value="Bright"
+                      dict={promptDict}
+                      add={handleAdd}
+                    />
                   </div>
                 </div>
               </div>
               <button
                 className={styles.generate_button}
-                onClick={() => setIsImageGenerated(true)}
+                onClick={() => {
+                  props.setFormValue("emblem", "emblem_1");
+                  setIsImageGenerated(true);
+                  playClickSound();
+                }}
               >
                 <p>Generate</p>
               </button>

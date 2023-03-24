@@ -16,26 +16,7 @@ interface BankLeftMenuProps {
   setAddressFilter: (address: string) => void;
 }
 
-export const BankLeftMenu = ({
-  tab,
-  setTab,
-  tokenStandardFilter,
-  setTokenStandardFilter,
-  gameFilter,
-  setGameFilter,
-  genreFilter,
-  setGenreFilter,
-  addressFilter,
-  setAddressFilter,
-}: BankLeftMenuProps) => {
-  const [sortValue, setSortValue] = useState("Value Low to High");
-  const sortOptions = [
-    "Value Low to High",
-    "Value High to Low",
-    "Recently Added",
-    "Most Used",
-  ];
-
+export const BankLeftMenu = ({ tab, setTab }: BankLeftMenuProps) => {
   return (
     <div className={left_styles.box}>
       <div className={left_styles.content_container}>

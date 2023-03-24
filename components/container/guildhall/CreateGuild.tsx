@@ -4,8 +4,10 @@ import { GuildInfo } from "./createAGuild/GuildInfo";
 import { Permissions } from "./createAGuild/Permissions";
 import { WhitelistMembers } from "./createAGuild/WhitelistMembers";
 import { sounds } from "../../../shared/sounds";
+import { useUI } from "../../../context/UIContext";
 
 export const CreateGuild = ({ ...props }: any) => {
+  const { toggleTransactionCart } = useUI();
   const { playClickSound } = sounds();
   const submitTransactions = () => {
     playClickSound();
@@ -37,7 +39,10 @@ export const CreateGuild = ({ ...props }: any) => {
         {props.chainPage == 3 ? (
           <button
             className={styles.submit_button}
-            onClick={() => submitTransactions()}
+            onClick={() => {
+              submitTransactions();
+              toggleTransactionCart();
+            }}
           >
             <p>Submit</p>
           </button>

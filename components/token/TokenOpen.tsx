@@ -6,6 +6,7 @@ import { getNftPicture } from "../../features/accountNfts/aspect.service";
 import { displayAddress } from "../../utils/address";
 import { useRef, useEffect } from "react";
 import { sounds } from "../../shared/sounds";
+import { useUI } from "../../context/UIContext";
 
 interface TokenOpenProps {
   isSelected: any;
@@ -17,8 +18,8 @@ interface TokenOpenProps {
 
 const tokenSpring = {
   type: "spring",
-  damping: 10,
-  stiffness: 120,
+  damping: 25,
+  stiffness: 150,
 };
 
 const closeSpring = {
@@ -37,6 +38,7 @@ export const TokenOpen = ({
   const nftPicture = getNftPicture(token);
   const tokenRef = useRef<HTMLDivElement>(null);
   const { playClickSound } = sounds();
+  const { toggleDepositDialog } = useUI();
 
   const checkIfTokenClickedOutside = (event: any) => {
     if (tokenRef.current && !tokenRef.current.contains(event.target)) {
@@ -179,7 +181,13 @@ export const TokenOpen = ({
               </div>
               <div className={styles.token_buttons}>
                 <div className={styles.action_buttons}>
-                  <button className={styles.deposit_button}>
+                  <button
+                    className={styles.deposit_button}
+                    onClick={() => {
+                      playClickSound();
+                      toggleDepositDialog();
+                    }}
+                  >
                     <p>Deposit</p>
                   </button>
                   <Link href="/bank/item/0x0" passHref>

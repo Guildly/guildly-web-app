@@ -12,6 +12,8 @@ import { displayAddress } from "../../utils/address";
 import { sounds } from "../../shared/sounds";
 import { useStarkNetId } from "../../hooks/useStarknetId";
 import { useSound } from "../../context/SoundContext";
+import { PowerIcon, ShieldIcon } from "../../shared/icons";
+import { useUI } from "../../context/UIContext";
 
 export const Header = () => {
   const { address } = useAccount();
@@ -19,6 +21,14 @@ export const Header = () => {
   const [copiedAddress, setCopiedAddress] = useState(false);
   const { starknetId } = useStarkNetId(address ? address : "0x0");
   const { musicPlaying, toggleSound } = useSound();
+  const {
+    isGuildDialogOpen,
+    toggleGuildDialog,
+    isConnectMenuOpen,
+    toggleConnectMenu,
+    isTransactionCartOpen,
+    toggleTransactionCart,
+  } = useUI();
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,9 +55,6 @@ export const Header = () => {
       ? styles.link_container_highlighted
       : styles.link_container;
   };
-  const [isGuildDialogSelected, setIsGuildDialogSelected] = useState(false);
-  const [isConnectMenuSelected, setIsConnectMenuSelected] = useState(false);
-  const [isTransactionsSelected, setIsTransactionsSelected] = useState(false);
 
   const guildDialogRef = useRef<HTMLDivElement>(null);
   const connectMenuRef = useRef<HTMLDivElement>(null);
@@ -55,31 +62,31 @@ export const Header = () => {
 
   const checkIfGuildDialogClickedOutside = (event: any) => {
     if (
-      isGuildDialogSelected &&
+      isGuildDialogOpen &&
       guildDialogRef.current &&
       !guildDialogRef.current.contains(event.target)
     ) {
-      setIsGuildDialogSelected(false);
+      toggleGuildDialog();
     }
   };
 
   const checkIfConnectMenuClickedOutside = (event: any) => {
     if (
-      isConnectMenuSelected &&
+      isConnectMenuOpen &&
       connectMenuRef.current &&
       !connectMenuRef.current.contains(event.target)
     ) {
-      setIsConnectMenuSelected(false);
+      toggleConnectMenu();
     }
   };
 
   const checkIfTransactionsClickedOutside = (event: any) => {
     if (
-      isTransactionsSelected &&
+      isTransactionCartOpen &&
       transactionsRef.current &&
       !transactionsRef.current.contains(event.target)
     ) {
-      setIsTransactionsSelected(false);
+      toggleTransactionCart();
     }
   };
 
@@ -104,7 +111,7 @@ export const Header = () => {
         true
       );
     };
-  }, [isGuildDialogSelected, isConnectMenuSelected, isTransactionsSelected]);
+  }, [isGuildDialogOpen, isConnectMenuOpen, isTransactionCartOpen]);
 
   const {
     playDoorSound,
@@ -119,9 +126,7 @@ export const Header = () => {
       <div className={styles.header}>
         <div
           className={
-            isGuildDialogSelected ||
-            isConnectMenuSelected ||
-            isTransactionsSelected
+            isGuildDialogOpen || isConnectMenuOpen || isTransactionCartOpen
               ? [styles.screen_blur, styles.active].join(" ")
               : styles.screen_blur
           }
@@ -211,7 +216,7 @@ export const Header = () => {
                 <button
                   className={styles.guild_button}
                   onClick={() => {
-                    setIsGuildDialogSelected(!isGuildDialogSelected);
+                    toggleGuildDialog();
                     playClickSound();
                   }}
                 >
@@ -228,21 +233,24 @@ export const Header = () => {
                 <button
                   className={styles.guild_button}
                   onClick={() => {
-                    setIsGuildDialogSelected(!isGuildDialogSelected);
+                    toggleGuildDialog();
                     playClickSound();
                   }}
                 >
                   <p>Select Guild</p>
+                  <div className={styles.button_icon}>
+                    <ShieldIcon />
+                  </div>
                 </button>
               )}
               <div
                 className={
-                  isGuildDialogSelected
+                  isGuildDialogOpen
                     ? [styles.guild_container, styles.open].join(" ")
                     : styles.guild_container
                 }
               >
-                <GuildMenu close={() => setIsGuildDialogSelected(false)} />
+                <GuildMenu close={() => toggleGuildDialog()} />
               </div>
             </div>
             {/* <button className={styles.gld_button}>
@@ -264,7 +272,7 @@ export const Header = () => {
                   <div
                     className={styles.connect_button}
                     onClick={() => {
-                      setIsConnectMenuSelected(!isConnectMenuSelected);
+                      toggleConnectMenu();
                       playClickSound();
                     }}
                   >
@@ -317,22 +325,25 @@ export const Header = () => {
                 <button
                   className={styles.connect_button}
                   onClick={() => {
-                    setIsConnectMenuSelected(!isConnectMenuSelected);
+                    toggleConnectMenu();
                     playClickSound();
                   }}
                 >
                   <p>Connect</p>
+                  <div className={styles.button_icon}>
+                    <PowerIcon />
+                  </div>
                 </button>
               )}
 
               <div
                 className={
-                  isConnectMenuSelected
+                  isConnectMenuOpen
                     ? [styles.connect_container, styles.open].join(" ")
                     : styles.connect_container
                 }
               >
-                <ConnectMenu close={() => setIsConnectMenuSelected(false)} />
+                <ConnectMenu close={() => toggleConnectMenu()} />
               </div>
             </div>
 
@@ -340,7 +351,7 @@ export const Header = () => {
               <button
                 className={styles.transactions_button}
                 onClick={() => {
-                  setIsTransactionsSelected(!isTransactionsSelected);
+                  toggleTransactionCart();
                   playClickSound();
                 }}
               >
@@ -354,7 +365,7 @@ export const Header = () => {
               </button>
               <div
                 className={
-                  isTransactionsSelected
+                  isTransactionCartOpen
                     ? [styles.transactions_container, styles.open].join(" ")
                     : styles.transactions_container
                 }

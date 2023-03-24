@@ -13,13 +13,14 @@ import { addressSchema } from "../../features/schemas/addresses";
 
 export default function CreateAGuildPage() {
   const [permissionIndex, setPermissionIndex] = useState(0);
+  const [selectorIndex, setSelectorIndex] = useState(0);
 
   const [chainPage, setChainPage] = useState(1);
 
   const createSchema: any = yup.object().shape({
-    name: yup.string().required(),
+    name: yup.string().max(31).required(),
+    description: yup.string().required(),
     emblem: yup.string().optional(),
-    anthem: yup.string().optional(),
     permissions: yup.array().of(
       yup.object().shape({
         contractAddress: addressSchema,
@@ -28,20 +29,20 @@ export default function CreateAGuildPage() {
             selector: yup.string().required(),
             distributions: yup.array().of(
               yup.object().shape({
-                token: yup.string().optional(),
-                owner_percent: yup.string().optional(),
-                user_percent: yup.string().optional(),
-                admin_percent: yup.string().optional(),
-                guild_percent: yup.string().optional(),
+                token: yup.string().required(),
+                merchant: yup.number().required().min(0).max(100),
+                journeyman: yup.number().required().min(0).max(100),
+                master: yup.number().required().min(0).max(100),
+                guild: yup.number().required().min(0).max(100),
               })
             ),
             payments: yup.array().of(
               yup.object().shape({
-                token: yup.string().optional(),
-                owner_amount: yup.string().optional(),
-                user_amount: yup.string().optional(),
-                admin_amount: yup.string().optional(),
-                guild_amount: yup.string().optional(),
+                token: yup.string().required(),
+                merchant: yup.number().required().min(0),
+                journeyman: yup.number().required().min(0),
+                master: yup.number().required().min(0),
+                guild: yup.number().required().min(0),
               })
             ),
           })
@@ -51,7 +52,11 @@ export default function CreateAGuildPage() {
     whitelisted: yup.array().of(
       yup.object().shape({
         address: yup.string().required(),
-        role: yup.string().required(),
+        roles: yup.array().of(
+          yup.object().shape({
+            role: yup.string().required(),
+          })
+        ),
       })
     ),
   });
@@ -61,22 +66,48 @@ export default function CreateAGuildPage() {
     formState: { errors, isDirty, isSubmitting, submitCount },
     control,
     reset,
+    getValues,
+    setValue: setFormValue,
+    watch,
   } = useForm<any>({
+    mode: "onChange",
     resolver: yupResolver(createSchema),
     defaultValues: {
       name: "",
+      description: "",
       emblem: "",
-      anthem: "",
       permissions: [
         {
           contractAddress: "",
-          selectors: [{ selector: "" }],
+          selectors: [
+            {
+              selector: "",
+              distributions: [
+                {
+                  token: "",
+                  merchant: 0,
+                  journeyman: 0,
+                  master: 0,
+                  guild: 0,
+                },
+              ],
+              payments: [
+                {
+                  token: "",
+                  merchant: 0,
+                  journeyman: 0,
+                  master: 0,
+                  guild: 0,
+                },
+              ],
+            },
+          ],
         },
       ],
       whitelisted: [
         {
           address: "",
-          role: "",
+          roles: [{ role: "" }],
         },
       ],
     },
@@ -105,24 +136,30 @@ export default function CreateAGuildPage() {
     setChainPage,
     control,
     handleSubmit,
+    setFormValue,
+    watch,
+    getValues,
+    errors,
     permissionIndex,
     setPermissionIndex,
     permissionFields,
     permissionsAppend,
     permissionsRemove,
+    selectorIndex,
+    setSelectorIndex,
     whitelistedFields,
     whitelistedAppend,
     whitelistedRemove,
   };
+
+  console.log(getValues());
   return (
-    <div>
-      <Layout
-        leftSideMenu={<CreateGuildLeftMenu chainPage={chainPage} />}
-        leftSideMenuTitle="Guide"
-        rightSideMenu={<CreateGuildRightMenu />}
-        rightSideMenuTitle="Progress"
-        main={<CreateGuild {...props} />}
-      />
-    </div>
+    <Layout
+      leftSideMenu={<CreateGuildLeftMenu chainPage={chainPage} />}
+      leftSideMenuTitle="Guide"
+      rightSideMenu={<CreateGuildRightMenu {...props} />}
+      rightSideMenuTitle="Progress"
+      main={<CreateGuild {...props} />}
+    />
   );
 }

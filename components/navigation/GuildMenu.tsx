@@ -12,30 +12,8 @@ interface GuildMenuProps {
 }
 
 export const GuildMenu = ({ close }: GuildMenuProps) => {
-  const { setGuild } = useGuild();
+  const { setGuild, guilds } = useGuild();
   const { playClickSound } = sounds();
-  const guilds: Guild[] = [
-    {
-      name: "Core Lords",
-      address: "0x0",
-      emblem: "/emblem-example.png",
-    },
-    {
-      name: "Test Warriors",
-      address: "0x0",
-      emblem: "/emblem-example.png",
-    },
-    {
-      name: "Core Lords",
-      address: "0x0",
-      emblem: "/emblem-example.png",
-    },
-    {
-      name: "Test Warriors",
-      address: "0x0",
-      emblem: "/emblem-example.png",
-    },
-  ];
   return (
     <>
       <div className={styles.header}>

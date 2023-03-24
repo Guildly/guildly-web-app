@@ -8,14 +8,25 @@ import Link from "next/link";
 import { SelectOption } from "../types";
 import { DownChevronIcon, SearchIcon } from "../shared/icons";
 import { SliderInput, TokenSliderInput } from "./inputs";
+import { AlertIcon } from "../shared/icons";
+import { keyValueExists } from "../utils/format";
+import { FilterOption } from "./dropdowns/FilterOption";
 
 interface SelectProps {
   options: string[];
   value: string;
   setValue: (e: any) => void;
+  index?: number;
+  setIndex?: (e: number) => void;
 }
 
-export function Select({ options, value, setValue }: SelectProps) {
+export function Select({
+  options,
+  value,
+  setValue,
+  index,
+  setIndex,
+}: SelectProps) {
   const [isSelected, setIsSelected] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
@@ -62,6 +73,7 @@ export function Select({ options, value, setValue }: SelectProps) {
               onClick={() => {
                 setValue(option);
                 setIsSelected(!isSelected);
+                setIndex ? setIndex(index) : null;
               }}
             >
               <p>{option}</p>
@@ -298,7 +310,10 @@ export function TokenSelect({ options, value, setValue }: TokenSelectProps) {
         }}
       >
         {value ? (
-          <img src={value?.image} className={styles.token_image} />
+          <>
+            <img src={value?.image} className={styles.token_image} />
+            <p className={styles.token_content}>{value?.symbol}</p>
+          </>
         ) : null}
         <div className={styles.select_icon}>
           <DownChevronIcon />
@@ -399,6 +414,59 @@ export function TokenSelect({ options, value, setValue }: TokenSelectProps) {
         </div>
       </div>
     </div>
+  );
+}
+
+interface ControlledTokenSelectProps {
+  name: string;
+  control: any;
+  defaultValue: any;
+  options: Token[];
+  selectedTokens: any[];
+}
+
+export function ControlledTokenSelect({
+  name,
+  control,
+  defaultValue,
+  options,
+  selectedTokens,
+}: ControlledTokenSelectProps) {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      defaultValue={defaultValue}
+      render={({ field: { ref, value, onChange } }) => {
+        const alreadySelected =
+          value != "" ? keyValueExists(selectedTokens, "token", value) : false;
+        return (
+          <>
+            <TokenSelect options={options} value={value} setValue={onChange} />
+            <div
+              className={
+                alreadySelected
+                  ? [styles.error_box, styles.active].join(" ")
+                  : styles.error_box
+              }
+            >
+              <div className={styles.error_icon}>
+                <AlertIcon />
+              </div>
+              <p
+                className={
+                  alreadySelected
+                    ? [styles.info_text, styles.active].join(" ")
+                    : styles.info_text
+                }
+              >
+                Token has already been selected.
+              </p>
+            </div>
+          </>
+        );
+      }}
+    />
   );
 }
 
@@ -598,10 +666,7 @@ export const FilterSelectDropdown = ({
           </div>
         ) : null}
         {searchedOptions.map((option, index) => (
-          <div className={styles.option_row} key={index}>
-            <div className={styles.option_select_box} />
-            <p className={styles.option_text}>{option}</p>
-          </div>
+          <FilterOption option={option} index={index} key={index} />
         ))}
       </div>
     </div>

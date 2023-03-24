@@ -13,6 +13,7 @@
 .row {
   display        : flex;
   flex-direction : row;
+  align-items    : center;
   width          : 95%;
   height         : 20%;
   border         : 1px solid #DCCB8D;
@@ -34,7 +35,7 @@
 }
 
 .guild_stats {
-  background    : #3E3737;
+  background    : #2F3A45;
   border-radius : 10px;
   display       : flex;
   flex-direction: row;
@@ -44,4 +45,46 @@
 .stat_icon {
   width : 12px;
   height: 12px;
+}
+
+.main_stat {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items    : center;
+}
+
+.main_stat_title {
+  font-size  : 16px;
+  font-weight: bold;
+  color      : white;
+}
+
+.main_stat_content {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  background     : #2F3A45;
+  color          : white;
+  height         : 40px;
+  width          : 40px;
+  box-shadow     : 0px 4px 4px #000000;
+  border-radius  : 5px;
+}
+
+.achievements {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items    : center;
+}
+
+.logo {
+  display        : flex;
+  justify-content: center;
+  position       : relative;
+  height         : 40px;
+  width          : 40px;
+  border-radius  : 5px;
+  border         : 1px solid #DCCB8D;
 }

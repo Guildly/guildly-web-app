@@ -3,6 +3,51 @@
     margin: 5% 10%;
 }
 
+.selected_deposit {
+    visibility     : hidden;
+    position       : absolute;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    flex-direction : row;
+    top            : -50px;
+    right          : 80px;
+    background     : #212326;
+    border         : 1px solid #D9D9D9;
+    border-radius  : 10px;
+    color          : white;
+    height         : 40px;
+    overflow       : hidden;
+    opacity        : 0;
+    transition     : .5s;
+}
+
+.selected_deposit.active {
+    visibility: visible;
+    opacity   : 1;
+}
+
+.selected_count {
+    display     : flex;
+    align-items : center;
+    border-right: 1px solid #D9D9D9;
+    padding     : 0 10px;
+    height      : 100%;
+}
+
+.deposit {
+    display    : flex;
+    align-items: center;
+    padding    : 0 10px;
+    cursor     : pointer;
+    height     : 100%;
+    transition : .2s;
+}
+
+.deposit:hover {
+    background: #6B7371;
+}
+
 .tokens_box {
     height       : 100%;
     background   : #212326;
@@ -54,7 +99,7 @@
 }
 
 .token_sort {
-    z-index: 20;
+    z-index: 5;
 }
 
 .tokens_area {
@@ -90,16 +135,46 @@
     background: #DCCB8D;
 }
 
+.hover_buttons {
+    position      : absolute;
+    display       : flex;
+    flex-direction: row;
+    gap           : 10px;
+    z-index       : 5;
+    top           : 20%;
+}
+
+.select_button {
+    height       : 30px;
+    width        : 30px;
+    background   : rgba(107, 115, 113, 0.75);
+    border-radius: 5px;
+}
+
 .connect_area {
     display        : flex;
     flex-direction : column;
     align-items    : center;
     justify-content: center;
+    gap            : 20px;
+}
+
+.wallet_box {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 200px;
+    height         : 50px;
+    border         : 2px solid #DCCB8D;
+    border-radius  : 10px;
+    background     : #162334;
+    color          : #DCCB8D;
+    cursor         : pointer;
 }
 
 .connect_message {
-    font-size: 16px;
-    color    : white;
+    font-size: 24px;
+    color    : #6B7371;
 }
 
 .button_area {

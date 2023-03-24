@@ -12,8 +12,15 @@ import {
 } from "../../features/accountNfts/aspect.model";
 import { TokenOpen } from "../token/TokenOpen";
 import { useUI } from "../../context/UIContext";
-import { DownChevronIcon, SearchIcon } from "../../shared/icons";
+import {
+  DownChevronIcon,
+  SearchIcon,
+  TickIcon,
+  ExpandIcon,
+} from "../../shared/icons";
 import { Select } from "../dropdowns";
+import { sounds } from "../../shared/sounds";
+import { DepositDialog } from "../panels/DepositDialog";
 
 interface BankProps {
   tab: string;
@@ -23,7 +30,14 @@ interface BankProps {
 export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
   const { address: accountAddress } = useAccount();
   const { guild } = useGuild();
-  const { isLeftMenuOpen, isRightMenuOpen } = useUI();
+  const {
+    isLeftMenuOpen,
+    isRightMenuOpen,
+    toggleConnectMenu,
+    isDepositDialogOpen,
+    toggleDepositDialog,
+  } = useUI();
+  const { playClickSound } = sounds();
 
   const [selectedToken, setSelectedToken] = useState(-1);
   const [accountTokens, setAccountTokens] = useState<AspectNftAsset[] | null>(
@@ -33,6 +47,10 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
   const [searchValue, setSearchValue] = useState("");
   const [guildTokens, setGuildTokens] = useState<AspectNftAsset[] | null>(null);
   const [fetchNftsError, setFetchNftsError] = useState(false);
+
+  const [depositList, setDepositList] = useState<any[]>([]);
+
+  console.log(depositList);
 
   useEffect(() => {
     fetchAspectNfts(accountAddress ? padAddress(accountAddress) : "0x0").then(
@@ -55,6 +73,20 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
 
   return (
     <div className={styles.container}>
+      <div
+        className={
+          depositList.length > 0
+            ? [styles.selected_deposit, styles.active].join(" ")
+            : styles.selected_deposit
+        }
+      >
+        <div className={styles.selected_count}>
+          <p>{depositList.length}</p>
+        </div>
+        <div className={styles.deposit} onClick={() => toggleDepositDialog()}>
+          <p>Deposit</p>
+        </div>
+      </div>
       <div className={styles.tokens_box}>
         <div className={styles.tokens_header}>
           <p className={styles.results}>19,461 results</p>
@@ -102,21 +134,31 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
                     />
                   </div>
                 ) : (
-                  <TokenCard
-                    key={index}
-                    isSelected={selectedToken === index}
-                    setSelectedToken={setSelectedToken}
-                    index={index}
-                    token={token}
-                  />
+                  <>
+                    <TokenCard
+                      key={index}
+                      isSelected={selectedToken === index}
+                      setSelectedToken={setSelectedToken}
+                      index={index}
+                      token={token}
+                      depositList={depositList}
+                      setDepositList={setDepositList}
+                    />
+                  </>
                 )
               )
             ) : (
               <div className={styles.connect_area}>
                 <p className={styles.connect_message}>Connect to an Account</p>
                 <div className={styles.connect_wallets}>
-                  <button className={styles.connect_button}>
-                    <p>Connect</p>
+                  <button
+                    className={styles.wallet_box}
+                    onClick={() => {
+                      playClickSound();
+                      toggleConnectMenu();
+                    }}
+                  >
+                    Connect
                   </button>
                 </div>
               </div>
@@ -140,6 +182,10 @@ export const Bank = ({ tab, tokenStandardFilter }: BankProps) => {
           </button>
         </div> */}
       </div>
+      <DepositDialog
+        close={() => toggleDepositDialog()}
+        isOpen={isDepositDialogOpen}
+      />
     </div>
   );
 };

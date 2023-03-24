@@ -1,6 +1,14 @@
 import left_styles from "../../../styles/sidemenu/guildhall/CreateGuildLeft.module.css";
 import right_styles from "../../../styles/sidemenu/guildhall/CreateGuildRight.module.css";
 import Image from "next/image";
+import {
+  UserIcon,
+  MerchantIcon,
+  MasterIcon,
+  ShieldIcon,
+  PlusIcon,
+  InfoIcon,
+} from "../../../shared/icons";
 
 export const CreateGuildLeftMenu = ({ chainPage }: any) => {
   return (
@@ -25,23 +33,306 @@ export const CreateGuildRightMenu = ({ ...props }: any) => {
       <div className={right_styles.content_container}>
         <div className={right_styles.content_row}>
           <p className={right_styles.content_row_title}>Name:</p>
-          <p className={right_styles.content_row_input}>Core Lords</p>
+          <p className={right_styles.content_row_input}>
+            {props.getValues("name")}
+          </p>
         </div>
         <div className={right_styles.content_row}>
-          <p className={right_styles.content_row_title}>Guild Anthem:</p>
-          <p className={right_styles.content_row_input}>Core Lords</p>
+          <p className={right_styles.content_row_title}>Description</p>
+          <p className={right_styles.content_row_input}>
+            {props.getValues("description")}
+          </p>
         </div>
         <div className={right_styles.content_row}>
           <p className={right_styles.content_row_title}>Emblem:</p>
-          <Image
-            height={100}
-            width={100}
-            alt="emblem"
-            src={"/emblem-example.png"}
-          />
+          {props.getValues("emblem") != "" ? (
+            <Image
+              height={100}
+              width={100}
+              alt="emblem"
+              src={"/emblem-example.png"}
+            />
+          ) : null}
         </div>
         <div className={right_styles.content_row}>
           <p className={right_styles.content_row_title}>Permissions:</p>
+          {/* <p className={right_styles.content_row_input}>
+            {props.getValues("permissions")[0].contractAddress}
+          </p>
+          <p className={right_styles.content_row_input}>
+            {props.getValues("permissions")[0].selectors[0].selector}
+          </p> */}
+          {props
+            .getValues("permissions")
+            .map((permission: any, permissionIndex: number) => (
+              <div className={right_styles.game_box} key={permissionIndex}>
+                <p className={right_styles.game_title}>
+                  {permission.contractAddress}
+                </p>
+                <div className={right_styles.tasks}>
+                  {props
+                    .getValues(`permissions.${permissionIndex}.selectors`)
+                    .map((selector: any, selectorIndex: number) => (
+                      <div
+                        className={right_styles.task_box}
+                        key={selectorIndex}
+                      >
+                        <p className={right_styles.task_title}>
+                          {selector.selector}
+                        </p>
+                        <p className={right_styles.task_subtitle}>
+                          Distributions
+                        </p>
+                        <div className={right_styles.roles}>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <MerchantIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.distributions.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.merchant}%</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <UserIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.distributions.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.journeyman}%</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <MasterIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.distributions.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.master}%</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <ShieldIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.distributions.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.guild}%</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                        <p className={right_styles.task_subtitle}>Payments</p>
+                        <div className={right_styles.roles}>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <MerchantIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.payments.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.merchant}</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <UserIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.payments.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.journeyman}</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <MasterIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.payments.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.master}</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className={right_styles.distribution_row}>
+                            <div className={right_styles.role_shape}>
+                              <div className={right_styles.role_icon}>
+                                <ShieldIcon />
+                              </div>
+                            </div>
+                            <div className={right_styles.distributions}>
+                              {selector.payments.map(
+                                (
+                                  distribution: any,
+                                  distributionIndex: number
+                                ) => (
+                                  <div
+                                    className={right_styles.distribution}
+                                    key={distributionIndex}
+                                  >
+                                    <p>{distribution.guild}</p>
+                                    <div>
+                                      <Image
+                                        alt="token_image"
+                                        src={distribution.token.image}
+                                        width={10}
+                                        height={10}
+                                      />
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            ))}
         </div>
         <div className={right_styles.content_row}>
           <p className={right_styles.content_row_title}>Whitelisted Members:</p>

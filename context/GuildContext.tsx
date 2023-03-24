@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { useSound } from "use-sound";
 
 export interface Guild {
   name: string | undefined;
@@ -12,11 +11,13 @@ export interface GuildState {
   guild?: Guild;
   /** The emblem image string. */
   setGuild: (guild: Guild) => void;
+  guilds: Guild[];
 }
 
 const GUILD_INITIAL_STATE: GuildState = {
   guild: undefined,
   setGuild: () => undefined,
+  guilds: [],
 };
 
 const GuildContext = createContext<GuildState>(GUILD_INITIAL_STATE);
@@ -32,9 +33,33 @@ export const useGuildContext = () => {
     emblem: undefined,
   });
 
+  const guilds: Guild[] = [
+    {
+      name: "Core Lords",
+      address: "0x0",
+      emblem: "/emblem-example.png",
+    },
+    {
+      name: "Test Warriors",
+      address: "0x0",
+      emblem: "/emblem-example.png",
+    },
+    {
+      name: "Core Lords",
+      address: "0x0",
+      emblem: "/emblem-example.png",
+    },
+    {
+      name: "Test Warriors",
+      address: "0x0",
+      emblem: "/emblem-example.png",
+    },
+  ];
+
   return {
     guild,
     setGuild,
+    guilds,
   };
 };
 

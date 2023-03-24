@@ -1,0 +1,218 @@
+.selected_background {
+    visibility      : hidden;
+    position        : fixed;
+    height          : 100%;
+    width           : 100%;
+    z-index         : 5;
+    top             : 0;
+    left            : 0;
+    right           : 0;
+    bottom          : 0;
+    border-radius   : 0;
+    background-color: rgba(13, 17, 28, 0.6);
+    opacity         : 0;
+    transition      : .5s;
+}
+
+.selected_background.active {
+    visibility: visible;
+    opacity   : 1;
+}
+
+.deposit_container {
+    position      : fixed;
+    display       : flex;
+    flex-direction: column;
+    padding       : 0px 20px;
+    height        : 60%;
+    width         : 40%;
+    border-radius : 10px;
+    background    : #2F3A45;
+    top           : 200px;
+    right         : 30%;
+    border        : 2px solid #DCCB8D;
+    z-index       : 20;
+    visibility    : hidden;
+    transition    : all 0.5s;
+    opacity       : 0;
+}
+
+.deposit_container.open {
+    visibility: visible;
+    opacity   : 1;
+}
+
+.blur_area {
+    position       : fixed;
+    width          : 5000px;
+    height         : 5000px;
+    backdrop-filter: blur(10px);
+    left           : 0px;
+    top            : 0px;
+    z-index        : 10;
+}
+
+.header {
+    display        : flex;
+    justify-content: space-between;
+    width          : 100%;
+    align-items    : center;
+    padding        : 0px 0px 0px 42.5%;
+}
+
+.title {
+    align-self: center;
+    color     : #DCCB8D;
+    font-size : 24px;
+    padding   : 10px;
+}
+
+.close_button {
+    color     : #DCCB8D;
+    background: none;
+    border    : none;
+    transition: .2s;
+}
+
+.close_icon {
+    display     : flex;
+    width       : 20px;
+    justify-self: flex-end;
+    cursor      : pointer;
+}
+
+.close_button:hover {
+    color: #515453;
+}
+
+.guild_elements {
+    height  : 100%;
+    overflow: scroll;
+}
+
+.guildbox {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 20px;
+    height        : 100px;
+    border        : 2px solid #DCCB8D;
+    border-radius : 10px;
+    background    : #15202F;
+    cursor        : pointer;
+    padding       : 10px;
+    margin        : 20px;
+    transition    : .3s;
+}
+
+.guildbox:hover {
+    background: #515453;
+}
+
+.guild_icon {
+    width    : 50px;
+    height   : 50px;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.guild_content {
+    display       : flex;
+    flex-direction: column;
+    gap           : 5px;
+    width         : 75%;
+}
+
+.guild_name {
+    color : #DCCB8D;
+    height: 20px;
+}
+
+.guild_attributes {
+    font-size: 12px;
+    color    : white;
+}
+
+.attribute_header {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 5px;
+}
+
+.attribute_stats {
+    font-size: 12px;
+    color    : white;
+}
+
+.attibute {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.icon {
+    display     : flex;
+    width       : 20px;
+    justify-self: flex-end;
+    cursor      : pointer;
+}
+
+.master {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.master_icon {
+    color: #DCCB8D;
+    width: 15px;
+}
+
+.games {
+    display       : flex;
+    flex-direction: row;
+}
+
+.game {
+    width: 20px;
+    color: #DCCB8D
+}
+
+.member_time {
+    display       : flex;
+    flex-direction: row;
+    gap           : 5px;
+}
+
+.time_header {
+    color: #626A7C;
+    ;
+}
+
+.time {
+    color: white;
+}
+
+.guild_attribute {
+    color: #626A7C;
+}
+
+.join_box {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 40%;
+    height         : 80px;
+    border         : 2px solid #DCCB8D;
+    border-radius  : 10px;
+    background     : #15202F;
+    cursor         : pointer;
+    padding        : 10px;
+    color          : #DCCB8D;
+    margin         : auto;
+    transition     : .2s;
+}
+
+.join_box:hover {
+    background: #515453;
+}

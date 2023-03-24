@@ -1,0 +1,29 @@
+.option_row {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    gap           : 10px;
+    padding       : 10px;
+    cursor        : pointer;
+    border-radius : 5px;
+}
+
+.option_row:hover {
+    background: #4A4E50;
+}
+
+.option_select_box {
+    border       : 1px solid #B9B7B9;
+    border-radius: 5px;
+    height       : 20px;
+    width        : 20px;
+    transition   : .2s;
+}
+
+.option_select_box.selected {
+    background: #B9B7B9;
+}
+
+.option_text {
+    font-size: 16px;
+}

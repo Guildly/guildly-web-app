@@ -386,19 +386,19 @@ export const Market = () => {
             <tr>
               <th className={styles.header}>Task</th>
               <th colSpan={2} className={styles.header}>
-                Owner
+                Merchant
               </th>
               <th colSpan={2} className={styles.header}>
-                User
+                Journeyman
               </th>
               <th colSpan={2} className={styles.header}>
-                Admin
+                Master
               </th>
               <th colSpan={2} className={styles.header}>
                 Guild
               </th>
             </tr>
-            <tr>
+            <tr className={styles.subheader_row}>
               <th className={styles.subheader}></th>
               <th className={styles.subheader}>Reward</th>
               <th className={styles.subheader}>Payment</th>
@@ -452,6 +452,7 @@ export const Market = () => {
             ))}
           </tbody>
         </table>
+        <div className={styles.payment_box}></div>
       </div>
     </div>
   );
