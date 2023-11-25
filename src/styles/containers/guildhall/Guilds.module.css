@@ -1,0 +1,220 @@
+.container {
+  display       : flex;
+  flex-direction: column;
+  height        : 100%;
+  background    : #212326;
+  border-radius : 10px;
+  border        : 2px solid #DCCB8D;
+}
+
+.header {
+  display              : grid;
+  font-size            : 16px;
+  grid-template-columns: 2fr 5fr 3fr 3fr 3fr 5fr 3fr 3fr;
+  color                : #B9B7B9;
+  border-bottom        : 1px solid #B9B7B9;
+  height               : 40px;
+}
+
+.center_align {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  width          : 100%;
+}
+
+.left_align {
+  display        : flex;
+  justify-content: flex-start;
+  align-items    : center;
+  width          : 100%;
+}
+
+.right_align {
+  display        : flex;
+  justify-content: flex-end;
+  align-items    : center;
+  width          : 100%;
+}
+
+.dividor {
+  width     : 100%;
+  height    : 1px;
+  background: #3E3737;
+}
+
+.link {
+  display: contents;
+}
+
+.guild_contents {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+  height        : 100%;
+  overflow      : auto;
+}
+
+.guild_row {
+  display              : grid;
+  grid-template-columns: 2fr 5fr 3fr 3fr 3fr 5fr 3fr 3fr;
+  color                : white;
+  height               : 70px;
+  vertical-align       : middle;
+  cursor               : pointer;
+}
+
+.guild_row:hover {
+  background: #3E3737;
+  outline   : none;
+}
+
+.guild_name {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+  width         : 150px;
+}
+
+.game_area {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.games_icons {
+  display       : flex;
+  align-items   : center;
+  flex-direction: row;
+  gap           : 0px;
+  cursor        : pointer;
+  overflow      : ellipse;
+}
+
+.games img {
+  color: white;
+}
+
+.game {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+  border        : 1px solid #DCCB8D;
+  border-radius : 5px;
+  color         : #DCCB8D;
+}
+
+.game_image img {
+  color: white;
+}
+
+.items_area {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.items_value {
+  font-size: 12px;
+  color    : #B9B7B9;
+}
+
+.members_area {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.members_number {
+  font-size: 16px;
+}
+
+.members_list {
+  display       : flex;
+  flex-direction: column;
+  gap           : 2px;
+}
+
+.role_icon {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  height         : 12px;
+  width          : 12px;
+}
+
+.address {
+  display       : flex;
+  flex-direction: row;
+  gap           : 2px;
+  font-size     : 10px;
+  color         : black;
+  background    : #DCCB8D;
+  border-radius : 5px;
+  padding       : 5px;
+}
+
+
+.fees {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+  margin        : 0px 10px;
+}
+
+.fee_row {
+  display        : flex;
+  flex-direction : row;
+  gap            : 10px;
+  align-items    : center;
+  justify-content: space-between;
+}
+
+.fee_element {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.fee_icon {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  background     : #DCCB8D;
+  border-radius  : 100px;
+  height         : 20px;
+  width          : 20px;
+  color          : black;
+}
+
+.split {
+  font-size: 14px;
+  color    : #B9B7B9;
+}
+
+.games_box {
+  display: none;
+}
+
+.games:hover .games_box {
+  display   : fixed;
+  width     : 30%;
+  height    : 10%;
+  background: #151E2C;
+}
+
+.activity_area {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.activity_image {
+  width: 50%;
+}

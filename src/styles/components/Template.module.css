@@ -1,0 +1,16 @@
+.template_box {
+    height         : 75%;
+    background     : #212326;
+    border-radius  : 10px;
+    border         : 2px solid #DCCB8D;
+    padding        : 20px;
+    overflow       : auto;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.title {
+    color         : #DCCB8D;
+    text-transform: uppercase;
+}

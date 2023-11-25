@@ -1,0 +1,153 @@
+.container {
+  display       : flex;
+  flex-direction: column;
+  height        : 100%;
+  background    : #212326;
+  border-radius : 10px;
+  border        : 2px solid #DCCB8D;
+  padding       : 20px 40px;
+}
+
+.header {
+  display       : flex;
+  flex-direction: row;
+  gap           : 100px;
+}
+
+.guild_info {
+  display       : flex;
+  flex-direction: row;
+  gap           : 20px;
+}
+
+.guild_name {
+  font-size: 32px;
+  color    : white;
+}
+
+.master {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+}
+
+.master_title {
+  font-size: 16px;
+  color    : #B9B7B9;
+}
+
+.master_content {
+  color      : white;
+  font-size  : 16px;
+  font-weight: bold;
+}
+
+.categories {
+  display       : flex;
+  flex-direction: row;
+  gap           : 20px;
+}
+
+.category {
+  display       : flex;
+  flex-direction: column;
+  gap           : 1px;
+}
+
+.category_title {
+  font-size: 26px;
+  color    : white;
+}
+
+.category_content {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+}
+
+.category_content_text {
+  font-size: 12px;
+  color    : #B9B7B9;
+}
+
+.game {
+  display       : flex;
+  flex-direction: row;
+  align-items   : center;
+  gap           : 5px;
+}
+
+.game_image {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(95%) saturate(4237%) hue-rotate(319deg) brightness(102%) contrast(97%);
+}
+
+.item_balance {
+  font-size  : 20px;
+  color      : white;
+  font-weight: bold;
+}
+
+.bank_row {
+  display       : flex;
+  flex-direction: row;
+  height        : 50%;
+}
+
+.bank {
+  width: 70%;
+}
+
+.bank_tokens {
+  display       : flex;
+  flex-direction: row;
+  overflow      : auto;
+  width         : 95%;
+  height        : 90%;
+}
+
+.token {
+  width : 100%;
+  height: 100%;
+}
+
+.activity {
+  display       : flex;
+  flex-direction: column;
+  color         : white;
+  gap           : 20px;
+  width         : 30%;
+}
+
+.activity_area {
+  display       : flex;
+  flex-direction: column;
+  gap           : 5px;
+}
+
+.feed_item {
+  display       : flex;
+  flex-direction: row;
+  gap           : 5px;
+  font-size     : 14px;
+}
+
+.feed_bold_text {
+  font-weight: bold;
+}
+
+.join_button {
+  position     : absolute;
+  width        : 100px;
+  height       : 60px;
+  background   : none;
+  border       : 1px solid #DCCB8D;
+  border-radius: 10px;
+  color        : #DCCB8D;
+  cursor       : pointer;
+  bottom       : 8%;
+  right        : 10%;
+}
+
+.join_button:hover {
+  background: #7B7564;
+}
