@@ -603,6 +603,21 @@
     transition-delay: 0s, 0s, 0.3s;
 }
 
+.music_area {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+    width          : 200px;
+    height         : 70%;
+}
+
+.music_button_1 {
+    cursor: pointer;
+    width : 80px;
+    height: 70%;
+}
+
 .music_button {
     display         : flex;
     justify-content : center;

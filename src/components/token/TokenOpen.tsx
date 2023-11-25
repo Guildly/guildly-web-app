@@ -191,34 +191,6 @@ export const TokenOpen = ({
                     </button>
                   </Link>
                 </div>
-                <div className={styles.external_buttons}>
-                  <a
-                    className={styles.external_button}
-                    href={token.aspect_link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      alt="Aspect Logo"
-                      src={"/aspect-pfp.png"}
-                      fill={true}
-                      style={{ objectFit: "contain" }}
-                    />
-                  </a>
-                  <a
-                    className={styles.external_button}
-                    href="https://mintsquare.io/starknet"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Image
-                      alt="Mintsquare Logo"
-                      src={"/mintsquare-logo.png"}
-                      fill={true}
-                      style={{ objectFit: "contain" }}
-                    />
-                  </a>
-                </div>
               </div>
             </div>
           </div>
